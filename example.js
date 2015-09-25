@@ -6,7 +6,6 @@ $(function () {
     // 页面栈
     var stack = [];
     var $container = $('.js_container');
-    var timer;
     $container.on('click', '.js_cell[data-id]', function () {
         var id = $(this).data('id');
         var $tpl = $($('#tpl_' + id).html()).addClass('slideIn').addClass(id);
@@ -14,15 +13,17 @@ $(function () {
         stack.push($tpl);
         history.pushState({id: id}, '', '#' + id);
 
+        $($tpl).on('webkitAnimationEnd', function (){
+            $(this).removeClass('slideIn');
+        }).on('animationend', function (){
+            $(this).removeClass('slideIn');
+        });
         // tooltips
         if (id == 'cell') {
-            timer = setTimeout(function (){
-                $($tpl).removeClass('slideIn');
-                $('.js_tooltips').show();
-                setTimeout(function (){
-                    $('.js_tooltips').hide();
-                }, 5000);
-            }, 2000);
+            $('.js_tooltips').show();
+            setTimeout(function (){
+                $('.js_tooltips').hide();
+            }, 3000);
         }
 
     });
@@ -38,11 +39,6 @@ $(function () {
         }).on('webkitAnimationEnd', function () {
             $top.remove();
         });
-
-        // tooltips
-        if(timer){
-            clearTimeout(timer);
-        }
     });
 
     // toast
