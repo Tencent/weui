@@ -1,0 +1,143 @@
+// css2 arrow
+.arrow(@borderWidth, @borderColor) {
+    .setArrowWidth(@borderWidth);
+    .setArrowColor(@borderColor);
+}
+
+.setArrowColor(@borderColor) {
+    &.arrow_t {
+        border-bottom-color: @borderColor;
+    }
+    &.arrow_r {
+        border-left-color: @borderColor;
+    }
+    &.arrow_b {
+        border-top-color: @borderColor;
+    }
+    &.arrow_l {
+        border-right-color: @borderColor;
+    }
+}
+
+.setArrowWidth(@borderWidth) {
+    border-width: @borderWidth;
+}
+
+.setArrow(@direction, @borderWidth, @borderColor) when (@direction = top) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: @borderWidth;
+    border-style: dashed;
+    border-color: transparent;
+
+    .arrow_t(@borderColor);
+}
+
+.setArrow(@direction, @borderWidth, @borderColor) when (@direction = right) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: @borderWidth;
+    border-style: dashed;
+    border-color: transparent;
+    .arrow_r(@borderColor);
+}
+
+.setArrow(@direction, @borderWidth, @borderColor) when (@direction = bottom) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: @borderWidth;
+    border-style: dashed;
+    border-color: transparent;
+    .arrow_b(@borderColor);
+}
+
+.setArrow(@direction, @borderWidth, @borderColor) when (@direction = left) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-width: @borderWidth;
+    border-style: dashed;
+    border-color: transparent;
+    .arrow_l(@borderColor);
+}
+
+.arrow_t(@c) {
+    border-top-width: 0;
+    border-bottom-color: @c;
+    border-bottom-style: solid;
+}
+
+.arrow_r(@c) {
+    border-right-width: 0;
+    border-left-color: @c;
+    border-left-style: solid;
+}
+
+.arrow_b(@c) {
+    border-bottom-width: 0;
+    border-top-color: @c;
+    border-top-style: solid;
+}
+
+.arrow_l(@c) {
+    border-left-width: 0;
+    border-right-color: @c;
+    border-right-style: solid;
+}
+
+// css3 arrow
+.setArrowWidth_Wap(@borderWidth) {
+    border-width: @borderWidth @borderWidth 0 0;
+}
+
+.setArrowSize_Wap(@arrowsize) {
+    height: @arrowsize;
+    width: @arrowsize;
+}
+
+.setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = top) {
+    display: inline-block;
+    .transform(translate(0, 0) rotate(-45deg));
+    .setArrowSize_Wap(@arrowsize);
+    .setArrowWidth_Wap(@borderWidth);
+    border-color: @borderColor;
+    border-style: solid;
+}
+
+.setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = right) {
+    display: inline-block;
+    transform: rotate(45deg);
+    .setArrowSize_Wap(@arrowsize);
+    .setArrowWidth_Wap(@borderWidth);
+    border-color: @borderColor;
+    border-style: solid;
+    position: relative;
+    top: -2px;
+}
+
+.setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = down) {
+    display: inline-block;
+    transform: rotate(135deg);
+    .setArrowSize_Wap(@arrowsize);
+    .setArrowWidth_Wap(@borderWidth);
+    border-color: @borderColor;
+    border-style: solid;
+
+    position: relative;
+    top: -3px;
+}
+
+.setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = left) {
+    display: inline-block;
+    transform: rotate(-135deg);
+    .setArrowSize_Wap(@arrowsize);
+    .setArrowWidth_Wap(@borderWidth);
+    border-color: @borderColor;
+    border-style: solid;
+
+    position: relative;
+    top: -2px;
+}

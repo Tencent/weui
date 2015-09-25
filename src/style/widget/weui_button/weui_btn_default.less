@@ -1,0 +1,13 @@
+@import "../../base/fn";
+
+.weui_btn_default {
+    background-color: @weuiBtnDefaultBg;
+    color: @weuiBtnDefaultFontColor;
+    &:not(.weui_btn_disabled):visited {
+        color: @weuiBtnDefaultFontColor;
+    }
+    &:not(.weui_btn_disabled):active {
+        color: @weuiBtnDefaultActiveFontColor;
+        background-color: @weuiBtnDefaultActiveBg;
+    }
+}

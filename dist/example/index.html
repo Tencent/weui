@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>微信Web+</title>
+    <link rel="stylesheet" href="../style/weui.css"/>
+    <link rel="stylesheet" href="./example.css"/>
+    <link rel="stylesheet" href=""/>
+</head>
+<body ontouchstart>
+    <div class="container js_container">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">WeUI</h1>
+                <p class="page_desc">为微信Web服务量身设计</p>
+            </div>
+            <div class="bd">
+                <div class="weui_cells weui_cells_access global_navs">
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="button">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_button.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Button</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="cell">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_cell.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Cell</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="toast">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_toast.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Toast</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="dialog">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_dialog.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Dialog</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="msg">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_msg.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Msg Page</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="article">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_article.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Article Page</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="icons">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_icons.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Icons</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="tpl_button">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Button</h1>
+            </div>
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary">按钮</a>
+                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_primary">按钮</a>
+                <a href="javascript:;" class="weui_btn weui_btn_warn">确认</a>
+                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_warn">确认</a>
+                <a href="javascript:;" class="weui_btn weui_btn_default">按钮</a>
+                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_default">按钮</a>
+                <div class="button_sp_area">
+                    <a href="javascript:;" class="weui_btn weui_btn_plain_default">按钮</a>
+                    <a href="javascript:;" class="weui_btn weui_btn_plain_primary">按钮</a>
+
+                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">按钮</a>
+                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">按钮</a>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="tpl_cell">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Cell</h1>
+            </div>
+            <div class="bd">
+                <div class="weui_cells_title">带说明的列表项</div>
+                <div class="weui_cells">
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>标题文字</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_cells_title">带图标、说明的列表项</div>
+                <div class="weui_cells weui_cells_split">
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>标题文字</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>标题文字</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weui_cells_title">带跳转的列表项</div>
+                <div class="weui_cells weui_cells_access">
+                    <a class="weui_cell" href="javascript:;">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell" href="javascript:;">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>
+
+                <div class="weui_cells_title">带说明、跳转的列表项</div>
+                <div class="weui_cells weui_cells_access">
+                    <a class="weui_cell" href="javascript:;">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </a>
+                    <a class="weui_cell" href="javascript:;">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="weui_cells_title">带图标、说明、跳转的列表项</div>
+                <div class="weui_cells weui_cells_access">
+
+                    <a class="weui_cell" href="javascript:;">
+                        <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </a>
+                    <a class="weui_cell" href="javascript:;">
+                        <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            说明文字
+                        </div>
+                    </a>
+                </div>
+
+                <div class="weui_cells_title">单选列表项</div>
+                <div class="weui_cells weui_cells_radio">
+                    <label class="weui_cell weui_check_label" for="x11">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            <input type="radio" class="weui_check" name="radio1" id="x11">
+                            <span class="weui_icon_checked"></span>
+                        </div>
+                    </label>
+                    <label class="weui_cell weui_check_label" for="x12">
+
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>cell standard</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                            <input type="radio" name="radio1" class="weui_check" id="x12" checked="checked">
+                            <span class="weui_icon_checked"></span>
+                        </div>
+                    </label>
+                </div>
+                <div class="weui_cells_title">复选列表项</div>
+                <div class="weui_cells weui_cells_checkbox">
+                    <label class="weui_cell weui_check_label" for="s11">
+                        <div class="weui_cell_hd">
+                            <input type="checkbox" class="weui_check" name="checkbox1" id="s11" checked="checked">
+                            <i class="weui_icon_checked"></i>
+                        </div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>standard is dealt for u.</p>
+                        </div>
+                    </label>
+                    <label class="weui_cell weui_check_label" for="s12">
+                        <div class="weui_cell_hd">
+                            <input type="checkbox" name="checkbox1" class="weui_check" id="s12">
+                            <i class="weui_icon_checked"></i>
+                        </div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>standard is dealicient for u.</p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="weui_cells_title">表单</div>
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><label class="weui_label">qq</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="text" placeholder="请输入qq号"/>
+                        </div>
+                    </div>
+                    <div class="weui_cell weui_vcode">
+                        <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                        </div>
+                        <div class="weui_cell_ft weui_vimg_wrp">
+                            <img src="./images/vcode.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_cells_title">文本域</div>
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <textarea class="weui_textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_toptips weui_warn js_tooltips">格式不对</div>
+                <div class="weui_cells_title">表单报错</div>
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell weui_cell_warn">
+                        <div class="weui_cell_hd"><label for="" class="weui_label">卡号</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="text" value="weui input error" placeholder=""/>
+                        </div>
+                        <div class="weui_cell_ft">
+                            <i class="weui_icon_warn"></i>
+                        </div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><label for="" class="weui_label">有效期</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="text" value="08/17" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_cells_title">选择</div>
+                <div class="weui_cells weui_cells_split">
+
+                    <div class="weui_cell weui_cell_select weui_select_before">
+                        <div class="weui_cell_hd">
+                            <select class="weui_select" name="select2">
+                                <option value="1">+86</option>
+                                <option value="2">+80</option>
+                                <option value="3">+84</option>
+                                <option value="4">+87</option>
+                            </select>
+                        </div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="text" placeholder="请输入号码"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_cells_title">选择</div>
+                <div class="weui_cells weui_cells_split">
+                    <div class="weui_cell weui_cell_select">
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <select class="weui_select" name="select1">
+                                <option selected="" value="1">微信号</option>
+                                <option value="2">QQ号</option>
+                                <option value="3">Email</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="weui_cell weui_cell_select weui_select_after">
+                        <div class="weui_cell_hd">
+                            国家/地区
+                        </div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <select class="weui_select" name="select2">
+                                <option value="1">中国</option>
+                                <option value="2">美国</option>
+                                <option value="3">英国</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="tpl_toast">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Toast</h1>
+            </div>
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showToast">点击弹出Toast</a>
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showLoadingToast">点击弹出Loading Toast</a>
+            </div>
+            <!--BEGIN toast-->
+            <div id="toast" style="display: none;">
+                <div class="weui_mask_transparent"></div>
+                <div class="weui_toast">
+                    <i class="weui_icon_toast"></i>
+                    <p class="weui_toast_content">已完成</p>
+                </div>
+            </div>
+            <!--end toast-->
+
+            <!-- loading toast -->
+            <div id="loadingToast" class="weui_loading_toast" style="display:none;">
+                <div class="weui_mask_transparent"></div>
+                <div class="weui_toast">
+                    <div class="weui_loading">
+                        <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                        <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+                    </div>
+                    <p class="weui_toast_content">数据加载中</p>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </script>
+    <script type="text/html" id="tpl_dialog">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Dialog</h1>
+            </div>
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showDialog1">点击弹出Dialog样式一</a>
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showDialog2">点击弹出Dialog样式二</a>
+            </div>
+            <!--BEGIN dialog1-->
+            <div class="weui_dialog_confirm" id="dialog1" style="display: none;">
+                <div class="weui_mask"></div>
+                <div class="weui_dialog">
+                    <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
+                    <div class="weui_dialog_bd">自定义弹窗内容<br>...</div>
+                    <div class="weui_dialog_ft">
+                        <a href="javascript:;" class="btn_weui_dialog default">取消</a>
+                        <a href="javascript:;" class="btn_weui_dialog primary">确定</a>
+                    </div>
+                </div>
+            </div>
+            <!--END dialog1-->
+            <!--BEGIN dialog2-->
+            <div class="weui_dialog_alert" id="dialog2" style="display: none;">
+                <div class="weui_mask"></div>
+                <div class="weui_dialog">
+                    <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
+                    <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+                    <div class="weui_dialog_ft">
+                        <a href="javascript:;" class="btn_weui_dialog primary">确定</a>
+                    </div>
+                </div>
+            </div>
+            <!--END dialog2-->
+        </div>
+    </script>
+    <script type="text/html" id="tpl_msg">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Msg</h1>
+            </div>
+            <div class="bd">
+                <div class="weui_msg">
+                    <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+                    <div class="weui_text_area">
+                        <h2 class="weui_msg_title">操作成功</h2>
+                        <p class="weui_msg_desc">内容详情，可根据实际需要安排</p>
+                    </div>
+                    <div class="weui_opr_area">
+                        <p class="weui_btn_area">
+                            <a href="javascript:;" class="weui_btn weui_btn_primary">确定</a>
+                            <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
+                        </p>
+                    </div>
+                    <div class="weui_extra_area">
+                        <a href="">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="tpl_article">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Article</h1>
+            </div>
+            <div class="bd">
+                <article class="weui_article">
+                    <h1>大标题</h1>
+                    <section>
+                        <h2 class="title">章标题</h2>
+                        <section>
+                            <h3>1.1 节标题</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute</p>
+                        </section>
+                        <section>
+                            <h3>1.2 节标题</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </section>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="tpl_icons">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Icons</h1>
+            </div>
+            <div class="bd spacing">
+                <i class="weui_icon_msg weui_icon_success"></i>
+                <i class="weui_icon_msg weui_icon_info"></i>
+                <i class="weui_icon_msg weui_icon_warn"></i>
+                <i class="weui_icon_msg weui_icon_waiting"></i>
+                <i class="weui_icon_safe weui_icon_safe_success"></i>
+                <i class="weui_icon_safe weui_icon_safe_warn"></i>
+                <div class="icon_sp_area">
+                    <i class="weui_icon_success"></i>
+                    <i class="weui_icon_success_circle"></i>
+                    <i class="weui_icon_success_no_circle"></i>
+                    <i class="weui_icon_info"></i>
+                    <i class="weui_icon_waiting"></i>
+                    <i class="weui_icon_waiting_circle"></i>
+                    <i class="weui_icon_circle"></i>
+                    <i class="weui_icon_warn"></i>
+                    <i class="weui_icon_download"></i>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- zepto.js was cached by wechat app -->
+    <script src="https://res.wx.qq.com/open/libs/zepto/1.1.6/zepto.js"></script>
+    <script src="./example.js"></script>
+</body>
+</html>
