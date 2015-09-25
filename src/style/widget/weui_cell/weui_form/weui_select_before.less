@@ -1,0 +1,16 @@
+@import "../../../../style/base/fn";
+@import "./weui_select";
+
+.weui_select_before {
+    padding-right:@weuiCellGapH;
+    .weui_select{width:auto;}
+    .weui_cell_hd {
+        position:relative;
+        &:after {
+            .setRightLine(@weuiCellBorderColor);
+        }
+    }
+    .weui_cell_bd {
+        padding-left:@weuiCellGapH;
+    }
+}
