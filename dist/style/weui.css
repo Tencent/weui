@@ -723,10 +723,10 @@ input.weui_btn_mini {
   overflow: hidden;
   *zoom: 1;
 }
-.btn_weui_dialog.default {
+.weui_btn_dialog.default {
   color: #353535;
 }
-.btn_weui_dialog.primary {
+.weui_btn_dialog.primary {
   color: #0BB20C;
 }
 @media screen and (min-width: 1024px) {
