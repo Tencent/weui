@@ -7,22 +7,13 @@ WeUI是一套同微信原生视觉体验一致的基础样式库，为微信 Web
 
 ## 使用
 
-### 方法一（推荐）：
-
-推荐使用微信提供的CDN链接，在微信客户端6.2.5及以上版本，由微信离线缓存，无需进行网络请求。
-
-```
-<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.2.0/weui.css"/>
-```
-
-
-#### 方法二：
+#### 方法一：
 使用`bower`进行安装
 ```
 bower install --save weui
 ```
 
-#### 方法三：
+#### 方法二：
 使用`npm`进行安装
 ```
 npm install --save weui
@@ -45,6 +36,8 @@ gulp -ws
 请用微信扫码
 
 ![](./dist/example/snapshot/qrcode.png)
+
+[http://weui.github.io/weui/](http://weui.github.io/weui)
 
 ## Button
 
@@ -102,7 +95,9 @@ gulp -ws
 <div class="weui_cells weui_cells_access">
 
     <a class="weui_cell" href="javascript:;">
-        <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui_cell_hd">
+            <img src="" alt="icon" style="width:20px;margin-right:5px;display:block">
+        </div>
         <div class="weui_cell_bd weui_cell_primary">
             <p>cell standard</p>
         </div>
@@ -111,7 +106,9 @@ gulp -ws
         </div>
     </a>
     <a class="weui_cell" href="javascript:;">
-        <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+        <div class="weui_cell_hd">
+            <img src="" alt="icon" style="width:20px;margin-right:5px;display:block">
+        </div>
         <div class="weui_cell_bd weui_cell_primary">
             <p>cell standard</p>
         </div>
