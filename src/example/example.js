@@ -57,13 +57,13 @@ $(function () {
 
     $container.on('click', '#showDialog1', function () {
         $('#dialog1').show();
-        $('#dialog1').find('.btn_weui_dialog').on('click', function () {
+        $('#dialog1').find('.weui_btn_dialog').on('click', function () {
             $('#dialog1').hide();
         });
     });
     $container.on('click', '#showDialog2', function () {
         $('#dialog2').show();
-        $('#dialog2').find('.btn_weui_dialog').on('click', function () {
+        $('#dialog2').find('.weui_btn_dialog').on('click', function () {
             $('#dialog2').hide();
         });
     })
