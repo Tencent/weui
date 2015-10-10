@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>weui</title>
+    <title>WeUI</title>
     <link rel="stylesheet" href="./weui.min.css"/>
     <link rel="stylesheet" href="./example.css"/>
 </head>
@@ -261,13 +261,23 @@
                         </div>
                     </div>
                     <div class="weui_cell">
-                        <div class="weui_cell_hd"><label class="weui_label">意见</label></div>
+                        <div class="weui_cell_hd"><label class="weui_label">银行卡</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <textarea class="weui_textarea"></textarea>
+                            <input class="weui_input" type="text" placeholder="请输入银行卡号"/>
+                        </div>
+                    </div>
+                    <div class="weui_cell weui_vcode weui_cell_warn">
+                        <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                        </div>
+                        <div class="weui_cell_ft weui_vimg_wrp">
+                            <i class="weui_icon_warn"></i>
+                            <img src="./images/vcode.jpg" />
                         </div>
                     </div>
                 </div>
-                <div class="weui_cells_title">Textarea</div>
+                <div class="weui_cells_title">文本域</div>
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_bd weui_cell_primary">
@@ -296,7 +306,7 @@
                 </div>
                 <div class="weui_cells_title">选择</div>
                 <div class="weui_cells weui_cells_split">
-                    
+
                     <div class="weui_cell weui_cell_select weui_select_before">
                         <div class="weui_cell_hd">
                             <select class="weui_select" name="select2">
@@ -324,7 +334,7 @@
                     </div>
                     <div class="weui_cell weui_cell_select weui_select_after">
                         <div class="weui_cell_hd">
-                        国家/地区
+                            国家/地区
                         </div>
                         <div class="weui_cell_bd weui_cell_primary">
                             <select class="weui_select" name="select2">
@@ -335,7 +345,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </script>
