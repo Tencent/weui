@@ -499,6 +499,9 @@ input.weui_btn_mini {
 .weui_cells_form .weui_cell_hd {
   padding-right: 1em;
 }
+.weui_cells_form .weui_cell_ft {
+  font-size: 0;
+}
 .weui_cells_form .weui_icon_warn {
   display: none;
 }
@@ -508,11 +511,23 @@ input.weui_btn_mini {
 .weui_cell_select .weui_select {
   padding-right: 30px;
 }
-.weui_cell_select .weui_access_icon {
+.weui_cell_select .weui_cell_bd:after {
+  content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -2px;
   position: absolute;
   top: 50%;
   right: 15px;
-  margin-top: -12px;
+  margin-top: -3px;
 }
 .weui_select {
   -webkit-appearance: none;
@@ -550,8 +565,29 @@ input.weui_btn_mini {
       -ms-transform: scaleX(0.5);
           transform: scaleX(0.5);
 }
+.weui_select_before .weui_cell_hd:before {
+  content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+}
 .weui_select_before .weui_cell_bd {
   padding-left: 15px;
+}
+.weui_select_before .weui_cell_bd:after {
+  display: none;
 }
 .weui_select_after {
   padding-left: 15px;
@@ -566,9 +602,11 @@ input.weui_btn_mini {
 }
 .weui_vcode .weui_vimg_wrp img {
   height: 43px;
+  vertical-align: middle;
+  margin-left: 5px;
 }
 .weui_msg {
-  padding: 75px 15px 0;
+  padding: 75px 0 0;
   text-align: center;
 }
 .weui_msg .weui_icon_area {
@@ -576,6 +614,7 @@ input.weui_btn_mini {
 }
 .weui_msg .weui_text_area {
   margin-bottom: 25px;
+  padding: 0 15px;
 }
 .weui_msg .weui_msg_title {
   margin-bottom: 12px;
@@ -598,7 +637,7 @@ input.weui_btn_mini {
 }
 @media screen and (max-height: 416px) {
   .weui_msg {
-    padding: 45px 15px 0;
+    padding: 45px 0 0;
   }
 }
 @media screen and (min-height: 416px) {

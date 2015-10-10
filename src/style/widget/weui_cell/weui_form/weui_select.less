@@ -1,15 +1,24 @@
 @import "../../../../style/base/fn";
 
+
 .weui_cell_select {
     padding: 0;
     .weui_select {
         padding-right: 30px;
     }
     .weui_access_icon {
-        position: absolute;
-        top: 50%;
-        right: @weuiCellGapH;
-        margin-top: -12px;
+        
+    }
+    .weui_cell_bd{
+        &:after{
+            content: " ";
+            .setArrow_Wap(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: @weuiCellGapH;
+            margin-top: -3px;
+        }
     }
 }
 

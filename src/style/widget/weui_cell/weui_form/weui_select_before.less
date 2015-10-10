@@ -9,8 +9,20 @@
         &:after {
             .setRightLine(@weuiCellBorderColor);
         }
+        &:before{
+            content: " ";
+            .setArrow_Wap(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: @weuiCellGapH;
+            margin-top: -3px;
+        }
     }
     .weui_cell_bd {
         padding-left:@weuiCellGapH;
+        &:after{
+            display:none;
+        }
     }
 }
