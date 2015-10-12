@@ -14,7 +14,7 @@ gulp.task('release', function(){
 
     var option = {base: 'src'};
 
-    gulp.src('src/example/**/**', option)
+    gulp.src('src/example/**/*.!(less)', option)
         .pipe(gulp.dest(dist));
 
     gulp.src('src/example/**/*.less', option)
