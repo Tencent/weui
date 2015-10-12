@@ -172,7 +172,7 @@ a {
   line-height: 2.33333333;
   border-radius: 5px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow: visible;
+  overflow: hidden;
 }
 .weui_btn:after {
   content: " ";
@@ -285,10 +285,9 @@ input.weui_btn_mini {
   font-size: 0;
 }
 .weui_btn_area.weui_btn_area_inline {
-  margin-left: auto;
-  margin-right: auto;
+  -webkit-display: -webkit-box;
+  -webkit-display: -webkit-flex;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -296,14 +295,13 @@ input.weui_btn_mini {
   margin-top: auto;
   margin-right: 10px;
   width: 100%;
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
+  -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   display: inline-block \9;
-  width: 48% \9;
-  margin-left: 1% \9;
-  margin-right: 1% \9;
+  width: 48.5% \9;
+  margin-right: 1.5% \9;
 }
 .weui_btn_area.weui_btn_area_inline .weui_btn:last-child {
   margin-right: 0;
