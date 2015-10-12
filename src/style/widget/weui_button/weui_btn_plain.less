@@ -4,6 +4,8 @@
     color: @weuiBtnPrimaryBg;
     border: 1px solid @weuiBtnPrimaryBg;
     &:active {
+        color: @weuiBtnPrimaryActiveBg;
+        background-color: rgba(50, 50, 50, .1);
         border-color: @weuiBtnPrimaryActiveBg;
     }
     &:after {
@@ -16,5 +18,8 @@
     border: 1px solid #5A5A5A;
     &:after {
         border-width: 0;
+    }
+    &:active {
+        background-color: rgba(50, 50, 50, .1);
     }
 }
