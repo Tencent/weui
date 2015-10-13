@@ -10,8 +10,6 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.9.11",
-    "chokidar": "^1.0.5",
-    "express": "^4.11.2",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-less": "^3.0.2",
