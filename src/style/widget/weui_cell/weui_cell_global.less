@@ -14,6 +14,7 @@
     }
 }
 .weui_cells {
+    margin-top: .8em;
     background-color: @weuiCellBg;
     line-height: 1.45;
     font-size: 16px; //cell中间有效高度23px，跟客户端默认图标尺寸一致
@@ -36,6 +37,10 @@
     padding-left: @weuiCellGapH;
     padding-right: @weuiCellGapH;
     color: @globalTextColor;
+
+    &+.weui_cells{
+        margin-top: 0;
+    }
 }
 
 .weui_cell {
@@ -53,7 +58,7 @@
 }
 
 .weui_cell_ft {
-    text-align:right;
+    text-align: right;
     color: @globalTextColor;
 }
 
