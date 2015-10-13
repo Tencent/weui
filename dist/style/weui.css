@@ -331,6 +331,7 @@ input.weui_btn_mini {
   display: none;
 }
 .weui_cells {
+  margin-top: .8em;
   background-color: #FFFFFF;
   line-height: 1.45;
   font-size: 16px;
@@ -372,6 +373,9 @@ input.weui_btn_mini {
   padding-left: 15px;
   padding-right: 15px;
   color: #888;
+}
+.weui_cells_title + .weui_cells {
+  margin-top: 0;
 }
 .weui_cell {
   padding: 10px 15px;
