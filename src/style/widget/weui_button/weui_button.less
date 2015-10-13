@@ -46,23 +46,21 @@ button, input {
     margin-right: 15px;
     font-size: 0;
     &.weui_btn_area_inline {
-        margin-left: auto;
-        margin-right: auto;
+        -webkit-display: flex;
         display: flex;
-        //display: flex;
         .weui_btn {
             margin-top: auto;
             margin-right: @weuiBtnDefaultGap;
             width: 100%;
+            -webkit-flex: 1;
             flex: 1;
             &:last-child {
                 margin-right: 0;
             }
             //hack for IE9
             display: inline-block ~"\9";
-            width: 48% ~"\9";
-            margin-left: 1% ~"\9";
-            margin-right: 1% ~"\9";
+            width: 48.5% ~"\9";
+            margin-right: 1.5% ~"\9";
         }
     }
 }
