@@ -18,11 +18,14 @@
 button, input {
     &.weui_btn {
         width: 100%;
-        border: 0;
         outline: 0;
         -webkit-appearance: none;
+        background-color: transparent;
         &:focus {
             outline: 0;
+        }
+        &:not(.weui_btn_plain_primary .weui_btn_plain_default) {
+            border: 0;
         }
     }
     &.weui_btn_inline,&.weui_btn_mini {
