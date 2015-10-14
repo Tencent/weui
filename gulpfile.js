@@ -7,15 +7,16 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 
+var option = {base: 'src'};
 var dist = __dirname + '/dist';
 
-gulp.task('styles', function () {
-    var option = {base: 'src'};
-
+gulp.task('source', function(){
     gulp.src('src/example/**/*.!(less)', option)
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
+});
 
+gulp.task('styles', ['source'], function () {
     gulp.src('src/example/example.less', option)
         .pipe(less().on('error', function (e){
             console.error(e.message);
@@ -45,9 +46,9 @@ gulp.task('release', ['styles']);
 
 gulp.task('watch', function () {
     gulp.watch('src/**/*.less', ['styles']);
-    gulp.watch('src/example/**/*.{html,js}', function () {
+    gulp.watch('src/example/**/*.{html,js}', ['source'], function () {
         browserSync.reload();
-    })
+    });
 });
 
 gulp.task('server', function () {
