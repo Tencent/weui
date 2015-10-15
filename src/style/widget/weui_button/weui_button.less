@@ -1,10 +1,6 @@
 @import "../../base/fn";
-@import "weui_btn_global";
-@import "weui_btn_default";
-@import "weui_btn_primary";
-@import "weui_btn_warn";
-@import "weui_btn_disabled";
-@import "weui_btn_plain";
+// 存在样式优先级的问题，故这里对其他weui_btn的引用放在底部
+// 主要是button.weui_btn在weui_btn_plain下重写border-width
 
 .weui_btn {
     &.weui_btn_mini {
@@ -18,7 +14,7 @@
 button, input {
     &.weui_btn {
         width: 100%;
-        border: 0;
+        border-width: 0;
         outline: 0;
         -webkit-appearance: none;
         &:focus {
@@ -70,3 +66,10 @@ button, input {
         margin-top: @weuiCellsMarginTop;
     }
 }
+
+@import "weui_btn_global";
+@import "weui_btn_default";
+@import "weui_btn_primary";
+@import "weui_btn_warn";
+@import "weui_btn_disabled";
+@import "weui_btn_plain";
