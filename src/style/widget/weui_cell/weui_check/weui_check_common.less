@@ -4,6 +4,12 @@
 .weui_check_label {
     display: block;
     .setTapColor();
+    > * {
+      pointer-events: none;
+    }
+    a, select, input, textarea {
+      pointer-events: auto;
+    }
 }
 
 .weui_check{
