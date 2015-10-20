@@ -4,6 +4,7 @@
   "description": "wechat mobile ui",
   "main": "index.js",
   "scripts": {
+    "start": "gulp -ws",
     "test": "gulp release"
   },
   "author": "wechat ui team",
