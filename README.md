@@ -28,7 +28,7 @@ npm install -g gulp
 npm install
 gulp -ws
 ```
-运行`gulp -ws`命令，会监听`src`目录下所有文件的变更，并且默认会在`8080`端口启动一个express服务器，然后在浏览器打开 `http://localhost:8080/example`。
+运行`gulp -ws`命令，会监听`src`目录下所有文件的变更，并且默认会在`8080`端口启动服务器，然后在浏览器打开 `http://localhost:8080/example`。
 
 
 ## 手机预览
