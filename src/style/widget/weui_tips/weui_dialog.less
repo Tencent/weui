@@ -99,3 +99,10 @@
         width: 35%;
     }
 }
+
+@supports (-webkit-backdrop-filter:blur(4px)) or (backdop-filter:blur(4px)) {
+    .weui_dialog {
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+    }
+}
