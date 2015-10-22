@@ -1,0 +1,28 @@
+@import "../../base/fn";
+
+.weui_btn_plain_primary {
+    color: @weuiBtnPrimaryBg;
+    border: 1px solid @weuiBtnPrimaryBg;
+    button&, input& {
+        border-width: 1px;
+        background-color: transparent;
+    }
+    &:active {
+        border-color: @weuiBtnPrimaryActiveBg;
+    }
+    &:after {
+        border-width: 0;
+    }
+}
+
+.weui_btn_plain_default {
+    color: #5A5A5A;
+    border: 1px solid #5A5A5A;
+    button&, input& {
+        border-width: 1px;
+        background-color: transparent;
+    }
+    &:after {
+        border-width: 0;
+    }
+}
