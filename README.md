@@ -273,6 +273,7 @@ toast用于临时显示某些信息，并且会在数秒后自动消失。这些
     <i class="weui_icon_circle"></i>
     <i class="weui_icon_warn"></i>
     <i class="weui_icon_download"></i>
+    <i class="weui_icon_info_circle"></i>
 </div>
 ```
 
