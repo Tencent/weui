@@ -18,3 +18,10 @@
     top: 0;
     left: 0;
 }
+@supports (-webkit-backdrop-filter:blur(4px)) or (backdop-filter:blur(4px)) {
+    .weui_mask {
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}

@@ -3,7 +3,7 @@ WeUI 为微信 Web 服务量身设计  ![](https://travis-ci.org/weui/weui.svg?b
 
 ## 概述
 
-WeUI是一套同微信原生视觉体验一致的基础样式库，为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、`toast`、`article`、`icon`等各式元素。
+WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、`toast`、`article`、`icon`等各式元素。
 
 ## 使用
 
@@ -68,7 +68,7 @@ gulp -ws
 
 `Cell`，列表视图，用于将信息以列表的结构显示在页面上，是wap上最常用的内容结构。`Cell`由多个section组成，每个section包括section header`weui_cells_title`以及cells`weui_cells`。
 
-`cell`由thumnail`weui_cell_hd`、body`weui_cell_bd`、accessory`weui_cell_ft`三部分组成，`cell`采用自适应布局，在需要自适应的部分加上class`weui_cell_primary`即可：
+`cell`由thumbnail`weui_cell_hd`、body`weui_cell_bd`、accessory`weui_cell_ft`三部分组成，`cell`采用自适应布局，在需要自适应的部分加上class`weui_cell_primary`即可：
 
 ![](./dist/example/snapshot/cell.png)
 
@@ -273,6 +273,7 @@ toast用于临时显示某些信息，并且会在数秒后自动消失。这些
     <i class="weui_icon_circle"></i>
     <i class="weui_icon_warn"></i>
     <i class="weui_icon_download"></i>
+    <i class="weui_icon_info_circle"></i>
 </div>
 ```
 

@@ -13,6 +13,8 @@
     transform: translate(-50%, -50%);
 
     background-color: @weuiDialogBackgroudColor;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     text-align: center;
     border-radius: 3px;
     .weui_dialog_confirm & {
@@ -95,5 +97,12 @@
 @media screen and (min-width: 1024px) {
     .weui_dialog {
         width: 35%;
+    }
+}
+
+@supports (-webkit-backdrop-filter:blur(4px)) or (backdop-filter:blur(4px)) {
+    .weui_dialog {
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
     }
 }
