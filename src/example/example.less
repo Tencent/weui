@@ -205,3 +205,39 @@ body, .page {
     animation: slideOut .2s forwards;
 }
 
+//actionSheet aniamtion
+
+@keyframes slideUp {
+    from{
+        transform: tranlate3d(0,100%,0);
+    }
+    to{
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes slideDown {
+    from{
+        transform: translate3d(0,0,0);
+    }
+    to{
+        transform: translate3d(0,100%,0);
+    }
+}
+
+.slideUp{
+    animation:slideUp .3s forwards;
+}
+
+.slideDown{
+    animation:slideDown .3s forwards;
+}
+
+
+.weui_actionsheet{
+    transition: transform .3s;
+}
+
+.slideToggle{
+    transform: translate(0, 0);
+}
