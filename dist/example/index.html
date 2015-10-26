@@ -64,6 +64,14 @@
                         <div class="weui_cell_ft">
                         </div>
                     </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="actionSheet">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_article.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Action Sheet</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
                     <a class="weui_cell js_cell" href="javascript:;" data-id="icons">
                         <span class="weui_cell_hd"><img src="./images/icon_nav_icons.png" class="icon_nav" alt=""></span>
                         <div class="weui_cell_bd weui_cell_primary">
@@ -75,7 +83,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <script type="text/html" id="tpl_button">
         <div class="page">
             <div class="hd">
@@ -512,6 +519,32 @@
                     <i class="weui_icon_info_circle"></i>
                 </div>
             </div>
+        </div>
+    </script>
+    <script type="text/html" id="tpl_actionSheet">
+        <div class="page" style="overflow: hidden">
+            <div class="hd">
+                <h1 class="page_title">action sheet</h1>
+            </div>
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showActionSheet">点击上拉actionSheet</a>
+            </div>
+            <!--BEGIN actionSheet-->
+            <div id="actionSheet_wrap">
+                <div class="weui_mask" id="mask" style="display: none"></div>
+                <div class="weui_actionsheet" id="weui_actionsheet">
+                    <div class="weui_actionsheet_menu">
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                    </div>
+                    <div class="weui_actionsheet_action">
+                        <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+                    </div>
+                </div>
+            </div>
+            <!--END actionSheet-->
         </div>
     </script>
     <script src="https://res.wx.qq.com/open/libs/zepto/1.1.6/zepto.js"></script>
