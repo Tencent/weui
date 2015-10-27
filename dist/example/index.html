@@ -48,6 +48,14 @@
                         <div class="weui_cell_ft">
                         </div>
                     </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="progress">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_button.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Progress</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
                     <a class="weui_cell js_cell" href="javascript:;" data-id="msg">
                         <span class="weui_cell_hd"><img src="./images/icon_nav_msg.png" class="icon_nav" alt=""></span>
                         <div class="weui_cell_bd weui_cell_primary">
@@ -450,6 +458,41 @@
             <!--END dialog2-->
         </div>
     </script>
+    <script type="text/html" id="tpl_progress">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Progress</h1>
+            </div>
+            <div class="bd spacing">
+                <div class="weui_progress">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar" style="width: 0%;"></div>
+                    </div>
+                    <a href="javascript:;" class="weui_progress_cancel">
+                        <i class="weui_icon_cancel"></i>
+                    </a>
+                </div>
+                <br>
+                <div class="weui_progress">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar" style="width: 50%;"></div>
+                    </div>
+                    <a href="javascript:;" class="weui_progress_cancel">
+                        <i class="weui_icon_cancel"></i>
+                    </a>
+                </div>
+                <br>
+                <div class="weui_progress">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar" style="width: 80%;"></div>
+                    </div>
+                    <a href="javascript:;" class="weui_progress_cancel">
+                        <i class="weui_icon_cancel"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </script>
     <script type="text/html" id="tpl_msg">
         <div class="page">
             <div class="hd">
@@ -527,6 +570,7 @@
                     <i class="weui_icon_warn"></i>
                     <i class="weui_icon_download"></i>
                     <i class="weui_icon_info_circle"></i>
+                    <i class="weui_icon_cancel"></i>
                 </div>
             </div>
         </div>
