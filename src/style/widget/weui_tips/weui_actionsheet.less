@@ -9,6 +9,8 @@
     z-index: 2;
     width: 100%;
     background-color: @pageDefaultBackgroundColor;
+    //slide up animation
+    transition: transform .3s;
 }
 .weui_actionsheet_menu{
     background-color: #FFFFFF;
@@ -33,4 +35,18 @@
             display: none;
         }
     }
+}
+
+//reset mask
+.weui_mask{
+    background: rgba(0,0,0,0);
+    transition:background .3s;
+}
+
+//actionSheet aniamtion
+.slide_toggle{
+    transform: translate(0, 0);
+}
+.fade_transition{
+    background: rgba(0,0,0,.6);
 }
