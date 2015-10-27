@@ -79,18 +79,25 @@ $(function () {
             $('#dialog2').hide();
         });
     });
+
+    function hideActionSheet(weuiActionsheet, mask) {
+        weuiActionsheet.removeClass('slide_toggle');
+        mask.removeClass('fade_transition');
+        weuiActionsheet.on('transitionend', function () {
+            mask.hide();
+        }).on('webkitTransitionEnd', function () {
+            mask.hide();
+        })
+    }
     $container.on('click','#showActionSheet', function () {
         var mask = $('#mask');
         var weuiActionsheet = $('#weui_actionsheet');
-        weuiActionsheet.addClass('slideToggle');
-        mask.show();
+        weuiActionsheet.addClass('slide_toggle');
+        mask.show().addClass('fade_transition').click(function () {
+            hideActionSheet(weuiActionsheet, mask);
+        });
         $('#actionsheet_cancel').click(function () {
-            weuiActionsheet.removeClass('slideToggle');
-            weuiActionsheet.on('transitionend', function () {
-                mask.hide();
-            }).on('webkitTransitionEnd', function () {
-                mask.hide();
-            })
+            hideActionSheet(weuiActionsheet, mask);
         });
         weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
     });
