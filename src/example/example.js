@@ -81,8 +81,8 @@ $(function () {
     });
 
     function hideActionSheet(weuiActionsheet, mask) {
-        weuiActionsheet.removeClass('slide_toggle');
-        mask.removeClass('fade_transition');
+        weuiActionsheet.removeClass('weui_actionsheet_toggle');
+        mask.removeClass('weui_fade_toggle');
         weuiActionsheet.on('transitionend', function () {
             mask.hide();
         }).on('webkitTransitionEnd', function () {
@@ -92,8 +92,8 @@ $(function () {
     $container.on('click','#showActionSheet', function () {
         var mask = $('#mask');
         var weuiActionsheet = $('#weui_actionsheet');
-        weuiActionsheet.addClass('slide_toggle');
-        mask.show().addClass('fade_transition').click(function () {
+        weuiActionsheet.addClass('weui_actionsheet_toggle');
+        mask.show().addClass('weui_fade_toggle').click(function () {
             hideActionSheet(weuiActionsheet, mask);
         });
         $('#actionsheet_cancel').click(function () {
