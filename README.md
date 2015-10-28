@@ -3,7 +3,7 @@ WeUI 为微信 Web 服务量身设计  ![](https://travis-ci.org/weui/weui.svg?b
 
 ## 概述
 
-WeUI是一套同微信原生视觉体验一致的基础样式库，为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、`toast`、`article`、`icon`等各式元素。
+WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、 `progress`, `toast`、`article`、`icon`等各式元素。
 
 ## 使用
 
@@ -154,6 +154,22 @@ gulp -ws
 </div>
 ```
 
+## Progress
+
+progress用于上传、下载等耗时并且需要显示进度的场景，用户可以随时中断该操作。
+
+![](./dist/example/snapshot/progress.png)
+
+```html
+<div class="weui_progress">
+    <div class="weui_progress_bar">
+        <div class="weui_progress_inner_bar" style="width: 50%;"></div>
+    </div>
+    <a href="javascript:;" class="weui_progress_cancel">
+        <i class="weui_icon_cancel"></i>
+    </a>
+</div>
+```
 
 ## Toast
 
@@ -273,6 +289,8 @@ toast用于临时显示某些信息，并且会在数秒后自动消失。这些
     <i class="weui_icon_circle"></i>
     <i class="weui_icon_warn"></i>
     <i class="weui_icon_download"></i>
+    <i class="weui_icon_info_circle"></i>
+    <i class="weui_icon_cancel"></i>
 </div>
 ```
 

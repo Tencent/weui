@@ -22,6 +22,8 @@ gulp.task('styles', ['source'], function () {
             console.error(e.message);
             this.emit('end');
         }))
+        .pipe(autoprefixer())
+        .pipe(minify())
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
 
