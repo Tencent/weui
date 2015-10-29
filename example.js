@@ -81,7 +81,7 @@ $(function () {
     });
 
     function hideActionSheet(weuiActionsheet, mask) {
-        weuiActionsheet.removeClass('slide_toggle');
+        weuiActionsheet.removeClass('weui_actionsheet_toggle');
         mask.removeClass('fade_transition');
         weuiActionsheet.on('transitionend', function () {
             mask.hide();
@@ -92,7 +92,7 @@ $(function () {
     $container.on('click','#showActionSheet', function () {
         var mask = $('#mask');
         var weuiActionsheet = $('#weui_actionsheet');
-        weuiActionsheet.addClass('slide_toggle');
+        weuiActionsheet.addClass('weui_actionsheet_toggle');
         mask.show().addClass('fade_transition').click(function () {
             hideActionSheet(weuiActionsheet, mask);
         });
