@@ -73,7 +73,7 @@
                         </div>
                     </a>
                     <a class="weui_cell js_cell" href="javascript:;" data-id="actionSheet">
-                        <span class="weui_cell_hd"><img src="./images/icon_nav_article.png" class="icon_nav" alt=""></span>
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_toast.png" class="icon_nav" alt=""></span>
                         <div class="weui_cell_bd weui_cell_primary">
                             <p>Action Sheet</p>
                         </div>
@@ -273,13 +273,13 @@
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">qq</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入qq号"/>
+                            <input class="weui_input" type="number" placeholder="请输入qq号"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_vcode">
                         <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                            <input class="weui_input" type="number" placeholder="请输入验证码"/>
                         </div>
                         <div class="weui_cell_ft weui_vimg_wrp">
                             <img src="./images/vcode.jpg" />
@@ -288,13 +288,13 @@
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">银行卡</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入银行卡号"/>
+                            <input class="weui_input" type="number" placeholder="请输入银行卡号"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_vcode weui_cell_warn">
                         <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                            <input class="weui_input" type="number" placeholder="请输入验证码"/>
                         </div>
                         <div class="weui_cell_ft weui_vimg_wrp">
                             <i class="weui_icon_warn"></i>
@@ -309,7 +309,7 @@
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_bd weui_cell_primary">
-                            <textarea class="weui_textarea"></textarea>
+                            <textarea class="weui_textarea" placeholder="请输入评论"></textarea>
                         </div>
                     </div>
                 </div>
@@ -319,16 +319,22 @@
                     <div class="weui_cell weui_cell_warn">
                         <div class="weui_cell_hd"><label for="" class="weui_label">卡号</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" value="weui input error" placeholder=""/>
+                            <input class="weui_input" type="number" value="weui input error" placeholder="请输入卡号"/>
                         </div>
                         <div class="weui_cell_ft">
                             <i class="weui_icon_warn"></i>
                         </div>
                     </div>
                     <div class="weui_cell">
-                        <div class="weui_cell_hd"><label for="" class="weui_label">有效期</label></div>
+                        <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" value="08/17" placeholder=""/>
+                            <input class="weui_input" type="date" value=""/>
+                        </div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="datetime-local" value="" placeholder=""/>
                         </div>
                     </div>
                 </div>
