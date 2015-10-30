@@ -78,5 +78,27 @@ $(function () {
         $('#dialog2').find('.weui_btn_dialog').on('click', function () {
             $('#dialog2').hide();
         });
-    })
+    });
+
+    function hideActionSheet(weuiActionsheet, mask) {
+        weuiActionsheet.removeClass('weui_actionsheet_toggle');
+        mask.removeClass('weui_fade_toggle');
+        weuiActionsheet.on('transitionend', function () {
+            mask.hide();
+        }).on('webkitTransitionEnd', function () {
+            mask.hide();
+        })
+    }
+    $container.on('click','#showActionSheet', function () {
+        var mask = $('#mask');
+        var weuiActionsheet = $('#weui_actionsheet');
+        weuiActionsheet.addClass('weui_actionsheet_toggle');
+        mask.show().addClass('weui_fade_toggle').click(function () {
+            hideActionSheet(weuiActionsheet, mask);
+        });
+        $('#actionsheet_cancel').click(function () {
+            hideActionSheet(weuiActionsheet, mask);
+        });
+        weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
+    });
 });
