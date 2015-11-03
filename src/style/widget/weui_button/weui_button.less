@@ -1,10 +1,6 @@
 @import "../../base/fn";
-@import "weui_btn_global";
-@import "weui_btn_default";
-@import "weui_btn_primary";
-@import "weui_btn_warn";
-@import "weui_btn_disabled";
-@import "weui_btn_plain";
+// 存在样式优先级的问题，故这里对其他weui_btn的引用放在底部
+// 主要是button.weui_btn在weui_btn_plain下重写border-width
 
 .weui_btn {
     &.weui_btn_mini {
@@ -18,7 +14,7 @@
 button, input {
     &.weui_btn {
         width: 100%;
-        border: 0;
+        border-width: 0;
         outline: 0;
         -webkit-appearance: none;
         &:focus {
@@ -37,14 +33,12 @@ button, input {
 
 .weui_btn.weui_btn_inline + .weui_btn.weui_btn_inline {
     margin-top: auto;
-    margin-top: auto;
     margin-left: @weuiBtnDefaultGap;
 }
 
 .weui_btn_area {
-    margin-left: 15px;
-    margin-right: 15px;
-    font-size: 0;
+    margin-left: @weuiBtnDefaultGap;
+    margin-right: @weuiBtnDefaultGap;
     &.weui_btn_area_inline {
         -webkit-display: flex;
         display: flex;
@@ -57,10 +51,25 @@ button, input {
             &:last-child {
                 margin-right: 0;
             }
-            //hack for IE9
+        }
+
+        // hack for WinPhone7
+        letter-spacing: -1em ~"\9";
+        .weui_btn{
             display: inline-block ~"\9";
             width: 48.5% ~"\9";
-            margin-right: 1.5% ~"\9";
+            margin-right: 3% ~"\9";
+            letter-spacing: 0 ~"\9";
         }
     }
+    .weui_cells_form + & {
+        margin-top: @weuiCellsMarginTop;
+    }
 }
+
+@import "weui_btn_global";
+@import "weui_btn_default";
+@import "weui_btn_primary";
+@import "weui_btn_warn";
+@import "weui_btn_disabled";
+@import "weui_btn_plain";

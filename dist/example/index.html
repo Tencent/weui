@@ -48,6 +48,14 @@
                         <div class="weui_cell_ft">
                         </div>
                     </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="progress">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_button.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Progress</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
                     <a class="weui_cell js_cell" href="javascript:;" data-id="msg">
                         <span class="weui_cell_hd"><img src="./images/icon_nav_msg.png" class="icon_nav" alt=""></span>
                         <div class="weui_cell_bd weui_cell_primary">
@@ -60,6 +68,14 @@
                         <span class="weui_cell_hd"><img src="./images/icon_nav_article.png" class="icon_nav" alt=""></span>
                         <div class="weui_cell_bd weui_cell_primary">
                             <p>Article Page</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="actionSheet">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_actionSheet.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>ActionSheet</p>
                         </div>
                         <div class="weui_cell_ft">
                         </div>
@@ -243,18 +259,28 @@
                     </label>
                 </div>
 
+                <div class="weui_cells_title">开关</div>
+                <div class="weui_cells weui_cells_form">
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd weui_cell_primary">标题文字</div>
+                        <div class="weui_cell_ft">
+                            <input class="weui_switch" type="checkbox"/>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="weui_cells_title">表单</div>
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">qq</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入qq号"/>
+                            <input class="weui_input" type="number" placeholder="请输入qq号"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_vcode">
                         <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                            <input class="weui_input" type="number" placeholder="请输入验证码"/>
                         </div>
                         <div class="weui_cell_ft weui_vimg_wrp">
                             <img src="./images/vcode.jpg" />
@@ -263,13 +289,13 @@
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">银行卡</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入银行卡号"/>
+                            <input class="weui_input" type="number" placeholder="请输入银行卡号"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_vcode weui_cell_warn">
                         <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                            <input class="weui_input" type="number" placeholder="请输入验证码"/>
                         </div>
                         <div class="weui_cell_ft weui_vimg_wrp">
                             <i class="weui_icon_warn"></i>
@@ -277,11 +303,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="weui_btn_area">
+                    <a class="weui_btn weui_btn_primary" href="javascript:">确定</a>
+                </div>
                 <div class="weui_cells_title">文本域</div>
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_bd weui_cell_primary">
-                            <textarea class="weui_textarea"></textarea>
+                            <textarea class="weui_textarea" placeholder="请输入评论"></textarea>
                         </div>
                     </div>
                 </div>
@@ -291,16 +320,22 @@
                     <div class="weui_cell weui_cell_warn">
                         <div class="weui_cell_hd"><label for="" class="weui_label">卡号</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" value="weui input error" placeholder=""/>
+                            <input class="weui_input" type="number" value="weui input error" placeholder="请输入卡号"/>
                         </div>
                         <div class="weui_cell_ft">
                             <i class="weui_icon_warn"></i>
                         </div>
                     </div>
                     <div class="weui_cell">
-                        <div class="weui_cell_hd"><label for="" class="weui_label">有效期</label></div>
+                        <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" value="08/17" placeholder=""/>
+                            <input class="weui_input" type="date" value=""/>
+                        </div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="datetime-local" value="" placeholder=""/>
                         </div>
                     </div>
                 </div>
@@ -430,6 +465,41 @@
             <!--END dialog2-->
         </div>
     </script>
+    <script type="text/html" id="tpl_progress">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Progress</h1>
+            </div>
+            <div class="bd spacing">
+                <div class="weui_progress">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar" style="width: 0%;"></div>
+                    </div>
+                    <a href="javascript:;" class="weui_progress_cancel">
+                        <i class="weui_icon_cancel"></i>
+                    </a>
+                </div>
+                <br>
+                <div class="weui_progress">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar" style="width: 50%;"></div>
+                    </div>
+                    <a href="javascript:;" class="weui_progress_cancel">
+                        <i class="weui_icon_cancel"></i>
+                    </a>
+                </div>
+                <br>
+                <div class="weui_progress">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar" style="width: 80%;"></div>
+                    </div>
+                    <a href="javascript:;" class="weui_progress_cancel">
+                        <i class="weui_icon_cancel"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </script>
     <script type="text/html" id="tpl_msg">
         <div class="page">
             <div class="hd">
@@ -506,12 +576,39 @@
                     <i class="weui_icon_circle"></i>
                     <i class="weui_icon_warn"></i>
                     <i class="weui_icon_download"></i>
+                    <i class="weui_icon_info_circle"></i>
+                    <i class="weui_icon_cancel"></i>
                 </div>
             </div>
         </div>
     </script>
-    <!-- zepto.js was cached by wechat app -->
-    <script src="https://res.wx.qq.com/open/libs/zepto/1.1.6/zepto.js"></script>
+    <script type="text/html" id="tpl_actionSheet">
+        <div class="page" style="overflow: hidden">
+            <div class="hd">
+                <h1 class="page_title">ActionSheet</h1>
+            </div>
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showActionSheet">点击上拉ActionSheet</a>
+            </div>
+            <!--BEGIN actionSheet-->
+            <div id="actionSheet_wrap">
+                <div class="weui_mask_transition" id="mask"></div>
+                <div class="weui_actionsheet" id="weui_actionsheet">
+                    <div class="weui_actionsheet_menu">
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                        <div class="weui_actionsheet_cell">示例菜单</div>
+                    </div>
+                    <div class="weui_actionsheet_action">
+                        <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+                    </div>
+                </div>
+            </div>
+            <!--END actionSheet-->
+        </div>
+    </script>
+    <script src="./zepto.min.js"></script>
     <script src="./example.js"></script>
 </body>
 </html>
