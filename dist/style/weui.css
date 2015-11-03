@@ -463,6 +463,7 @@ input.weui_btn_mini {
   background-color: transparent;
   font-size: inherit;
   color: inherit;
+  line-height: 1.4375em;
 }
 .weui_textarea {
   display: block;
