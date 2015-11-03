@@ -3,7 +3,7 @@ WeUI 为微信 Web 服务量身设计  ![](https://travis-ci.org/weui/weui.svg?b
 
 ## 概述
 
-WeUI是一套同微信原生视觉体验一致的基础样式库，为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、`toast`、`article`、`icon`等各式元素。
+WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、 `progress`, `toast`、`article`、`icon`等各式元素。
 
 ## 使用
 
@@ -28,7 +28,7 @@ npm install -g gulp
 npm install
 gulp -ws
 ```
-运行`gulp -ws`命令，会监听`src`目录下所有文件的变更，并且默认会在`8080`端口启动一个express服务器，然后在浏览器打开 `http://localhost:8080/example`。
+运行`gulp -ws`命令，会监听`src`目录下所有文件的变更，并且默认会在`8080`端口启动服务器，然后在浏览器打开 `http://localhost:8080/example`。
 
 
 ## 手机预览
@@ -68,7 +68,7 @@ gulp -ws
 
 `Cell`，列表视图，用于将信息以列表的结构显示在页面上，是wap上最常用的内容结构。`Cell`由多个section组成，每个section包括section header`weui_cells_title`以及cells`weui_cells`。
 
-`cell`由thumnail`weui_cell_hd`、body`weui_cell_bd`、accessory`weui_cell_ft`三部分组成，`cell`采用自适应布局，在需要自适应的部分加上class`weui_cell_primary`即可：
+`cell`由thumbnail`weui_cell_hd`、body`weui_cell_bd`、accessory`weui_cell_ft`三部分组成，`cell`采用自适应布局，在需要自适应的部分加上class`weui_cell_primary`即可：
 
 ![](./dist/example/snapshot/cell.png)
 
@@ -154,6 +154,22 @@ gulp -ws
 </div>
 ```
 
+## Progress
+
+progress用于上传、下载等耗时并且需要显示进度的场景，用户可以随时中断该操作。
+
+![](./dist/example/snapshot/progress.png)
+
+```html
+<div class="weui_progress">
+    <div class="weui_progress_bar">
+        <div class="weui_progress_inner_bar" style="width: 50%;"></div>
+    </div>
+    <a href="javascript:;" class="weui_progress_cancel">
+        <i class="weui_icon_cancel"></i>
+    </a>
+</div>
+```
 
 ## Toast
 
@@ -252,6 +268,27 @@ toast用于临时显示某些信息，并且会在数秒后自动消失。这些
     </section>
 </article>
 ```
+## ActionSheet
+`ActionSheet`用于显示包含一系列可交互的动作集合，包括说明、跳转等。由底部弹出，一般用于响应用户对页面的点击。
+
+![](./dist/example/snapshot/actionSheet.png)
+
+```html
+<div id="actionSheet_wrap">
+    <div class="weui_mask_transition" id="mask"></div>
+    <div class="weui_actionsheet" id="weui_actionsheet">
+        <div class="weui_actionsheet_menu">
+            <div class="weui_actionsheet_cell">示例菜单</div>
+            <div class="weui_actionsheet_cell">示例菜单</div>
+            <div class="weui_actionsheet_cell">示例菜单</div>
+            <div class="weui_actionsheet_cell">示例菜单</div>
+        </div>
+        <div class="weui_actionsheet_action">
+            <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+        </div>
+    </div>
+</div>
+```
 
 ## Icon
 
@@ -273,6 +310,8 @@ toast用于临时显示某些信息，并且会在数秒后自动消失。这些
     <i class="weui_icon_circle"></i>
     <i class="weui_icon_warn"></i>
     <i class="weui_icon_download"></i>
+    <i class="weui_icon_info_circle"></i>
+    <i class="weui_icon_cancel"></i>
 </div>
 ```
 
