@@ -2,7 +2,7 @@
 @import "../weui_button/weui_button";
 
 .weui_msg {
-    padding: @weuiMsgPadding;
+    padding-top: @weuiMsgPaddingTop;
     text-align: center;
 
     .weui_icon_area {
@@ -11,7 +11,7 @@
 
     .weui_text_area {
         margin-bottom: @weuiMsgTextGap;
-        padding:0 15px;
+        padding:0 20px;
     }
     .weui_msg_title {
         margin-bottom: @weuiMsgTitleGap;
@@ -19,7 +19,8 @@
         font-size: 20px;
     }
     .weui_msg_desc {
-        color: @globalDescColor;
+        font-size: 14px;
+        color: @globalTextColor;
     }
 
     .weui_opr_area {
@@ -28,17 +29,9 @@
 
     .weui_extra_area {
         margin-bottom: @weuiMsgExtraAreaGap;
-        font-size:14px;
-        color:@globalTextColor;
-        a{color:@globalLinkColor;}
-    }
-}
-
-
-
-@media screen and (max-height: 416px) {
-    .weui_msg {
-        padding: @weuiMsgSmallPadding;
+        font-size: 14px;
+        color: @globalTextColor;
+        a{color: @globalLinkColor;}
     }
 }
 
