@@ -9,8 +9,8 @@
     background-color: transparent;
     font-size: inherit;
     color: inherit;
-    height: 1.44em;
-    line-height: 1.44em;//显式设置line-height值  23（默认高度）/16（默认字号）
+    height: unit(@weuiCellLineHeight, em);
+    line-height: @weuiCellLineHeight;
 
     // hides the spin-button
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
@@ -49,7 +49,7 @@
         .weui_icon_warn{display:inline-block;}
     }
     .weui_cell_hd {
-        padding-right: 1em;
+        padding-right: .3em;
     }
     .weui_cell_ft{font-size:0;}
     .weui_icon_warn{
