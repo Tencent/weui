@@ -37,8 +37,7 @@ button, input {
 }
 
 .weui_btn_area {
-    margin-left: @weuiBtnDefaultGap;
-    margin-right: @weuiBtnDefaultGap;
+    margin: @weuiCellsMarginTop @weuiBtnDefaultGap .3em;
     &.weui_btn_area_inline {
         -webkit-display: flex;
         display: flex;
@@ -52,18 +51,6 @@ button, input {
                 margin-right: 0;
             }
         }
-
-        // hack for WinPhone7
-        letter-spacing: -1em ~"\9";
-        .weui_btn{
-            display: inline-block ~"\9";
-            width: 48.5% ~"\9";
-            margin-right: 3% ~"\9";
-            letter-spacing: 0 ~"\9";
-        }
-    }
-    .weui_cells_form + & {
-        margin-top: @weuiCellsMarginTop;
     }
 }
 
