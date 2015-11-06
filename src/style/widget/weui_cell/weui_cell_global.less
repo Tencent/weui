@@ -16,8 +16,8 @@
 .weui_cells {
     margin-top: @weuiCellsMarginTop;
     background-color: @weuiCellBg;
-    line-height: 1.45;
-    font-size: 16px; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+    line-height: @weuiCellLineHeight;
+    font-size: @weuiCellFontSize; //cell中间有效高度23px，跟客户端默认图标尺寸一致
 
     overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
 
@@ -33,15 +33,22 @@
 }
 
 .weui_cells_title {
-    margin-top: @weuiCellsMarginTop;
+    margin-top: .77em; // 15px - 行高
+    margin-bottom: .3em; // 8px - 行高
     padding-left: @weuiCellGapH;
     padding-right: @weuiCellGapH;
     color: @globalTextColor;
-    font-size: @globalFontSize;
+    font-size: @weuiCellTipsFontSize;
 
     &+.weui_cells{
         margin-top: 0;
     }
+}
+.weui_cells_tips{
+    margin-top: .3em; // 8px - 行高
+    color: @globalTextColor;
+    text-align: center;
+    font-size: @weuiCellTipsFontSize;
 }
 
 .weui_cell {
