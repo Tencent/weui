@@ -1,10 +1,14 @@
 @import "../../base/fn";
-
+@weuiSwitchHeight: 32px;
+.weui_cell_switch{
+    padding-top: (@weuiCellHeight - @weuiSwitchHeight) / 2;
+    padding-bottom: (@weuiCellHeight - @weuiSwitchHeight) / 2;
+}
 .weui_switch{
     appearance: none;
     position: relative;
     width: 52px;
-    height: 32px;
+    height: @weuiSwitchHeight;
     border: 1px solid #DFDFDF;
     outline: 0;
     border-radius: 16px;
@@ -16,7 +20,7 @@
         top: 0;
         left: 0;
         width: 50px;
-        height: 30px;
+        height: @weuiSwitchHeight - 2;
         border-radius: 15px;
         background-color: #FDFDFD;
         transition:transform .3s;
@@ -26,8 +30,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 30px;
-        height: 30px;
+        width: @weuiSwitchHeight - 2;
+        height: @weuiSwitchHeight - 2;
         border-radius: 15px;
         background-color: #FFFFFF;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
