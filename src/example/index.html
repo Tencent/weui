@@ -73,9 +73,9 @@
                         </div>
                     </a>
                     <a class="weui_cell js_cell" href="javascript:;" data-id="actionSheet">
-                        <span class="weui_cell_hd"><img src="./images/icon_nav_article.png" class="icon_nav" alt=""></span>
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_actionSheet.png" class="icon_nav" alt=""></span>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <p>Action Sheet</p>
+                            <p>ActionSheet</p>
                         </div>
                         <div class="weui_cell_ft">
                         </div>
@@ -91,6 +91,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <script type="text/html" id="tpl_button">
         <div class="page">
             <div class="hd">
@@ -260,7 +261,7 @@
 
                 <div class="weui_cells_title">开关</div>
                 <div class="weui_cells weui_cells_form">
-                    <div class="weui_cell">
+                    <div class="weui_cell weui_cell_switch">
                         <div class="weui_cell_hd weui_cell_primary">标题文字</div>
                         <div class="weui_cell_ft">
                             <input class="weui_switch" type="checkbox"/>
@@ -273,35 +274,36 @@
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">qq</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入qq号"/>
+                            <input class="weui_input" type="number" placeholder="请输入qq号"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_vcode">
                         <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                            <input class="weui_input" type="number" placeholder="请输入验证码"/>
                         </div>
-                        <div class="weui_cell_ft weui_vimg_wrp">
+                        <div class="weui_cell_ft">
                             <img src="./images/vcode.jpg" />
                         </div>
                     </div>
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">银行卡</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入银行卡号"/>
+                            <input class="weui_input" type="number" placeholder="请输入银行卡号"/>
                         </div>
                     </div>
                     <div class="weui_cell weui_vcode weui_cell_warn">
                         <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" placeholder="请输入验证码"/>
+                            <input class="weui_input" type="number" placeholder="请输入验证码"/>
                         </div>
-                        <div class="weui_cell_ft weui_vimg_wrp">
+                        <div class="weui_cell_ft">
                             <i class="weui_icon_warn"></i>
                             <img src="./images/vcode.jpg" />
                         </div>
                     </div>
                 </div>
+                <div class="weui_cells_tips">底部说明文字底部说明文字</div>
                 <div class="weui_btn_area">
                     <a class="weui_btn weui_btn_primary" href="javascript:">确定</a>
                 </div>
@@ -309,7 +311,7 @@
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_bd weui_cell_primary">
-                            <textarea class="weui_textarea"></textarea>
+                            <textarea class="weui_textarea" placeholder="请输入评论"></textarea>
                         </div>
                     </div>
                 </div>
@@ -319,16 +321,22 @@
                     <div class="weui_cell weui_cell_warn">
                         <div class="weui_cell_hd"><label for="" class="weui_label">卡号</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" value="weui input error" placeholder=""/>
+                            <input class="weui_input" type="number" value="weui input error" placeholder="请输入卡号"/>
                         </div>
                         <div class="weui_cell_ft">
                             <i class="weui_icon_warn"></i>
                         </div>
                     </div>
                     <div class="weui_cell">
-                        <div class="weui_cell_hd"><label for="" class="weui_label">有效期</label></div>
+                        <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="text" value="08/17" placeholder=""/>
+                            <input class="weui_input" type="date" value=""/>
+                        </div>
+                    </div>
+                    <div class="weui_cell">
+                        <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <input class="weui_input" type="datetime-local" value="" placeholder=""/>
                         </div>
                     </div>
                 </div>
@@ -495,25 +503,20 @@
     </script>
     <script type="text/html" id="tpl_msg">
         <div class="page">
-            <div class="hd">
-                <h1 class="page_title">Msg</h1>
-            </div>
-            <div class="bd">
-                <div class="weui_msg">
-                    <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
-                    <div class="weui_text_area">
-                        <h2 class="weui_msg_title">操作成功</h2>
-                        <p class="weui_msg_desc">内容详情，可根据实际需要安排</p>
-                    </div>
-                    <div class="weui_opr_area">
-                        <p class="weui_btn_area">
-                            <a href="javascript:;" class="weui_btn weui_btn_primary">确定</a>
-                            <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
-                        </p>
-                    </div>
-                    <div class="weui_extra_area">
-                        <a href="">查看详情</a>
-                    </div>
+            <div class="weui_msg">
+                <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+                <div class="weui_text_area">
+                    <h2 class="weui_msg_title">操作成功</h2>
+                    <p class="weui_msg_desc">内容详情，可根据实际需要安排</p>
+                </div>
+                <div class="weui_opr_area">
+                    <p class="weui_btn_area">
+                        <a href="javascript:;" class="weui_btn weui_btn_primary">确定</a>
+                        <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
+                    </p>
+                </div>
+                <div class="weui_extra_area">
+                    <a href="">查看详情</a>
                 </div>
             </div>
         </div>
@@ -578,14 +581,14 @@
     <script type="text/html" id="tpl_actionSheet">
         <div class="page" style="overflow: hidden">
             <div class="hd">
-                <h1 class="page_title">action sheet</h1>
+                <h1 class="page_title">ActionSheet</h1>
             </div>
             <div class="bd spacing">
-                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showActionSheet">点击上拉actionSheet</a>
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="showActionSheet">点击上拉ActionSheet</a>
             </div>
             <!--BEGIN actionSheet-->
             <div id="actionSheet_wrap">
-                <div class="weui_mask_transition" id="mask" style="display: none"></div>
+                <div class="weui_mask_transition" id="mask"></div>
                 <div class="weui_actionsheet" id="weui_actionsheet">
                     <div class="weui_actionsheet_menu">
                         <div class="weui_actionsheet_cell">示例菜单</div>
@@ -601,7 +604,7 @@
             <!--END actionSheet-->
         </div>
     </script>
-    <script src="https://res.wx.qq.com/open/libs/zepto/1.1.6/zepto.js"></script>
+    <script src="./zepto.min.js"></script>
     <script src="./example.js"></script>
 </body>
 </html>
