@@ -54,17 +54,18 @@ gulp.task('watch', function () {
 });
 
 gulp.task('server', function () {
+    yargs.p = yargs.p || 8080;
     browserSync.init({
         server: {
             baseDir: "./dist"
         },
         ui: {
-            port: 8081,
+            port: yargs.p + 1,
             weinre: {
-                port: 9090
+                port: yargs.p + 2
             }
         },
-        port: 8080,
+        port: yargs.p,
         startPath: '/example'
     });
 });
@@ -74,14 +75,12 @@ gulp.task('server', function () {
 //  -w: 实时监听
 //  -s: 启动服务器
 //  -p: 服务器启动端口，默认8080
-gulp.task('default', function () {
+gulp.task('default', ['release'], function () {
     if (yargs.s) {
         gulp.start('server');
     }
+
     if (yargs.w) {
-        gulp.start('release');
         gulp.start('watch');
-    } else {
-        gulp.start('release');
     }
 });
