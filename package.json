@@ -19,5 +19,8 @@
     "gulp-replace": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "yargs": "^1.3.3"
+  },
+  "spm": {
+    "main": "./src/style/weui.less"
   }
 }
