@@ -165,7 +165,7 @@ progress用于上传、下载等耗时并且需要显示进度的场景，用户
     <div class="weui_progress_bar">
         <div class="weui_progress_inner_bar" style="width: 50%;"></div>
     </div>
-    <a href="javascript:;" class="weui_progress_cancel">
+    <a href="javascript:;" class="weui_progress_opr">
         <i class="weui_icon_cancel"></i>
     </a>
 </div>
