@@ -1,13 +1,25 @@
 @import "../../../base/fn";
 
-.weui_label{display:block;width:3em;}
+.weui_label{
+  display:block;
+  width:3em;
+}
 .weui_input {
     width: 100%;
     border: 0;
     outline: 0;
+    -webkit-appearance: none;
     background-color: transparent;
     font-size: inherit;
     color: inherit;
+    height: unit(@weuiCellLineHeight, em);
+    line-height: @weuiCellLineHeight;
+
+    // hides the spin-button
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 .weui_textarea {
     display: block;
@@ -40,7 +52,7 @@
         .weui_icon_warn{display:inline-block;}
     }
     .weui_cell_hd {
-        padding-right: 1em;
+        padding-right: .3em;
     }
     .weui_cell_ft{font-size:0;}
     .weui_icon_warn{
