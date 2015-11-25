@@ -59,14 +59,14 @@
     }
     &:after {
         content: " ";
-        .setLine(@weuiDialogLineColor);
+        .setTopLine(@weuiDialogLineColor);
     }
     .weui_dialog_confirm & {
         a {
             position: relative;
             &:after {
                 content: " ";
-                .setLine(@weuiDialogLineColor, V);
+                .setLeftLine(@weuiDialogLineColor);
             }
             &:first-child {
                 &:after {
