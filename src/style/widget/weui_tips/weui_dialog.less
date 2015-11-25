@@ -46,8 +46,10 @@
     line-height: 42px;
     margin-top: 20px;
     font-size: 17px;
+    display: flex;
     a {
         display: block;
+        flex: 1;
         color: @weuiDialogLinkColor;
         text-decoration: none;
         .setTapColor;
@@ -62,8 +64,6 @@
     .weui_dialog_confirm & {
         a {
             position: relative;
-            float: left;
-            width: 50%;
             &:after {
                 content: " ";
                 .setLine(@weuiDialogLineColor, V);
