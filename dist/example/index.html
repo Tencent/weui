@@ -9,6 +9,9 @@
 </head>
 <body ontouchstart>
     <div class="container js_container">
+
+    </div>
+    <script type="text/html" id="tpl_home">
         <div class="page">
             <div class="hd">
                 <h1 class="page_title">WeUI</h1>
@@ -91,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </script>
     <script type="text/html" id="tpl_button">
         <div class="page">
             <div class="hd">
@@ -305,7 +308,7 @@
                 </div>
                 <div class="weui_cells_tips">底部说明文字底部说明文字</div>
                 <div class="weui_btn_area">
-                    <a class="weui_btn weui_btn_primary" href="javascript:">确定</a>
+                    <a class="weui_btn weui_btn_primary" href="javascript:" id="showTooltips">确定</a>
                 </div>
                 <div class="weui_cells_title">文本域</div>
                 <div class="weui_cells weui_cells_form">
@@ -474,7 +477,7 @@
             <div class="bd spacing">
                 <div class="weui_progress">
                     <div class="weui_progress_bar">
-                        <div class="weui_progress_inner_bar" style="width: 0%;"></div>
+                        <div class="weui_progress_inner_bar js_progress" style="width: 0%;"></div>
                     </div>
                     <a href="javascript:;" class="weui_progress_opr">
                         <i class="weui_icon_cancel"></i>
@@ -483,7 +486,7 @@
                 <br>
                 <div class="weui_progress">
                     <div class="weui_progress_bar">
-                        <div class="weui_progress_inner_bar" style="width: 50%;"></div>
+                        <div class="weui_progress_inner_bar js_progress" style="width: 50%;"></div>
                     </div>
                     <a href="javascript:;" class="weui_progress_opr">
                         <i class="weui_icon_cancel"></i>
@@ -492,11 +495,14 @@
                 <br>
                 <div class="weui_progress">
                     <div class="weui_progress_bar">
-                        <div class="weui_progress_inner_bar" style="width: 80%;"></div>
+                        <div class="weui_progress_inner_bar js_progress" style="width: 80%;"></div>
                     </div>
                     <a href="javascript:;" class="weui_progress_opr">
                         <i class="weui_icon_cancel"></i>
                     </a>
+                </div>
+                <div class="weui_btn_area">
+                    <a href="javascript:;" class="weui_btn weui_btn_primary" id="btnStartProgress">上传</a>
                 </div>
             </div>
         </div>
