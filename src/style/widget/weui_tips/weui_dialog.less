@@ -3,6 +3,7 @@
 @weuiDialogBackgroundColor: #FAFAFC;
 @weuiDialogLineColor: #D5D5D6;
 @weuiDialogLinkColor: #3CC51F;
+@weuiDialogLinkActiveColor: #F0F0F0;
 
 .weui_dialog {
     position: fixed;
@@ -55,6 +56,7 @@
         .setTapColor;
         &:active, &:hover {
             text-decoration: none;
+            background-color: @weuiDialogLinkActiveColor;
         }
     }
     &:after {
