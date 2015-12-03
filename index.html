@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>WeUI</title>
-    <link rel="stylesheet" href="http://cdn.rawgit.com/weui/weui/master/dist/style/weui.min.css"/>
     <link rel="stylesheet" href="./example.css"/>
 </head>
-<body ontouchstart>
+<body ontouchstart style="display: none">
 <div class="container js_container">
     <div class="page">
         <div class="hd">
@@ -606,5 +605,22 @@
 </script>
 <script src="./zepto.min.js"></script>
 <script src="./example.js"></script>
+<script type="text/javascript">
+    !function(){
+        $.get("https://raw.githubusercontent.com/weui/weui/master/dist/style/weui.css", function(data){
+            var url = window.URL || window.webkitURL || window.mozURL,
+                    link = document.createElement("link");
+            try{
+                var file = new Blob([data], {type: "text/css"});
+                link.href = url.createObjectURL(file);
+            }catch(e){
+                link.href = "http://cdn.rawgit.com/weui/weui/master/dist/style/weui.min.css";
+            }
+            link.rel = "stylesheet";
+            $("link").eq(0).before(link);
+            $("body").show();
+        });
+    }();
+</script>
 </body>
 </html>
