@@ -19,6 +19,23 @@ bower install --save weui
 npm install --save weui
 ```
 
+以上两种方法安装后，只需要在页面中引入`dist/style/weui.css`或者`dist/style/weui.min.css`其中之一即可. 例如:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>WeUI</title>
+        <link rel="stylesheet" href="path/to/weui/dist/style/weui.min.css"/>
+    </head>
+    <body>
+    
+    </body>
+</html>
+```
+
 ## 开发
 
 ```
