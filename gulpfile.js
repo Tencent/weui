@@ -1,11 +1,13 @@
 var yargs = require('yargs').argv;
 var gulp = require('gulp');
 var less = require('gulp-less');
+var header = require('gulp-header');
 var minify = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
+var pkg = require('./package.json');
 
 var option = {base: 'src'};
 var dist = __dirname + '/dist';
@@ -27,6 +29,13 @@ gulp.task('styles', ['source'], function () {
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
 
+    var banner = [
+        '/*!',
+        ' * WeUI v<%= pkg.version %> (<%= pkg.homepage %>)',
+        ' * Copyright <%= new Date().getFullYear() %> Tencent, Inc.',
+        ' * Licensed under the <%= pkg.license %> license',
+        ' */',
+        ''].join('\n');
     gulp.src('src/style/weui.less', option)
         .pipe(sourcemaps.init())
         .pipe(less().on('error', function (e) {
@@ -35,6 +44,7 @@ gulp.task('styles', ['source'], function () {
         }))
         .pipe(sourcemaps.write())
         .pipe(autoprefixer())
+        .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest(dist))
         .pipe(minify())
         .pipe(rename(function (path) {
