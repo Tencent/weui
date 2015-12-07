@@ -3,6 +3,21 @@
  */
 
 $(function () {
+    // load css
+    $.get("https://raw.githubusercontent.com/weui/weui/master/dist/style/weui.css", function(data){
+        var url = window.URL || window.webkitURL || window.mozURL,
+            link = document.createElement("link");
+        try{
+            var file = new Blob([data], {type: "text/css"});
+            link.href = url.createObjectURL(file);
+        }catch(e){
+            link.href = "http://cdn.rawgit.com/weui/weui/master/dist/style/weui.min.css";
+        }
+        link.rel = "stylesheet";
+        $("link").eq(0).before(link);
+        $("body").show();
+    });
+
     // page stack
     var stack = [];
     var $container = $('.js_container');
