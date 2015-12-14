@@ -1,8 +1,9 @@
 @import "../../base/fn";
 
-@weuiDialogBackgroudColor: #FAFAFC;
+@weuiDialogBackgroundColor: #FAFAFC;
 @weuiDialogLineColor: #D5D5D6;
 @weuiDialogLinkColor: #3CC51F;
+@weuiDialogLinkActiveBc: #EEEEEE;
 
 .weui_dialog {
     position: fixed;
@@ -12,7 +13,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    background-color: @weuiDialogBackgroudColor;
+    background-color: @weuiDialogBackgroundColor;
     text-align: center;
     border-radius: 3px;
     .weui_dialog_confirm & {
@@ -46,38 +47,32 @@
     line-height: 42px;
     margin-top: 20px;
     font-size: 17px;
+    display: flex;
     a {
         display: block;
+        flex: 1;
         color: @weuiDialogLinkColor;
         text-decoration: none;
         .setTapColor;
-        &:active, &:hover {
-            text-decoration: none;
+        &:active {
+            background-color: @weuiDialogLinkActiveBc;
         }
     }
     &:after {
         content: " ";
-        .setLine(@weuiDialogLineColor);
+        .setTopLine(@weuiDialogLineColor);
     }
     .weui_dialog_confirm & {
         a {
             position: relative;
-            float: left;
-            width: 50%;
             &:after {
                 content: " ";
-                .setLine(@weuiDialogLineColor, V);
+                .setLeftLine(@weuiDialogLineColor);
             }
             &:first-child {
                 &:after {
                     display: none;
                 }
-            }
-            &:last-child {
-                float: none;
-                width: auto;
-                overflow: hidden;
-                *zoom: 1;
             }
         }
     }

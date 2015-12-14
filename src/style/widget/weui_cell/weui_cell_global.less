@@ -13,6 +13,7 @@
         }
     }
 }
+
 .weui_cells {
     margin-top: @weuiCellsMarginTop;
     background-color: @weuiCellBg;
@@ -21,7 +22,6 @@
 
     overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
 
-    
     // onepx
     position: relative;
     &:before {
@@ -40,29 +40,24 @@
     color: @globalTextColor;
     font-size: @weuiCellTipsFontSize;
 
-    &+.weui_cells{
+    & + .weui_cells {
         margin-top: 0;
     }
 }
-.weui_cells_tips{
+
+.weui_cells_tips {
     margin-top: .3em; // 8px - 行高
     color: @globalTextColor;
-    text-align: center;
+    padding-left: @weuiCellGapH;
+    padding-right: @weuiCellGapH;
     font-size: @weuiCellTipsFontSize;
 }
 
 .weui_cell {
     padding: @weuiCellGapV @weuiCellGapH;
-    display: block; //这个是为了兼容语义化(li)与实现(table-cell)的冲突
     position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
-}
-
-.weui_cell_hd, .weui_cell_bd, .weui_cell_ft {
-    display: table-cell;
-    vertical-align: middle;
-    word-wrap: break-word;
-    word-break: break-all;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
 .weui_cell_ft {
@@ -71,6 +66,5 @@
 }
 
 .weui_cell_primary {
-    width: 2000px;
-    white-space: normal;
+    flex: 1;
 }
