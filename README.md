@@ -60,6 +60,7 @@ gulp -ws
 ## 第三方扩展
 
 - [kevyu/weui-sass](https://github.com/kevyu/weui-sass)
+- [Eric-Guo/weui-rails](https://rubygems.org/gems/weui-rails) (Using kevyu/weui-sass)
 - [n7best/react-weui](https://github.com/n7best/react-weui)
 - [aidenzou/vue-weui](https://github.com/aidenzou/vue-weui)
 
