@@ -80,6 +80,7 @@ $(function () {
         });
     });
 
+    //actionSheet
     function hideActionSheet(weuiActionsheet, mask) {
         weuiActionsheet.removeClass('weui_actionsheet_toggle');
         mask.removeClass('weui_fade_toggle');
@@ -100,5 +101,22 @@ $(function () {
             hideActionSheet(weuiActionsheet, mask);
         });
         weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
+    });
+
+    //searchBar
+    $container.on('focus', '#weui_search', function () {
+        var $weuiSearchText = $('.weui_search_text');
+        $('#weui_search').on('focus', function () {
+            //确定$weuiSearchText已经添加类。
+            $weuiSearchText.addClass('weui_search_focus');
+        }).on('blur', function () {
+            if ($(this).val() == '') {
+                $weuiSearchText.removeClass('weui_search_focus');
+            }
+        });
+        $weuiSearchText.on('touchstart',function () {
+            var $that = $(this);
+            $that.addClass('weui_search_focus')
+        });
     });
 });

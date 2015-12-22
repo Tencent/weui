@@ -1,0 +1,43 @@
+@import "../../base/fn";
+.weui_search_bar {
+    position: relative;
+    padding: 8px 10px;
+    background-color: #efeff4;
+    z-index: 2;
+    &:after{
+        .setBottomLine();
+    }
+}
+.weui_search_inner {
+    position: relative;
+    background-color: #fff;
+    height: 28px;
+    border-radius: 5px;
+    overflow: hidden;
+    input {
+        display: inline-block;
+        padding: 7px 0 7px 20px;
+        width: 100%;
+        border-radius: 5px;
+        border: 0 none;
+        font-size: 13px;
+    }
+}
+.weui_search_text {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #9b9b9b;
+    background: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    height: 15px;
+}
+.weui_search_focus {
+    width: 0;
+    left: 5px;
+    color: transparent;
+}
