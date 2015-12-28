@@ -104,19 +104,22 @@ $(function () {
     });
 
     //searchBar
-    $container.on('focus', '#weui_search', function () {
-        var $weuiSearchText = $('.weui_search_text');
-        $('#weui_search').on('focus', function () {
-            //确定$weuiSearchText已经添加类。
-            $weuiSearchText.addClass('weui_search_focus');
-        }).on('blur', function () {
-            if ($(this).val() == '') {
-                $weuiSearchText.removeClass('weui_search_focus');
-            }
-        });
-        $weuiSearchText.on('touchstart',function () {
-            var $that = $(this);
-            $that.addClass('weui_search_focus')
-        });
+    var $searchBarCancel = $('.search_bar_cancel');
+    var $weuiSearchOuter = $('.weui_search_outer');
+    $container.on('focus', '#weui_search_input', function () {
+        $searchBarCancel.show();
+        $weuiSearchOuter.addClass('with_cancel');
+    }).on('blur', '#weui_search_input', function () {
+        $searchBarCancel.hide();
+        $weuiSearchOuter.removeClass('with_cancel');
+        $(this).attr('placeholder', '');
+        if($(this).val()){
+            $('.weui_search_text').hide();
+        }else{
+            $('.weui_search_text').show();
+        }
+    });
+    $searchBarCancel.on('touchend', function () {
+        $('#weui_search_input').val('');
     });
 });
