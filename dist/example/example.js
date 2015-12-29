@@ -104,7 +104,7 @@ $(function () {
     });
 
     //searchBar
-    var $searchBarCancel = $('.search_bar_cancel');
+    var $searchBarCancel = $('.weui_search_cancel');
     var $weuiSearchOuter = $('.weui_search_outer');
     $container.on('focus', '#weui_search_input', function () {
         $searchBarCancel.show();
@@ -112,7 +112,6 @@ $(function () {
     }).on('blur', '#weui_search_input', function () {
         $searchBarCancel.hide();
         $weuiSearchOuter.removeClass('with_cancel');
-        $(this).attr('placeholder', '');
         if($(this).val()){
             $('.weui_search_text').hide();
         }else{

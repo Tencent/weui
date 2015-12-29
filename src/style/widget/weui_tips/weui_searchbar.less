@@ -1,10 +1,14 @@
 @import "../../base/fn";
 .weui_search_bar {
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 30px;
     padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #efeff4;
     z-index: 2;
-    &:after{
+    &:after {
         .setBottomLine();
     }
 }
@@ -28,7 +32,7 @@
         background: #fff;
     }
 }
-.search_bar_cancel {
+.weui_search_cancel {
     position: absolute;
     display: none;
     right: 10px;
