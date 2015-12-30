@@ -1,7 +1,11 @@
+
+var path = require('path');
+var fs = require('fs');
 var yargs = require('yargs').argv;
 var gulp = require('gulp');
 var less = require('gulp-less');
 var header = require('gulp-header');
+var tap = require('gulp-tap');
 var minify = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
@@ -13,7 +17,7 @@ var option = {base: 'src'};
 var dist = __dirname + '/dist';
 
 gulp.task('source', function(){
-    gulp.src('src/example/**/*.!(less)', option)
+    gulp.src('src/example/**/*.!(less|html)', option)
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -26,6 +30,21 @@ gulp.task('styles', ['source'], function () {
         }))
         .pipe(autoprefixer())
         .pipe(minify())
+        .pipe(gulp.dest(dist))
+        .pipe(browserSync.reload({stream: true}));
+
+    gulp.src('src/example/index.html', option)
+        .pipe(tap(function (file){
+            var dir = path.dirname(file.path);
+            var contents = file.contents.toString();
+            contents = contents.replace(/<link\s+rel="import"\s+href="(.*)">/gi, function (match, $1){
+                var filename = path.join(dir, $1);
+                var id = path.basename(filename, '.html');
+                var content = fs.readFileSync(filename, 'utf-8');
+                return '<script type="text/html" id="tpl_'+ id +'">\n'+ content +'\n</script>';
+            });
+            file.contents = new Buffer(contents);
+        }))
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
 
