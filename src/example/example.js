@@ -255,9 +255,9 @@ $(function () {
         events: {}
     };
     var actionSheet = {
-        name: 'actionSheet',
-        url: '#actionSheet',
-        template: '#tpl_actionSheet',
+        name: 'actionsheet',
+        url: '#actionsheet',
+        template: '#tpl_actionsheet',
         events: {
             '#showActionSheet': {
                 click: function () {
@@ -285,10 +285,10 @@ $(function () {
             }
         }
     };
-    var searchBar = {
-        name:"searchBar",
-        url:"#searchBar",
-        template: '#tpl_searchBar',
+    var searchbar = {
+        name:"searchbar",
+        url:"#searchbar",
+        template: '#tpl_searchbar',
         events:{
             '#weui_search_input':{
                 focus:function(){
@@ -334,7 +334,7 @@ $(function () {
         .push(article)
         .push(actionSheet)
         .push(icons)
-        .push(searchBar)
+        .push(searchbar)
         .default('home')
         .init();
 });
