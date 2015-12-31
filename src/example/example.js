@@ -255,9 +255,9 @@ $(function () {
         events: {}
     };
     var actionSheet = {
-        name: 'actionSheet',
-        url: '#actionSheet',
-        template: '#tpl_actionSheet',
+        name: 'actionsheet',
+        url: '#actionsheet',
+        template: '#tpl_actionsheet',
         events: {
             '#showActionSheet': {
                 click: function () {
