@@ -1,6 +1,6 @@
 {
     "name": "weui",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "为微信 Web 服务量身设计",
     "keywords": [
         "weui",
@@ -31,9 +31,9 @@
         "browser-sync": "^2.9.11",
         "gulp": "^3.8.10",
         "gulp-autoprefixer": "^2.3.1",
+        "gulp-cssnano": "^2.0.0",
         "gulp-header": "^1.7.1",
         "gulp-less": "^3.0.2",
-        "gulp-minify-css": "^0.4.4",
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.5.2",
         "gulp-sourcemaps": "^1.6.0",
