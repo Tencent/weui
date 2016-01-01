@@ -6,7 +6,7 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var header = require('gulp-header');
 var tap = require('gulp-tap');
-var minify = require('gulp-minify-css');
+var nano = require('gulp-cssnano');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
@@ -29,7 +29,7 @@ gulp.task('styles', ['source'], function () {
             this.emit('end');
         }))
         .pipe(autoprefixer())
-        .pipe(minify())
+        .pipe(nano())
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
 
@@ -65,7 +65,7 @@ gulp.task('styles', ['source'], function () {
         .pipe(autoprefixer())
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest(dist))
-        .pipe(minify())
+        .pipe(nano())
         .pipe(rename(function (path) {
             path.basename += '.min';
         }))
