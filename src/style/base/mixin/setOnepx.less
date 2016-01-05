@@ -1,27 +1,3 @@
-.setLine(@c:#CECECE, @dir:H) when (@dir = H) {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 1px;
-    border-top: 1px solid @c;
-    transform-origin: 0 0;
-    transform: scaleY(0.5);
-}
-
-.setLine(@c:#CECECE, @dir:H) when (@dir = V) {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1px;
-    height: 100%;
-    border-left: 1px solid @c;
-    transform-origin: 0 0;
-
-    transform: scaleX(0.5);
-}
 
 .setTopLine(@c: #C7C7C7) {
     content: " ";
@@ -31,6 +7,7 @@
     width: 100%;
     height: 1px;
     border-top: 1px solid @c;
+    color: @c;
     transform-origin: 0 0;
     transform: scaleY(0.5);
 }
@@ -43,6 +20,7 @@
     width: 100%;
     height: 1px;
     border-bottom: 1px solid @c;
+    color: @c;
     transform-origin: 0 100%;
     transform: scaleY(0.5);
 }
@@ -55,6 +33,7 @@
     width: 1px;
     height: 100%;
     border-left: 1px solid @c;
+    color: @c;
     transform-origin: 0 0;
     transform: scaleX(0.5);
 }
@@ -67,6 +46,7 @@
     width: 1px;
     height: 100%;
     border-right: 1px solid @c;
+    color: @c;
     transform-origin: 0 100%;
     transform: scaleX(0.5);
 }

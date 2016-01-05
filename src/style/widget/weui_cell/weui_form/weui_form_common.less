@@ -26,9 +26,18 @@
     border: 0;
     resize: none;
     width: 100%;
+    color: inherit;
     font-size: 1em;
     line-height: inherit;
     outline: 0;
+}
+
+.weui_textarea_counter{
+    color: @globalDescColor;
+    text-align: right;
+    .weui_cell_warn &{
+        color: @globalWarnColor;
+    }
 }
 
 .weui_toptips {

@@ -3,7 +3,7 @@ WeUI 为微信 Web 服务量身设计  ![](https://travis-ci.org/weui/weui.svg?b
 
 ## 概述
 
-WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、 `progress`, `toast`、`article`、`icon`等各式元素。
+WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、 `progress`、 `toast`、`article`、`icon`等各式元素。
 
 ## 使用
 
@@ -17,6 +17,23 @@ bower install --save weui
 使用`npm`进行安装
 ```
 npm install --save weui
+```
+
+以上两种方法安装后，只需要在页面中引入`dist/style/weui.css`或者`dist/style/weui.min.css`其中之一即可. 例如:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>WeUI</title>
+        <link rel="stylesheet" href="path/to/weui/dist/style/weui.min.css"/>
+    </head>
+    <body>
+    
+    </body>
+</html>
 ```
 
 ## 开发
@@ -38,6 +55,16 @@ gulp -ws
 ![](./dist/example/snapshot/qrcode.png)
 
 [http://weui.github.io/weui/](http://weui.github.io/weui)
+
+
+## 第三方扩展
+
+- [kevyu/weui-sass](https://github.com/kevyu/weui-sass)
+- [Eric-Guo/weui-rails](https://github.com/Eric-Guo/weui-rails)(Using kevyu/weui-sass)
+- [n7best/react-weui](https://github.com/n7best/react-weui)
+- [aidenzou/vue-weui](https://github.com/aidenzou/vue-weui)
+- [ZTfer/weui-sketch](https://github.com/ZTfer/weui-sketch)
+- [i5ting/weui-practice](https://github.com/i5ting/weui-practice)
 
 ## Button
 
@@ -131,7 +158,7 @@ gulp -ws
     <div class="weui_mask"></div>
     <div class="weui_dialog">
         <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
-        <div class="weui_dialog_bd">自定义弹窗内容<br>...</div>
+        <div class="weui_dialog_bd">自定义弹窗内容，居左对齐显示，告知需要确认的信息等</div>
         <div class="weui_dialog_ft">
             <a href="javascript:;" class="weui_btn_dialog default">取消</a>
             <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
