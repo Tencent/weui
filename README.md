@@ -36,6 +36,8 @@ npm install --save weui
 </html>
 ```
 
+**注意：** `weui.css` 建议只用于开发阶段。
+
 ## 开发
 
 ```
@@ -45,7 +47,7 @@ npm install -g gulp
 npm install
 npm start
 ```
-运行`gulp -ws`命令，会监听`src`目录下所有文件的变更，并且默认会在`8080`端口启动服务器，然后在浏览器打开 `http://localhost:8080/example`。
+运行`npm start`命令，会监听`src`目录下所有文件的变更，并且默认会在`8080`端口启动服务器，然后在浏览器打开 `http://localhost:8080/example`。
 
 
 ## 手机预览
@@ -64,6 +66,7 @@ npm start
 - [Eric-Guo/weui-rails](https://github.com/Eric-Guo/weui-rails)(Using kevyu/weui-sass)
 - [n7best/react-weui](https://github.com/n7best/react-weui)
 - [aidenzou/vue-weui](https://github.com/aidenzou/vue-weui)
+- [adcentury/vue-weui](https://github.com/adcentury/vue-weui)
 - [ZTfer/weui-sketch](https://github.com/ZTfer/weui-sketch)
 - [i5ting/weui-practice](https://github.com/i5ting/weui-practice)
 
