@@ -62,8 +62,10 @@ gulp.task('styles', ['source'], function () {
             this.emit('end');
         }))
         .pipe(sourcemaps.write())
+        .pipe(sourcemaps.init({loadMaps:true}))
         .pipe(autoprefixer())
         .pipe(header(banner, { pkg : pkg } ))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(dist))
         .pipe(nano())
         .pipe(rename(function (path) {
