@@ -6,7 +6,7 @@
     },
     "description": "wechat mobile ui",
     "main": "dist/style/weui.css",
-    "version": "0.2.3",
+    "version": "0.3.0",
     "authors": [
         "wechat ui team"
     ],
@@ -18,7 +18,5 @@
         "ui"
     ],
     "homepage": "https://github.com/weui/weui",
-    "ignore": [
-        "node_modules"
-    ]
+    "ignore": []
 }
