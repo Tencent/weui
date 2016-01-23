@@ -7,7 +7,8 @@ var less = require('gulp-less');
 var header = require('gulp-header');
 var tap = require('gulp-tap');
 var nano = require('gulp-cssnano');
-var autoprefixer = require('gulp-autoprefixer');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
@@ -28,7 +29,7 @@ gulp.task('styles', ['source'], function () {
             console.error(e.message);
             this.emit('end');
         }))
-        .pipe(autoprefixer())
+        .pipe(postcss([autoprefixer]))
         .pipe(nano())
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
@@ -61,9 +62,7 @@ gulp.task('styles', ['source'], function () {
             console.error(e.message);
             this.emit('end');
         }))
-        .pipe(sourcemaps.write())
-        .pipe(sourcemaps.init({loadMaps:true}))
-        .pipe(autoprefixer())
+        .pipe(postcss([autoprefixer]))
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dist))
