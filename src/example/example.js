@@ -196,7 +196,7 @@ $(function () {
                 click: function (e) {
                     var $dialog = $('#dialog1');
                     $dialog.show();
-                    $dialog.find('.weui_btn_dialog').on('click', function () {
+                    $dialog.find('.weui_btn_dialog').one('click', function () {
                         $dialog.hide();
                     });
                 }
@@ -205,7 +205,7 @@ $(function () {
                 click: function (e) {
                     var $dialog = $('#dialog2');
                     $dialog.show();
-                    $dialog.find('.weui_btn_dialog').on('click', function () {
+                    $dialog.find('.weui_btn_dialog').one('click', function () {
                         $dialog.hide();
                     });
                 }
