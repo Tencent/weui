@@ -1,7 +1,7 @@
 {
     "name": "weui",
-    "version": "0.2.3",
-    "description": "为微信 Web 服务量身设计",
+    "version": "0.3.0",
+    "description": "A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.",
     "keywords": [
         "weui",
         "wechat",
@@ -28,12 +28,13 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "autoprefixer": "^6.3.1",
         "browser-sync": "^2.9.11",
         "gulp": "^3.8.10",
-        "gulp-autoprefixer": "^2.3.1",
         "gulp-cssnano": "^2.0.0",
         "gulp-header": "^1.7.1",
         "gulp-less": "^3.0.2",
+        "gulp-postcss": "^6.0.1",
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.5.2",
         "gulp-sourcemaps": "^1.6.0",

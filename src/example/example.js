@@ -19,8 +19,6 @@ $(function () {
 
             $(window).on('hashchange', function (e) {
 
-                console.log(self._isGo);
-
                 var _isBack = !self._isGo;
                 self._isGo = false;
                 if (!_isBack) {
@@ -121,7 +119,7 @@ $(function () {
         url: '#',
         template: '#tpl_home',
         events: {
-            '.js_cell': {
+            '.js_grid': {
                 click: function (e) {
                     var id = $(this).data('id');
                     pageManager.go(id);
@@ -198,7 +196,7 @@ $(function () {
                 click: function (e) {
                     var $dialog = $('#dialog1');
                     $dialog.show();
-                    $dialog.find('.weui_btn_dialog').on('click', function () {
+                    $dialog.find('.weui_btn_dialog').one('click', function () {
                         $dialog.hide();
                     });
                 }
@@ -207,7 +205,7 @@ $(function () {
                 click: function (e) {
                     var $dialog = $('#dialog2');
                     $dialog.show();
-                    $dialog.find('.weui_btn_dialog').on('click', function () {
+                    $dialog.find('.weui_btn_dialog').one('click', function () {
                         $dialog.hide();
                     });
                 }
