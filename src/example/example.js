@@ -268,10 +268,10 @@ $(function () {
                     var mask = $('#mask');
                     var weuiActionsheet = $('#weui_actionsheet');
                     weuiActionsheet.addClass('weui_actionsheet_toggle');
-                    mask.show().addClass('weui_fade_toggle').click(function () {
+                    mask.show().addClass('weui_fade_toggle').one('click', function () {
                         hideActionSheet(weuiActionsheet, mask);
                     });
-                    $('#actionsheet_cancel').click(function () {
+                    $('#actionsheet_cancel').one('click', function () {
                         hideActionSheet(weuiActionsheet, mask);
                     });
                     weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
