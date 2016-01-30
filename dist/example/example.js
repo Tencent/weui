@@ -252,6 +252,12 @@ $(function () {
         template: '#tpl_article',
         events: {}
     };
+    var tab = {
+        name: 'tab',
+        url: '#tab',
+        template: '#tpl_tab',
+        events: {}
+    };
     var actionSheet = {
         name: 'actionsheet',
         url: '#actionsheet',
@@ -298,6 +304,7 @@ $(function () {
         .push(progress)
         .push(msg)
         .push(article)
+        .push(tab)
         .push(actionSheet)
         .push(icons)
         .default('home')
