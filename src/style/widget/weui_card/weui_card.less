@@ -24,10 +24,12 @@
   padding:.6em 15px;color:@grayColor;font-size:14px;
   position:relative;
   &:before{.setTopLine(@lineColor);left:15px;}
-  &:after{
-    content:" ";
-    .setArrow_Wap(right,8px,@lineColor,1px);
-    position:absolute;right:15px;top:50%;margin-top:-4px;
+  .weui_card_more &{
+    &:after{
+      content:" ";
+      .setArrow_Wap(right,8px,@lineColor,1px);
+      position:absolute;right:15px;top:50%;margin-top:-4px;
+    }
   }
 }
 
