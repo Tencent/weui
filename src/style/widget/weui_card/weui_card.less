@@ -19,9 +19,19 @@
   position:relative;
   &:after{.setBottomLine(@lineColor);left:15px;}
 }
-.weui_card_bd{padding:1em 15px;}
+.weui_card_bd{}
 .weui_card_ft{
-  padding:.5em 15px;color:@grayColor;font-size:14px;
+  padding:.6em 15px;color:@grayColor;font-size:14px;
   position:relative;
   &:before{.setTopLine(@lineColor);left:15px;}
+  &:after{
+    content:" ";
+    .setArrow_Wap(right,8px,@lineColor,1px);
+    position:absolute;right:15px;top:50%;margin-top:-4px;
+  }
 }
+
+
+
+
+
