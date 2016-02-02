@@ -1,15 +1,11 @@
 @import "../../base/fn";
 
-@weuiNavbarBgColor: #fafafa;
-@weuiNavbarActiveBc: #ededed;
-@weuiNavbarSelectedBc: #f5f5f5;
-
 .weui_navbar {
     display: flex;
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: @weuiNavbarBgColor;
+    background-color: #fafafa;
 
     &:after {
         .setBottomLine(@globalBorderColor);
@@ -31,15 +27,15 @@
     -webkit-tap-highlight-color: transparent;
 
     &:active {
-        background-color: @weuiNavbarActiveBc;
+        background-color: #ededed;
     }
 
     &.weui_navbar_item_active {
-        background-color: @weuiNavbarSelectedBc;
+        background-color: #f5f5f5;
     }
 
     &:after {
-        .setRightLine(@globalBorderColor);
+        .setRightLine(#cccccc);
         right: -1px;
     }
 

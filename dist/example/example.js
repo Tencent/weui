@@ -256,6 +256,25 @@ $(function () {
         name: 'tab',
         url: '#tab',
         template: '#tpl_tab',
+        events: {
+            '.js_tab': {
+                click: function (){
+                    var id = $(this).data('id');
+                    pageManager.go(id);
+                }
+            }
+        }
+    };
+    var navbar = {
+        name: 'navbar',
+        url: '#navbar',
+        template: '#tpl_navbar',
+        events: {}
+    };
+    var tabbar = {
+        name: 'tabbar',
+        url: '#tabbar',
+        template: '#tpl_tabbar',
         events: {}
     };
     var actionSheet = {
@@ -305,6 +324,8 @@ $(function () {
         .push(msg)
         .push(article)
         .push(tab)
+        .push(navbar)
+        .push(tabbar)
         .push(actionSheet)
         .push(icons)
         .default('home')
