@@ -256,6 +256,25 @@ $(function () {
         name: 'tab',
         url: '#tab',
         template: '#tpl_tab',
+        events: {
+            '.js_tab': {
+                click: function (){
+                    var id = $(this).data('id');
+                    pageManager.go(id);
+                }
+            }
+        }
+    };
+    var navbar = {
+        name: 'navbar',
+        url: '#navbar',
+        template: '#tpl_navbar',
+        events: {}
+    };
+    var tabbar = {
+        name: 'tabbar',
+        url: '#tabbar',
+        template: '#tpl_tabbar',
         events: {}
     };
     var actionSheet = {
@@ -268,10 +287,10 @@ $(function () {
                     var mask = $('#mask');
                     var weuiActionsheet = $('#weui_actionsheet');
                     weuiActionsheet.addClass('weui_actionsheet_toggle');
-                    mask.show().addClass('weui_fade_toggle').click(function () {
+                    mask.show().addClass('weui_fade_toggle').one('click', function () {
                         hideActionSheet(weuiActionsheet, mask);
                     });
-                    $('#actionsheet_cancel').click(function () {
+                    $('#actionsheet_cancel').one('click', function () {
                         hideActionSheet(weuiActionsheet, mask);
                     });
                     weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
@@ -305,6 +324,8 @@ $(function () {
         .push(msg)
         .push(article)
         .push(tab)
+        .push(navbar)
+        .push(tabbar)
         .push(actionSheet)
         .push(icons)
         .default('home')
