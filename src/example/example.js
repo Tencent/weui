@@ -252,6 +252,12 @@ $(function () {
         template: '#tpl_article',
         events: {}
     };
+    var card = {
+        name: 'card',
+        url: '#card',
+        template: '#tpl_card',
+        events: {}
+    };
     var tab = {
         name: 'tab',
         url: '#tab',
@@ -305,6 +311,7 @@ $(function () {
         .push(msg)
         .push(article)
         .push(tab)
+        .push(card)
         .push(actionSheet)
         .push(icons)
         .default('home')
