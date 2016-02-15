@@ -25,6 +25,7 @@ body, .page {
     left: 0;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    opacity: 0;
 }
 
 .hd {
@@ -191,18 +192,22 @@ body, .page {
 @keyframes slideIn {
     from {
         transform: translate3d(100%, 0, 0);
+        opacity: 0;
     }
     to {
         transform: translate3d(0, 0, 0);
+        opacity: 1;
     }
 }
 
 @keyframes slideOut {
     from {
         transform: translate3d(0, 0, 0);
+        opacity: 1;
     }
     to {
         transform: translate3d(100%, 0, 0);
+        opacity: 0;
     }
 }
 
