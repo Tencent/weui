@@ -127,6 +127,11 @@ $(function () {
             }
         }
     };
+    var card = {
+        name: 'card',
+        url: '#card',
+        template: '#tpl_card'
+    };
     var button = {
         name: 'button',
         url: '#button',
@@ -326,6 +331,7 @@ $(function () {
         .push(tab)
         .push(navbar)
         .push(tabbar)
+        .push(card)
         .push(actionSheet)
         .push(icons)
         .default('home')
