@@ -1,0 +1,50 @@
+@import "../../base/fn";
+
+@lineColor: #E5E5E7;
+@grayColor: #8C8C8C;
+
+.weui_media_box {
+    padding: 15px;
+
+    position: relative;
+    &:before {
+        .setTopLine(@lineColor);
+        left: 15px;
+    }
+    &:first-child {
+        &:before {
+            display: none
+        }
+    }
+
+    &.weui_media_img {
+        img {
+            width: 100px;
+        }
+    }
+    &.weui_media_appmsg {
+        overflow: hidden;
+        .weui_media_hd {
+            float: right;
+            margin-left: .8em;
+            width: 60px;
+            height: 48px;
+        }
+        .weui_media_bd {
+            overflow: hidden;
+        }
+        .weui_media_title {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.4;
+            .ellipsis(1, 2);
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        .weui_media_desc {
+            color: @grayColor;
+            font-size: 14px;
+            .ellipsis;
+        }
+    }
+}
