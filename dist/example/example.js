@@ -9,7 +9,6 @@ $(function () {
         _pageStack: [],
         _configs: [],
         _defaultPage: null,
-        _isGo: false,
         default: function (defaultPage) {
             this._defaultPage = defaultPage;
             return this;
@@ -18,12 +17,6 @@ $(function () {
             var self = this;
 
             $(window).on('hashchange', function (e) {
-
-                var _isBack = !self._isGo;
-                self._isGo = false;
-                if (!_isBack) {
-                    return;
-                }
 
                 var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
                 var found = null;
@@ -70,7 +63,6 @@ $(function () {
                 dom: $html
             });
 
-            this._isGo = true;
             location.hash = config.url;
 
             if (!config.isBind) {
@@ -122,7 +114,7 @@ $(function () {
             '.js_grid': {
                 click: function (e) {
                     var id = $(this).data('id');
-                    pageManager.go(id);
+                    location.hash = id;
                 }
             }
         }
