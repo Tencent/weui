@@ -91,14 +91,22 @@
                     Icons
                 </p>
             </a>
-            <a class="weui_cell js_cell" href="javascript:;" data-id="searchbar">
+            <a href="javascript:;" class="weui_grid js_grid" data-id="searchbar">
+                <div class="weui_grid_icon">
+                    <img src="./images/icon_nav_icons.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    SearchBar
+                </p>
+            </a>
+            <!--<a class="weui_cell js_cell" href="javascript:;" data-id="searchbar">
                 <span class="weui_cell_hd"><img src="./images/icon_nav_icons.png" class="icon_nav" alt=""></span>
                 <div class="weui_cell_bd weui_cell_primary">
                     <p>SearchBar</p>
                 </div>
                 <div class="weui_cell_ft">
                 </div>
-            </a>
+            </a>-->
         </div>
     </div>
 </div>
@@ -656,7 +664,10 @@
                 <div class="weui_search_inner" id="search_form">
                     <span class="weui_icon_search weui_search_icon"></span>
                     <input type="search" class="weui_search_input" id="weui_search_input" placeholder="搜索"/>
-                    <label for="weui_search_input" class="weui_search_text"><span class="weui_icon_search"></span>搜索</label>
+                    <label for="weui_search_input" class="weui_search_text">
+                        <span class="weui_icon_search"></span>
+                        <span>搜索</span>
+                    </label>
                 </div>
             </div>
             <a href="javascript:" class="weui_search_cancel" id="weui_search_cancel">取消</a>

@@ -17,7 +17,7 @@
     height: 28px;
     background-color: #efeff4;
     &.with_cancel{
-        margin-right: 42px;
+        margin-right: 40px;
     }
     .weui_search_border{
         position: absolute;
@@ -45,8 +45,9 @@
     left:0;
     top:0;
     height: 100%;
-    width:99.5%;
-    padding-left: 20px;
+    //width:99.5%;
+    width:100%;
+    padding-left: 30px;
     box-sizing: border-box;
     .weui_search_input{
         width: 100%;
@@ -58,8 +59,8 @@
 }
 .weui_search_icon{
     position: absolute;
-    left: 5px;
-    top:2px;
+    left: 10px;
+    top:1px;
 }
 .weui_search_text {
     position: absolute;
@@ -67,17 +68,22 @@
     top: 50%;
     transform: translate(-50%,-50%);
     padding-top: 2px;
-    width: 100%;
+    width: 99%;
     line-height: 1;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 0;
     text-align: center;
     color: #9b9b9b;
     background: #fff;
+    span{
+        font-size: 14px;
+        vertical-align: middle;
+    }
     .weui_icon_search {
         display:inline-block;
+        vertical-align: middle;
         margin-right: 3px;
-        margin-top: -3px;
+        margin-top: -2px;
     }
 }
 .weui_search_input:focus ~ label{
