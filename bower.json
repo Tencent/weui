@@ -1,0 +1,22 @@
+{
+    "name": "weui",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/weui/weui.git"
+    },
+    "description": "wechat mobile ui",
+    "main": "dist/style/weui.css",
+    "version": "0.3.0",
+    "authors": [
+        "wechat ui team"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "wechat",
+        "weixin",
+        "mobile",
+        "ui"
+    ],
+    "homepage": "https://github.com/weui/weui",
+    "ignore": []
+}
