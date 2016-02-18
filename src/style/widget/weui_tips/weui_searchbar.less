@@ -19,7 +19,7 @@
     &.with_cancel{
         margin-right: 40px;
     }
-    .weui_search_border{
+    .weui_search_outline{
         position: absolute;
         left: 0;
         top:0;
@@ -49,15 +49,26 @@
     width:100%;
     padding-left: 30px;
     box-sizing: border-box;
-    .weui_search_input{
+    .weui_search_input {
         width: 100%;
-        height: 100%;
+        height: 28px;
         border: 0;
         background: transparent;
         font-size: 14px;
+        &:focus {
+            outline: none;
+        }
+    }
+    .weui_icon_clear {
+        position: absolute;
+        top: 1px;
+        right: 10px;
+        &:before{
+            font-size: 16px;
+        }
     }
 }
-.weui_search_icon{
+.left_icon{
     position: absolute;
     left: 10px;
     top:1px;
@@ -89,3 +100,12 @@
 .weui_search_input:focus ~ label{
     display: none;
 }
+.weui_search_input:not(:valid) ~ .weui_icon_clear {
+    display: none;
+}
+
+//干掉input[search]默认的clear button
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

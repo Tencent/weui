@@ -306,11 +306,16 @@ $(function () {
                     }else{
                         $('.weui_search_text').show();
                     }
-                },
+                }
             },
             "#weui_search_cancel":{
                 touchend:function(){
                     $('#weui_search_input').val('');
+                }
+            },
+            "#weui_search_clear":{
+                touchend:function(){
+                    $('#weui_search_input').val('').focus();
                 }
             }
         }
