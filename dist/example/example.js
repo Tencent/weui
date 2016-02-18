@@ -9,7 +9,6 @@ $(function () {
         _pageStack: [],
         _configs: [],
         _defaultPage: null,
-        _isGo: false,
         default: function (defaultPage) {
             this._defaultPage = defaultPage;
             return this;
@@ -18,12 +17,6 @@ $(function () {
             var self = this;
 
             $(window).on('hashchange', function (e) {
-
-                var _isBack = !self._isGo;
-                self._isGo = false;
-                if (!_isBack) {
-                    return;
-                }
 
                 var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
                 var found = null;
@@ -38,17 +31,39 @@ $(function () {
                     self.back();
                 }
                 else {
-                    goDefault();
+                    var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
+                    var page = self._find('url', url) || self._find('name', self._defaultPage);
+                    self.go(page.name);
                 }
             });
 
-            function goDefault(){
-                var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-                var page = self._find('url', url) || self._find('name', self._defaultPage);
+            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
+            var page = self._find('url', url);
+            if((url === '#' + self._defaultPage) || !page){
+                self.go(self._defaultPage);
+            }else{
                 self.go(page.name);
-            }
 
-            goDefault();
+                setTimeout(function(){
+                    var config = self._find('name', self._defaultPage);
+                    if (!config) {
+                        return;
+                    }
+
+                    var html = $(config.template).html();
+                    var $html = $(html).addClass(config.name).css('opacity', 1);
+                    self.$container.prepend($html);
+                    self._pageStack.unshift({
+                        config: config,
+                        dom: $html
+                    });
+
+                    if (!config.isBind) {
+                        self._bind(config);
+                    }
+                }, 200);
+
+            }
 
             return this;
         },
@@ -70,7 +85,6 @@ $(function () {
                 dom: $html
             });
 
-            this._isGo = true;
             location.hash = config.url;
 
             if (!config.isBind) {
@@ -122,7 +136,7 @@ $(function () {
             '.js_grid': {
                 click: function (e) {
                     var id = $(this).data('id');
-                    pageManager.go(id);
+                    location.hash = id;
                 }
             }
         }
