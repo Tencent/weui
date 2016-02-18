@@ -31,17 +31,39 @@ $(function () {
                     self.back();
                 }
                 else {
-                    goDefault();
+                    var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
+                    var page = self._find('url', url) || self._find('name', self._defaultPage);
+                    self.go(page.name);
                 }
             });
 
-            function goDefault(){
-                var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-                var page = self._find('url', url) || self._find('name', self._defaultPage);
+            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
+            var page = self._find('url', url);
+            if((url === '#' + self._defaultPage) || !page){
+                self.go(self._defaultPage);
+            }else{
                 self.go(page.name);
-            }
 
-            goDefault();
+                setTimeout(function(){
+                    var config = self._find('name', self._defaultPage);
+                    if (!config) {
+                        return;
+                    }
+
+                    var html = $(config.template).html();
+                    var $html = $(html).addClass(config.name).css('opacity', 1);
+                    self.$container.prepend($html);
+                    self._pageStack.unshift({
+                        config: config,
+                        dom: $html
+                    });
+
+                    if (!config.isBind) {
+                        self._bind(config);
+                    }
+                }, 200);
+
+            }
 
             return this;
         },
