@@ -305,16 +305,12 @@ $(function () {
             '#weui_search_input':{
                 focus:function(){
                     //searchBar
-                    var $searchBarCancel = $('.weui_search_cancel');
-                    var $weuiSearchOuter = $('.weui_search_outer');
-                    $searchBarCancel.show();
-                    $weuiSearchOuter.addClass('with_cancel');
+                    var $weuiSearchBar = $('.weui_search_bar');
+                    $weuiSearchBar.addClass('with_cancel');
                 },
                 blur:function(){
-                    var $searchBarCancel = $('.weui_search_cancel');
-                    var $weuiSearchOuter = $('.weui_search_outer');
-                    $searchBarCancel.hide();
-                    $weuiSearchOuter.removeClass('with_cancel');
+                    var $weuiSearchBar = $('.weui_search_bar');
+                    $weuiSearchBar.removeClass('with_cancel');
                     if($(this).val()){
                         $('.weui_search_text').hide();
                     }else{
@@ -329,7 +325,7 @@ $(function () {
             },
             "#weui_search_clear":{
                 touchend:function(){
-                    $('#weui_search_input').val('').focus();
+                    $('#weui_search_input').val('');
                 }
             }
         }
