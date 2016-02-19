@@ -35,12 +35,12 @@ gulp.task('build:style', function (){
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dist))
+        .pipe(browserSync.reload({stream: true}))
         .pipe(nano())
         .pipe(rename(function (path) {
             path.basename += '.min';
         }))
-        .pipe(gulp.dest(dist))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(gulp.dest(dist));
 });
 
 gulp.task('build:example:assets', function (){
@@ -49,7 +49,7 @@ gulp.task('build:example:assets', function (){
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('build:example:less', function (){
+gulp.task('build:example:style', function (){
     gulp.src('src/example/example.less', option)
         .pipe(less().on('error', function (e){
             console.error(e.message);
@@ -78,14 +78,15 @@ gulp.task('build:example:html', function (){
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('build:example', ['build:example:assets', 'build:example:less', 'build:example:html']);
+gulp.task('build:example', ['build:example:assets', 'build:example:style', 'build:example:html']);
 
 gulp.task('release', ['build:style', 'build:example']);
 
 gulp.task('watch', ['release'], function () {
-    gulp.watch('src/**/*.*', ['release'], function (){
-        browserSync.reload();
-    });
+    gulp.watch('src/style/**/*', ['build:style']);
+    gulp.watch('src/example/example.less', ['build:example:style']);
+    gulp.watch('src/example/**/*.?(png|jpg|gif|js)', ['build:example:assets']);
+    gulp.watch('src/**/*.html', ['build:example:html']);
 });
 
 gulp.task('server', function () {
