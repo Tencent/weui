@@ -325,15 +325,25 @@ $(function () {
                     }else{
                         $('.weui_search_text').show();
                     }
+                },
+                input:function(){
+                    var $searchShow = $(".search_show");
+                    if($(this).val()){
+                        $searchShow.show();
+                    }else{
+                        $searchShow.hide();
+                    }
                 }
             },
             "#weui_search_cancel":{
                 touchend:function(){
+                    $(".search_show").hide();
                     $('#weui_search_input').val('');
                 }
             },
             "#weui_search_clear":{
                 touchend:function(){
+                    $(".search_show").hide();
                     $('#weui_search_input').val('');
                 }
             }
