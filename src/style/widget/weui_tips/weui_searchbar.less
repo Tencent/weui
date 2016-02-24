@@ -1,14 +1,14 @@
 @import "../../base/fn";
 .weui_search_bar {
-    position: absolute;
-    left: 0;
-    top: 50px;
     padding: 8px 10px;
     display: flex;
     width: 100%;
     box-sizing: border-box;
     background-color: #efeff4;
     z-index: 2;
+    &:before {
+        .setTopLine();
+    }
     &:after {
         .setBottomLine();
     }
@@ -79,9 +79,6 @@
         padding-right: 10px;
         height: 28px;
         line-height: 28px;
-        /*&:before {
-            font-size: 14px;
-        }*/
     }
 }
 .left_icon {
@@ -98,6 +95,7 @@
     padding: 2px 0;
     transform: translate(-50%, -50%);
     width: 99%;
+    z-index: 2;
     line-height: 1;
     box-sizing: border-box;
     text-align: center;
