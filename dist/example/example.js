@@ -150,6 +150,11 @@ $(function () {
             }
         }
     };
+    var card = {
+        name: 'card',
+        url: '#card',
+        template: '#tpl_card'
+    };
     var button = {
         name: 'button',
         url: '#button',
@@ -275,6 +280,31 @@ $(function () {
         template: '#tpl_article',
         events: {}
     };
+    var tab = {
+        name: 'tab',
+        url: '#tab',
+        template: '#tpl_tab',
+        events: {
+            '.js_tab': {
+                click: function (){
+                    var id = $(this).data('id');
+                    pageManager.go(id);
+                }
+            }
+        }
+    };
+    var navbar = {
+        name: 'navbar',
+        url: '#navbar',
+        template: '#tpl_navbar',
+        events: {}
+    };
+    var tabbar = {
+        name: 'tabbar',
+        url: '#tabbar',
+        template: '#tpl_tabbar',
+        events: {}
+    };
     var actionSheet = {
         name: 'actionsheet',
         url: '#actionsheet',
@@ -364,6 +394,10 @@ $(function () {
         .push(progress)
         .push(msg)
         .push(article)
+        .push(tab)
+        .push(navbar)
+        .push(tabbar)
+        .push(card)
         .push(actionSheet)
         .push(icons)
         .push(searchbar)

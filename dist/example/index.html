@@ -75,6 +75,22 @@
                     Article
                 </p>
             </a>
+            <a href="javascript:;" class="weui_grid js_grid" data-id="tab">
+                <div class="weui_grid_icon">
+                    <img src="./images/icon_nav_toast.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    Tab
+                </p>
+            </a>
+            <a href="javascript:;" class="weui_grid js_grid" data-id="card">
+                <div class="weui_grid_icon">
+                    <img src="./images/icon_nav_toast.png" alt="">
+                </div>
+                <p class="weui_grid_label">
+                    Card
+                </p>
+            </a>
             <a href="javascript:;" class="weui_grid js_grid" data-id="actionsheet">
                 <div class="weui_grid_icon">
                     <img src="./images/icon_nav_actionSheet.png" alt="">
@@ -589,6 +605,125 @@
                 </section>
             </section>
         </article>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_tab">
+<div class="page">
+    <div class="bd" style="height: 100%;">
+        <div class="weui_cells_title">Tab</div>
+        <div class="weui_cells weui_cells_access">
+            <a class="weui_cell js_tab" href="javascript:;" data-id="navbar">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>navbar</p>
+                </div>
+                <div class="weui_cell_ft">
+                </div>
+            </a>
+            <a class="weui_cell js_tab" href="javascript:;" data-id="tabbar">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>tabbar</p>
+                </div>
+                <div class="weui_cell_ft">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_navbar">
+<div class="page">
+    <div class="bd" style="height: 100%;">
+        <div class="weui_tab">
+            <div class="weui_navbar">
+                <div class="weui_navbar_item weui_navbar_item_active">
+                    选项一
+                </div>
+                <div class="weui_navbar_item">
+                    选项二
+                </div>
+                <div class="weui_navbar_item">
+                    选项三
+                </div>
+            </div>
+            <div class="weui_tab_bd">
+
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_tabbar">
+<div class="page">
+    <div class="bd" style="height: 100%;">
+        <div class="weui_tab">
+            <div class="weui_tab_bd">
+
+            </div>
+            <div class="weui_tabbar">
+                <a href="javascript:;" class="weui_tabbar_item">
+                    <div class="weui_tabbar_icon">
+                        <img src="./images/icon_nav_button.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">微信</p>
+                </a>
+                <a href="javascript:;" class="weui_tabbar_item">
+                    <div class="weui_tabbar_icon">
+                        <img src="./images/icon_nav_msg.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">通讯录</p>
+                </a>
+                <a href="javascript:;" class="weui_tabbar_item">
+                    <div class="weui_tabbar_icon">
+                        <img src="./images/icon_nav_article.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">发现</p>
+                </a>
+                <a href="javascript:;" class="weui_tabbar_item">
+                    <div class="weui_tabbar_icon">
+                        <img src="./images/icon_nav_cell.png" alt="">
+                    </div>
+                    <p class="weui_tabbar_label">我</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_card">
+<div class="page">
+    <div class="hd">
+        <h1 class="page_title">Card</h1>
+    </div>
+    <div class="bd">
+        <div class="weui_card weui_card_access">
+            <div class="weui_card_hd">weui card title</div>
+            <div class="weui_card_bd">
+                <div class="weui_media_box weui_media_appmsg">
+                    <img class="weui_media_hd" src="./snapshot/qrcode.png" alt="">
+                    <div class="weui_media_bd">
+                        <h4 class="weui_media_title">weui media title</h4>
+                        <p class="weui_media_desc">weui media desc</p>
+                    </div>
+                </div>
+                <div class="weui_media_box weui_media_appmsg">
+                    <img class="weui_media_hd" src="./snapshot/qrcode.png" alt="">
+                    <div class="weui_media_bd">
+                        <h4 class="weui_media_title">weui media title</h4>
+                        <p class="weui_media_desc">weui media desc</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weui_card_ft">weui card foot</div>
+        </div>
+        <div class="weui_card">
+            <div class="weui_card_hd">weui card title</div>
+            <div class="weui_card_bd">
+                <div class="weui_media_box weui_media_img">
+                    <img src="./snapshot/qrcode.png" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </script>
