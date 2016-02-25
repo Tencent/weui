@@ -313,6 +313,49 @@ $(function () {
             }
         }
     };
+    var searchbar = {
+        name:"searchbar",
+        url:"#searchbar",
+        template: '#tpl_searchbar',
+        events:{
+            '#weui_search_input':{
+                focus:function(){
+                    //searchBar
+                    var $weuiSearchBar = $('.weui_search_bar');
+                    $weuiSearchBar.addClass('with_cancel');
+                },
+                blur:function(){
+                    var $weuiSearchBar = $('.weui_search_bar');
+                    $weuiSearchBar.removeClass('with_cancel');
+                    if($(this).val()){
+                        $('.weui_search_text').hide();
+                    }else{
+                        $('.weui_search_text').show();
+                    }
+                },
+                input:function(){
+                    var $searchShow = $(".search_show");
+                    if($(this).val()){
+                        $searchShow.show();
+                    }else{
+                        $searchShow.hide();
+                    }
+                }
+            },
+            "#weui_search_cancel":{
+                touchend:function(){
+                    $(".search_show").hide();
+                    $('#weui_search_input').val('');
+                }
+            },
+            "#weui_search_clear":{
+                touchend:function(){
+                    $(".search_show").hide();
+                    $('#weui_search_input').val('');
+                }
+            }
+        }
+    };
     var icons = {
         name: 'icons',
         url: '#icons',
@@ -334,6 +377,7 @@ $(function () {
         .push(card)
         .push(actionSheet)
         .push(icons)
+        .push(searchbar)
         .default('home')
         .init();
 });
