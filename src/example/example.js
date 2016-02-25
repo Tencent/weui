@@ -322,11 +322,11 @@ $(function () {
                 focus:function(){
                     //searchBar
                     var $weuiSearchBar = $('.weui_search_bar');
-                    $weuiSearchBar.addClass('with_cancel');
+                    $weuiSearchBar.addClass('weui_search_focusing');
                 },
                 blur:function(){
                     var $weuiSearchBar = $('.weui_search_bar');
-                    $weuiSearchBar.removeClass('with_cancel');
+                    $weuiSearchBar.removeClass('weui_search_focusing');
                     if($(this).val()){
                         $('.weui_search_text').hide();
                     }else{
