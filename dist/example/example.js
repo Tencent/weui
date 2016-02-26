@@ -342,13 +342,13 @@ $(function () {
                     }
                 }
             },
-            "#weui_search_cancel":{
+            "#search_cancel":{
                 touchend:function(){
                     $("#search_show").hide();
                     $('#search_input').val('');
                 }
             },
-            "#weui_search_clear":{
+            "#search_clear":{
                 touchend:function(){
                     $("#search_show").hide();
                     $('#search_input').val('');
