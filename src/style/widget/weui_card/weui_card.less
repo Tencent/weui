@@ -1,7 +1,7 @@
 @import "../../base/fn";
 
-@lineColor: #E5E5E7;
-@grayColor: #8C8C8C;
+@lineColor: #E5E5E5;
+@grayColor: #999999;
 
 .weui_card {
     background-color: #FFFFFF;
@@ -21,9 +21,9 @@
 }
 
 .weui_card_hd {
-    padding: .8em 15px .6em;
+    padding: 14px 15px 10px;
     color: @grayColor;
-    font-size: 14px;
+    font-size: 13px;
     position: relative;
     &:after {
         .setBottomLine(@lineColor);
@@ -32,7 +32,7 @@
 }
 
 .weui_card_ft {
-    padding: .6em 15px;
+    padding: 10px 15px 12px;
     color: @grayColor;
     font-size: 14px;
     position: relative;
@@ -41,9 +41,15 @@
         left: 15px;
     }
     .weui_card_access & {
+        display: block;
+        color: #586C94;
+        .setTapColor;
+        &:active{
+            background-color:#ECECEC;
+        }
         &:after {
             content: " ";
-            .setArrow_Wap(right, 8px, @lineColor, 1px);
+            .setArrow_Wap(right, 6px, #C7C7CC, 2px);
             position: absolute;
             right: 15px;
             top: 50%;
