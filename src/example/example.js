@@ -318,23 +318,23 @@ $(function () {
         url:"#searchbar",
         template: '#tpl_searchbar',
         events:{
-            '#weui_search_input':{
+            '#search_input':{
                 focus:function(){
                     //searchBar
-                    var $weuiSearchBar = $('.weui_search_bar');
+                    var $weuiSearchBar = $('#search_bar');
                     $weuiSearchBar.addClass('weui_search_focusing');
                 },
                 blur:function(){
-                    var $weuiSearchBar = $('.weui_search_bar');
+                    var $weuiSearchBar = $('#search_bar');
                     $weuiSearchBar.removeClass('weui_search_focusing');
                     if($(this).val()){
-                        $('.weui_search_text').hide();
+                        $('#search_text').hide();
                     }else{
-                        $('.weui_search_text').show();
+                        $('#search_text').show();
                     }
                 },
                 input:function(){
-                    var $searchShow = $(".search_show");
+                    var $searchShow = $("#search_show");
                     if($(this).val()){
                         $searchShow.show();
                     }else{
@@ -344,14 +344,14 @@ $(function () {
             },
             "#weui_search_cancel":{
                 touchend:function(){
-                    $(".search_show").hide();
-                    $('#weui_search_input').val('');
+                    $("#search_show").hide();
+                    $('#search_input').val('');
                 }
             },
             "#weui_search_clear":{
                 touchend:function(){
-                    $(".search_show").hide();
-                    $('#weui_search_input').val('');
+                    $("#search_show").hide();
+                    $('#search_input').val('');
                 }
             }
         }
