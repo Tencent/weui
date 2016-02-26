@@ -313,6 +313,49 @@ $(function () {
             }
         }
     };
+    var searchbar = {
+        name:"searchbar",
+        url:"#searchbar",
+        template: '#tpl_searchbar',
+        events:{
+            '#search_input':{
+                focus:function(){
+                    //searchBar
+                    var $weuiSearchBar = $('#search_bar');
+                    $weuiSearchBar.addClass('weui_search_focusing');
+                },
+                blur:function(){
+                    var $weuiSearchBar = $('#search_bar');
+                    $weuiSearchBar.removeClass('weui_search_focusing');
+                    if($(this).val()){
+                        $('#search_text').hide();
+                    }else{
+                        $('#search_text').show();
+                    }
+                },
+                input:function(){
+                    var $searchShow = $("#search_show");
+                    if($(this).val()){
+                        $searchShow.show();
+                    }else{
+                        $searchShow.hide();
+                    }
+                }
+            },
+            "#search_cancel":{
+                touchend:function(){
+                    $("#search_show").hide();
+                    $('#search_input').val('');
+                }
+            },
+            "#search_clear":{
+                touchend:function(){
+                    $("#search_show").hide();
+                    $('#search_input').val('');
+                }
+            }
+        }
+    };
     var icons = {
         name: 'icons',
         url: '#icons',
@@ -334,6 +377,7 @@ $(function () {
         .push(card)
         .push(actionSheet)
         .push(icons)
+        .push(searchbar)
         .default('home')
         .init();
 });
