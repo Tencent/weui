@@ -150,10 +150,10 @@ $(function () {
             }
         }
     };
-    var card = {
-        name: 'card',
-        url: '#card',
-        template: '#tpl_card'
+    var panel = {
+        name: 'panel',
+        url: '#panel',
+        template: '#tpl_panel'
     };
     var button = {
         name: 'button',
@@ -397,7 +397,7 @@ $(function () {
         .push(tab)
         .push(navbar)
         .push(tabbar)
-        .push(card)
+        .push(panel)
         .push(actionSheet)
         .push(icons)
         .push(searchbar)

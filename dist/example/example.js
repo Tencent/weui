@@ -9,62 +9,34 @@ $(function () {
         _pageStack: [],
         _configs: [],
         _defaultPage: null,
-        default: function (defaultPage) {
-            this._defaultPage = defaultPage;
+        _pageIndex: 1,
+        setDefault: function (defaultPage) {
+            this._defaultPage = this._find('name', defaultPage);
             return this;
         },
         init: function () {
             var self = this;
 
-            $(window).on('hashchange', function (e) {
-
+            $(window).on('hashchange', function () {
+                var state = history.state || {};
                 var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-                var found = null;
-                for(var i = 0, len = self._pageStack.length; i < len; i++){
-                    var stack = self._pageStack[i];
-                    if (stack.config.url === url) {
-                        found = stack;
-                        break;
-                    }
-                }
-                if (found) {
-                    self.back();
-                }
-                else {
-                    var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-                    var page = self._find('url', url) || self._find('name', self._defaultPage);
-                    self.go(page.name);
+                var page = self._find('url', url) || self._defaultPage;
+                if (state._pageIndex <= self._pageIndex || self._findInStack(url)) {
+                    self._back(page);
+                } else {
+                    self._go(page);
                 }
             });
 
-            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-            var page = self._find('url', url);
-            if((url === '#' + self._defaultPage) || !page){
-                self.go(self._defaultPage);
-            }else{
-                self.go(page.name);
-
-                setTimeout(function(){
-                    var config = self._find('name', self._defaultPage);
-                    if (!config) {
-                        return;
-                    }
-
-                    var html = $(config.template).html();
-                    var $html = $(html).addClass(config.name).css('opacity', 1);
-                    self.$container.prepend($html);
-                    self._pageStack.unshift({
-                        config: config,
-                        dom: $html
-                    });
-
-                    if (!config.isBind) {
-                        self._bind(config);
-                    }
-                }, 200);
-
+            if (history.state && history.state._pageIndex) {
+                this._pageIndex = history.state._pageIndex;
             }
 
+            this._pageIndex--;
+
+            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
+            var page = self._find('url', url) || self._defaultPage;
+            this._go(page);
             return this;
         },
         push: function (config) {
@@ -76,6 +48,12 @@ $(function () {
             if (!config) {
                 return;
             }
+            location.hash = config.url;
+        },
+        _go: function (config) {
+            this._pageIndex ++;
+
+            history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
 
             var html = $(config.template).html();
             var $html = $(html).addClass('slideIn').addClass(config.name);
@@ -85,8 +63,6 @@ $(function () {
                 dom: $html
             });
 
-            location.hash = config.url;
-
             if (!config.isBind) {
                 this._bind(config);
             }
@@ -94,9 +70,31 @@ $(function () {
             return this;
         },
         back: function () {
+            history.back();
+        },
+        _back: function (config) {
+            this._pageIndex --;
+
             var stack = this._pageStack.pop();
             if (!stack) {
                 return;
+            }
+
+            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
+            var found = this._findInStack(url);
+            if (!found) {
+                var html = $(config.template).html();
+                var $html = $(html).css('opacity', 1).addClass(config.name);
+                $html.insertBefore(stack.dom);
+
+                if (!config.isBind) {
+                    this._bind(config);
+                }
+
+                this._pageStack.push({
+                    config: config,
+                    dom: $html
+                });
             }
 
             stack.dom.addClass('slideOut').on('animationend', function () {
@@ -106,6 +104,17 @@ $(function () {
             });
 
             return this;
+        },
+        _findInStack: function (url) {
+            var found = null;
+            for(var i = 0, len = this._pageStack.length; i < len; i++){
+                var stack = this._pageStack[i];
+                if (stack.config.url === url) {
+                    found = stack;
+                    break;
+                }
+            }
+            return found;
         },
         _find: function (key, value) {
             var page = null;
@@ -136,15 +145,15 @@ $(function () {
             '.js_grid': {
                 click: function (e) {
                     var id = $(this).data('id');
-                    location.hash = id;
+                    pageManager.go(id);
                 }
             }
         }
     };
-    var card = {
-        name: 'card',
-        url: '#card',
-        template: '#tpl_card'
+    var panel = {
+        name: 'panel',
+        url: '#panel',
+        template: '#tpl_panel'
     };
     var button = {
         name: 'button',
@@ -388,10 +397,10 @@ $(function () {
         .push(tab)
         .push(navbar)
         .push(tabbar)
-        .push(card)
+        .push(panel)
         .push(actionSheet)
         .push(icons)
         .push(searchbar)
-        .default('home')
+        .setDefault('home')
         .init();
 });
