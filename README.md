@@ -67,6 +67,7 @@ npm start
 - [adcentury/vue-weui](https://github.com/adcentury/vue-weui)
 - [ZTfer/weui-sketch](https://github.com/ZTfer/weui-sketch)
 - [i5ting/weui-practice](https://github.com/i5ting/weui-practice)
+- [airyland/vux](https://github.com/airyland/vux)
 
 ## 文档
 
