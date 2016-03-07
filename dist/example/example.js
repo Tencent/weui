@@ -372,7 +372,8 @@ $(function () {
                 }
             },
             "#search_clear":{
-                touchend:function(){
+                touchend:function(e){
+                    e.preventDefault();
                     $("#search_show").hide();
                     $('#search_input').val('');
                 }
