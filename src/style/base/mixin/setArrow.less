@@ -100,7 +100,7 @@
 
 .setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = top) {
     display: inline-block;
-    .transform(translate(0, 0) rotate(-45deg));
+    transform: rotate(-45deg);
     .setArrowSize_Wap(@arrowsize);
     .setArrowWidth_Wap(@borderWidth);
     border-color: @borderColor;
@@ -114,20 +114,15 @@
     .setArrowWidth_Wap(@borderWidth);
     border-color: @borderColor;
     border-style: solid;
-    position: relative;
-    top: -2px;
 }
 
-.setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = down) {
+.setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = bottom) {
     display: inline-block;
     transform: rotate(135deg);
     .setArrowSize_Wap(@arrowsize);
     .setArrowWidth_Wap(@borderWidth);
     border-color: @borderColor;
     border-style: solid;
-
-    position: relative;
-    top: -3px;
 }
 
 .setArrow_Wap(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = left) {
@@ -137,7 +132,4 @@
     .setArrowWidth_Wap(@borderWidth);
     border-color: @borderColor;
     border-style: solid;
-
-    position: relative;
-    top: -2px;
 }
