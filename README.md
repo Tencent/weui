@@ -5,6 +5,10 @@ WeUI 为微信 Web 服务量身设计  ![](https://travis-ci.org/weui/weui.svg?b
 
 WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含`button`、`cell`、`dialog`、 `progress`、 `toast`、`article`、`actionsheet`、`icon`等各式元素。
 
+## 视觉标准
+
+[WeUI-Sketch](https://github.com/weui/weui-sketch)
+
 ## 使用
 
 #### 方法一：
