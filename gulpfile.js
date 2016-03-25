@@ -36,7 +36,9 @@ gulp.task('build:style', function (){
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}))
-        .pipe(nano())
+        .pipe(nano({
+            zindex: false
+        }))
         .pipe(rename(function (path) {
             path.basename += '.min';
         }))
@@ -56,7 +58,9 @@ gulp.task('build:example:style', function (){
             this.emit('end');
         }))
         .pipe(postcss([autoprefixer]))
-        .pipe(nano())
+        .pipe(nano({
+            zindex: false
+        }))
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
 });
