@@ -1,4 +1,4 @@
-WeUI 为微信 Web 服务量身设计  ![](https://travis-ci.org/weui/weui.svg?branch=master)
+WeUI 为微信 Web 服务量身设计  [![Build Status](https://travis-ci.org/weui/weui.svg?branch=master)](https://travis-ci.org/weui/weui)
 ====
 
 ## 概述
