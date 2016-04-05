@@ -53,8 +53,11 @@ $(function () {
         _go: function (config) {
             this._pageIndex ++;
 
-            history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
-
+            // replaceState throwing a security exception on a 'file:' URL in chrome
+            try {
+                history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
+            } catch (e) {}
+            
             var html = $(config.template).html();
             var $html = $(html).addClass('slideIn').addClass(config.name);
             this.$container.append($html);
