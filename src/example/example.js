@@ -2,8 +2,8 @@ $(function () {
 
     var router = new Router({
         container: '#container',
-        enterTimeout: 300,
-        leaveTimeout: 300
+        enterTimeout: 250,
+        leaveTimeout: 250
     });
 
     // grid

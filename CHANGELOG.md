@@ -1,3 +1,25 @@
+#### v0.4.1 (2016-04-06)
+
+- 【修复】优化 demo，修复 demo 的若干 bug
+- 【修复】修复搜索框上下边框位置的 bug
+- 【修复】改进 navbar 高亮背景色过浅的问题
+- 【修复】修复 navbar 在 iOS 下无法点击的 bug
+- 【修复】禁用 cssnano 插件压缩 css 时对 z-index 的转换，是 mask、toast、dialog 等有预设的 z-index
+- 【修复】修复弹框内容在英文字符时溢出的 bug
+- 【修复】修复 media-box 布局的 bug
+- 【修复】修复 tab demo 页面出现滚动条的 bug
+
+详情参考:
+
+- [22ba680](https://github.com/weui/weui/commit/22ba680) 优化 demo
+- [169e18a](https://github.com/weui/weui/commit/169e18a) fixed `search bar` border-top & border-bottom position bug
+- [7db3ca0](https://github.com/weui/weui/commit/7db3ca0) #295 fixed navbar active background-color
+- [1a549ea](https://github.com/weui/weui/commit/1a549ea) improve navbar touched behavior on ios
+- [6c1d7b5](https://github.com/weui/weui/commit/6c1d7b5) disable cssnano zindex
+- [e32dc1a](https://github.com/weui/weui/commit/e32dc1a) add dialog content word wrap
+- [b93306b](https://github.com/weui/weui/commit/b93306b) fix flexbox layout problem
+- [2260e49](https://github.com/weui/weui/commit/2260e49) #244 修复 tab demo 页出滚动条的bug
+
 #### v0.4.0 (2016-02-26)
 
 - 【增强】新增 navbar 组件
