@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="../style/weui.css"/>
+    <link rel="stylesheet" href="./example.css"/>
+</head>
+<body ontouchstart>
+    <div class="container js_container">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">WeUI</h1>
+                <p class="page_desc">为微信Web服务量身设计</p>
+            </div>
+            <div class="bd">
+                <div class="weui_cells weui_cells_access global_navs">
+                    <a class="weui_cell js_cell" href="javascript:;" data-index="123" data-id="article">
+                        <span class="weui_cell_hd"><img src="./images/icon_nav_article.png" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Article Page</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--BEGIN toast-->
+    <div id="toast" style="display: none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <i class="weui_icon_toast"></i>
+            <p class="weui_toast_content">已完成</p>
+        </div>
+    </div>
+    <!--end toast-->
+    <!--BEGIN dialog-->
+    <div class="weui_dialog_confirm" id="dialog" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
+            <div class="weui_dialog_bd">内容...</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_btn_dialog primary">关闭</a>
+            </div>
+        </div>
+    </div>
+    <!--END dialog-->
+    
+    <script type="text/html" id="tpl_article">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Article</h1>
+            </div>
+            <div class="bd">
+                <article class="weui_article">
+                    <h1>大标题</h1>
+                    <section>
+                        <h2 class="title">章标题</h2>
+                        <section>
+                            <h3>1.1 节标题</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute</p>
+                        </section>
+                        <section>
+                            <h3>1.2 节标题</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </section>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </script>
+    <script src="https://res.wx.qq.com/open/libs/zepto/1.1.6/zepto.js"></script>
+    <script src="./load.js"></script>
+<script type="text/javascript">
+function load_article(index){
+    show_toast(index);
+}
+</script>
+</body>
+</html>

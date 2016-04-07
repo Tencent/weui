@@ -9,6 +9,12 @@ WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官�
 
 [WeUI-Sketch](https://github.com/weui/weui-sketch)
 
+
+## 本分支的修改
+
+基于2015-10-22的weui fork，对原示例代码加入了页面跳转时的自动加载功能，加载时可读取a中的data-index。通常可用此字段存储id，这样可以在加载子页面时根据此id向服务器申请ajax请求。
+
+
 ## 使用
 
 #### 方法一：
