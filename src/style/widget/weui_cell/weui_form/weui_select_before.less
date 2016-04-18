@@ -3,7 +3,10 @@
 
 .weui_select_before {
     padding-right:@weuiCellGapH;
-    .weui_select{width:auto;}
+    .weui_select {
+        width:@weuiCellLabelWidth;
+        box-sizing: border-box;
+    }
     .weui_cell_hd {
         position:relative;
         &:after {
