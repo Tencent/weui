@@ -189,6 +189,12 @@ $(function () {
         className: 'navbar',
         render: function () {
             return $('#tpl_navbar').html();
+        },
+        bind: function () {
+            $('#container').on('click', '.weui_navbar_item', function () {
+                $('.weui_bar_item_on').removeClass('weui_bar_item_on');
+                $(this).addClass('weui_bar_item_on');
+            });
         }
     };
 
@@ -198,6 +204,12 @@ $(function () {
         className: 'tabbar',
         render: function () {
             return $('#tpl_tabbar').html();
+        },
+        bind: function () {
+            $('#container').on('click', '.weui_tabbar_item', function () {
+                $('.weui_bar_item_on').removeClass('weui_bar_item_on');
+                $(this).addClass('weui_bar_item_on');
+            });
         }
     };
 
