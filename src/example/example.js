@@ -192,8 +192,7 @@ $(function () {
         },
         bind: function () {
             $('#container').on('click', '.weui_navbar_item', function () {
-                $('.weui_bar_item_on').removeClass('weui_bar_item_on');
-                $(this).addClass('weui_bar_item_on');
+                $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
             });
         }
     };
@@ -207,8 +206,7 @@ $(function () {
         },
         bind: function () {
             $('#container').on('click', '.weui_tabbar_item', function () {
-                $('.weui_bar_item_on').removeClass('weui_bar_item_on');
-                $(this).addClass('weui_bar_item_on');
+                $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
             });
         }
     };
