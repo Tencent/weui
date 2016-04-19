@@ -1,0 +1,114 @@
+@import "../../base/fn";
+.weui_search_bar {
+    position: relative;
+    padding: 8px 10px;
+    display: flex;
+    box-sizing: border-box;
+    background-color: #EFEFF4;
+    z-index: 2;
+    &:before {
+        .setTopLine();
+    }
+    &:after {
+        .setBottomLine();
+    }
+    &.weui_search_focusing{
+        .weui_search_cancel{
+            display: block;
+        }
+        .weui_search_text{
+            display: none;
+        }
+    }
+}
+.weui_search_outer {
+    position: relative;
+    flex: auto;
+    background-color: #EFEFF4;
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top:0;
+        width: 200%;
+        height: 200%;
+        transform: scale(.5);
+        transform-origin: 0 0;
+        border-radius: 10px;
+        border: 1px solid #E6E6EA;
+        box-sizing: border-box;
+        background: #FFFFFF;
+    }
+}
+.weui_search_inner {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    .weui_search_input {
+        padding: 4px 0;
+        width: 100%;
+        height: 20/14em;
+        border: 0;
+        font-size: 14px;
+        line-height: 20/14em;
+        box-sizing: content-box;
+        background: transparent;
+        &:focus {
+            outline: none;
+        }
+    }
+    .weui_icon_search {
+        position: absolute;
+        left: 10px;
+        top: -2px;
+        line-height: 28px;
+    }
+    .weui_icon_clear {
+        position: absolute;
+        top: -2px;
+        right: 0;
+        padding: 0 10px;
+        line-height: 28px;
+    }
+}
+.weui_search_text {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    z-index: 2;
+    border-radius: 3px;
+    text-align: center;
+    color: #9B9B9B;
+    background: #FFFFFF;
+    span {
+        display: inline-block;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+    .weui_icon_search {
+        margin-right: 5px;
+    }
+}
+.weui_search_cancel {
+    display: none;
+    margin-left: 10px;
+    line-height: 28px;
+    color: #09BB07;
+}
+.weui_search_input:not(:valid) ~ .weui_icon_clear {
+    display: none;
+}
+
+//干掉input[search]默认的clear button
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}

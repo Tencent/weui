@@ -1,0 +1,64 @@
+@import "../../base/fn";
+
+@lineColor: #E5E5E5;
+@grayColor: #999999;
+
+.weui_panel {
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    &:first-child {
+        margin-top: 0;
+    }
+
+    position: relative;
+    overflow: hidden;
+    &:before {
+        .setTopLine(@lineColor);
+    }
+    &:after {
+        .setBottomLine(@lineColor);
+    }
+}
+
+.weui_panel_hd {
+    padding: 14px 15px 10px;
+    color: @grayColor;
+    font-size: 13px;
+    position: relative;
+    &:after {
+        .setBottomLine(@lineColor);
+        left: 15px;
+    }
+}
+
+.weui_panel_ft {
+    padding: 10px 15px 12px;
+    color: @grayColor;
+    font-size: 14px;
+    position: relative;
+    &:before {
+        .setTopLine(@lineColor);
+        left: 15px;
+    }
+    .weui_panel_access & {
+        display: block;
+        color: #586C94;
+        .setTapColor;
+        &:active{
+            background-color:#ECECEC;
+        }
+        &:after {
+            content: " ";
+            .setArrow_Wap(right, 6px, #C7C7CC, 2px);
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            margin-top: -4px;
+        }
+    }
+}
+
+
+
+
+

@@ -1,3 +1,45 @@
+#### v0.4.1 (2016-04-06)
+
+- 【修复】优化 demo，修复 demo 的若干 bug
+- 【修复】修复搜索框上下边框位置的 bug
+- 【修复】改进 navbar 高亮背景色过浅的问题
+- 【修复】修复 navbar 在 iOS 下无法点击的 bug
+- 【修复】禁用 cssnano 插件压缩 css 时对 z-index 的转换，是 mask、toast、dialog 等有预设的 z-index
+- 【修复】修复弹框内容在英文字符时溢出的 bug
+- 【修复】修复 media-box 布局的 bug
+- 【修复】修复 tab demo 页面出现滚动条的 bug
+
+详情参考:
+
+- [22ba680](https://github.com/weui/weui/commit/22ba680) 优化 demo
+- [169e18a](https://github.com/weui/weui/commit/169e18a) fixed `search bar` border-top & border-bottom position bug
+- [7db3ca0](https://github.com/weui/weui/commit/7db3ca0) #295 fixed navbar active background-color
+- [1a549ea](https://github.com/weui/weui/commit/1a549ea) improve navbar touched behavior on ios
+- [6c1d7b5](https://github.com/weui/weui/commit/6c1d7b5) disable cssnano zindex
+- [e32dc1a](https://github.com/weui/weui/commit/e32dc1a) add dialog content word wrap
+- [b93306b](https://github.com/weui/weui/commit/b93306b) fix flexbox layout problem
+- [2260e49](https://github.com/weui/weui/commit/2260e49) #244 修复 tab demo 页出滚动条的bug
+
+#### v0.4.0 (2016-02-26)
+
+- 【增强】新增 navbar 组件
+- 【增强】新增 tabbar 组件
+- 【增强】新增 panel 组件
+- 【增强】新增 search_bar 组件
+- 【修复】#193 字体格式的问题，只使用 ttf 格式文件
+- 【增强】增加 `weui_icon_clear` 图标
+- 【修复】去掉表单元素 input 、textarea 点击时的默认的阴影
+- 【修复】修复 radio 图标没有完全居中的问题
+
+详情参考：
+- [3eda74a](https://github.com/weui/weui/commit/3eda74a) init navbar
+- [2567ad9](https://github.com/weui/weui/commit/2567ad9) init tabbar
+- [61ce366](https://github.com/weui/weui/commit/61ce366) rename card to panel
+- [f081257](https://github.com/weui/weui/commit/f081257) add searchbar
+- [affb271](https://github.com/weui/weui/commit/affb271) #193 fix font-face type
+- [4a3762c](https://github.com/weui/weui/commit/4a3762c) add `weui_icon_clear`
+- [491150b](https://github.com/weui/weui/commit/491150b) 去掉weui_cells_form的input textareat label[for]的点击阴影
+- [370acc2](https://github.com/weui/weui/commit/370acc2) update radio icon position, remove unused property
 
 #### v0.3.0 (2016-01-22)
 
