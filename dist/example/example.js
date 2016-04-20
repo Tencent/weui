@@ -93,7 +93,9 @@ $(function () {
         var mask = $('#mask');
         var weuiActionsheet = $('#weui_actionsheet');
         weuiActionsheet.addClass('weui_actionsheet_toggle');
-        mask.show().addClass('weui_fade_toggle').click(function () {
+        mask.show();
+        getComputedStyle(mask[0]).display;
+        mask.addClass('weui_fade_toggle').click(function () {
             hideActionSheet(weuiActionsheet, mask);
         });
         $('#actionsheet_cancel').click(function () {
