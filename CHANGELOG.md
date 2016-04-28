@@ -1,3 +1,21 @@
+#### v0.4.2 (2016-04-28)
+
+- [修复] 修复 `weui_label` 在英文字符下溢出的缺陷
+- [增强] Article 页面增加支持图片样式
+- [修复] demo 页面的 `lang` 属性修改
+- [修复] 修复 demo 页面的 ActionSheet mask 无动画的缺陷
+- [增强] 优化 demo, 为tab中navbar和tabbar里标签添加点击事件交互，方便查看实际效果
+- [修复] 修改 `weui_label` 的宽度为 105px
+
+详情参考:
+
+- [8515ba3](https://github.com/weui/weui/commit/8515ba3) word wrap weui label (#341)
+- [b37830b](https://github.com/weui/weui/commit/b37830b) add article img
+- [9ad4230](https://github.com/weui/weui/commit/9ad4230) 调整 html 的 lang 属性
+- [775502c](https://github.com/weui/weui/commit/775502c) fix mask no transition bug (#333)
+- [3a6eaf7](https://github.com/weui/weui/commit/3a6eaf7) 优化demo 为tab中navbar和tabbar里标签添加点击事件交互，方便查看实际效果
+- [14ee030](https://github.com/weui/weui/commit/14ee030) standard weui select gap
+
 #### v0.4.1 (2016-04-06)
 
 - 【修复】优化 demo，修复 demo 的若干 bug
@@ -51,7 +69,7 @@
 
 - [4d8aeb5](https://github.com/weui/weui/commit/4d8aeb5) #149 add bower.json file
 - [fe9d34f](https://github.com/weui/weui/commit/fe9d34f) add weui_uploader
-- [d7a63bd](https://github.com/weui/weui/commit/d7a63bd) create `weui_grid` 
+- [d7a63bd](https://github.com/weui/weui/commit/d7a63bd) create `weui_grid`
 
 #### v0.2.3 (2015-12-29)
 
