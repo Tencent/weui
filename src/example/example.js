@@ -30,6 +30,14 @@ $(function () {
         className: 'cell',
         render: function () {
             return $('#tpl_cell').html();
+        },
+        bind: function (){
+            $('.container').on('click', '#showTooltips', function (){
+                $('.js_tooltips').show();
+                setTimeout(function (){
+                    $('.js_tooltips').hide();
+                }, 3000);
+            });
         }
     };
 
