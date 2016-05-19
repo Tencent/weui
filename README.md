@@ -1,5 +1,9 @@
-WeUI 为微信 Web 服务量身设计  [![Build Status](https://travis-ci.org/weui/weui.svg?branch=master)](https://travis-ci.org/weui/weui) [![npm version](https://img.shields.io/npm/v/weui.svg)](https://www.npmjs.org/package/weui)
+WeUI 为微信 Web 服务量身设计  
 ====
+
+[![Build Status](https://travis-ci.org/weui/weui.svg?branch=master)](https://travis-ci.org/weui/weui)
+[![npm version](https://img.shields.io/npm/v/weui.svg)](https://www.npmjs.org/package/weui)
+[![Gitter](https://badges.gitter.im/weui/weui.svg)](https://gitter.im/weui/weui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## 概述
 
