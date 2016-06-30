@@ -31,7 +31,7 @@ gulp.task('build:style', function (){
             console.error(e.message);
             this.emit('end');
         }))
-        .pipe(postcss([autoprefixer]))
+        .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1'])]))
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dist))
@@ -57,7 +57,7 @@ gulp.task('build:example:style', function (){
             console.error(e.message);
             this.emit('end');
         }))
-        .pipe(postcss([autoprefixer]))
+        .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1'])]))
         .pipe(nano({
             zindex: false
         }))
