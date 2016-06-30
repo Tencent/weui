@@ -37,7 +37,8 @@ gulp.task('build:style', function (){
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}))
         .pipe(nano({
-            zindex: false
+            zindex: false,
+            autoprefixer: false
         }))
         .pipe(rename(function (path) {
             path.basename += '.min';
@@ -59,7 +60,8 @@ gulp.task('build:example:style', function (){
         }))
         .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1'])]))
         .pipe(nano({
-            zindex: false
+            zindex: false,
+            autoprefixer: false
         }))
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));
