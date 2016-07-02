@@ -9,13 +9,12 @@
     position: relative;
     width: 52px;
     height: @weuiSwitchHeight;
-    border: 1px solid;
-    border-color: #DFDFDF;
+    border: 1px solid #DFDFDF;
     outline: 0;
     border-radius: 16px;
     box-sizing: border-box;
     background-color: #DFDFDF;
-    transition: background-color .1s, border-color .1s;
+    transition: background-color .1s, border .1s;
     &:before{
         content: " ";
         position: absolute;
@@ -30,13 +29,13 @@
     &:after{
         content: " ";
         position: absolute;
-        top: 1px;
-        left: 1px;
-        width: @weuiSwitchHeight - 4;
-        height: @weuiSwitchHeight - 4;
+        top: 0;
+        left: 0;
+        width: @weuiSwitchHeight - 2;
+        height: @weuiSwitchHeight - 2;
         border-radius: 15px;
         background-color: #FFFFFF;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
         transition:transform .35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
     }
 
