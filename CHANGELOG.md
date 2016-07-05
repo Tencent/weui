@@ -1,3 +1,61 @@
+#### v0.4.3 (2016-07-05)
+
+- [修复] 图片上传组件无法选中图片的缺陷
+- [修复] 九宫格组件少于3个时出现多余线段的缺陷
+- [修复] 解决某些组件的z-index冲突，标准化z-index
+- [修复] 解决`pannel`图标没有对齐的问题 
+- [增强] demo 更新 router 
+- [增强] autoprefixer 指定浏览器范围
+
+详情参考:
+
+- [60873c2](https://github.com/weui/weui/commit/60873c2) fix 某些android机不能选图片的bug (issues#388)
+- [46235c6](https://github.com/weui/weui/commit/46235c6) #376 Fix grids top line bug with less than 2 item
+- [715de0e](https://github.com/weui/weui/commit/715de0e) standard weui zindex (#415)
+- [07187f8](https://github.com/weui/weui/commit/07187f8) verticle mediabox appmsg thumb
+- [4c566dd](https://github.com/weui/weui/commit/4c566dd) #401 update demo router
+- [d8b504d](https://github.com/weui/weui/commit/d8b504d) #401 指定 autoprefixer 浏览器范围
+
+#### v0.4.2 (2016-04-28)
+
+- [修复] 修复 `weui_label` 在英文字符下溢出的缺陷
+- [增强] Article 页面增加支持图片样式
+- [修复] demo 页面的 `lang` 属性修改
+- [修复] 修复 demo 页面的 ActionSheet mask 无动画的缺陷
+- [增强] 优化 demo, 为tab中navbar和tabbar里标签添加点击事件交互，方便查看实际效果
+- [修复] 修改 `weui_label` 的宽度为 105px
+
+详情参考:
+
+- [8515ba3](https://github.com/weui/weui/commit/8515ba3) word wrap weui label (#341)
+- [b37830b](https://github.com/weui/weui/commit/b37830b) add article img
+- [9ad4230](https://github.com/weui/weui/commit/9ad4230) 调整 html 的 lang 属性
+- [775502c](https://github.com/weui/weui/commit/775502c) fix mask no transition bug (#333)
+- [3a6eaf7](https://github.com/weui/weui/commit/3a6eaf7) 优化demo 为tab中navbar和tabbar里标签添加点击事件交互，方便查看实际效果
+- [14ee030](https://github.com/weui/weui/commit/14ee030) standard weui select gap
+
+#### v0.4.1 (2016-04-06)
+
+- 【修复】优化 demo，修复 demo 的若干 bug
+- 【修复】修复搜索框上下边框位置的 bug
+- 【修复】改进 navbar 高亮背景色过浅的问题
+- 【修复】修复 navbar 在 iOS 下无法点击的 bug
+- 【修复】禁用 cssnano 插件压缩 css 时对 z-index 的转换，是 mask、toast、dialog 等有预设的 z-index
+- 【修复】修复弹框内容在英文字符时溢出的 bug
+- 【修复】修复 media-box 布局的 bug
+- 【修复】修复 tab demo 页面出现滚动条的 bug
+
+详情参考:
+
+- [22ba680](https://github.com/weui/weui/commit/22ba680) 优化 demo
+- [169e18a](https://github.com/weui/weui/commit/169e18a) fixed `search bar` border-top & border-bottom position bug
+- [7db3ca0](https://github.com/weui/weui/commit/7db3ca0) #295 fixed navbar active background-color
+- [1a549ea](https://github.com/weui/weui/commit/1a549ea) improve navbar touched behavior on ios
+- [6c1d7b5](https://github.com/weui/weui/commit/6c1d7b5) disable cssnano zindex
+- [e32dc1a](https://github.com/weui/weui/commit/e32dc1a) add dialog content word wrap
+- [b93306b](https://github.com/weui/weui/commit/b93306b) fix flexbox layout problem
+- [2260e49](https://github.com/weui/weui/commit/2260e49) #244 修复 tab demo 页出滚动条的bug
+
 #### v0.4.0 (2016-02-26)
 
 - 【增强】新增 navbar 组件
@@ -29,7 +87,7 @@
 
 - [4d8aeb5](https://github.com/weui/weui/commit/4d8aeb5) #149 add bower.json file
 - [fe9d34f](https://github.com/weui/weui/commit/fe9d34f) add weui_uploader
-- [d7a63bd](https://github.com/weui/weui/commit/d7a63bd) create `weui_grid` 
+- [d7a63bd](https://github.com/weui/weui/commit/d7a63bd) create `weui_grid`
 
 #### v0.2.3 (2015-12-29)
 

@@ -1,8 +1,9 @@
 @import "../../../base/fn";
 
 .weui_label{
-  display:block;
-  width:3em;
+    display:block;
+    width:@weuiCellLabelWidth;
+    .text_wrap();
 }
 .weui_input {
     width: 100%;
@@ -50,7 +51,7 @@
     font-size:14px;
     text-align: center;
     color: #FFF;
-    z-index: 2;
+    z-index: 50000;
     &.weui_warn {
         background-color: @globalWarnColor;
     }
@@ -59,9 +60,6 @@
     .weui_cell_warn{
         color:@globalWarnColor;
         .weui_icon_warn{display:inline-block;}
-    }
-    .weui_cell_hd {
-        padding-right: .3em;
     }
     .weui_cell_ft{font-size:0;}
     .weui_icon_warn{

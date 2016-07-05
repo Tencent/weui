@@ -1,392 +1,263 @@
-/**
- * Created by jf on 2015/9/11.
- */
-
 $(function () {
 
-    var pageManager = {
-        $container: $('.js_container'),
-        _pageStack: [],
-        _configs: [],
-        _defaultPage: null,
-        _pageIndex: 1,
-        setDefault: function (defaultPage) {
-            this._defaultPage = this._find('name', defaultPage);
-            return this;
-        },
-        init: function () {
-            var self = this;
+    var router = new Router({
+        container: '#container',
+        enterTimeout: 250,
+        leaveTimeout: 250
+    });
 
-            $(window).on('hashchange', function () {
-                var state = history.state || {};
-                var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-                var page = self._find('url', url) || self._defaultPage;
-                if (state._pageIndex <= self._pageIndex || self._findInStack(url)) {
-                    self._back(page);
-                } else {
-                    self._go(page);
-                }
-            });
-
-            if (history.state && history.state._pageIndex) {
-                this._pageIndex = history.state._pageIndex;
-            }
-
-            this._pageIndex--;
-
-            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-            var page = self._find('url', url) || self._defaultPage;
-            this._go(page);
-            return this;
-        },
-        push: function (config) {
-            this._configs.push(config);
-            return this;
-        },
-        go: function (to) {
-            var config = this._find('name', to);
-            if (!config) {
-                return;
-            }
-            location.hash = config.url;
-        },
-        _go: function (config) {
-            this._pageIndex ++;
-
-            history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
-
-            var html = $(config.template).html();
-            var $html = $(html).addClass('slideIn').addClass(config.name);
-            this.$container.append($html);
-            this._pageStack.push({
-                config: config,
-                dom: $html
-            });
-
-            if (!config.isBind) {
-                this._bind(config);
-            }
-
-            return this;
-        },
-        back: function () {
-            history.back();
-        },
-        _back: function (config) {
-            this._pageIndex --;
-
-            var stack = this._pageStack.pop();
-            if (!stack) {
-                return;
-            }
-
-            var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
-            var found = this._findInStack(url);
-            if (!found) {
-                var html = $(config.template).html();
-                var $html = $(html).css('opacity', 1).addClass(config.name);
-                $html.insertBefore(stack.dom);
-
-                if (!config.isBind) {
-                    this._bind(config);
-                }
-
-                this._pageStack.push({
-                    config: config,
-                    dom: $html
-                });
-            }
-
-            stack.dom.addClass('slideOut').on('animationend', function () {
-                stack.dom.remove();
-            }).on('webkitAnimationEnd', function () {
-                stack.dom.remove();
-            });
-
-            return this;
-        },
-        _findInStack: function (url) {
-            var found = null;
-            for(var i = 0, len = this._pageStack.length; i < len; i++){
-                var stack = this._pageStack[i];
-                if (stack.config.url === url) {
-                    found = stack;
-                    break;
-                }
-            }
-            return found;
-        },
-        _find: function (key, value) {
-            var page = null;
-            for (var i = 0, len = this._configs.length; i < len; i++) {
-                if (this._configs[i][key] === value) {
-                    page = this._configs[i];
-                    break;
-                }
-            }
-            return page;
-        },
-        _bind: function (page) {
-            var events = page.events || {};
-            for (var t in events) {
-                for (var type in events[t]) {
-                    this.$container.on(type, t, events[t][type]);
-                }
-            }
-            page.isBind = true;
-        }
-    };
-
+    // grid
     var home = {
-        name: 'home',
-        url: '#',
-        template: '#tpl_home',
-        events: {
-            '.js_grid': {
-                click: function (e) {
-                    var id = $(this).data('id');
-                    pageManager.go(id);
-                }
-            }
+        url: '/',
+        className: 'home',
+        render: function () {
+            return $('#tpl_home').html();
         }
     };
-    var panel = {
-        name: 'panel',
-        url: '#panel',
-        template: '#tpl_panel'
-    };
+
+    // button
     var button = {
-        name: 'button',
-        url: '#button',
-        template: '#tpl_button'
+        url: '/button',
+        className: 'button',
+        render: function () {
+            return $('#tpl_button').html();
+        }
     };
+
+    // cell
     var cell = {
-        name: 'cell',
-        url: '#cell',
-        template: '#tpl_cell',
-        events: {
-            '#showTooltips': {
-                click: function () {
-                    var $tooltips = $('.js_tooltips');
-                    if ($tooltips.css('display') != 'none') {
-                        return;
-                    }
-
-                    // 如果有`animation`, `position: fixed`不生效
-                    $('.page.cell').removeClass('slideIn');
-                    $tooltips.show();
-                    setTimeout(function () {
-                        $tooltips.hide();
-                    }, 2000);
-                }
-            }
+        url: '/cell',
+        className: 'cell',
+        render: function () {
+            return $('#tpl_cell').html();
+        },
+        bind: function (){
+            $('.container').on('click', '#showTooltips', function (){
+                $('.js_tooltips').show();
+                setTimeout(function (){
+                    $('.js_tooltips').hide();
+                }, 3000);
+            });
         }
     };
+
+    // toast
     var toast = {
-        name: 'toast',
-        url: '#toast',
-        template: '#tpl_toast',
-        events: {
-            '#showToast': {
-                click: function (e) {
-                    var $toast = $('#toast');
-                    if ($toast.css('display') != 'none') {
-                        return;
-                    }
-
-                    $toast.show();
-                    setTimeout(function () {
-                        $toast.hide();
-                    }, 2000);
-                }
-            },
-            '#showLoadingToast': {
-                click: function (e) {
-                    var $loadingToast = $('#loadingToast');
-                    if ($loadingToast.css('display') != 'none') {
-                        return;
-                    }
-
-                    $loadingToast.show();
-                    setTimeout(function () {
-                        $loadingToast.hide();
-                    }, 2000);
-                }
-            }
+        url: '/toast',
+        className: 'toast',
+        render: function () {
+            return $('#tpl_toast').html();
+        },
+        bind: function () {
+            $('#container').on('click', '#showToast', function () {
+                $('#toast').show();
+                setTimeout(function () {
+                    $('#toast').hide();
+                }, 2000);
+            }).on('click', '#showLoadingToast', function () {
+                $('#loadingToast').show();
+                setTimeout(function () {
+                    $('#loadingToast').hide();
+                }, 2000);
+            });
         }
     };
+
+    // dialog
     var dialog = {
-        name: 'dialog',
-        url: '#dialog',
-        template: '#tpl_dialog',
-        events: {
-            '#showDialog1': {
-                click: function (e) {
-                    var $dialog = $('#dialog1');
-                    $dialog.show();
-                    $dialog.find('.weui_btn_dialog').one('click', function () {
-                        $dialog.hide();
-                    });
-                }
-            },
-            '#showDialog2': {
-                click: function (e) {
-                    var $dialog = $('#dialog2');
-                    $dialog.show();
-                    $dialog.find('.weui_btn_dialog').one('click', function () {
-                        $dialog.hide();
-                    });
-                }
-            }
+        url: '/dialog',
+        className: 'dialog',
+        render: function () {
+            return $('#tpl_dialog').html();
+        },
+        bind: function () {
+            $('#container').on('click', '#showDialog1', function () {
+                $('#dialog1').show().on('click', '.weui_btn_dialog', function () {
+                    $('#dialog1').off('click').hide();
+                });
+            }).on('click', '#showDialog2', function () {
+                $('#dialog2').show().on('click', '.weui_btn_dialog', function () {
+                    $('#dialog2').off('click').hide();
+                });
+            });
+
         }
     };
+
+    // progress
     var progress = {
-        name: 'progress',
-        url: '#progress',
-        template: '#tpl_progress',
-        events: {
-            '#btnStartProgress': {
-                click: function () {
-
-                    if ($(this).hasClass('weui_btn_disabled')) {
-                        return;
-                    }
-
-                    $(this).addClass('weui_btn_disabled');
-
-                    var progress = 0;
-                    var $progress = $('.js_progress');
-
-                    function next() {
-                        $progress.css({width: progress + '%'});
-                        progress = ++progress % 100;
-                        setTimeout(next, 30);
-                    }
-
-                    next();
+        url: '/progress',
+        className: 'progress',
+        render: function () {
+            return $('#tpl_progress').html();
+        },
+        bind: function () {
+            $('#container').on('click', '#btnStartProgress', function () {
+                if ($(this).hasClass('weui_btn_disabled')) {
+                    return;
                 }
-            }
+
+                $(this).addClass('weui_btn_disabled');
+
+                var progress = 0;
+                var $progress = $('.js_progress');
+
+                function next() {
+                    $progress.css({width: progress + '%'});
+                    progress = ++progress % 100;
+                    setTimeout(next, 30);
+                }
+
+                next();
+            });
         }
     };
+
+    // msg
     var msg = {
-        name: 'msg',
-        url: '#msg',
-        template: '#tpl_msg',
-        events: {}
+        url: '/msg',
+        className: 'msg',
+        render: function () {
+            return $('#tpl_msg').html();
+        }
     };
+
+    // article
     var article = {
-        name: 'article',
-        url: '#article',
-        template: '#tpl_article',
-        events: {}
-    };
-    var tab = {
-        name: 'tab',
-        url: '#tab',
-        template: '#tpl_tab',
-        events: {
-            '.js_tab': {
-                click: function (){
-                    var id = $(this).data('id');
-                    pageManager.go(id);
-                }
-            }
+        url: '/article',
+        className: 'article',
+        render: function () {
+            return $('#tpl_article').html();
         }
     };
-    var navbar = {
-        name: 'navbar',
-        url: '#navbar',
-        template: '#tpl_navbar',
-        events: {}
-    };
-    var tabbar = {
-        name: 'tabbar',
-        url: '#tabbar',
-        template: '#tpl_tabbar',
-        events: {}
-    };
-    var actionSheet = {
-        name: 'actionsheet',
-        url: '#actionsheet',
-        template: '#tpl_actionsheet',
-        events: {
-            '#showActionSheet': {
-                click: function () {
-                    var mask = $('#mask');
-                    var weuiActionsheet = $('#weui_actionsheet');
-                    weuiActionsheet.addClass('weui_actionsheet_toggle');
-                    mask.show().addClass('weui_fade_toggle').one('click', function () {
-                        hideActionSheet(weuiActionsheet, mask);
-                    });
-                    $('#actionsheet_cancel').one('click', function () {
-                        hideActionSheet(weuiActionsheet, mask);
-                    });
-                    weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
 
-                    function hideActionSheet(weuiActionsheet, mask) {
-                        weuiActionsheet.removeClass('weui_actionsheet_toggle');
-                        mask.removeClass('weui_fade_toggle');
-                        weuiActionsheet.on('transitionend', function () {
-                            mask.hide();
-                        }).on('webkitTransitionEnd', function () {
-                            mask.hide();
-                        })
-                    }
+    // actionsheet
+    var actionsheet = {
+        url: '/actionsheet',
+        className: 'actionsheet',
+        render: function () {
+            return $('#tpl_actionsheet').html();
+        },
+        bind: function () {
+            $('#container').on('click', '#showActionSheet', function () {
+                var mask = $('#mask');
+                var weuiActionsheet = $('#weui_actionsheet');
+                weuiActionsheet.addClass('weui_actionsheet_toggle');
+                mask.show()
+                    .focus()//加focus是为了触发一次页面的重排(reflow or layout thrashing),使mask的transition动画得以正常触发
+                    .addClass('weui_fade_toggle').one('click', function () {
+                    hideActionSheet(weuiActionsheet, mask);
+                });
+                $('#actionsheet_cancel').one('click', function () {
+                    hideActionSheet(weuiActionsheet, mask);
+                });
+                mask.unbind('transitionend').unbind('webkitTransitionEnd');
+
+                function hideActionSheet(weuiActionsheet, mask) {
+                    weuiActionsheet.removeClass('weui_actionsheet_toggle');
+                    mask.removeClass('weui_fade_toggle');
+                    mask.on('transitionend', function () {
+                        mask.hide();
+                    }).on('webkitTransitionEnd', function () {
+                        mask.hide();
+                    })
                 }
-            }
+            });
         }
     };
-    var searchbar = {
-        name:"searchbar",
-        url:"#searchbar",
-        template: '#tpl_searchbar',
-        events:{
-            '#search_input':{
-                focus:function(){
-                    //searchBar
-                    var $weuiSearchBar = $('#search_bar');
-                    $weuiSearchBar.addClass('weui_search_focusing');
-                },
-                blur:function(){
-                    var $weuiSearchBar = $('#search_bar');
-                    $weuiSearchBar.removeClass('weui_search_focusing');
-                    if($(this).val()){
-                        $('#search_text').hide();
-                    }else{
-                        $('#search_text').show();
-                    }
-                },
-                input:function(){
-                    var $searchShow = $("#search_show");
-                    if($(this).val()){
-                        $searchShow.show();
-                    }else{
-                        $searchShow.hide();
-                    }
-                }
-            },
-            "#search_cancel":{
-                touchend:function(){
-                    $("#search_show").hide();
-                    $('#search_input').val('');
-                }
-            },
-            "#search_clear":{
-                touchend:function(){
-                    $("#search_show").hide();
-                    $('#search_input').val('');
-                }
-            }
-        }
-    };
+
+    // icons
     var icons = {
-        name: 'icons',
-        url: '#icons',
-        template: '#tpl_icons',
-        events: {}
+        url: '/icons',
+        className: 'icons',
+        render: function () {
+            return $('#tpl_icons').html();
+        }
     };
 
-    pageManager.push(home)
+    // panel
+    var panel = {
+        url: '/panel',
+        className: 'panel',
+        render: function () {
+            return $('#tpl_panel').html();
+        }
+    };
+
+    // tab
+    var tab = {
+        url: '/tab',
+        className: 'tab',
+        render: function () {
+            return $('#tpl_tab').html();
+        }
+    };
+
+    // navbar
+    var navbar = {
+        url: '/navbar',
+        className: 'navbar',
+        render: function () {
+            return $('#tpl_navbar').html();
+        },
+        bind: function () {
+            $('#container').on('click', '.weui_navbar_item', function () {
+                $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
+            });
+        }
+    };
+
+    // tabbar
+    var tabbar = {
+        url: '/tabbar',
+        className: 'tabbar',
+        render: function () {
+            return $('#tpl_tabbar').html();
+        },
+        bind: function () {
+            $('#container').on('click', '.weui_tabbar_item', function () {
+                $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
+            });
+        }
+    };
+
+    // searchbar
+    var searchbar = {
+        url: '/searchbar',
+        className: 'searchbar',
+        render: function () {
+            return $('#tpl_searchbar').html();
+        },
+        bind: function () {
+            $('#container').on('focus', '#search_input', function () {
+                var $weuiSearchBar = $('#search_bar');
+                $weuiSearchBar.addClass('weui_search_focusing');
+            }).on('blur', '#search_input', function () {
+                var $weuiSearchBar = $('#search_bar');
+                $weuiSearchBar.removeClass('weui_search_focusing');
+                if ($(this).val()) {
+                    $('#search_text').hide();
+                } else {
+                    $('#search_text').show();
+                }
+            }).on('input', '#search_input', function () {
+                var $searchShow = $("#search_show");
+                if ($(this).val()) {
+                    $searchShow.show();
+                } else {
+                    $searchShow.hide();
+                }
+            }).on('touchend', '#search_cancel', function () {
+                $("#search_show").hide();
+                $('#search_input').val('');
+            }).on('touchend', '#search_clear', function () {
+                $("#search_show").hide();
+                $('#search_input').val('');
+            });
+        }
+    };
+
+    router.push(home)
         .push(button)
         .push(cell)
         .push(toast)
@@ -394,13 +265,30 @@ $(function () {
         .push(progress)
         .push(msg)
         .push(article)
+        .push(actionsheet)
+        .push(icons)
+        .push(panel)
         .push(tab)
         .push(navbar)
         .push(tabbar)
-        .push(panel)
-        .push(actionSheet)
-        .push(icons)
         .push(searchbar)
-        .setDefault('home')
+        .setDefault('/')
         .init();
+
+
+    // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
+    // 相关 issue: https://github.com/weui/weui/issues/15
+    // 解决方法:
+    // 0. .container 去掉 overflow 属性, 但此 demo 下会引发别的问题
+    // 1. 参考 http://stackoverflow.com/questions/23757345/android-does-not-correctly-scroll-on-input-focus-if-not-body-element
+    //    Android 手机下, input 或 textarea 元素聚焦时, 主动滚一把
+    if (/Android/gi.test(navigator.userAgent)) {
+        window.addEventListener('resize', function () {
+            if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {
+                window.setTimeout(function () {
+                    document.activeElement.scrollIntoViewIfNeeded();
+                }, 0);
+            }
+        })
+    }
 });

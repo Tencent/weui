@@ -1,10 +1,10 @@
 @import "../../base/fn";
 .weui_search_bar {
+    position: relative;
     padding: 8px 10px;
     display: flex;
     box-sizing: border-box;
     background-color: #EFEFF4;
-    z-index: 2;
     &:before {
         .setTopLine();
     }
@@ -98,6 +98,7 @@
     display: none;
     margin-left: 10px;
     line-height: 28px;
+    white-space: nowrap;
     color: #09BB07;
 }
 .weui_search_input:not(:valid) ~ .weui_icon_clear {

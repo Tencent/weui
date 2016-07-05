@@ -5,10 +5,16 @@
     overflow: hidden;
 
     &:before {
-        .setTopLine(@weuiGridBorderColor);
-    }
-    &:after {
-        .setLeftLine(@weuiGridBorderColor);
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        width: 200%;
+        height: 200%;
+        left: 0;
+        top: 0;
+        border: 1px solid @weuiGridBorderColor;
+        transform-origin: 0 0;
+        transform: scale(.5);
     }
 }
 
@@ -20,10 +26,23 @@
     box-sizing: border-box;
 
     &:before {
-        .setRightLine(@weuiGridBorderColor);
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        width: 200%;
+        height: 200%;
+        left: 0;
+        top: 0;
+        border-bottom: 1px solid @weuiGridBorderColor;
+        border-right: 1px solid @weuiGridBorderColor;
+        transform-origin: 0 0;
+        transform: scale(.5);
     }
-    &:after {
-        .setBottomLine(@weuiGridBorderColor);
+
+    &:nth-child(3n) {
+        &:before {
+            border-right-width: 0;
+        }
     }
 
     &:active {
@@ -42,7 +61,7 @@
         height: 100%;
     }
 
-    & + .weui_grid_label{
+    & + .weui_grid_label {
         margin-top: 5px;
     }
 }
