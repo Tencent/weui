@@ -6,7 +6,7 @@
     },
     "description": "wechat mobile ui",
     "main": "dist/style/weui.css",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "authors": [
         "wechat ui team"
     ],
