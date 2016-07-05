@@ -1,3 +1,21 @@
+#### v0.4.3 (2016-07-05)
+
+- [修复] 图片上传组件无法选中图片的缺陷
+- [修复] 九宫格组件少于3个时出现多余线段的缺陷
+- [修复] 解决某些组件的z-index冲突，标准化z-index
+- [修复] 解决`pannel`图标没有对齐的问题 
+- [增强] demo 更新 router 
+- [增强] autoprefixer 指定浏览器范围
+
+详情参考:
+
+- [60873c2](https://github.com/weui/weui/commit/60873c2) fix 某些android机不能选图片的bug (issues#388)
+- [46235c6](https://github.com/weui/weui/commit/46235c6) #376 Fix grids top line bug with less than 2 item
+- [715de0e](https://github.com/weui/weui/commit/715de0e) standard weui zindex (#415)
+- [07187f8](https://github.com/weui/weui/commit/07187f8) verticle mediabox appmsg thumb
+- [4c566dd](https://github.com/weui/weui/commit/4c566dd) #401 update demo router
+- [d8b504d](https://github.com/weui/weui/commit/d8b504d) #401 指定 autoprefixer 浏览器范围
+
 #### v0.4.2 (2016-04-28)
 
 - [修复] 修复 `weui_label` 在英文字符下溢出的缺陷
