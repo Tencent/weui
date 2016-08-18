@@ -21,6 +21,14 @@ $(function () {
         className: 'button',
         render: function () {
             return $('#tpl_button').html();
+        },
+        bind: function (){
+            $('.container').on('click', '#showTooltips', function (){
+                $('.js_tooltips').show();
+                setTimeout(function (){
+                    $('.js_tooltips').hide();
+                }, 3000);
+            });
         }
     };
 
