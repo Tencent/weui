@@ -1,11 +1,24 @@
+#### v1.0.0 (2016-09-23)
+
+- 【增强】 采用BEM命名规范
+- 【增强】 新增Flex布局
+- 【增强】 新增Gallery
+- 【增强】 新增Preview
+- 【增强】 新增Agreement
+- 【增强】 新增Footer
+- 【增强】 新增Dialog和Actionsheet的Android样式
+- 【修复】 修正了部分组件的间距
+- 【修复】 修复了已知问题
+
+
 #### v0.4.3 (2016-07-05)
 
-- [修复] 图片上传组件无法选中图片的缺陷
-- [修复] 九宫格组件少于3个时出现多余线段的缺陷
-- [修复] 解决某些组件的z-index冲突，标准化z-index
-- [修复] 解决`pannel`图标没有对齐的问题 
-- [增强] demo 更新 router 
-- [增强] autoprefixer 指定浏览器范围
+- 【修复】 图片上传组件无法选中图片的缺陷
+- 【修复】 九宫格组件少于3个时出现多余线段的缺陷
+- 【修复】 解决某些组件的z-index冲突，标准化z-index
+- 【修复】 解决`pannel`图标没有对齐的问题 
+- 【增强】 demo 更新 router 
+- 【增强】 autoprefixer 指定浏览器范围
 
 详情参考:
 
@@ -18,12 +31,12 @@
 
 #### v0.4.2 (2016-04-28)
 
-- [修复] 修复 `weui_label` 在英文字符下溢出的缺陷
-- [增强] Article 页面增加支持图片样式
-- [修复] demo 页面的 `lang` 属性修改
-- [修复] 修复 demo 页面的 ActionSheet mask 无动画的缺陷
-- [增强] 优化 demo, 为tab中navbar和tabbar里标签添加点击事件交互，方便查看实际效果
-- [修复] 修改 `weui_label` 的宽度为 105px
+- 【修复】 修复 `weui_label` 在英文字符下溢出的缺陷
+- 【增强】 Article 页面增加支持图片样式
+- 【修复】 demo 页面的 `lang` 属性修改
+- 【修复】 修复 demo 页面的 ActionSheet mask 无动画的缺陷
+- 【增强】 优化 demo, 为tab中navbar和tabbar里标签添加点击事件交互，方便查看实际效果
+- 【修复】 修改 `weui_label` 的宽度为 105px
 
 详情参考:
 
