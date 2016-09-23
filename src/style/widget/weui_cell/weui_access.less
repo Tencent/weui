@@ -4,6 +4,12 @@
     .weui_cell:not(.no_access) {
         // 在cell_access和其它类型的cell混着用的场景下，其它cell要加no_access，避免有点击态
         .setTapColor;
+        &:link {
+            background-color: transparent;
+        }
+        &:visited {
+            background-color: transparent;
+        }
         &:active {
             background-color: #ECECEC;
         }
