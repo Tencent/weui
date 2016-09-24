@@ -6,10 +6,19 @@
     word-wrap: normal;
 }
 
-.ellipsis(@type,@line) {
+.ellipsisLn(@line) {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: @line;
+}
+.text_wrap() {
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.hyphens() {
+    word-wrap:break-word;
+    -webkit-hyphens:auto;
+    hyphens:auto;
 }
