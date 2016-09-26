@@ -423,7 +423,7 @@ $(function () {
         .setDefault('home')
         .init();
 
-    $.getJSON('https://team.weui.io/api/sign?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
+    $.getJSON('https://weui.io/api/sign?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
         wx.config({
             beta: true,
             debug: false,
