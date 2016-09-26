@@ -461,7 +461,7 @@ $(function () {
             wx.onMenuShareTimeline({
                 title: 'WeUI, 为微信 Web 服务量身设计',
                 desc: 'WeUI, 为微信 Web 服务量身设计',
-                link: location.href,
+                link: "https://weui.io",
                 imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
             });
             wx.onMenuShareQQ(option);
