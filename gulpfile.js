@@ -31,13 +31,14 @@ gulp.task('build:style', function (){
             console.error(e.message);
             this.emit('end');
         }))
-        .pipe(postcss([autoprefixer]))
+        .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1'])]))
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}))
         .pipe(nano({
-            zindex: false
+            zindex: false,
+            autoprefixer: false
         }))
         .pipe(rename(function (path) {
             path.basename += '.min';
@@ -57,9 +58,10 @@ gulp.task('build:example:style', function (){
             console.error(e.message);
             this.emit('end');
         }))
-        .pipe(postcss([autoprefixer]))
+        .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1'])]))
         .pipe(nano({
-            zindex: false
+            zindex: false,
+            autoprefixer: false
         }))
         .pipe(gulp.dest(dist))
         .pipe(browserSync.reload({stream: true}));

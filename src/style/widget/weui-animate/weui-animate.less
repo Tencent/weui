@@ -1,0 +1,55 @@
+@import "../../base/fn";
+
+@keyframes slideUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.weui-animate-slide-up {
+    animation: slideUp ease .3s forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.weui-animate-slide-down {
+    animation: slideDown ease .3s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.weui-animate-fade-in {
+    animation: fadeIn ease .3s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.weui-animate-fade-out {
+    animation: fadeOut ease .3s forwards;
+}

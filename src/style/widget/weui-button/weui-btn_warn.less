@@ -1,0 +1,12 @@
+@import "../../base/fn";
+
+.weui-btn_warn {
+    background-color: @weuiBtnWarnBg;
+    &:not(.weui-btn_disabled):visited {
+        color: @weuiBtnFontColor;
+    }
+    &:not(.weui-btn_disabled):active {
+        color: @weuiBtnActiveFontColor;
+        background-color: @weuiBtnWarnActiveBg;
+    }
+}

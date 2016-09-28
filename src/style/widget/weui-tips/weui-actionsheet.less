@@ -1,0 +1,84 @@
+@import "../../base/fn";
+@weuiActionSheetAndroidBorderRadius: 2px;
+
+.weui-actionsheet {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 100%);
+    backface-visibility: hidden;
+    z-index: 5000;
+    width: 100%;
+    background-color: @weuiBgColorDefault;
+    //slide up animation
+    transition: transform .3s;
+}
+.weui-actionsheet__menu{
+    background-color: #FFFFFF;
+}
+.weui-actionsheet__action {
+    margin-top: 6px;
+    background-color: #FFFFFF;
+}
+.weui-actionsheet__cell {
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    &:before {
+        .setTopLine(@weuiCellBorderColor);
+    }
+    &:active{
+        background-color: @weuiBgColorActive;
+    }
+    &:first-child{
+        &:before{
+            display: none;
+        }
+    }
+}
+
+
+//android actionSheet
+.weui-skin_android{
+    .weui-actionsheet {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+        //padding: 0 40px;
+        width: 274px;
+        box-sizing: border-box;
+        backface-visibility: hidden;
+        background: transparent;
+        //slide up animation
+        transition: transform .3s;
+    }
+    .weui-actionsheet__action{
+        display: none;
+    }
+    .weui-actionsheet__menu {
+        border-radius: @weuiActionSheetAndroidBorderRadius;
+        box-shadow: 0 6px 30px 0 rgba(0,0,0,.1);
+    }
+    .weui-actionsheet__cell {
+        padding: 13px 24px;
+        font-size: 16px;
+        line-height: 1.4;
+        text-align: left;
+        &:first-child {
+            border-top-left-radius: @weuiActionSheetAndroidBorderRadius;
+            border-top-right-radius: @weuiActionSheetAndroidBorderRadius;
+        }
+        &:last-child {
+            border-bottom-left-radius: @weuiActionSheetAndroidBorderRadius;
+            border-bottom-right-radius: @weuiActionSheetAndroidBorderRadius;
+        }
+    }
+}
+
+//actionSheet aniamtion
+.weui-actionsheet_toggle{
+    transform: translate(0, 0);
+}

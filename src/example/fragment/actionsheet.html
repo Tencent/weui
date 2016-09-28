@@ -1,22 +1,40 @@
-<div class="hd">
-    <h1 class="page_title">ActionSheet</h1>
-</div>
-<div class="bd spacing">
-    <a href="javascript:;" class="weui_btn weui_btn_primary" id="showActionSheet">点击上拉ActionSheet</a>
-</div>
-<!--BEGIN actionSheet-->
-<div id="actionSheet_wrap">
-    <div class="weui_mask_transition" id="mask"></div>
-    <div class="weui_actionsheet" id="weui_actionsheet">
-        <div class="weui_actionsheet_menu">
-            <div class="weui_actionsheet_cell">示例菜单</div>
-            <div class="weui_actionsheet_cell">示例菜单</div>
-            <div class="weui_actionsheet_cell">示例菜单</div>
-            <div class="weui_actionsheet_cell">示例菜单</div>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">ActionSheet</h1>
+        <p class="page__desc">弹出式菜单</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showIOSActionSheet">iOS ActionSheet</a>
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showAndroidActionSheet">Android ActionSheet</a>
+    </div>
+    <!--BEGIN actionSheet-->
+    <div id="actionSheet_wrap">
+        <div class="weui-mask_transparent actionsheet__mask" id="mask"></div>
+        <div class="weui-actionsheet" id="weui-actionsheet">
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div class="weui-actionsheet__cell">示例菜单</div>
+            </div>
+            <div class="weui-actionsheet__action">
+                <div class="weui-actionsheet__cell" id="actionsheet_cancel">取消</div>
+            </div>
         </div>
-        <div class="weui_actionsheet_action">
-            <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+
+        <div class="weui-skin_android" id="weui-android-actionsheet" style="display: none">
+            <div class="weui-mask"></div>
+            <div class="weui-actionsheet">
+                <div class="weui-actionsheet__menu">
+                    <div class="weui-actionsheet__cell">示例菜单</div>
+                    <div class="weui-actionsheet__cell">示例菜单</div>
+                    <div class="weui-actionsheet__cell">示例菜单</div>
+                </div>
+            </div>
         </div>
+        <!--END actionSheet-->
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
     </div>
 </div>
-<!--END actionSheet-->
