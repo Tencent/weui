@@ -3,7 +3,6 @@
  * Modified by bear on 2016/9/7.
  */
 $(function () {
-    var winH = $(window).height();
     var supportTouch = function(){
         try {
             document.createEvent("TouchEvent");
@@ -101,7 +100,7 @@ $(function () {
             var found = this._findInStack(url);
             if (!found) {
                 var html = $(config.template).html();
-                var $html = $(html).css('opacity', 1).addClass(config.name);
+                var $html = $(html).addClass('js_show').addClass(config.name);
                 $html.insertBefore(stack.dom);
 
                 if (!config.isBind) {
@@ -114,9 +113,7 @@ $(function () {
                 });
             }
 
-            stack.dom.addClass('slideOut').on('animationend', function () {
-                stack.dom.remove();
-            }).on('webkitAnimationEnd', function () {
+            stack.dom.addClass('slideOut').on('animationend webkitAnimationEnd', function () {
                 stack.dom.remove();
             });
 
@@ -169,7 +166,6 @@ $(function () {
             page.isBind = true;
         }
     };
-    var pages = {}, tpls = $('script[type="text/html"]');
 
     function preload(){
         $(window).on("load", function(){
@@ -248,6 +244,9 @@ $(function () {
         });
     }
     function setPageManager(){
+        var pages = {}, tpls = $('script[type="text/html"]');
+        var winH = $(window).height();
+
         for (var i = 0, len = tpls.length; i < len; ++i) {
             var tpl = tpls[i], name = tpl.id.replace(/tpl_/, '');
             pages[name] = {
