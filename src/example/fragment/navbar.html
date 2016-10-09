@@ -18,3 +18,10 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-navbar').on('click', '.weui-navbar__item', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>

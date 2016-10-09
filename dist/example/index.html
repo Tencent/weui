@@ -940,6 +940,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-navbar').on('click', '.weui-navbar__item', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>
 </script>
     <script type="text/html" id="tpl_tabbar">
 <div class="page">
@@ -969,6 +976,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-tabbar').on('click', '.weui-tabbar__item', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+</script>
 </script>
     <script type="text/html" id="tpl_panel">
 <div class="page">
