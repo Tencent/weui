@@ -170,255 +170,122 @@ $(function () {
         }
     };
     var pages = {}, tpls = $('script[type="text/html"]');
-    window.home = function(){
-        location.hash = '';
-    };
 
-    for (var i = 0, len = tpls.length; i < len; ++i) {
-        var tpl = tpls[i], name = tpl.id.replace(/tpl_/, '');
-        pages[name] = {
-            name: name,
-            url: '#' + name,
-            template: '#' + tpl.id
+    function preload(){
+        $(window).on("load", function(){
+            var imgList = [
+                "./images/layers/content.png",
+                "./images/layers/navigation.png",
+                "./images/layers/popout.png",
+                "./images/layers/transparent.gif"
+            ];
+            for (var i = 0, len = imgList.length; i < len; ++i) {
+                new Image().src = imgList[i];
+            }
+        });
+    }
+    function androidInputBugFix(){
+        // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
+        // 相关 issue: https://github.com/weui/weui/issues/15
+        // 解决方法:
+        // 0. .container 去掉 overflow 属性, 但此 demo 下会引发别的问题
+        // 1. 参考 http://stackoverflow.com/questions/23757345/android-does-not-correctly-scroll-on-input-focus-if-not-body-element
+        //    Android 手机下, input 或 textarea 元素聚焦时, 主动滚一把
+        if (/Android/gi.test(navigator.userAgent)) {
+            window.addEventListener('resize', function () {
+                if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {
+                    window.setTimeout(function () {
+                        document.activeElement.scrollIntoViewIfNeeded();
+                    }, 0);
+                }
+            })
+        }
+    }
+    function setJSAPI(){
+        $.getJSON('https://weui.io/api/sign?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
+            wx.config({
+                beta: true,
+                debug: false,
+                appId: res.appid,
+                timestamp: res.timestamp,
+                nonceStr: res.nonceStr,
+                signature: res.signature,
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'onMenuShareQZone',
+                    // 'setNavigationBarColor',
+                    'setBounceBackground'
+                ]
+            });
+            wx.ready(function () {
+                /*
+                 wx.invoke('setNavigationBarColor', {
+                 color: '#F8F8F8'
+                 });
+                 */
+                wx.invoke('setBounceBackground', {
+                    'backgroundColor': '#F8F8F8',
+                    'footerBounceColor' : '#F8F8F8'
+                });
+
+                wx.onMenuShareAppMessage({
+                    title: 'WeUI',
+                    desc: '为微信 Web 服务量身设计',
+                    link: location.href,
+                    imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
+                });
+                wx.onMenuShareTimeline({
+                    title: 'WeUI, 为微信 Web 服务量身设计',
+                    desc: 'WeUI, 为微信 Web 服务量身设计',
+                    link: "https://weui.io",
+                    imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
+                });
+                wx.onMenuShareQQ(option);
+            });
+        });
+    }
+    function setPageManager(){
+        for (var i = 0, len = tpls.length; i < len; ++i) {
+            var tpl = tpls[i], name = tpl.id.replace(/tpl_/, '');
+            pages[name] = {
+                name: name,
+                url: '#' + name,
+                template: '#' + tpl.id
+            };
+        }
+        pages.home.url = '#';
+
+        for (var page in pages) {
+            pageManager.push(pages[page]);
+        }
+        pageManager
+            .setPageAppend(function($html){
+                var $foot = $html.find('.page__ft');
+                if($foot.length < 1) return;
+
+                if($foot.position().top + $foot.height() < winH){
+                    $foot.addClass('j_bottom');
+                }else{
+                    $foot.removeClass('j_bottom');
+                }
+            })
+            .setDefault('home')
+            .init();
+    }
+
+    function init(){
+        preload();
+        androidInputBugFix();
+        setJSAPI();
+        setPageManager();
+
+        window.pageManager = pageManager;
+        window.home = function(){
+            location.hash = '';
         };
     }
-
-    pages.home.url = '#';
-    pages.home.events = {
-        '.js_item': {
-            click: function (e) {
-                var id = $(this).data('id');
-                pageManager.go(id);
-            }
-        },
-        '.js_category': {
-            click: function(){
-                var winH = $(window).height();
-                var categorySpace = 10;
-                return function(){
-                    var $this = $(this),
-                        $inner = $this.next('.js_categoryInner'),
-                        $page = $this.parents('.page'),
-                        $parent = $(this).parent('li');
-                    var innerH = $inner.data('height');
-
-                    if(!innerH){
-                        $inner.css('height', 'auto');
-                        innerH = $inner.height();
-                        $inner.removeAttr('style');
-                        $inner.data('height', innerH);
-                    }
-
-                    if($parent.hasClass('js_show')){
-                        $parent.removeClass('js_show');
-                    }else{
-                        $parent.siblings().removeClass('js_show');
-
-                        if(this.offsetTop + this.offsetHeight + innerH > $page.scrollTop() + winH){
-                            $page.scrollTop(this.offsetTop + this.offsetHeight + innerH - winH + categorySpace);
-                        }
-                        $parent.addClass('js_show');
-                    }
-                };
-            }()
-        }
-    };
-
-    pages.input.events = {
-        '#showTooltips': {
-            click: function () {
-                var $tooltips = $('.js_tooltips');
-                if ($tooltips.css('display') != 'none') {
-                    return;
-                }
-
-                // 如果有`animation`, `position: fixed`不生效
-                $('.page.cell').removeClass('slideIn');
-                $tooltips.css('display', 'block');
-                setTimeout(function () {
-                    $tooltips.css('display', 'none');
-                }, 2000);
-            }
-        }
-    };
-    pages.toast.events = {
-        '#showToast': {
-            click: function (e) {
-                var $toast = $('#toast');
-                if ($toast.css('display') != 'none') {
-                    return;
-                }
-
-                $toast.fadeIn(100);
-                setTimeout(function () {
-                    $toast.fadeOut(100);
-                }, 2000);
-            }
-        },
-        '#showLoadingToast': {
-            click: function (e) {
-                var $loadingToast = $('#loadingToast');
-                if ($loadingToast.css('display') != 'none') {
-                    return;
-                }
-
-                $loadingToast.fadeIn(100);
-                setTimeout(function () {
-                    $loadingToast.fadeOut(100);
-                }, 2000);
-            }
-        }
-    };
-    pages.dialog.events = {
-        '#showDialog1': {
-            click: function (e) {
-                var $dialog = $('#dialog1');
-                $dialog.fadeIn(200);
-                $dialog.find('.weui-dialog__btn').one('click', function () {
-                    $dialog.fadeOut(200);
-                });
-            }
-        },
-        '#showDialog2': {
-            click: function (e) {
-                var $dialog = $('#dialog2');
-                $dialog.fadeIn(200);
-                $dialog.find('.weui-dialog__btn').one('click', function () {
-                    $dialog.fadeOut(200);
-                });
-            }
-        },
-        '#showDialog3': {
-            click: function (e) {
-                var $dialog = $('#dialog3');
-                $dialog.fadeIn(200);
-                $dialog.find('.weui-dialog__btn').one('click', function () {
-                    $dialog.fadeOut(200);
-                });
-            }
-        },
-        '#showDialog4': {
-            click: function (e) {
-                var $dialog = $('#dialog4');
-                $dialog.fadeIn(200);
-                $dialog.find('.weui-dialog__btn').one('click', function () {
-                    $dialog.fadeOut(200);
-                });
-            }
-        }
-    };
-    pages.progress.events = {
-        '#btnStartProgress': {
-            click: function () {
-
-                if ($(this).hasClass('weui-btn_disabled')) {
-                    return;
-                }
-
-                $(this).addClass('weui-btn_disabled');
-
-                var progress = 0;
-                var $progress = $('.js_progress');
-
-                function next() {
-                    $progress.css({width: progress + '%'});
-                    progress = ++progress % 100;
-                    setTimeout(next, 30);
-                }
-
-                next();
-            }
-        }
-    };
-
-    for (var page in pages) {
-        pageManager.push(pages[page]);
-    }
-    pageManager
-        .setPageAppend(function($html){
-            var $foot = $html.find('.page__ft');
-            if($foot.length < 1) return;
-
-            if($foot.position().top + $foot.height() < winH){
-                $foot.addClass('j_bottom');
-            }else{
-                $foot.removeClass('j_bottom');
-            }
-        })
-        .setDefault('home')
-        .init();
-
-    $.getJSON('https://weui.io/api/sign?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
-        wx.config({
-            beta: true,
-            debug: false,
-            appId: res.appid,
-            timestamp: res.timestamp,
-            nonceStr: res.nonceStr,
-            signature: res.signature,
-            jsApiList: [
-                'onMenuShareTimeline',
-                'onMenuShareAppMessage',
-                'onMenuShareQQ',
-                'onMenuShareWeibo',
-                'onMenuShareQZone',
-                // 'setNavigationBarColor',
-                'setBounceBackground'
-            ]
-        });
-        wx.ready(function () {
-            /*
-            wx.invoke('setNavigationBarColor', {
-                color: '#F8F8F8'
-            });
-             */
-            wx.invoke('setBounceBackground', {
-                'backgroundColor': '#F8F8F8',
-                'footerBounceColor' : '#F8F8F8'
-            });
-
-            wx.onMenuShareAppMessage({
-                title: 'WeUI',
-                desc: '为微信 Web 服务量身设计',
-                link: location.href,
-                imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
-            });
-            wx.onMenuShareTimeline({
-                title: 'WeUI, 为微信 Web 服务量身设计',
-                desc: 'WeUI, 为微信 Web 服务量身设计',
-                link: "https://weui.io",
-                imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
-            });
-            wx.onMenuShareQQ(option);
-        });
-    });
-
-    // preload
-    $(window).on("load", function(){
-        var imgList = [
-            "./images/layers/content.png",
-            "./images/layers/navigation.png",
-            "./images/layers/popout.png",
-            "./images/layers/transparent.gif"
-        ];
-        for (var i = 0, len = imgList.length; i < len; ++i) {
-            new Image().src = imgList[i];
-        }
-    });
-
-    // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
-    // 相关 issue: https://github.com/weui/weui/issues/15
-    // 解决方法:
-    // 0. .container 去掉 overflow 属性, 但此 demo 下会引发别的问题
-    // 1. 参考 http://stackoverflow.com/questions/23757345/android-does-not-correctly-scroll-on-input-focus-if-not-body-element
-    //    Android 手机下, input 或 textarea 元素聚焦时, 主动滚一把
-    if (/Android/gi.test(navigator.userAgent)) {
-        window.addEventListener('resize', function () {
-            if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {
-                window.setTimeout(function () {
-                    document.activeElement.scrollIntoViewIfNeeded();
-                }, 0);
-            }
-        })
-    }
+    init();
 });
