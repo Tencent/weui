@@ -330,43 +330,6 @@ $(function () {
             }
         }
     };
-    pages.actionsheet.events = {
-        '#showIOSActionSheet': {
-            click: (function(){
-                function hideActionSheet(weuiActionsheet, mask) {
-                    weuiActionsheet.removeClass('weui-actionsheet_toggle');
-                    mask.removeClass('actionsheet__mask_show');
-                    weuiActionsheet.on('transitionend', function () {
-                        mask.css('display', 'none');
-                    }).on('webkitTransitionEnd', function () {
-                        mask.css('display', 'none');
-                    })
-                }
-                return function () {
-                    var mask = $('#mask');
-                    var weuiActionsheet = $('#weui-actionsheet');
-                    weuiActionsheet.addClass('weui-actionsheet_toggle');
-                    mask.show().focus().addClass('actionsheet__mask_show').one('click', function () {
-                        hideActionSheet(weuiActionsheet, mask);
-                    });
-                    $('#actionsheet_cancel').one('click', function () {
-                        hideActionSheet(weuiActionsheet, mask);
-                    });
-                    weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
-                }
-            })()
-        },
-        '#showAndroidActionSheet':{
-            'click':function(){
-                var $androidActionSheet = $('#weui-android-actionsheet');
-                var $androidMask = $androidActionSheet.find('.weui-mask');
-                $('#weui-android-actionsheet').fadeIn(200);
-                $androidMask.one('click',function () {
-                    $androidActionSheet.fadeOut(200);
-                });
-            }
-        }
-    };
     pages.searchbar.events = {
         '#search_input':{
             focus:function(){
