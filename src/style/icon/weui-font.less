@@ -6,12 +6,19 @@
 }
 
 
-[class^="weui-icon-"], [class*=" weui-icon-"]:before {
+[class^="weui-icon-"], [class*=" weui-icon-"] {
     display: inline-block;
+    vertical-align: middle;
     font: normal normal normal 14px/1 "weui";
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+    &:before{
+        // 平滑升级
+        display: inline-block;
+        margin-left: .2em;
+        margin-right: .2em;
+    }
 }
 
 .weui-icon-circle:before { content: "\EA01" } /* '' */
