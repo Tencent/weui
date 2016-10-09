@@ -225,6 +225,7 @@
                 $page = $this.parents('.page'),
                 $parent = $(this).parent('li');
             var innerH = $inner.data('height');
+            bear = $page;
 
             if(!innerH){
                 $inner.css('height', 'auto');
@@ -240,7 +241,13 @@
 
                 $parent.addClass('js_show');
                 if(this.offsetTop + this.offsetHeight + innerH > $page.scrollTop() + winH){
-                    $page.scrollTop(this.offsetTop + this.offsetHeight + innerH - winH + categorySpace);
+                    var scrollTop = this.offsetTop + this.offsetHeight + innerH - winH + categorySpace;
+
+                    if(scrollTop > this.offsetTop){
+                        scrollTop = this.offsetTop - categorySpace;
+                    }
+
+                    $page.scrollTop(scrollTop);
                 }
             }
         });
