@@ -1,19 +1,5 @@
 @import "../../base/fn";
 
-.weui-cell {
-    // onepx
-    position: relative;
-    &:before {
-        .setTopLine(@weuiCellBorderColor);
-        left: @weuiCellGapH;
-    }
-    &:first-child {
-        &:before {
-            display: none;
-        }
-    }
-}
-
 .weui-cells {
     margin-top: @weuiCellsMarginTop;
     background-color: @weuiCellBg;
@@ -58,6 +44,15 @@
     position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
     display: flex;
     align-items: center;
+    &:before {
+        .setTopLine(@weuiCellBorderColor);
+        left: @weuiCellGapH;
+    }
+    &:first-child {
+        &:before {
+            display: none;
+        }
+    }
 }
 .weui-cell_primary{
     align-items: flex-start;
