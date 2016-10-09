@@ -238,10 +238,10 @@
             }else{
                 $parent.siblings().removeClass('js_show');
 
+                $parent.addClass('js_show');
                 if(this.offsetTop + this.offsetHeight + innerH > $page.scrollTop() + winH){
                     $page.scrollTop(this.offsetTop + this.offsetHeight + innerH - winH + categorySpace);
                 }
-                $parent.addClass('js_show');
             }
         });
     });
