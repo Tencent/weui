@@ -1076,21 +1076,21 @@
     </div>
     <div class="page__bd">
         <!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
-        <div class="weui-search-bar" id="search_bar">
+        <div class="weui-search-bar" id="searchBar">
             <form class="weui-search-bar__form">
                 <div class="weui-search-bar__box">
                     <i class="weui-icon-search"></i>
-                    <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" required/>
-                    <a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
+                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
                 </div>
-                <label for="search_input" class="weui-search-bar__label" id="search_text">
+                <label for="searchInput" class="weui-search-bar__label" id="searchText">
                     <i class="weui-icon-search"></i>
                     <span>搜索</span>
                 </label>
             </form>
-            <a href="javascript:" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
+            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
-        <div class="weui-cells search_show" id="search_show">
+        <div class="weui-cells searchbar-result" id="searchResult">
             <div class="weui-cell weui-cell_access">
                 <div class="weui-cell__bd weui-cell_primary">
                     <p>实时搜索文本</p>
@@ -1119,7 +1119,43 @@
 </div>
 <script type="text/javascript">
     $(function(){
+        var $searchBar = $('#searchBar'),
+            $searchResult = $('#searchResult'),
+            $searchText = $('#searchText'),
+            $searchInput = $('#searchInput'),
+            $searchClear = $('#searchClear'),
+            $searchCancel = $('#searchCancel');
 
+        function hideSearchResult(){
+            $searchResult.hide();
+            $searchInput.val('');
+        }
+        function cancelSearch(){
+            hideSearchResult();
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.show();
+        }
+
+        $searchInput
+            .on('focus', function () {
+                $searchBar.addClass('weui-search-bar_focusing');
+            })
+            .on('blur', function () {
+                if(!this.value.length) cancelSearch();
+            })
+            .on('input', function(){
+                if(this.value.length) {
+                    $searchResult.show();
+                } else {
+                    $searchResult.hide();
+                }
+            })
+        ;
+        $searchClear.on('click', function(){
+            hideSearchResult();
+            $searchInput.focus();
+        });
+        $searchCancel.on('click', cancelSearch);
     });
 </script>
 </script>
