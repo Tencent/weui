@@ -33,10 +33,15 @@
     display: inline-block;
     width: 24px;
     height: 24px;
+    line-height: 1em;
 
     i&, > i {
         font-size: 24px;
         color: @weuiTextColorGray;
+        &:before {
+            margin: 0;
+            vertical-align: top;
+        }
     }
 
     img {
