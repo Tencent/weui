@@ -12,7 +12,7 @@
                     <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
                     <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
                 </div>
-                <label for="searchInput" class="weui-search-bar__label" id="searchText">
+                <label class="weui-search-bar__label" id="searchText">
                     <i class="weui-icon-search"></i>
                     <span>搜索</span>
                 </label>
@@ -65,10 +65,11 @@
             $searchText.show();
         }
 
+        $searchText.on('click', function(){
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchInput.focus();
+        });
         $searchInput
-            .on('focus', function () {
-                $searchBar.addClass('weui-search-bar_focusing');
-            })
             .on('blur', function () {
                 if(!this.value.length) cancelSearch();
             })
@@ -84,6 +85,9 @@
             hideSearchResult();
             $searchInput.focus();
         });
-        $searchCancel.on('click', cancelSearch);
+        $searchCancel.on('click', function(){
+            cancelSearch();
+            $searchInput.blur();
+        });
     });
 </script>

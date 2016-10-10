@@ -3,14 +3,6 @@
  * Modified by bear on 2016/9/7.
  */
 $(function () {
-    var supportTouch = function(){
-        try {
-            document.createEvent("TouchEvent");
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }();
     var pageManager = {
         $container: $('#container'),
         _pageStack: [],
@@ -144,29 +136,42 @@ $(function () {
             var events = page.events || {};
             for (var t in events) {
                 for (var type in events[t]) {
-                    var that = this;
-                    if(type == 'click' && supportTouch){
-                        (function(dom, event){
-                            var touchStartY;
-                            that.$container.on('touchstart', dom, function (e) {
-                                touchStartY = e.changedTouches[0].clientY;
-                            });
-                            that.$container.on('touchend', dom, function (e) {
-                                if (Math.abs(e.changedTouches[0].clientY - touchStartY) > 10) return;
-                                e.preventDefault();
-
-                                events[dom][event].call(this, e);
-                            });
-                        })(t, type);
-                    }else{
-                        this.$container.on(type, t, events[t][type]);
-                    }
+                    this.$container.on(type, t, events[t][type]);
                 }
             }
             page.isBind = true;
         }
     };
 
+    function fastClick(){
+        var supportTouch = function(){
+            try {
+                document.createEvent("TouchEvent");
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }();
+        var _old$On = $.fn.on;
+
+        $.fn.on = function(){
+            if(/click/.test(arguments[0]) && typeof arguments[1] == 'function' && supportTouch){ // 只扩展支持touch的当前元素的click事件
+                var touchStartY, callback = arguments[1];
+                _old$On.apply(this, ['touchstart', function(e){
+                    touchStartY = e.changedTouches[0].clientY;
+                }]);
+                _old$On.apply(this, ['touchend', function(e){
+                    if (Math.abs(e.changedTouches[0].clientY - touchStartY) > 10) return;
+
+                    e.preventDefault();
+                    callback.apply(this, [e]);
+                }]);
+            }else{
+                _old$On.apply(this, arguments);
+            }
+            return this;
+        };
+    }
     function preload(){
         $(window).on("load", function(){
             var imgList = [
@@ -277,6 +282,7 @@ $(function () {
 
     function init(){
         preload();
+        fastClick();
         androidInputBugFix();
         setJSAPI();
         setPageManager();
