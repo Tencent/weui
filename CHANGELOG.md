@@ -1,3 +1,13 @@
+#### v1.0.2 (2016-09-27)
+
+- 【修复】 fix 不见了的weui-icon_clear的icon: weui-icon_close -> weui-icon_clear
+- 【修复】 preview在没有value的时候会变形: 增加weui-form-preview__item来控制
+- 【修复】 补上九宫格Grid的DEMO
+- 【修复】 九宫格文字换行问题 #483
+- 【优化】 icon的实现
+- 【优化】 example代码
+
+
 #### v1.0.1 (2016-09-27)
 
 - 【修复】 preview中，button与a标签的样式不一致
