@@ -203,6 +203,13 @@ $(function () {
         }
     }
     function setJSAPI(){
+        var option = {
+            title: 'WeUI, 为微信 Web 服务量身设计',
+            desc: 'WeUI, 为微信 Web 服务量身设计',
+            link: "https://weui.io",
+            imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
+        };
+
         $.getJSON('https://weui.io/api/sign?url=' + encodeURIComponent(location.href.split('#')[0]), function (res) {
             wx.config({
                 beta: true,
@@ -231,20 +238,14 @@ $(function () {
                     'backgroundColor': '#F8F8F8',
                     'footerBounceColor' : '#F8F8F8'
                 });
-
+                wx.onMenuShareTimeline(option);
+                wx.onMenuShareQQ(option);
                 wx.onMenuShareAppMessage({
                     title: 'WeUI',
                     desc: '为微信 Web 服务量身设计',
                     link: location.href,
                     imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
                 });
-                wx.onMenuShareTimeline({
-                    title: 'WeUI, 为微信 Web 服务量身设计',
-                    desc: 'WeUI, 为微信 Web 服务量身设计',
-                    link: "https://weui.io",
-                    imgUrl: 'https://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLA16apETUPXh9Q5GLpSic7lGuiaic0jqMt4UY8P4KHSBpEWgM7uMlbxxnVR7596b3NPjUfwg7cFbfCtA/0'
-                });
-                wx.onMenuShareQQ(option);
             });
         });
     }
