@@ -1,7 +1,6 @@
 
 var path = require('path');
 var fs = require('fs');
-var yargs = require('yargs').argv;
 var gulp = require('gulp');
 var less = require('gulp-less');
 var header = require('gulp-header');
@@ -13,6 +12,21 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var pkg = require('./package.json');
+var yargs = require('yargs')
+    .options({
+        'w': {
+            alias: 'watch',
+            type: 'boolean'
+        },
+        's': {
+            alias: 'server',
+            type: 'boolean'
+        },
+        'p': {
+            alias: 'port',
+            type: 'number'
+        }
+    }).argv;
 
 var option = {base: 'src'};
 var dist = __dirname + '/dist';
