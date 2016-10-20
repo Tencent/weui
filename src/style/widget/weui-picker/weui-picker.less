@@ -7,6 +7,9 @@
     bottom: 0;
     z-index: 5000;
     backface-visibility: hidden;
+    transform: translate(0, 100%);
+    //slide up animation
+    transition: transform .3s;
 }
 
 .weui-picker__hd {
@@ -60,6 +63,7 @@
     background-position: top, bottom;
     background-size: 100% 102px;
     background-repeat: no-repeat;
+    transform: translateZ(0);
 }
 
 .weui-picker__indicator {
