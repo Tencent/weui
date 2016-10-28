@@ -1,0 +1,78 @@
+<div class="page js-scroll-page">
+    <div class="page__bd">        
+        <div class="weui-sidebar">
+            <div class="weui-sidebar__item weui-bar__item_on" data-scrolltop="0">
+                选项1
+            </div>
+            <div class="weui-sidebar__item" data-scrolltop="200">
+                选项2
+            </div>
+            <div class="weui-sidebar__item" data-scrolltop="600">
+                选项3
+            </div>
+            <div class="weui-sidebar__item">
+                选项4
+            </div>
+            <div class="weui-sidebar__item">
+                选项5
+            </div>
+            <div class="weui-sidebar__item">
+                选项6
+            </div>
+            <div class="weui-sidebar__item">
+                选项7
+            </div>
+            <div class="weui-sidebar__item">
+                选项8
+            </div>
+            <div class="weui-sidebar__item">
+                选项9
+            </div>
+            <div class="weui-sidebar__item">
+                选项10
+            </div>
+            <div class="weui-sidebar__item">
+                选项11
+            </div>
+            <div class="weui-sidebar__item">
+                选项12
+            </div>
+            <div class="weui-sidebar__item">
+                选项13
+            </div>
+            <div class="weui-sidebar__item">
+                选项14
+            </div>
+            <div class="weui-sidebar__item">
+                选项15
+            </div>
+        </div>
+        <div class="weui-tab__panel" style="height:1800px;">
+            demo weui
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('.weui-sidebar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+            // 定位滚动
+            var to = $(this).data('scrolltop');
+            to = to ? parseInt(to) : 0;
+            smoothScroll($('.js-scroll-page'), to, 200);
+        });
+    });
+    function smoothScroll(el, to, duration) {
+        if (duration < 0) {
+            return;
+        }
+        var difference = to - el.scrollTop();
+        var perTick = difference / duration * 10;
+        this.scrollToTimerCache = setTimeout(function() {
+            if (!isNaN(parseInt(perTick, 10))) {
+                el.scrollTop(el.scrollTop() + perTick)
+                smoothScroll(el, to, duration - 10);
+            }
+        }.bind(this), 10);
+    }
+</script>
