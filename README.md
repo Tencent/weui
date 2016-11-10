@@ -11,8 +11,6 @@ WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官
 
 ## 手机预览
 
-请用微信扫码
-
 ![https://weui.io](https://cloud.githubusercontent.com/assets/4652816/15662614/178efd46-2725-11e6-8952-09d7836e968d.png)
 
 [https://weui.io](https://weui.io)
