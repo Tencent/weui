@@ -47,6 +47,12 @@
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="slider" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Slider</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
                         <a class="weui-cell weui-cell_access js_item" data-id="uploader" href="javascript:;">
                             <div class="weui-cell__bd">
                                 <p>Uploader</p>
@@ -508,7 +514,7 @@
                 <div class="weui-cell__bd">兼容IE Edge的版本</div>
                 <div class="weui-cell__ft">
                     <label for="switchCP" class="weui-switch-cp">
-                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" />
+                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked" />
                         <div class="weui-switch-cp__box"></div>
                     </label>
                 </div>
@@ -1796,7 +1802,19 @@
             <div class="weui-cell">
                 <div class="weui-cell__bd">小红点</div>
                 <div class="weui-cell__ft">
-                    <span class="weui-badge weui-badge_dot"></span>
+                    <div class="badge-demo">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" style="width:24px;display:block" />
+                        <span class="weui-badge weui-badge_dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">小红点</div>
+                <div class="weui-cell__ft">
+                    <div class="badge-demo badge-demo_text">
+                        未读消息
+                        <span class="weui-badge weui-badge_dot"></span>
+                    </div>
                 </div>
             </div>
             <div class="weui-cell">
@@ -1812,6 +1830,20 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+</script>
+    <script type="text/html" id="tpl_slider">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Slider</h1>
+        <p class="page__desc">滑块</p>
+    </div>
+    <div class="page__bd">
+        
     </div>
     <div class="page__ft">
         <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
