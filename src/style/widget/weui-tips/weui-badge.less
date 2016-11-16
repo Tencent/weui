@@ -1,6 +1,6 @@
 @import "../../base/fn";
 
-.weui-badge{
+.weui-badge {
     display: inline-block;
     padding: .15em .4em;
     min-width: 8px;
@@ -12,10 +12,17 @@
     font-size: 12px;
     vertical-align: middle;
 }
-.weui-badge_dot{
-    position: absolute;
-    top: -.4em;
-    right: -.4em;
+.weui-badge_dot {
     min-width: 0;
     padding: .4em;
+}
+
+.weui-badge-box {
+    position: relative;
+    .weui-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+    }
 }
