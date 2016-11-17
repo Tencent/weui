@@ -1,3 +1,5 @@
+/* reset */
+
 html, body {
     height: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -16,9 +18,19 @@ body, .page {
     background-color: #F8F8F8;
 }
 
+
+/* lib */
+
 .link{
     color: #1AAD19;
 }
+
+.vm{
+    vertical-align: middle;
+}
+
+
+/* layout */
 
 .container {
     position: absolute;
@@ -81,6 +93,7 @@ body, .page {
     text-align: left;
     font-size: 14px;
 }
+
 
 /*  widget */
 
@@ -404,19 +417,9 @@ body, .page {
     overflow: hidden;
 }
 
-.page.badge{
-    .badge-demo__f0{
-        font-size: 0; // 为了让 weui-badge 在cell里 上下居中
-    }
-    .badge-demo__text{
-        vertical-align: middle;
-        margin-right: 8px;
-    }
-}
 
-/* end of widget */
+/* animation */
 
-// animation
 @keyframes slideIn {
     from {
         transform: translate3d(100%, 0, 0);
