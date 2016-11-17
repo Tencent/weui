@@ -6,7 +6,7 @@
     z-index: 500;
     bottom: 0;
     width: 100%;
-    background-color: #f7f7fa;
+    background-color: #F7F7FA;
 
     &:before {
         .setTopLine(#C0BFC4);
@@ -16,14 +16,16 @@
 .weui-tabbar__item {
     display: block;
     flex: 1;
-    padding: 7px 0 0;
+    padding: 5px 0 0;
     font-size: 0;
     color: @weuiTextColorGray;
     text-align: center;
     .setTapColor();
 
     &.weui-bar__item_on {
-        .weui-tabbar__icon, .weui-tabbar__icon > i, .weui-tabbar__label {
+        .weui-tabbar__icon,
+        .weui-tabbar__icon > i,
+        .weui-tabbar__label {
             color: #09BB07;
         }
     }
@@ -31,10 +33,11 @@
 
 .weui-tabbar__icon {
     display: inline-block;
-    width: 24px;
-    height: 24px;
+    width: 27px;
+    height: 27px;
 
-    i&, > i {
+    i&,
+    > i {
         font-size: 24px;
         color: @weuiTextColorGray;
     }
@@ -43,15 +46,11 @@
         width: 100%;
         height: 100%;
     }
-
-    & + .weui-tabbar__label {
-        margin-top: 5px;
-        margin-bottom: 3px;
-    }
 }
 
 .weui-tabbar__label {
     text-align: center;
     color: @weuiTextColorGray;
-    font-size: 12px;
+    font-size: 10px;
+    line-height: 1.8;
 }
