@@ -1,3 +1,5 @@
+/* reset */
+
 html, body {
     height: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -16,9 +18,15 @@ body, .page {
     background-color: #F8F8F8;
 }
 
+
+/* lib */
+
 .link{
     color: #1AAD19;
 }
+
+
+/* layout */
 
 .container {
     position: absolute;
@@ -82,6 +90,8 @@ body, .page {
     font-size: 14px;
 }
 
+
+/*  widget */
 
 .page.home{
     @pageHomePadding: 20px;
@@ -245,15 +255,16 @@ body, .page {
     }
 }
 
-.page.flex{
-    .placeholder{
-            background-color: #EBEBEB;
-            height:2.3em;
-            line-height:2.3em;
-            text-align: center;
-            margin: 5px;
-            color:#CFCFCF;
-        }
+.page.flex {
+    .placeholder {
+        margin: 5px;
+        padding: 0 10px;
+        background-color: #EBEBEB;
+        height: 2.3em;
+        line-height: 2.3em;
+        text-align: center;
+        color: #CFCFCF;
+    }
 }
 
 .page.loadmore{
@@ -403,7 +414,8 @@ body, .page {
 }
 
 
-// animation
+/* animation */
+
 @keyframes slideIn {
     from {
         transform: translate3d(100%, 0, 0);
