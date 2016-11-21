@@ -163,6 +163,12 @@
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="picker" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Picker</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
                         <a class="weui-cell weui-cell_access js_item" data-id="toast" href="javascript:;">
                             <div class="weui-cell__bd">
                                 <p>Toast</p>
@@ -985,7 +991,10 @@
             </div>
             <div class="weui-tabbar">
                 <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
-                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+                    </span>
                     <p class="weui-tabbar__label">微信</p>
                 </a>
                 <a href="javascript:;" class="weui-tabbar__item">
@@ -993,7 +1002,10 @@
                     <p class="weui-tabbar__label">通讯录</p>
                 </a>
                 <a href="javascript:;" class="weui-tabbar__item">
-                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                    <span style="display: inline-block;position: relative;">
+                        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+                    </span>
                     <p class="weui-tabbar__label">发现</p>
                 </a>
                 <a href="javascript:;" class="weui-tabbar__item">
@@ -1341,50 +1353,53 @@
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Picker</h1>
-        <p class="page__desc">多列选择器</p>
+        <p class="page__desc">多列选择器，需要配合js实现</p>
     </div>
-    <div class="page__bd">
-        <div class="weui-mask"></div>
-        <div class="weui-picker">
-            <div class="weui-picker__hd">
-                <a href="javascript:;" class="weui-picker__action">取消</a>
-                <a href="javascript:;" class="weui-picker__action">确定</a>
-            </div>
-            <div class="weui-picker__bd">
-                <div class="weui-picker__group">
-                    <div class="weui-picker__mask"></div>
-                    <div class="weui-picker__indicator"></div>
-                    <div class="weui-picker__content">
-                        <div class="weui-picker__item">飞机票</div>
-                        <div class="weui-picker__item">火车票</div>
-                        <div class="weui-picker__item">的士票</div>
-                        <div class="weui-picker__item">住宿费</div>
-                        <div class="weui-picker__item">礼品费</div>
-                        <div class="weui-picker__item">活动费</div>
-                        <div class="weui-picker__item">通讯费</div>
-                        <div class="weui-picker__item">补助</div>
-                        <div class="weui-picker__item">其他</div>
-                    </div>
-                </div>
-                <div class="weui-picker__group">
-                    <div class="weui-picker__mask"></div>
-                    <div class="weui-picker__indicator"></div>
-                    <div class="weui-picker__content">
-                        <div class="weui-picker__item">飞机票</div>
-                        <div class="weui-picker__item">火车票</div>
-                        <div class="weui-picker__item">的士票</div>
-                        <div class="weui-picker__item">住宿费</div>
-                        <div class="weui-picker__item">礼品费</div>
-                        <div class="weui-picker__item">活动费</div>
-                        <div class="weui-picker__item">通讯费</div>
-                        <div class="weui-picker__item">补助</div>
-                        <div class="weui-picker__item">其他</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showPicker">单列选择器</a>
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showDatePicker">日期选择器</a>
     </div>
 </div>
+<script type="text/javascript">
+    $('#showPicker').on('click', function () {
+        weui.picker([{
+            label: '飞机票',
+            value: 0
+        }, {
+            label: '火车票',
+            value: 1
+        }, {
+            label: '的士票',
+            value: 2
+        },{
+            label: '公交票 (disabled)',
+            disabled: true,
+            value: 3
+        }, {
+            label: '其他',
+            value: 4
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            }
+        });
+    });
+    $('#showDatePicker').on('click', function () {
+        weui.datePicker({
+            start: 1990,
+            end: new Date().getFullYear(),
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            }
+        });
+    });
+</script>
 </script>
     <script type="text/html" id="tpl_footer">
 <div class="page">
@@ -1462,6 +1477,11 @@
             <div class="weui-flex__item"><div class="placeholder">weui</div></div>
             <div class="weui-flex__item"><div class="placeholder">weui</div></div>
             <div class="weui-flex__item"><div class="placeholder">weui</div></div>
+        </div>
+        <div class="weui-flex">
+            <div><div class="placeholder">weui</div></div>
+            <div class="weui-flex__item"><div class="placeholder">weui</div></div>
+            <div><div class="placeholder">weui</div></div>
         </div>
     </div>
     <div class="page__ft">
@@ -1798,36 +1818,49 @@
         <p class="page__desc">徽章</p>
     </div>
     <div class="page__bd">
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells__title">新消息提示跟摘要信息后，统一在列表右侧</div>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">单行列表</div>
+                <div class="weui-cell__ft" style="font-size: 0">
+                    <span style="vertical-align:middle; font-size: 17px;">详细信息</span>
+                    <span class="weui-badge weui-badge_dot" style="margin-left: 5px;margin-right: 5px;"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">未读数红点跟在主题信息后，统一在列表左侧</div>
+        <div class="weui-cells">
             <div class="weui-cell">
-                <div class="weui-cell__bd">小红点</div>
-                <div class="weui-cell__ft">
-                    <div class="badge-demo">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" style="width:24px;display:block" />
-                        <span class="weui-badge weui-badge_dot"></span>
-                    </div>
+                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <img src="images/pic_160.png" style="width: 50px;display: block"/>
+                    <span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</span>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>联系人名称</p>
+                    <p style="font-size: 13px;color: #888888;">摘要信息</p>
                 </div>
             </div>
             <div class="weui-cell weui-cell_access">
-                <div class="weui-cell__bd">小红点</div>
-                <div class="weui-cell__ft">
-                    <div class="badge-demo badge-demo_text">
-                        未读消息
-                        <span class="weui-badge weui-badge_dot"></span>
-                    </div>
+                <div class="weui-cell__bd">
+                    <span style="vertical-align: middle">单行列表</span>
+                    <span class="weui-badge" style="margin-left: 5px;">8</span>
                 </div>
+                <div class="weui-cell__ft"></div>
             </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd">1位数</div>
-                <div class="weui-cell__ft">
-                    <span class="weui-badge">8</span>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">
+                    <span style="vertical-align: middle">单行列表</span>
+                    <span class="weui-badge" style="margin-left: 5px;">8</span>
                 </div>
+                <div class="weui-cell__ft">详细信息</div>
             </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd">多位数</div>
-                <div class="weui-cell__ft">
-                    <span class="weui-badge">99</span>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">
+                    <span style="vertical-align: middle">单行列表</span>
+                    <span class="weui-badge" style="margin-left: 5px;">New</span>
                 </div>
+                <div class="weui-cell__ft"></div>
             </div>
         </div>
     </div>
@@ -1842,30 +1875,61 @@
         <h1 class="page__title">Slider</h1>
         <p class="page__desc">滑块</p>
     </div>
-    <div class="page__bd">
+    <div class="page__bd page__bd_spacing">
         <div class="weui-slider">
             <div class="weui-slider__inner">
                 <div style="width: 0;" class="weui-slider__track"></div>
                 <div style="left: 0;" class="weui-slider__handler"></div>
             </div>
         </div>
-        <div class="weui-slider">
-            <div class="weui-slider__inner">
-                <div style="width: 50%;" class="weui-slider__track"></div>
-                <div style="left: 50%;" class="weui-slider__handler"></div>
+        <br>
+        <div class="weui-slider-box">
+            <div class="weui-slider">
+                <div id="sliderInner" class="weui-slider__inner">
+                    <div id="sliderTrack" style="width: 50%;" class="weui-slider__track"></div>
+                    <div id="sliderHandler" style="left: 50%;" class="weui-slider__handler"></div>
+                </div>
             </div>
-            <div class="weui-slider__value">
-                <span>50</span>
-            </div>
+            <div id="sliderValue" class="weui-slider-box__value">50</div>
         </div>
     </div>
     <div class="page__ft">
         <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
     </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        var $sliderTrack = $('#sliderTrack'),
+            $sliderHandler = $('#sliderHandler'),
+            $sliderValue = $('#sliderValue');
+
+        var totalLen = $('#sliderInner').width(),
+            startLeft = 0,
+            startX = 0;
+
+        $sliderHandler
+            .on('touchstart', function (e) {
+                startLeft = parseInt($sliderHandler.css('left')) * totalLen / 100;
+                startX = e.changedTouches[0].clientX;
+            })
+            .on('touchmove', function(e){
+                var dist = startLeft + e.changedTouches[0].clientX - startX,
+                    percent;
+                dist = dist < 0 ? 0 : dist > totalLen ? totalLen : dist;
+                percent =  parseInt(dist / totalLen * 100);
+                $sliderTrack.css('width', percent + '%');
+                $sliderHandler.css('left', percent + '%');
+                $sliderValue.text(percent);
+
+                e.preventDefault();
+            })
+        ;
+    });
+</script>
 </script>
     <script src="./zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="./weui.min.js"></script>
     <script src="./example.js"></script>
 </body>
 </html>

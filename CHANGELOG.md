@@ -1,3 +1,22 @@
+#### v1.1.0 (2016-11-21)
+
+- 【增强】 新增兼容IE Edge版本的switch
+- 【增强】 增加组件 badge徽章
+- 【增强】 增加组件 slider滑块
+- 【增强】 增加组件 picker多列选择器
+- 【优化】 把radio和checkbox下的weui-cell的:active挪到weui-check__label
+- 【优化】 src/navbar.less 更名为 src/weui-navbar.less
+- 【优化】 src/tabbar.less 更名为 src/weui-tabbar.less
+- 【优化】 loading的base64
+- 【优化】 去掉废弃和冗余的样式
+- 【修复】 preview下，两个button并排时，高度有问题 (#462)
+- 【修复】 button作为.weui-vcode-btn时的样式问题 (#519)
+- 【修复】 sourcemap 为乱码的问题
+- 【修复】 select的箭头没有居中的问题
+- 【修复】 tabbar的间距样式
+
+
+
 #### v1.0.2 (2016-09-27)
 
 - 【修复】 fix 不见了的weui-icon_clear的icon: weui-icon_close -> weui-icon_clear
