@@ -21,6 +21,13 @@
     vertical-align: middle;
     font-size: @weuiCellFontSize;
     color: @weuiDialogLinkColor;
+    button&{
+        background-color: transparent;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+        outline: 0;
+    }
     &:active {
         color: desaturate(@weuiDialogLinkColor, 30%);
     }
