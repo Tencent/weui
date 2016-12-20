@@ -22,7 +22,9 @@ WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官
 - WeUI 视觉标准参考 [weui-design](https://github.com/weui/weui-design)
 
 ## 扩展
-[WeUI for 小程序 (weui-wxss)](https://github.com/weui/weui-wxss)
+- [WeUI for 小程序 (weui-wxss)](https://github.com/weui/weui-wxss/)
+- [weui.js](https://github.com/weui/weui.js/)
+- [react-weui](https://github.com/weui/react-weui/)
 
 ## License
 The MIT License(http://opensource.org/licenses/MIT)
