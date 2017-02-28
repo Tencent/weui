@@ -1,5 +1,6 @@
 @import "../../base/fn";
 
+@pickerItemHeight: 34px;
 .weui-picker {
     position: fixed;
     width: 100%;
@@ -68,7 +69,7 @@
 
 .weui-picker__indicator {
     width: 100%;
-    height: 34px;
+    height: @pickerItemHeight;
     position: absolute;
     left: 0;
     top: 102px;
@@ -89,7 +90,9 @@
 }
 
 .weui-picker__item {
-    padding: 5px 0 4px;
+    padding: 0;
+    height: @pickerItemHeight;
+    line-height: @pickerItemHeight;
     text-align: center;
     color: #000;
     text-overflow: ellipsis;
