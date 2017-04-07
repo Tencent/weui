@@ -1,0 +1,87 @@
+<div class="page">
+    <div class="page__hd">
+        <div class="j_info page__info" data-for="normal">
+            <h2 class="page__title">WeUI页面层级</h2>
+            <p class="page__desc">用于规范WeUI页面元素所属层级、层级顺序及组合规范。</p>
+        </div>
+        <div class="j_info page__info" data-for="popout" style="display:none">
+            <h2 class="page__title">Popout</h2>
+            <p class="page__desc">弹出层，作为内容层和导航层的补充，用于承载弹窗通知、操作菜单、菜单、成功或加载中等状态的Toast，表单报错提示等弹出内容。</p>
+        </div>
+        <div class="j_info page__info" data-for="mask" style="display:none">
+            <h2 class="page__title">Mask</h2>
+            <p class="page__desc">蒙层，配合Popout层使用，用于锁定内容层和导航层操作，不单独使用。</p>
+        </div>
+        <div class="j_info page__info" data-for="navigation" style="display:none">
+            <h2 class="page__title">Navigation</h2>
+            <p class="page__desc">导航层，位于内容层之上，在用户滑动内容层时可保持位置不动，通常用于承载导航栏等需要固定在页面的元素。</p>
+        </div>
+        <div class="j_info page__info" data-for="content" style="display:none">
+            <h2 class="page__title">Content</h2>
+            <p class="page__desc">内容层，承载页面主要内容。</p>
+        </div>
+    </div>
+    <div class="page__bd">
+        <div class="layers j_layers">
+            <div data-name="popout" class="j_pic j_layer layers__layer layers__layer_popout"><span>Popout</span></div>
+            <div data-name="mask" class="j_pic j_layer layers__layer layers__layer_mask"><span>Mask</span></div>
+            <div data-name="navigation" class="j_pic j_layer layers__layer layers__layer_navigation"><span>Navigation</span></div>
+            <div data-name="content" class="j_pic j_layer layers__layer layers__layer_content"><span>Content</span></div>
+        </div>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $layers = $(".layers__layer"), $infos = $(".j_info"),
+            hideTimeout;
+
+        function showInfo(name){
+            $infos.filter("[data-for='" + name + "']").show().siblings().hide();
+        }
+        function hideIfLayerShowing(){
+            if($layers.filter(".j_transform").length != $layers.length){ // 展示中
+                showInfo("normal");
+                $layers.addClass("j_transform");
+
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(function(){
+                    $layers.removeClass("j_hide");
+                }, 300);
+                return true;
+            }
+            return false;
+        }
+        $layers.on("transitionend webkitTransitionend", function(){
+            var that = this;
+            if(that.classList.contains("j_transform")){
+                setTimeout(function(){
+                    that.classList.remove("j_pic");
+                }, 500);
+            }else{
+                that.classList.add("j_pic");
+            }
+        });
+        setTimeout(function(){
+            $layers.addClass("j_transform");
+
+            $(".j_layer").on("click", function(e){
+                if(hideIfLayerShowing()) return;
+
+                var target = this;
+                if(target.classList.contains("j_layer")){
+                    clearTimeout(hideTimeout);
+
+                    var name;
+                    target = $(target);
+                    name = target.data("name");
+                    showInfo(name);
+
+                    target.removeClass("j_transform").siblings().addClass("j_hide");
+                }
+            });
+        }, 500);
+    });
+</script>

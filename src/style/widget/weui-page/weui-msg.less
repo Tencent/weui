@@ -1,0 +1,45 @@
+@import "../../base/fn";
+@import "../weui-button/weui-button";
+
+.weui-msg {
+    padding-top: @weuiMsgPaddingTop;
+    text-align: center;
+}
+.weui-msg__icon-area {
+    margin-bottom: @weuiMsgIconGap;
+}
+.weui-msg__text-area {
+    margin-bottom: @weuiMsgTextGap;
+    padding:0 20px;
+}
+.weui-msg__text-area a{
+    color:@weuiLinkColorDefault;
+}
+.weui-msg__title {
+    margin-bottom: @weuiMsgTitleGap;
+    font-weight: 400;
+    font-size: 20px;
+}
+.weui-msg__desc {
+    font-size: 14px;
+    color: @weuiTextColorGray;
+}
+.weui-msg__opr-area {
+    margin-bottom: @weuiMsgOprGap;
+}
+.weui-msg__extra-area {
+    margin-bottom: @weuiMsgExtraAreaGap;
+    font-size: 14px;
+    color: @weuiTextColorGray;
+    a{color: @weuiLinkColorDefault;}
+}
+
+@media screen and (min-height: @weuiMsgExtraAreaOfMinHeight) {
+    .weui-msg__extra-area {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

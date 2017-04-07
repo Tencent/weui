@@ -1,0 +1,41 @@
+@import "../../base/fn";
+
+.weui-footer {
+    color: @weuiTextColorGray;
+    font-size: 14px;
+    text-align: center;
+    a{
+        color: @weuiLinkColorDefault;
+    }
+}
+.weui-footer_fixed-bottom{
+    position: fixed;
+    bottom: .52em;
+    left: 0;
+    right: 0;
+}
+.weui-footer__links{
+    font-size: 0;
+}
+.weui-footer__link{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 .62em;
+    position: relative;
+    font-size: 14px;
+    &:before{
+        .setLeftLine();
+        left: -.65em;
+        top: .36em;
+        bottom: .36em;
+    }
+    &:first-child{
+        &:before{
+            display: none;
+        }
+    }
+}
+.weui-footer__text{
+    padding: 0 .34em;
+    font-size: 12px;
+}

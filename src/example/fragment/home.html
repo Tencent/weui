@@ -1,104 +1,258 @@
-<div class="hd">
-    <h1 class="page_title">WeUI</h1>
-    <p class="page_desc">为微信Web服务量身设计</p>
-</div>
-<div class="bd">
-    <div class="weui_grids">
-        <a href="#/button" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_button"></i>
-            </div>
-            <p class="weui_grid_label">
-                Button
-            </p>
-        </a>
-        <a href="#/cell" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_cell"></i>
-            </div>
-            <p class="weui_grid_label">
-                Cell
-            </p>
-        </a>
-        <a href="#/toast" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_toast"></i>
-            </div>
-            <p class="weui_grid_label">
-                Toast
-            </p>
-        </a>
-        <a href="#/dialog" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_dialog"></i>
-            </div>
-            <p class="weui_grid_label">
-                Dialog
-            </p>
-        </a>
-        <a href="#/progress" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_progress"></i>
-            </div>
-            <p class="weui_grid_label">
-                Progress
-            </p>
-        </a>
-        <a href="#/msg" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_msg"></i>
-            </div>
-            <p class="weui_grid_label">
-                Msg
-            </p>
-        </a>
-        <a href="#/article" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_article"></i>
-            </div>
-            <p class="weui_grid_label">
-                Article
-            </p>
-        </a>
-        <a href="#/actionsheet" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_actionSheet"></i>
-            </div>
-            <p class="weui_grid_label">
-                ActionSheet
-            </p>
-        </a>
-        <a href="#/icons" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_icons"></i>
-            </div>
-            <p class="weui_grid_label">
-                Icons
-            </p>
-        </a>
-        <a href="#/panel" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_panel"></i>
-            </div>
-            <p class="weui_grid_label">
-                Panel
-            </p>
-        </a>
-        <a href="#/tab" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_tab"></i>
-            </div>
-            <p class="weui_grid_label">
-                Tab
-            </p>
-        </a>
-        <a href="#/searchbar" class="weui_grid">
-            <div class="weui_grid_icon">
-                <i class="icon icon_search_bar"></i>
-            </div>
-            <p class="weui_grid_label">
-                SearchBar
-            </p>
-        </a>
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">
+            <img src="./images/logo.png" alt="WeUI" height="21px" />
+        </h1>
+        <p class="page__desc">WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <ul>
+            <li>
+                <div class="weui-flex js_category">
+                    <p class="weui-flex__item">表单</p>
+                    <img src="./images/icon_nav_form.png" alt="">
+                </div>
+                <div class="page__category js_categoryInner">
+                    <div class="weui-cells page__category-content">
+                        <a class="weui-cell weui-cell_access js_item" data-id="button" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Button</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="input" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Input</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="list" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>List</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="slider" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Slider</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="uploader" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Uploader</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="weui-flex js_category">
+                    <p class="weui-flex__item">基础组件</p>
+                    <img src="./images/icon_nav_layout.png" alt="">
+                </div>
+                <div class="page__category js_categoryInner">
+                    <div class="weui-cells page__category-content">
+                        <a class="weui-cell weui-cell_access js_item" data-id="article" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Article</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="badge" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Badge</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="flex" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Flex</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="footer" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Footer</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="gallery" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Gallery</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="grid" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Grid</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="icons" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Icons</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="loadmore" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Loadmore</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="panel" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Panel</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="preview" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Preview</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="progress" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Progress</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="weui-flex js_category">
+                    <p class="weui-flex__item">操作反馈</p>
+                    <img src="./images/icon_nav_feedback.png" alt="">
+                </div>
+                <div class="page__category js_categoryInner">
+                    <div class="weui-cells page__category-content">
+                        <a class="weui-cell weui-cell_access js_item" data-id="actionsheet" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Actionsheet</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="dialog" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Dialog</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="msg" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Msg</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="picker" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Picker</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="toast" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Toast</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="weui-flex js_category">
+                    <p class="weui-flex__item">导航相关</p>
+                    <img src="./images/icon_nav_nav.png" alt="">
+                </div>
+                <div class="page__category js_categoryInner">
+                    <div class="weui-cells page__category-content">
+                        <a class="weui-cell weui-cell_access js_item" data-id="navbar" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Navbar</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                        <a class="weui-cell weui-cell_access js_item" data-id="tabbar" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Tabbar</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="weui-flex js_category">
+                    <p class="weui-flex__item">搜索相关</p>
+                    <img src="./images/icon_nav_search.png" alt="">
+                </div>
+                <div class="page__category js_categoryInner">
+                    <div class="weui-cells page__category-content">
+                        <a class="weui-cell weui-cell_access js_item" data-id="searchbar" href="javascript:;">
+                            <div class="weui-cell__bd">
+                                <p>Search Bar</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="weui-flex js_item" data-id="layers">
+                    <p class="weui-flex__item">层级规范</p>
+                    <img src="./images/icon_nav_z-index.png" alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer.png" /></a>
     </div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        var winH = $(window).height();
+        var categorySpace = 10;
+
+        $('.js_item').on('click', function(){
+            var id = $(this).data('id');
+            window.pageManager.go(id);
+        });
+        $('.js_category').on('click', function(){
+            var $this = $(this),
+                $inner = $this.next('.js_categoryInner'),
+                $page = $this.parents('.page'),
+                $parent = $(this).parent('li');
+            var innerH = $inner.data('height');
+            bear = $page;
+
+            if(!innerH){
+                $inner.css('height', 'auto');
+                innerH = $inner.height();
+                $inner.removeAttr('style');
+                $inner.data('height', innerH);
+            }
+
+            if($parent.hasClass('js_show')){
+                $parent.removeClass('js_show');
+            }else{
+                $parent.siblings().removeClass('js_show');
+
+                $parent.addClass('js_show');
+                if(this.offsetTop + this.offsetHeight + innerH > $page.scrollTop() + winH){
+                    var scrollTop = this.offsetTop + this.offsetHeight + innerH - winH + categorySpace;
+
+                    if(scrollTop > this.offsetTop){
+                        scrollTop = this.offsetTop - categorySpace;
+                    }
+
+                    $page.scrollTop(scrollTop);
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,47 @@
+@import "../../base/fn";
+
+.weui-navbar {
+    display: flex;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+    background-color: #FAFAFA;
+
+    &:after {
+        .setBottomLine(#CCCCCC);
+    }
+
+    & + .weui-tab__panel {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+}
+
+.weui-navbar__item {
+    position: relative;
+    display: block;
+    flex: 1;
+    padding: 13px 0;
+    text-align: center;
+    font-size: 15px;
+    .setTapColor();
+
+    &:active {
+        background-color: #EDEDED;
+    }
+
+    &.weui-bar__item_on {
+        background-color: #EAEAEA;
+    }
+
+    &:after {
+        .setRightLine(#CCCCCC);
+    }
+
+    &:last-child {
+        &:after {
+            display: none;
+        }
+    }
+}
