@@ -13,12 +13,31 @@
     //slide up animation
     transition: transform .3s;
 }
+.weui-actionsheet__title {
+    position: relative;
+    height: 65px;
+    padding: 0 20px;
+    line-height: 1.4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    background: #FCFCFD;
+    &:before {
+        .setBottomLine(@weuiCellBorderColor);
+    }
+    .weui-actionsheet__title-text {
+        .ellipsisLn(2);
+    }
+}
 .weui-actionsheet__menu{
-    background-color: #FFFFFF;
+    background-color: #FCFCFD;
 }
 .weui-actionsheet__action {
     margin-top: 6px;
-    background-color: #FFFFFF;
+    background-color: #FCFCFD;;
 }
 .weui-actionsheet__cell {
     position: relative;
