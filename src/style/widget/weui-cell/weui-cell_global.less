@@ -1,5 +1,12 @@
 @import "../../base/fn";
 
+/*
+z-index:
+0: .weui-swiped-btn
+1: .weui-cell_swiped .weui-cell__bd
+2: .weui-cells和.weui-cell的1px线
+*/
+
 .weui-cells {
     margin-top: @weuiCellsMarginTop;
     background-color: @weuiCellBg;
@@ -12,9 +19,11 @@
     position: relative;
     &:before {
         .setTopLine(@weuiCellBorderColor);
+        z-index: 2;
     }
     &:after {
         .setBottomLine(@weuiCellBorderColor);
+        z-index: 2;
     }
 }
 
@@ -47,6 +56,7 @@
     &:before {
         .setTopLine(@weuiCellBorderColor);
         left: @weuiCellGapH;
+        z-index: 2;
     }
     &:first-child {
         &:before {
