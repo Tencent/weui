@@ -5,6 +5,7 @@
 - 【增强】 actionsheet增加title及其样式优化
 - 【增强】 readme的英文版
 - 【优化】 form-preview的语义化问题 #602
+- 【优化】 loading的svg放到同一个文件，以压缩代码
 - 【修复】 input没有 / 结束 #598
 - 【修复】 picker在字号变化时导致的错位现象及其样式优化
 
