@@ -13,6 +13,34 @@
     text-align: center;
     border-radius: 3px;
     overflow: hidden;
+
+    .weui-dialog__btn {
+        display: block;
+        flex: 1;
+        color: @weuiDialogLinkColor;
+        text-decoration: none;
+        .setTapColor();
+        &:active {
+            background-color: @weuiDialogLinkActiveBc;
+        }
+
+        position: relative;
+        &:after {
+            content: " ";
+            .setLeftLine(@weuiDialogLineColor);
+        }
+        &:first-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
+    .weui-dialog__btn_default {
+        color: #353535;
+    }
+    .weui-dialog__btn_primary {
+        color: #0BB20C;
+    }
 }
 .weui-dialog__hd {
     padding: 1.3em @weuiDialogGapWidth .5em;
@@ -44,39 +72,11 @@
         .setTopLine(@weuiDialogLineColor);
     }
 }
-.weui-dialog__btn {
-    display: block;
-    flex: 1;
-    color: @weuiDialogLinkColor;
-    text-decoration: none;
-    .setTapColor();
-    &:active {
-        background-color: @weuiDialogLinkActiveBc;
-    }
 
-    position: relative;
-    &:after {
-        content: " ";
-        .setLeftLine(@weuiDialogLineColor);
-    }
-    &:first-child {
-        &:after {
-            display: none;
-        }
-    }
-}
-.weui-dialog__btn_default {
-    color: #353535;
-}
-.weui-dialog__btn_primary {
-    color: #0BB20C;
-}
+.weui-dialog.weui-skin_android {
+    text-align: left;
+    box-shadow: 0 6px 30px 0 rgba(0, 0, 0, .1);
 
-.weui-skin_android{
-    .weui-dialog {
-        text-align: left;
-        box-shadow: 0 6px 30px 0 rgba(0, 0, 0, .1);
-    }
     .weui-dialog__title{
         font-size: 21px;
     }
