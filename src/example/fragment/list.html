@@ -12,8 +12,31 @@
                 </div>
                 <div class="weui-cell__ft">说明文字</div>
             </div>
-            <div class="weui-cell weui-cell_swiped">
-                <div class="weui-cell__bd" style="transform: translateX(-68px)">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>标题文字</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">左滑删除的列表项</div>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_swiped swiped_cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>标题文字</p>
+                        </div>
+                        <div class="weui-cell__ft">说明文字</div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft">
+                    <a class="weui-swiped-btn weui-swiped-btn_warn" href="javascript:">删除</a>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_swiped swiped_cell">
+                <div class="weui-cell__bd">
                     <div class="weui-cell">
                         <div class="weui-cell__bd">
                             <p>标题文字</p>
@@ -102,4 +125,72 @@
     <div class="page__ft">
         <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
     </div>
+    <script type="text/javascript">
+        function setTransform($ele, distX, maxW, transition){
+            distX = distX > 0 ? 0 : distX < maxW ? maxW : distX;
+            $ele
+                .css({
+                    transform: "translate3d(" + distX + "px, 0, 0)",
+                    transition: transition || 0
+                })
+                .data('offset', distX);
+        }
+        function swipedCell(selector, options){
+            $(selector).each(function(index, ele){
+                var $swipedCellBd = $(ele).children('.weui-cell__bd');
+                var maxW = -$(ele).find('.weui-cell__ft').width(),
+                    isSwiped = null, nowOffset, startX, startY;
+                $swipedCellBd
+                    .on('touchstart', function (e) {
+                        startX = e.changedTouches[0].pageX;
+                        startY = e.changedTouches[0].pageY;
+
+                        isSwiped = null;
+                        nowOffset = parseInt($(this).data('offset')) || 0;
+                        $(this).css({
+                            transition: "0s"
+                        });
+                    })
+                    .on('touchmove', function(e){
+                        if(isSwiped === false) return;
+
+                        var $this = $(this),
+                            diffX = e.changedTouches[0].pageX - startX,
+                            diffY = e.changedTouches[0].pageY - startY;
+                        if(isSwiped){
+                            e.preventDefault();
+
+                            setTransform($this, nowOffset + diffX, maxW);
+                        }else{
+                            if(Math.abs(diffX) > Math.abs(diffY)){
+                                if(Math.abs(diffX) > options.limit){
+                                    e.preventDefault();
+
+                                    isSwiped = true;
+                                    setTransform($this, nowOffset + diffX, maxW);
+                                }
+                            }else{
+                                isSwiped = false;
+                            }
+                        }
+                    })
+                    .on('touchend', function(e){
+                        var $this = $(this);
+                        if(isSwiped){
+                            var diffX = e.changedTouches[0].pageX - startX;
+                            if(diffX < maxW / 2){
+                                setTransform($this, maxW, maxW, '.3s');
+                            }else{
+                                setTransform($this, 0, maxW, '.3s');
+                            }
+                        }else if(nowOffset){
+                            setTransform($this, 0, maxW, '.3s');
+                        }
+                    });
+            });
+        }
+        swipedCell('.swiped_cell', {
+            limit: 3 // 开启swipe的阈值，3表示当横向滑动超过3px时开启
+        });
+    </script>
 </div>
