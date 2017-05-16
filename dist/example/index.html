@@ -446,8 +446,9 @@
         function swipedCell(selector, options){
             $(selector).each(function(index, ele){
                 var $swipedCellBd = $(ele).children('.weui-cell__bd');
-                var maxW = -$(ele).find('.weui-cell__ft').width(),
+                var maxW = -$(ele).children('.weui-cell__ft').width(),
                     isSwiped = null, nowOffset, startX, startY;
+
                 $swipedCellBd
                     .on('touchstart', function (e) {
                         startX = e.changedTouches[0].pageX;
@@ -465,6 +466,7 @@
                         var $this = $(this),
                             diffX = e.changedTouches[0].pageX - startX,
                             diffY = e.changedTouches[0].pageY - startY;
+
                         if(isSwiped){
                             e.preventDefault();
 
@@ -484,8 +486,10 @@
                     })
                     .on('touchend', function(e){
                         var $this = $(this);
+
                         if(isSwiped){
                             var diffX = e.changedTouches[0].pageX - startX;
+
                             if(diffX < maxW / 2){
                                 setTransform($this, maxW, maxW, '.3s');
                             }else{
