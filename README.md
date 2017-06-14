@@ -1,7 +1,7 @@
 WeUI - tailor-made for WeChat web service
 ====
 
-[![Build Status](https://travis-ci.org/weui/weui.svg?branch=master)](https://travis-ci.org/weui/weui)
+[![Build Status](https://travis-ci.org/Tencent/weui.svg?branch=master)](https://travis-ci.org/Tencent/weui)
 [![npm version](https://img.shields.io/npm/v/weui.svg)](https://www.npmjs.org/package/weui)
 
 [中文版本](README_cn.md)
