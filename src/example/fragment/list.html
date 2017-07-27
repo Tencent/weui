@@ -130,7 +130,7 @@
             distX = distX > 0 ? 0 : distX < maxW ? maxW : distX;
             $ele
                 .css({
-                    transform: "translate3d(" + distX + "px, 0, 0)",
+                    transform: "translateX(" + distX + "px)",
                     transition: transition || 0
                 })
                 .data('offset', distX);
