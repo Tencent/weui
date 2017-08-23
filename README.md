@@ -8,7 +8,7 @@ WeUI - tailor-made for WeChat web service
 
 ## Introduction
 
-WeUI is an WeChat-like UI framework officially designed by the WeChat Design Team, tailor-made for WeChat Web development, in order to improve and standardize the experience for WeChat users. Including components such as `button`、`cell`、`dialog`、 `progress`、 `toast`、`article`、`actionsheet`、`icon`.
+WeUI is an WeChat-like UI framework originally designed by the WeChat Design Team, tailor-made for WeChat Web development in order to improve and standardize the experience for WeChat users. It includes components such as `button`, `cell`, `dialog`, `progress`, `toast`, `article`, `actionsheet`, `icon`.
 
 ## Mobile demo
 
@@ -31,10 +31,10 @@ Legacy version: [https://weui.io/0.4.x](https://weui.io/0.4.x)
 
 ## License
 
-The MIT License(http://opensource.org/licenses/MIT)
+MIT License (http://opensource.org/licenses/MIT)
 
 Please feel free to use and contribute to the development.
 
 ## Contribution
 
-If you have any ideas or suggestions to improve Wechat WeUI, welcome to submit an issue/pull request.
+If you have any ideas or suggestions to improve Wechat WeUI, feel free to submit an issue or pull request.
