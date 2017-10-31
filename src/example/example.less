@@ -446,3 +446,15 @@ body, .page {
 .page.slideOut {
     animation: slideOut .2s forwards;
 }
+
+// iphone x
+@iphonexSafeGap:44px;
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) 
+and (orientation : landscape) {
+    .page{
+        padding:0 @iphonexSafeGap;
+    }
+}
