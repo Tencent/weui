@@ -26,6 +26,7 @@ Legacy version: [https://weui.io/0.4.x](https://weui.io/0.4.x)
 ## Development
 
 - [WeUI for 小程序 (weui-wxss)](https://github.com/Tencent/weui-wxss/)
+- [WeUI for Work (企业微信版)](https://work.weixin.qq.com/api/doc#12146)
 - [weui.js](https://github.com/weui/weui.js/)
 - [react-weui](https://github.com/weui/react-weui/)
 
