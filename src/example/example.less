@@ -448,13 +448,8 @@ body, .page {
 }
 
 // iphone x
-@iphonexSafeGap:44px;
-@media only screen
-and (device-width : 375px)
-and (device-height : 812px)
-and (-webkit-device-pixel-ratio : 3) 
-and (orientation : landscape) {
+@supports (constant(safe-area-inset-top)){
     .page{
-        padding:0 @iphonexSafeGap;
+        padding:constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
     }
 }
