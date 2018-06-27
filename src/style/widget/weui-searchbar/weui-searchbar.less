@@ -5,6 +5,8 @@
     display: flex;
     box-sizing: border-box;
     background-color: #EFEFF4;
+    -webkit-text-size-adjust: 100%;
+    align-items: center;
     &:before {
         .setTopLine(#D7D6DC);
     }
@@ -62,14 +64,16 @@
     }
     .weui-icon-search {
         position: absolute;
+        top: 50%;
         left: 10px;
-        top: 0;
+        margin-top: -14px;
         line-height: 28px;
     }
     .weui-icon-clear {
         position: absolute;
-        top: 0;
+        top: 50%;
         right: 0;
+        margin-top: -14px;
         padding: 0 10px;
         line-height: 28px;
     }
