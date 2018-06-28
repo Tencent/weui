@@ -446,3 +446,18 @@ body, .page {
 .page.slideOut {
     animation: slideOut .2s forwards;
 }
+
+// iphone x
+@supports (constant(safe-area-inset-top)){
+    .page{
+        padding:constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+        &.tabbar,&.navbar{
+            padding-left:0;
+            padding-right:0;
+        }
+    }
+    .weui-tab__panel{
+        padding-left:constant(safe-area-inset-left);
+        padding-right:constant(safe-area-inset-right);
+    }
+}
