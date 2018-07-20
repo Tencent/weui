@@ -36,14 +36,11 @@ WeUI 的发展，离不开社区的贡献。如果你对 WeUI 的现状有意见
 
 非常感谢以下几位贡献者对weui做出的贡献：
 
-感谢@Paranoid_K、@AmMRLi、@qichhhhh 在交流群内积极参与weui相关问题的讨论和答疑解惑。
+- 感谢@Paranoid_K、@AmMRLi、@qichhhhh 在交流群内积极参与weui相关问题的讨论和答疑解惑。
 
-感谢@n7best（n7best@gmail.com） 积极参与`react-weui`的开发工作，贡献了大量代码，使得`react-weui`依赖的`weui`版本升级到 1.x ，同时提升了 `react-weui` 代码质量。
-
+- 感谢@n7best（n7best@gmail.com） 积极参与`react-weui`的开发工作，贡献了大量代码，使得`react-weui`依赖的`weui`版本升级到 1.x ，同时提升了 `react-weui` 代码质量。
 
 *@Paranoid_K、@AmMRLi、@qichhhhh 的QB奖励以及 @n7best 优秀贡献者证书已由腾讯开源工作人员联系发放。
-
-
 
 #### 腾讯开源贡献者激励
 
