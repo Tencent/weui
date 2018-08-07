@@ -35,7 +35,6 @@ The MIT License(http://opensource.org/licenses/MIT)
 
 ## 参与贡献
 
-如果你有好的意见或建议，欢迎给我们提 Issues 或 Pull Requests，为提升微信 Web 体验贡献力量，
-详见：[CONTRIBUTING.md](https://github.com/Tencent/weui/blob/master/CONTRIBUTING.md)
+如果你有好的意见或建议，欢迎给我们提 Issues 或 Pull Requests，为提升微信 Web 体验贡献力量。<br>详见：[CONTRIBUTING.md](https://github.com/Tencent/weui/blob/master/CONTRIBUTING.md)
 
-[腾讯开源激励计划](https://opensource.tencent.com/contribution) 鼓励开发者参与贡献，也将给予贡献者相应的激励以表认可和感谢。
+[腾讯开源激励计划](https://opensource.tencent.com/contribution) 鼓励开发者的参与和贡献，期待你的加入。
