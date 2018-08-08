@@ -42,8 +42,8 @@ WeUI 的发展，离不开社区的贡献。如果你对 WeUI 的现状有意见
 
 *@Paranoid_K、@AmMRLi、@qichhhhh 的QB奖励以及 @n7best 优秀贡献者证书已由腾讯开源工作人员联系发放。
 
-#### 腾讯开源贡献者激励
+#### 参与贡献
 
-我们非常欢迎开发者们为腾讯开源贡献一份力量，相应也将给予贡献者激励以表认可与感谢。在此我们提供了官方对腾讯开源贡献的说明文档，每个项目的具体贡献规则由项目团队制定，开发者可以选择适合的项目并根据对应规则参与。腾讯项目管理委员会将定期上报满足条件的贡献者，后续将由官方联系发放奖励。
+如果你有好的意见或建议，欢迎给我们提 Issues 或 Pull Requests，为提升微信 Web 体验贡献力量。<br>详见：[CONTRIBUTING.md](https://github.com/Tencent/weui/blob/master/CONTRIBUTING.md)
 
-详情：https://opensource.tencent.com/contribution
+[腾讯开源激励计划](https://opensource.tencent.com/contribution) 鼓励开发者的参与和贡献，期待你的加入。
