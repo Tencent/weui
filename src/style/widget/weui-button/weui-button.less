@@ -44,8 +44,8 @@ button, input {
 
 .weui-btn_mini {
     display: inline-block;
-    padding: 0 1.32em;
-    line-height: @weuiBtnMiniHeight;
+    padding: 0 unit(12px/@weuiBtnMiniFontSize,em);
+    line-height: unit(@weuiBtnMiniHeight/@weuiBtnMiniFontSize);
     font-size: @weuiBtnMiniFontSize;
 }
 
