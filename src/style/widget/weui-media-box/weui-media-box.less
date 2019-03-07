@@ -40,14 +40,17 @@
 .weui-media-box__title {
     font-weight: 400;
     font-size: 17px;
+    line-height:1.4;
+    color:@weuiTextColorTitle;
     .ellipsis();
     word-wrap: break-word;
     word-break: break-all;
 }
 .weui-media-box__desc {
-    color: @weuiTextColorGray;
-    font-size: 13px;
-    line-height: 1.2;
+    color: @weuiTextColorTips;
+    font-size: 14px;
+    line-height:1.4;
+    padding-top:4px;
     .ellipsisLn(2);
 }
 .weui-media-box__info {
@@ -66,11 +69,6 @@
 .weui-media-box__info__meta_extra {
     padding-left: 1em;
     border-left: 1px solid #CECECE;
-}
-.weui-media-box_text {
-    .weui-media-box__title {
-        margin-bottom: 8px;
-    }
 }
 .weui-media-box_appmsg {
     display: flex;

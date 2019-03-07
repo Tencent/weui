@@ -23,21 +23,21 @@
         background-color: #ECECEC;
     }
     .weui-cell__ft {
-        padding-right: 13px;
+        padding-right: 16px;
         position: relative;
         &:after {
             content: " ";
-            .setArrow(right, 6px, #C8C8CD, 2px);
+            .setArrow(right, 8px, #B2B2B2, 2px);
             position: absolute;
             top: 50%;
-            margin-top: -4px;
-            right: 2px;
+            margin-top: -5px;
+            right: 0;
         }
     }
 }
 .weui-cell_link{
     color: @weuiLinkColorDefault;
-    font-size: 14px;
+    font-size: 17px;
 
     // 由于weui-cell:first-child的:before为隐藏，所以这里要重新显示出来
     &:first-child{
