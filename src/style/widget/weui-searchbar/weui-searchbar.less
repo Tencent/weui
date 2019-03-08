@@ -14,21 +14,17 @@
 * limitations under the License.
 */
 
+@weuiSearchInputHeight:32px;
+
 @import "../../base/fn";
 .weui-search-bar {
     position: relative;
-    padding: 8px 10px;
+    padding: 8px;
     display: flex;
     box-sizing: border-box;
-    background-color: #EFEFF4;
+    background-color: @weuiBgColorDefault;
     -webkit-text-size-adjust: 100%;
     align-items: center;
-    &:before {
-        .setTopLine(#D7D6DC);
-    }
-    &:after {
-        .setBottomLine(#D7D6DC);
-    }
     &.weui-search-bar_focusing{
         .weui-search-bar__cancel-btn{
             display: block;
@@ -41,39 +37,27 @@
 .weui-search-bar__form {
     position: relative;
     flex: auto;
-    background-color: #EFEFF4;
-    &:after{
-        content: '';
-        position: absolute;
-        left: 0;
-        top:0;
-        width: 200%;
-        height: 200%;
-        transform: scale(.5);
-        transform-origin: 0 0;
-        border-radius: 10px;
-        border: 1px solid #E6E6EA;
-        box-sizing: border-box;
-        background: #FFFFFF;
-    }
+    background-color: #FFFFFF;
+    border-radius:4px;
 }
 .weui-search-bar__box {
     position: relative;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 32px;
+    padding-right: 32px;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
     .weui-search-bar__input {
-        padding: 4px 0;
+        padding: 8px 0;
         width: 100%;
-        height: 20/14em;
+        height: unit(@weuiSearchInputHeight - 16px)/14em;
         border: 0;
         font-size: 14px;
-        line-height: 20/14em;
-        box-sizing: content-box;
+        line-height: unit(@weuiSearchInputHeight - 16px)/14em;
+        box-sizing:content-box;
         background: transparent;
+        caret-color:@weuiColorPrimary;
         &:focus {
             outline: none;
         }
@@ -81,7 +65,7 @@
     .weui-icon-search {
         position: absolute;
         top: 50%;
-        left: 10px;
+        left: 8px;
         margin-top: -14px;
         line-height: 28px;
     }
@@ -90,20 +74,22 @@
         top: 50%;
         right: 0;
         margin-top: -14px;
-        padding: 0 10px;
+        padding: 0 8px;
         line-height: 28px;
     }
 }
 .weui-search-bar__label {
     position: absolute;
-    top: 1px;
-    right: 1px;
-    bottom: 1px;
-    left: 1px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 2;
-    border-radius: 3px;
+    font-size:0;
+    border-radius: 4px;
+    line-height:32px;
     text-align: center;
-    color: #9B9B9B;
+    color: @weuiTextColorDesc;
     background: #FFFFFF;
     span {
         display: inline-block;
@@ -111,14 +97,14 @@
         vertical-align: middle;
     }
     .weui-icon-search {
-        margin-right: 5px;
+        margin-right: 4px;
     }
 }
 .weui-search-bar__cancel-btn {
     display: none;
-    margin-left: 10px;
+    margin-left: 8px;
     line-height: 28px;
-    color: #09BB07;
+    color: @weuiLinkColorDefault;
     white-space: nowrap;
 }
 .weui-search-bar__input:not(:valid) ~ .weui-icon-clear {

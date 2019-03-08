@@ -31,11 +31,12 @@
 
 .weui-picker__hd {
     display: flex;
-    padding: 9px 15px;
+    padding: 16px;
     background-color: #fff;
     position: relative;
     text-align: center;
     font-size: 17px;
+    line-height:1.4;
     &:after {
         .setBottomLine(@weuiLineColorLight);
     }
@@ -44,11 +45,11 @@
 .weui-picker__action {
     display: block;
     flex: 1;
-    color: @weuiColorPrimary;
+    color: @weuiLinkColorDefault;
 
     &:first-child {
         text-align: left;
-        color: #888;
+        color: @weuiTextColorTitle;
     }
     &:last-child {
         text-align: right;
@@ -59,7 +60,7 @@
     display: flex;
     position: relative;
     background-color: #fff;
-    height: 238px;
+    height: 240px;
     overflow: hidden;
 }
 
@@ -112,7 +113,7 @@
     height: @pickerItemHeight;
     line-height: @pickerItemHeight;
     text-align: center;
-    color: #000;
+    color: @weuiTextColorTitle;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

@@ -22,14 +22,14 @@
     z-index: 500;
     top: 0;
     width: 100%;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
 
     &:after {
-        .setBottomLine(#CCCCCC);
+        .setBottomLine(@weuiLineColorLight);
     }
 
     & + .weui-tab__panel {
-        padding-top: 50px;
+        padding-top: 48px;
         padding-bottom: 0;
     }
 }
@@ -38,21 +38,21 @@
     position: relative;
     display: block;
     flex: 1;
-    padding: 13px 0;
+    padding: 16px 0;
     text-align: center;
-    font-size: 15px;
+    font-size: 17px;
     .setTapColor();
 
     &:active {
-        background-color: #EDEDED;
+        background-color: @weuiBgColorActive;
     }
 
     &.weui-bar__item_on {
-        background-color: #EAEAEA;
+        background-color: @weuiBgColorActive;
     }
 
     &:after {
-        .setRightLine(#CCCCCC);
+        .setRightLine(@weuiLineColorLight);
     }
 
     &:last-child {

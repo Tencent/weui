@@ -22,17 +22,17 @@
     z-index: 500;
     bottom: 0;
     width: 100%;
-    background-color: #F7F7FA;
+    background-color: @weuiBgColorPrimary;
 
     &:before {
-        .setTopLine(#C0BFC4);
+        .setTopLine(@weuiLineColorLight);
     }
 }
 
 .weui-tabbar__item {
     display: block;
     flex: 1;
-    padding: 5px 0 0;
+    padding: 8px 0;
     font-size: 0;
     color: @weuiTextColorDesc;
     text-align: center;
@@ -42,15 +42,16 @@
         .weui-tabbar__icon,
         .weui-tabbar__icon > i,
         .weui-tabbar__label {
-            color: #09BB07;
+            color: @weuiColorPrimary;
         }
     }
 }
 
 .weui-tabbar__icon {
     display: inline-block;
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
+    margin-bottom:2px;
 
     i&,
     > i {
@@ -65,8 +66,7 @@
 }
 
 .weui-tabbar__label {
-    text-align: center;
-    color: @weuiTextColorDesc;
+    color: @weuiTextColorTitle;
     font-size: 10px;
-    line-height: 1.8;
+    line-height: 1.4;
 }
