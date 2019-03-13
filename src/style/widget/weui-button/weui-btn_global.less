@@ -19,17 +19,17 @@
 .weui-btn {
     position: relative;
     display: block;
+    max-width:100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding:8px 24px;
     box-sizing: border-box;
     font-weight:700;
     font-size: @weuiBtnFontSize;
     text-align: center;
     text-decoration: none;
     color: @weuiBtnFontColor;
-    line-height: unit(@weuiBtnHeight/@weuiBtnFontSize);
+    line-height: unit((@weuiBtnHeight - 16) / @weuiBtnFontSize);
     border-radius: @weuiBtnBorderRadius;
     .setTapColor();
     overflow: hidden;
