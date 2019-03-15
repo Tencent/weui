@@ -17,6 +17,9 @@
 @import "../../../base/fn";
 
 .weui-cells_checkbox {
+    .weui-check__label{
+      &:before{left:55px;}
+    }
     .weui-cell__hd {
         padding-right: @weuiCellInnerGapH;
     }
@@ -26,6 +29,7 @@
             color: @weuiLineColorDark;
             font-size: 23px;
             display: block;
+            margin:0;
         }
     }
 }
