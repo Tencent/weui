@@ -25,14 +25,14 @@
 @weuiCellLabelWidth:105px;
 
 @weuiCellLineHeight: unit((@weuiCellHeight - 2 * @weuiCellGapV) / @weuiCellFontSize); // 高度减去上下padding的行高
-@weuiCellsMarginTop:unit(20 / @weuiCellFontSize, em);
+@weuiCellsMarginTop:8px;
 
 // weui switch
 @weuiSwitchHeight: 32px;
 
 // weui uploader
-@weuiUploaderBorderColor:#D9D9D9;
-@weuiUploaderActiveBorderColor:#999999;
-@weuiUploaderFileSpacing: 9px;
-@weuiUploaderSize: 79px;
+@weuiUploaderBorderColor:@weuiLineColorDark;
+@weuiUploaderActiveBorderColor:overlay(@weuiActiveMaskBlack,@weuiUploaderBorderColor);
+@weuiUploaderFileSpacing: 8px;
+@weuiUploaderSize: 80px;
 @weuiUploaderBorderWidth: 1px;

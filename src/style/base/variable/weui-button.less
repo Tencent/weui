@@ -31,15 +31,15 @@
 @weuiBtnActiveFontColor:#FFFFFF;
 @weuiBtnDisabledFontColor:rgba(0,0,0,.18);
 @weuiBtnDisabledBg:overlay(rgba(0,0,0,.02),#FFFFFF);
-@weuiBtnHoverDefaultMask:rgba(0,0,0,.05);
-@weuiBtnHoverPrimaryMask:rgba(0,0,0,.1);
+@weuiBtnHoverDefaultMask:@weuiActiveMaskWhite;
+@weuiBtnHoverPrimaryMask:@weuiActiveMaskColored;
 
 @weuiBtnDefaultFontColor:#06AE56;
 @weuiBtnDefaultActiveFontColor:#06AE56;
 @weuiBtnDefaultDisabledFontColor:@weuiBtnDisabledFontColor;
 
 @weuiBtnDefaultBg:#F2F2F2;
-@weuiBtnDefaultActiveBg:overlay(@weuiBtnHoverDefaultMask,@weuiBtnDefaultBg);
+@weuiBtnDefaultActiveBg:#D9D9D9;
 @weuiBtnDefaultDisabledBg:@weuiBtnDisabledBg;
 
 
@@ -48,12 +48,16 @@
 @weuiBtnPrimaryDisabledFontColor:@weuiBtnDisabledFontColor;
 
 @weuiBtnPrimaryBg:#07C160;
-@weuiBtnPrimaryActiveBg:overlay(@weuiBtnHoverPrimaryMask,@weuiBtnPrimaryBg);
+@weuiBtnPrimaryActiveBg:#06AD56;
 @weuiBtnPrimaryDisabledBg:@weuiBtnDisabledBg;
 
 
-@weuiBtnWarnBg:#E64340;
-@weuiBtnWarnActiveBg:overlay(@weuiBtnHoverPrimaryMask    ,@weuiBtnWarnBg);
+@weuiBtnWarnFontColor:@weuiColorWarn;
+@weuiBtnWarnActiveFontColor:@weuiColorWarn;
+@weuiBtnWarnDisabledFontColor:@weuiBtnDisabledFontColor;
+
+@weuiBtnWarnBg:#F2F2F2;
+@weuiBtnWarnActiveBg:#D9D9D9;
 @weuiBtnwarnDisabledBg:@weuiBtnDisabledBg;
 
 
