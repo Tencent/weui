@@ -21,16 +21,23 @@
     padding-top: @weuiMsgPaddingTop;
     text-align: center;
     line-height:1.4;
+    min-height:100%;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction: column;
+    a:not(.weui-btn){
+      color:@weuiLinkColorDefault;
+    }
 }
 .weui-msg__icon-area {
-    margin-bottom: @weuiMsgIconGap;
+    margin-bottom: 32px;
 }
 .weui-msg__text-area {
-    margin-bottom: @weuiMsgTextGap;
-    padding:0 20px;
-}
-.weui-msg__text-area a{
-    color:@weuiLinkColorDefault;
+    margin-bottom: 32px;
+    padding:0 32px;
+    flex:1;
+    line-height:1.6;
+    &:first-child{padding-top:96px;}
 }
 .weui-msg__title {
     margin-bottom: @weuiMsgTitleGap;
@@ -44,24 +51,43 @@
     color: @weuiTextColorTitle;
     word-wrap:break-word;
     word-break:break-all;
+    margin-bottom:16px;
+}
+.weui-msg__desc-primary {
+    font-size: 14px;
+    color: @weuiTextColorDesc;
+    word-wrap:break-word;
+    word-break:break-all;
+    margin-bottom:16px;
 }
 .weui-msg__opr-area {
-    margin-bottom: @weuiMsgOprGap;
+    margin-bottom: 16px;
+    .weui-btn-area{margin:0}
+    .weui-btn + .weui-btn{margin-bottom:16px;}
+    &:last-child{margin-bottom:96px;}
+    & + .weui-msg__extra-area{
+      margin-top:48px;
+    }
+}
+.weui-msg__tips-area {
+    margin-bottom: 16px;
+    padding:0 40px;
+    .weui-msg__opr-area + &{
+      margin-bottom: 48px;
+    }
+    &:last-child{
+      margin-bottom: 64px;
+    }
+}
+.weui-msg__tips {
+  font-size:12px;
+  color: @weuiTextColorDesc;
 }
 .weui-msg__extra-area {
-    margin-bottom: @weuiMsgExtraAreaGap;
-    font-size: 14px;
-    color: @weuiTextColorTips;
+    margin-bottom: 24px;
+    font-size: 12px;
+    color: @weuiTextColorDesc;
     a{color: @weuiLinkColorDefault;}
-}
-@media screen and (min-height: @weuiMsgExtraAreaOfMinHeight) {
-    .weui-msg__extra-area {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-    }
 }
 
 
@@ -70,25 +96,25 @@ and (device-width : 375px)
 and (device-height : 812px)
 and (-webkit-device-pixel-ratio : 3)
 and (orientation : portrait) {
-    .weui-msg__extra-area {
-        margin-bottom: @weuiMsgExtraAreaGap + 34;
-    }
+  .weui-msg{
+    padding-bottom:34px;
+  }
 }
 @media screen
 and (device-width : 414px)
 and (device-height : 896px)
 and (-webkit-device-pixel-ratio : 2)
 and (orientation : portrait) {
-    .weui-msg__extra-area {
-        margin-bottom: @weuiMsgExtraAreaGap + 34;
-    }
+  .weui-msg{
+    padding-bottom:34px;
+  }
 }
 @media screen
 and (device-width : 414px)
 and (device-height : 896px)
 and (-webkit-device-pixel-ratio : 3)
 and (orientation : portrait) {
-    .weui-msg__extra-area {
-        margin-bottom: @weuiMsgExtraAreaGap + 34;
-    }
+  .weui-msg{
+    padding-bottom:34px;
+  }
 }
