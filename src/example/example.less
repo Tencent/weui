@@ -471,13 +471,8 @@ body, .page {
 @supports (top: env(safe-area-inset-top)){
     .page{
         padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-        &.tabbar,&.navbar{
-            padding-left:0;
-            padding-right:0;
+        &.tabbar,&.navbar,&.msg_success,&.msg_warn,&.msg_text,&.msg_text_primary,&.article{
+            padding:0;
         }
-    }
-    .weui-tab__panel{
-        padding-left:env(safe-area-inset-left);
-        padding-right:env(safe-area-inset-right);
     }
 }

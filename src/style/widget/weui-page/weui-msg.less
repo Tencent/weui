@@ -19,6 +19,8 @@
 
 .weui-msg {
     padding-top: @weuiMsgPaddingTop;
+    padding:@weuiMsgPaddingTop constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+    padding:@weuiMsgPaddingTop env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     text-align: center;
     line-height:1.4;
     min-height:100%;
@@ -92,30 +94,3 @@
 }
 
 
-@media screen
-and (device-width : 375px)
-and (device-height : 812px)
-and (-webkit-device-pixel-ratio : 3)
-and (orientation : portrait) {
-  .weui-msg{
-    padding-bottom:34px;
-  }
-}
-@media screen
-and (device-width : 414px)
-and (device-height : 896px)
-and (-webkit-device-pixel-ratio : 2)
-and (orientation : portrait) {
-  .weui-msg{
-    padding-bottom:34px;
-  }
-}
-@media screen
-and (device-width : 414px)
-and (device-height : 896px)
-and (-webkit-device-pixel-ratio : 3)
-and (orientation : portrait) {
-  .weui-msg{
-    padding-bottom:34px;
-  }
-}
