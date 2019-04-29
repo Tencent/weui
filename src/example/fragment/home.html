@@ -253,6 +253,16 @@
                     $page.scrollTop(scrollTop);
                 }
             }
+
+            var winH = $(window).height();
+            var $foot = $('body').find('.page__ft');
+            if($foot.length < 1) return;
+
+            if($foot.position().top + $foot.height() < winH){
+                $foot.addClass('j_bottom');
+            }else{
+                $foot.removeClass('j_bottom');
+            }
         });
     });
 </script>
