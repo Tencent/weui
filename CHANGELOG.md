@@ -12,6 +12,8 @@
 - 【优化】 weui-tab布局改为`flex`，并适配刘海屏
 - 【增强】 更新weui-dialog UI
 - 【增强】 更新weui-cell UI
+- 【增强】 更新weui-uploader UI
+- 【修复】 weui-vcode-btn左边框无高清线处理
 - 【修复】 无weui-cells__title的相邻weui-cells之间的间距太大
 - 【修复】 WeUI example、weui-article、weui-gallery、weui-actionshet、weui-picker等组件刘海屏适配问题
 
