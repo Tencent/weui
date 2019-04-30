@@ -14,40 +14,59 @@
 * limitations under the License.
 */
 
-@weuiBtnHeight:46px;
-@weuiBtnFontSize:18px;
+@weuiBtnWidth:184px;
+@weuiBtnHeight:40px;
+@weuiBtnFontSize:17px;
+@weuiBtnBorderRadius:4px;
+@weuiBtnDefaultGap:16px;
+
+@weuiBtnMiniFontSize:16px;
+@weuiBtnMiniHeight:32px;
+
+@weuiBtnCellHeight:56px;
+@weuiBtnCellGap:16px;
+@weuiBtnCellLineHeight: unit((@weuiBtnCellHeight - 2 * @weuiBtnCellGap) / @weuiBtnFontSize);
+
 @weuiBtnFontColor:#FFFFFF;
-@weuiBtnActiveFontColor:rgba(255,255,255,.6);
-@weuiBtnDisabledFontColor:rgba(255,255,255,.6);
-@weuiBtnBorderRadius:5px;
-@weuiBtnDefaultGap:15px;
+@weuiBtnActiveFontColor:#FFFFFF;
+@weuiBtnDisabledFontColor:rgba(0,0,0,.18);
+@weuiBtnDisabledBg:overlay(rgba(0,0,0,.02),#FFFFFF);
+@weuiBtnHoverDefaultMask:@weuiActiveMaskWhite;
+@weuiBtnHoverPrimaryMask:@weuiActiveMaskColored;
 
-@weuiBtnMiniFontSize:13px;
-@weuiBtnMiniHeight:2.3;
+@weuiBtnDefaultFontColor:#06AE56;
+@weuiBtnDefaultActiveFontColor:#06AE56;
+@weuiBtnDefaultDisabledFontColor:@weuiBtnDisabledFontColor;
 
-@weuiBtnDefaultFontColor:#000000;
-@weuiBtnDefaultActiveFontColor:rgba(0,0,0,.6);
-@weuiBtnDefaultDisabledFontColor:rgba(0,0,0,.3);
-
-@weuiBtnDefaultBg:#F8F8F8;
-@weuiBtnDefaultActiveBg:#DEDEDE;
-@weuiBtnDefaultDisabledBg:#F7F7F7;
-
-@weuiBtnPrimaryBg:#1AAD19;
-@weuiBtnPrimaryActiveBg:#179B16;
-@weuiBtnPrimaryDisabledBg:#9ED99D;
-
-@weuiBtnWarnBg:#E64340;
-@weuiBtnWarnActiveBg:#CE3C39;
-@weuiBtnwarnDisabledBg:#EC8B89;
+@weuiBtnDefaultBg:#F2F2F2;
+@weuiBtnDefaultActiveBg:#D9D9D9;
+@weuiBtnDefaultDisabledBg:@weuiBtnDisabledBg;
 
 
-@weuiBtnPlainPrimaryColor:rgba(26,173,25,1);
+@weuiBtnPrimaryFontColor:#FFFFFF;
+@weuiBtnPrimaryActiveFontColor:#FFFFFF;
+@weuiBtnPrimaryDisabledFontColor:@weuiBtnDisabledFontColor;
+
+@weuiBtnPrimaryBg:#07C160;
+@weuiBtnPrimaryActiveBg:#06AD56;
+@weuiBtnPrimaryDisabledBg:@weuiBtnDisabledBg;
+
+
+@weuiBtnWarnFontColor:@weuiColorWarn;
+@weuiBtnWarnActiveFontColor:@weuiColorWarn;
+@weuiBtnWarnDisabledFontColor:@weuiBtnDisabledFontColor;
+
+@weuiBtnWarnBg:#F2F2F2;
+@weuiBtnWarnActiveBg:#D9D9D9;
+@weuiBtnwarnDisabledBg:@weuiBtnDisabledBg;
+
+
+@weuiBtnPlainPrimaryColor:#07C160;
 @weuiBtnPlainPrimaryBorderColor:rgba(26,173,25,1);
-@weuiBtnPlainPrimaryActiveColor:rgba(26,173,25,.6);
-@weuiBtnPlainPrimaryActiveBorderColor:rgba(26,173,25,.6);
+@weuiBtnPlainPrimaryActiveColor:overlay(@weuiBtnHoverPrimaryMask,@weuiBtnPlainPrimaryColor);
+@weuiBtnPlainPrimaryActiveBorderColor:overlay(@weuiBtnHoverPrimaryMask,@weuiBtnPlainPrimaryBorderColor);
 
 @weuiBtnPlainDefaultColor:rgba(53,53,53,1);
 @weuiBtnPlainDefaultBorderColor:rgba(53,53,53,1);
-@weuiBtnPlainDefaultActiveColor:rgba(53,53,53,.6);
-@weuiBtnPlainDefaultActiveBorderColor:rgba(53,53,53,.6);
+@weuiBtnPlainDefaultActiveColor:overlay(@weuiBtnHoverDefaultMask,@weuiBtnPlainDefaultColor);
+@weuiBtnPlainDefaultActiveBorderColor:overlay(@weuiBtnHoverDefaultMask,@weuiBtnPlainDefaultBorderColor);

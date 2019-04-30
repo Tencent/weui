@@ -31,3 +31,19 @@ WeUI 的发展，离不开社区的贡献。如果你对 WeUI 的现状有意见
     - 最好可以提供截图
     - 最好可以提供示例代码，推荐使用 http://codepen.io
 - 如果你的问题已经得到解决，请关闭你的 issue。
+
+#### 贡献者名单
+
+非常感谢以下几位贡献者对weui做出的贡献：
+
+- 感谢@Paranoid_K、@AmMRLi、@qichhhhh 在交流群内积极参与weui相关问题的讨论和答疑解惑。
+
+- 感谢@n7best（n7best@gmail.com） 积极参与`react-weui`的开发工作，贡献了大量代码，使得`react-weui`依赖的`weui`版本升级到 1.x ，同时提升了 `react-weui` 代码质量。
+
+*@Paranoid_K、@AmMRLi、@qichhhhh 的QB奖励以及 @n7best 优秀贡献者证书已由腾讯开源工作人员联系发放。
+
+#### 参与贡献
+
+如果你有好的意见或建议，欢迎给我们提 Issues 或 Pull Requests，为提升微信 Web 体验贡献力量。<br>详见：[CONTRIBUTING.md](https://github.com/Tencent/weui/blob/master/CONTRIBUTING.md)
+
+[腾讯开源激励计划](https://opensource.tencent.com/contribution) 鼓励开发者的参与和贡献，期待你的加入。

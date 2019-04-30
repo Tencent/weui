@@ -28,11 +28,11 @@
     position: relative;
     width: 52px;
     height: @weuiSwitchHeight;
-    border: 1px solid #DFDFDF;
+    border: 1px solid @weuiLineColorLight;
     outline: 0;
     border-radius: 16px;
     box-sizing: border-box;
-    background-color: #DFDFDF;
+    background-color: @weuiLineColorLight;
     transition: background-color .1s, border .1s;
 
     &:before{
@@ -61,8 +61,8 @@
 }
 .weui-switch:checked,
 .weui-switch-cp__input:checked ~ .weui-switch-cp__box{
-    border-color: #04BE02;
-    background-color: #04BE02;
+    border-color: @weuiColorPrimary;
+    background-color: @weuiColorPrimary;
     &:before {
         transform: scale(0);
     }
