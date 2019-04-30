@@ -17,12 +17,13 @@
 @import "../../base/fn";
 
 .weui-btn_warn {
+	color:@weuiBtnWarnFontColor;
     background-color: @weuiBtnWarnBg;
     &:not(.weui-btn_disabled):visited {
-        color: @weuiBtnFontColor;
+        color: @weuiBtnWarnFontColor;
     }
     &:not(.weui-btn_disabled):active {
-        color: @weuiBtnActiveFontColor;
-        background-color: @weuiBtnWarnActiveBg;
+        color: @weuiBtnWarnActiveFontColor;
+        background-color:@weuiBtnWarnActiveBg;
     }
 }

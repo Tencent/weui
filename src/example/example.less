@@ -15,14 +15,17 @@ ul{
 }
 
 body, .page {
-    background-color: #F8F8F8;
+    background-color: #EDEDED;
+}
+.page{
+  box-sizing:border-box;
 }
 
 
 /* lib */
 
 .link{
-    color: #1AAD19;
+    color: #07C160;
 }
 
 
@@ -59,12 +62,14 @@ body, .page {
 .page__bd {}
 
 .page__bd_spacing {
-    padding: 0 15px;
+    padding: 0 16px;
 }
 
 .page__ft{
     padding-top: 40px;
     padding-bottom: 10px;
+    padding-bottom: calc(10px ~"+ constant(safe-area-inset-bottom)");
+    padding-bottom: calc(10px ~"+ env(safe-area-inset-bottom)");
     text-align: center;
     img{
         height: 19px;
@@ -84,8 +89,8 @@ body, .page {
 }
 
 .page__desc {
-    margin-top: 5px;
-    color: #888888;
+    margin-top: 4px;
+    color: rgba(0,0,0,.5);
     text-align: left;
     font-size: 14px;
 }
@@ -93,6 +98,15 @@ body, .page {
 
 /*  widget */
 
+.weui-cell_example{
+  &:before{
+    left: 52px;
+  }
+}
+
+.page.progress{
+  background-color: #FFFFFF;
+}
 .page.home{
     @pageHomePadding: 20px;
     .page__intro-icon{
@@ -112,14 +126,14 @@ body, .page {
             height: 30px;
         }
         li{
-            margin: 10px 0;
+            margin: 8px 0;
             background-color: #FFFFFF;
             overflow: hidden;
             border-radius: 2px;
             cursor: pointer;
             &.js_show{
                 .weui-flex{
-                    opacity: .4;
+                    opacity: .5;
                 }
                 .page__category{
                     height: auto;
@@ -168,14 +182,16 @@ body, .page {
 }
 
 .page.button {
+    background-color:#EDEDED;
     .page__bd {
-        padding: 0 15px;
+      padding: 0;
     }
     .button-sp-area {
-        margin: 0 auto;
-        padding: 15px 0;
-        width: 60%;
-    }
+        margin: 15px auto;
+        padding: 15px;
+        text-align:center;
+        &.cell{padding:15px 0;}
+      }
 }
 
 .page.cell {
@@ -202,6 +218,8 @@ body, .page {
 }
 
 .page.msg,
+.page.msg_text,
+.page.msg_text_primary,
 .page.msg_success,
 .page.msg_warn {
     background-color: #FFFFFF;
@@ -259,11 +277,11 @@ body, .page {
     .placeholder {
         margin: 5px;
         padding: 0 10px;
-        background-color: #EBEBEB;
+        background-color: #F7F7F7;
         height: 2.3em;
         line-height: 2.3em;
         text-align: center;
-        color: #CFCFCF;
+        color: rgba(0,0,0,.3);
     }
 }
 
@@ -448,7 +466,7 @@ body, .page {
 }
 
 // iphone x
-@supports (constant(safe-area-inset-top)){
+@supports (top: constant(safe-area-inset-top)){
     .page{
         padding:constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
         &.tabbar,&.navbar{
@@ -459,5 +477,13 @@ body, .page {
     .weui-tab__panel{
         padding-left:constant(safe-area-inset-left);
         padding-right:constant(safe-area-inset-right);
+    }
+}
+@supports (top: env(safe-area-inset-top)){
+    .page{
+        padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        &.tabbar,&.navbar,&.msg_success,&.msg_warn,&.msg_text,&.msg_text_primary,&.article{
+            padding:0;
+        }
     }
 }

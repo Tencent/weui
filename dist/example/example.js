@@ -251,7 +251,6 @@ $(function () {
     }
     function setPageManager(){
         var pages = {}, tpls = $('script[type="text/html"]');
-        var winH = $(window).height();
 
         for (var i = 0, len = tpls.length; i < len; ++i) {
             var tpl = tpls[i], name = tpl.id.replace(/tpl_/, '');
@@ -271,6 +270,7 @@ $(function () {
                 var $foot = $html.find('.page__ft');
                 if($foot.length < 1) return;
 
+                var winH = $(window).height();
                 if($foot.position().top + $foot.height() < winH){
                     $foot.addClass('j_bottom');
                 }else{
