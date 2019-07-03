@@ -21,10 +21,10 @@
   left:0;
   right:0;
   bottom:0;
+  max-height:75%;
   z-index:5000;
 
   line-height:1.4;
-  font-size:8px;
   background-color:#FFFFFF;
   border-top-left-radius:12px;
   border-top-right-radius:12px;
@@ -34,6 +34,7 @@
   padding:0 calc(24px ~"+ env(safe-area-inset-right)") env(safe-area-inset-bottom) calc(24px ~"+ env(safe-area-inset-left)");
 }
 .weui-half-screen-dialog__hd {
+  font-size:8px;
   height:8em;
   display:flex;
   align-items:center;
@@ -74,6 +75,7 @@
 
 .weui-half-screen-dialog__bd {
   .hyphens();
+  overflow-y:auto;
 }
 .weui-half-screen-dialog__desc {
   padding-top:4px;
