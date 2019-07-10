@@ -1,0 +1,89 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Half-screen Dialog</h1>
+        <p class="page__desc">半屏组件</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showIOSDialog1">样式一</a>
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showIOSDialog2">样式二</a>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+
+    <div id="dialogs">
+        <!--BEGIN dialog1-->
+        <div class="js_dialog" id="iosDialog1" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-half-screen-dialog">
+                <div class="weui-half-screen-dialog__hd">
+                  <div class="weui-half-screen-dialog__hd__side">
+                    <button class="weui-icon-btn weui-icon-btn_close">关闭</button>
+                  </div>
+                  <div class="weui-half-screen-dialog__hd__main">
+                    <strong class="weui-half-screen-dialog__title">标题</strong>
+                  </div>
+                </div>
+                <div class="weui-half-screen-dialog__bd">
+                  <br>
+                  <br>
+                  可放自定义内容
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+            </div>
+        </div>
+        <!--END dialog1-->
+        <!--BEGIN dialog2-->
+        <div class="js_dialog" id="iosDialog2" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-half-screen-dialog">
+                <div class="weui-half-screen-dialog__hd">
+                  <div class="weui-half-screen-dialog__hd__side">
+                    <button style="display:none;" class="weui-icon-btn weui-icon-btn_goback">返回</button>
+                    <button class="weui-icon-btn weui-icon-btn_close">关闭</button>
+                  </div>
+                  <div class="weui-half-screen-dialog__hd__main">
+                    <strong class="weui-half-screen-dialog__title">标题</strong>
+                    <span class="weui-half-screen-dialog__subtitle">标题</span>
+                  </div>
+                  <div class="weui-half-screen-dialog__hd__side">
+                    <button class="weui-icon-btn weui-icon-btn_more">更多</button>
+                  </div>
+                </div>
+                <div class="weui-half-screen-dialog__bd">
+                  <p class="weui-half-screen-dialog__desc">
+                    辅助描述内容，可根据实际需要安排
+                  </p>
+                  <p class="weui-half-screen-dialog__tips">
+                    辅助提示内容，可根据实际需要安排
+                  </p>
+                </div>
+                <div class="weui-half-screen-dialog__ft">
+                    <a href="javascript:;" class="weui-btn weui-btn_default">辅助操作</a>
+                    <a href="javascript:;" class="weui-btn weui-btn_primary">主操作</a>
+                </div>
+            </div>
+        </div>
+        <!--END dialog2-->
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $iosDialog1 = $('#iosDialog1'),
+            $iosDialog2 = $('#iosDialog2');
+
+        $('#dialogs').on('click', '.weui-mask', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#showIOSDialog1').on('click', function(){
+            $iosDialog1.fadeIn(200);
+        });
+        $('#showIOSDialog2').on('click', function(){
+            $iosDialog2.fadeIn(200);
+        });
+    });
+</script>

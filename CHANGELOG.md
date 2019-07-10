@@ -1,3 +1,23 @@
+#### v2.0.0 (2019-04-30)
+
+- 【增强】 颜色规范、字体大小规范、间距规范对齐微信7.0新视觉风格
+- 【增强】 更新按钮UI
+- 【增强】 按钮改为默认定宽`184px`，需要用回拉通型可加class`weui-btn_block`
+- 【增强】 新增行按钮UI
+- 【增强】 更新图标UI
+- 【优化】 weui-msg布局改为`flex`，并适配刘海屏
+- 【增强】 weui-msg新增提示区域`weui-msg__tips-area`
+- 【增强】 weui-msg新增无图标展示场景
+- 【增强】 更新weui-search-bar UI
+- 【优化】 weui-tab布局改为`flex`，并适配刘海屏
+- 【增强】 更新weui-dialog UI
+- 【增强】 更新weui-cell UI
+- 【增强】 更新weui-uploader UI
+- 【修复】 weui-vcode-btn左边框无高清线处理
+- 【修复】 无weui-cells__title的相邻weui-cells之间的间距太大
+- 【修复】 WeUI example、weui-article、weui-gallery、weui-actionshet、weui-picker等组件刘海屏适配问题
+
+
 #### v1.1.3 (2018-06-28)
 
 - 【增强】 weui-msg的extra-area适配iphoneX
