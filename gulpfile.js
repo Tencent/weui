@@ -11,7 +11,10 @@ var comments = require('postcss-discard-comments');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
+var prompt = require('inquirer').prompt;
+var childProcess = require('child_process');
 var pkg = require('./package.json');
+var bower = require('./bower.json');
 var yargs = require('yargs').options({
   w: {
     alias: 'watch',
@@ -29,6 +32,21 @@ var yargs = require('yargs').options({
 
 var option = { base: 'src' };
 var dist = __dirname + '/dist';
+
+function exec (cmd) {
+  return new Promise((resolve, reject) => {
+    const process = childProcess.exec(cmd, (error) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve();
+      }
+    });
+    process.stdout.on('data', function(data) {
+      console.log(data);
+    });
+  });
+}
 
 gulp.task('build:style', function() {
   var banner = [
@@ -129,9 +147,9 @@ gulp.task('build:example', [
   'build:example:html'
 ]);
 
-gulp.task('release', ['build:style', 'build:example']);
+gulp.task('build', ['build:style', 'build:example']);
 
-gulp.task('watch', ['release'], function() {
+gulp.task('watch', ['build'], function() {
   gulp.watch('src/style/**/*', ['build:style']);
   gulp.watch('src/example/example.less', ['build:example:style']);
   gulp.watch('src/example/**/*.?(png|jpg|gif|js)', ['build:example:assets']);
@@ -155,11 +173,48 @@ gulp.task('server', function() {
   });
 });
 
+gulp.task('release', function() {
+  return new Promise(async (resolve) => {
+    try {
+      const answers = await prompt({
+        type: 'input',
+        name: 'tag',
+        message: 'Input a tag:',
+      });
+
+      const tag = answers.tag.replace(/^v/, '');
+      const tagName = `v${tag}`;
+
+      pkg.version = tag;
+      bower.version = tag;
+      fs.writeFileSync('package.json', JSON.stringify(pkg, null, 4));
+      fs.writeFileSync('bower.json', JSON.stringify(bower, null, 4));
+
+      console.log('Building Project');
+      await exec(`npm run build && git add . && git commit -m "[release] ${tagName}"`);
+
+      console.log(`Setting tag ${tagName}`);
+      await exec(`git tag ${tagName}`);
+
+      console.log('Generating Changelog');
+      await exec(`npm run changelog && git add . && git commit -m "docs: update changelog"`);
+
+      console.log('Pushing Project');
+      await exec('git push && git push --tag');
+
+      console.log('Release Success!');
+      resolve();
+    } catch(error) {
+      throw error;
+    }
+  });
+});
+
 // 参数说明
 //  -w: 实时监听
 //  -s: 启动服务器
 //  -p: 服务器启动端口，默认8080
-gulp.task('default', ['release'], function() {
+gulp.task('default', ['build'], function() {
   if (yargs.s) {
     gulp.start('server');
   }
