@@ -1,3 +1,10 @@
+### [v2.0.1](https://github.com/Tencent/weui/compare/v2.0.0...v2.0.1) (2019-07-15)
+
+#### Features
+* feat: 增加组件 半屏弹窗half-screen-dialog([a5e994b](https://github.com/Tencent/weui/commit/a5e994b))
+
+
+
 #### v2.0.0 (2019-04-30)
 
 - 【增强】 颜色规范、字体大小规范、间距规范对齐微信7.0新视觉风格
