@@ -16,10 +16,11 @@
 
 @import "../../base/fn";
 
-@pickerItemHeight: 34px;
+@pickerItemHeight: 48px;
 .weui-picker {
     position: fixed;
     width: 100%;
+    box-sizing: border-box;
     left: 0;
     bottom: 0;
     z-index: 5000;
@@ -43,20 +44,6 @@
     line-height:1.4;
     &:after {
         .setBottomLine(@weuiLineColorLight);
-    }
-}
-
-.weui-picker__action {
-    display: block;
-    flex: 1;
-    color: @weuiLinkColorDefault;
-
-    &:first-child {
-        text-align: left;
-        color: @weuiTextColorTitle;
-    }
-    &:last-child {
-        text-align: right;
     }
 }
 
@@ -96,17 +83,17 @@
     z-index: 3;
     background: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6));
     background-position: top, bottom;
-    background-size: 100% 102px;
+    background-size: 100% 92px;
     background-repeat: no-repeat;
     transform: translateZ(0);
 }
 
 .weui-picker__indicator {
     width: 100%;
-    height: @pickerItemHeight;
+    height: 56px;
     position: absolute;
     left: 0;
-    top: 102px;
+    top: 92px;
     z-index: 3;
     &:before {
         .setTopLine(@weuiLineColorLight);
