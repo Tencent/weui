@@ -3,6 +3,9 @@
 #### Features
 * feat: 增加组件 半屏弹窗half-screen-dialog([a5e994b](https://github.com/Tencent/weui/commit/a5e994b))
 
+#### Style
+* style: 更新Picker UI
+
 
 
 #### v2.0.0 (2019-04-30)
