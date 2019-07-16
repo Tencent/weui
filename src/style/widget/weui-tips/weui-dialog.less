@@ -26,8 +26,15 @@
 
     background-color: @weuiDialogBackgroundColor;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 12px;
     overflow: hidden;
+
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    max-height:90%;
 }
 .weui-dialog__hd {
     padding: 32px @weuiDialogGapWidth 16px;
@@ -38,21 +45,35 @@
     line-height:1.4;
 }
 .weui-dialog__bd {
-    padding: 0 @weuiDialogGapWidth 32px;
+    flex:1;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+
+    padding: 0 @weuiDialogGapWidth;
+    margin-bottom:32px;
     min-height: 40px;
     font-size: 17px;
     line-height: 1.4;
-    word-wrap: break-word;
-    word-break: break-all;
+    .hyphens;
     color: @weuiTextColorDesc;
     &:first-child{
-        padding:32px @weuiDialogGapWidth;
+        padding:32px @weuiDialogGapWidth 0;
+        font-weight:700;
         color:@weuiTextColorTitle;
+        display:-webkit-box;
+        display:-webkit-flex;
+        display:flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack:center;
+        -webkit-justify-content:center;
+        justify-content:center;
     }
 }
 .weui-dialog__ft {
     position: relative;
     line-height: 64px;
+    min-height: 64px;
     font-size: 17px;
     display: flex;
     &:after {
@@ -100,7 +121,6 @@
     }
     .weui-dialog__bd{
         color:@weuiTextColorDesc;
-        font-size: 17px;
         text-align: left;
         &:first-child{
             color:@weuiTextColorTitle;
@@ -110,6 +130,7 @@
         display: block;
         text-align: right;
         line-height: 40px;
+        min-height: 40px;
         padding:0 @weuiDialogGapWidth 16px;
         &:after{
             display: none;
@@ -131,8 +152,9 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 352px) {
     .weui-dialog {
-        width: 35%;
+        width: 320px;
+        margin:0 auto;
     }
 }
