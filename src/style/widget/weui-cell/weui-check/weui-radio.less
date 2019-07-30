@@ -16,28 +16,33 @@
 
 @import "../../../base/fn";
 
-// method2 accessbility
-.weui-cells_radio{
-    .weui-cell__ft {
-        padding-left: @weuiCellInnerGapH;
+.weui-cells_radio {
+    .weui-check__label{
+        &:before{left:55px;}
+    }
+    .weui-cell__hd {
+        padding-right: @weuiCellInnerGapH;
+    }
+    .weui-icon-checked {
+        &:before {
+            content: '\EA01';
+            color: @weuiLineColorDark;
+            font-size: 23px;
+            display: block;
+            margin:0;
+        }
     }
 }
+
+// method2 accessbility
 .weui-check {
-    // radio
+    // checkbox
     .weui-cells_radio & {
-		& + .weui-icon-checked {
-			min-width:16px;
-        &:before {
-          margin:0;
-        }
-		}
         &:checked {
             & + .weui-icon-checked {
                 &:before {
-                    display: block;
-                    content: '\EA08';
+                    content: '\EA06';
                     color: @weuiColorPrimary;
-                    font-size: 16px;
                 }
             }
         }
