@@ -19,18 +19,22 @@
 .weui-toast {
     position: fixed;
     z-index: 5000;
-    width: 7.6em;
-    min-height: 7.6em;
+    width: 120px;
+    height: 120px;
     top: 180px;
     left: 50%;
-    margin-left: -3.8em;
+    margin-left: -60px;
     background: rgba(17,17,17,0.7);
     text-align: center;
     border-radius: 5px;
     color: #FFFFFF;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
 .weui-icon_toast {
-    margin: 24px 0 0;
     display: block;
     &.weui-icon-success-no-circle{
       &:before {
@@ -39,7 +43,7 @@
       }
     }
     &.weui-loading{
-      margin:32px 0 0;
+      margin:8px 0;
       width:38px;
       height:38px;
       vertical-align: baseline;
@@ -47,6 +51,5 @@
 }
 
 .weui-toast__content {
-    margin: 0 0 16px;
     font-size:14px;
 }
