@@ -18,11 +18,14 @@
 
 .weui-cells__group{}
 .weui-cells__group_form{
+
   .weui-cells__title{
     margin-top:24px;
     margin-bottom:8px;
     padding:0 32px;
   }
+  
+
   .weui-cells,.weui-cell{
     &:before{
       left:32px;
@@ -37,20 +40,42 @@
   }
   .weui-cell{
     padding:16px 32px;
+    color:rgba(0,0,0,.9);
   }
+  .weui-cell__hd{
+    padding-right:16px;
+  }
+  .weui-cell__ft{
+    padding-left:16px;
+  }
+  .weui-cell_warn{
+    input{
+      color:@weuiColorWarn;
+    }
+  }
+
+
+  .weui-label{
+    max-width:5em;
+    margin-right:8px;
+  }
+
+
   .weui-cells__tips{
     margin-top:8px;
     font-weight:700;
     padding:0 32px;
     color:rgba(0,0,0,.3);
   }
+
+
   .weui-cell_vcode{
     padding:12px 32px;
   }
   .weui-vcode-btn{
     font-size:16px;
     padding:0 12px;
-    margin-left:16px;
+    margin-left:0;
     height:auto;
     width:auto;
     line-height:2em;
@@ -60,9 +85,23 @@
       display:none;
     }
   }
-  .weui-label{
-    max-width:5em;
-    width:auto;
-    margin-right:24px;
+
+
+  .weui-cell_select{
+    padding:0;
+    .weui-select{
+      padding:0 32px;
+    }
+    .weui-cell__bd:after{
+      right:32px;
+    }
+  }
+  .weui-cell_select-after{
+    padding-left:32px;
+  }
+
+
+  .weui-cell_switch{
+    padding:12px 32px;
   }
 }

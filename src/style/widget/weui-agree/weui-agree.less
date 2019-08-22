@@ -32,6 +32,8 @@
 }
 .weui-agree__checkbox{
     appearance: none;
+    background:transparent;
+    border:0;
     outline: 0;
 
     font-family: "weui";
@@ -41,13 +43,16 @@
     text-transform: none;
     text-align: center;
     speak: none;
-    vertical-align: middle;
+    vertical-align: top;
     text-decoration: inherit;
+    font-size:0;
+    height:17px;
+    line-height:17px;
 
     &:before{
       content: "\EA01";
       color: @weuiLineColorDark;
-      font-size: 16px;
+      font-size: 17px;
     }
     &:checked{
         &:before{

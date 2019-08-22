@@ -34,8 +34,16 @@
 
     // hides the spin-button
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
-        -webkit-appearance: none;
-        margin: 0;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:disabled{
+      opacity:1;
+      -webkit-text-fill-color:@weuiTextColorDesc;
+    }
+    &[disabled],
+    &[readonly]{
+      color:@weuiTextColorDesc;
     }
 }
 .weui-textarea {
@@ -47,6 +55,14 @@
     font-size: 1em;
     line-height: inherit;
     outline: 0;
+    &:disabled{
+      opacity:1;
+      -webkit-text-fill-color:@weuiTextColorDesc;
+    }
+    &[disabled],
+    &[readonly]{
+      color:@weuiTextColorDesc;
+    }
 }
 
 .weui-textarea-counter{
@@ -62,9 +78,10 @@
     position: fixed;
     transform: translateZ(0);
     top: 0;
-    left: 0;
-    right: 0;
-    padding:5px;
+    left: 8px;
+    right: 8px;
+    padding:10px;
+    border-radius:8px;
     font-size:14px;
     text-align: center;
     color: #FFF;
