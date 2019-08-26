@@ -74,7 +74,8 @@ gulp.task('build:style', function() {
     .pipe(
       nano({
         zindex: false,
-        autoprefixer: false
+        autoprefixer: false,
+        svgo: false
       })
     )
     .pipe(
