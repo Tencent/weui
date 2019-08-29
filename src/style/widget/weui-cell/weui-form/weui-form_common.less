@@ -37,32 +37,17 @@
       -webkit-appearance: none;
       margin: 0;
     }
-    &:disabled{
-      opacity:1;
-      -webkit-text-fill-color:@weuiTextColorDesc;
-    }
-    &[disabled],
-    &[readonly]{
-      color:@weuiTextColorDesc;
-    }
 }
 .weui-textarea {
     display: block;
     border: 0;
     resize: none;
+    background:transparent;
     width: 100%;
     color: inherit;
     font-size: 1em;
     line-height: inherit;
     outline: 0;
-    &:disabled{
-      opacity:1;
-      -webkit-text-fill-color:@weuiTextColorDesc;
-    }
-    &[disabled],
-    &[readonly]{
-      color:@weuiTextColorDesc;
-    }
 }
 
 .weui-textarea-counter{
@@ -105,4 +90,16 @@
 .weui-cell_warn{
     color:@weuiTextColorWarn;
     .weui-icon-warn{display:inline-block;}
+}
+.weui-cell_readonly,.weui-cell_disabled{
+  .weui-input,.weui-textarea {
+    &:disabled{
+      opacity:1;
+      -webkit-text-fill-color:@weuiTextColorDesc;
+    }
+    &[disabled],
+    &[readonly]{
+      color:@weuiTextColorDesc;
+    }
+  }
 }

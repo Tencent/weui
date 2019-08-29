@@ -684,14 +684,33 @@
 </script>
     <script type="text/html" id="tpl_form">
 <div class="page">
+  <div class="page__hd">
+      <h1 class="page__title">Form</h1>
+      <p class="page__desc">表单页</p>
+  </div>
+  <div class="page__bd page__bd_spacing">
+      <a href="#form_page" class="weui-btn weui-btn_default">表单结构</a>
+      <a href="#form_input_status" class="weui-btn weui-btn_default">输入框状态</a>
+      <a href="#form_vcode" class="weui-btn weui-btn_default">验证码</a>
+      <a href="#form_checkbox" class="weui-btn weui-btn_default">复选框</a>
+      <a href="#form_radio" class="weui-btn weui-btn_default">单选框</a>
+      <a href="#form_switch" class="weui-btn weui-btn_default">开关</a>
+      <a href="#form_select" class="weui-btn weui-btn_default">选择框</a>
+      <a href="#form_textarea" class="weui-btn weui-btn_default">文本域</a>
+  </div>
+</div>
+
+</script>
+    <script type="text/html" id="tpl_form_page">
+<div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单标题</h2>
-      <div class="weui-form__desc">表单描述示意</div>
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">表单页描述</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">输入框</div>
+        <div class="weui-cells__title">表单组标题</div>
         <div class="weui-cells weui-cells_form">
           <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">QQ号</label></div>
@@ -713,8 +732,120 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        表单页提示，居中对齐
+      </p>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        表单页提示，居中对齐
+      </p>
+    </div>
+    <div class="weui-form__extra-area">
+      <div class="weui-footer">
+        <p class="weui-footer__links">
+          <a href="javascript:void(0);" class="weui-footer__link">底部链接文本</a>
+        </p>
+        <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_input_status">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">状态展示</div>
+    </div>
+    <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">验证码</div>
+        <div class="weui-cells__title">表单报错</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell weui-cell_warn">
+            <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" autofocus type="number" pattern="[0-9]*" placeholder="请输入QQ号" value="1234567"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单只读、置灰</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell weui-cell_readonly">
+            <div class="weui-cell__hd"><label class="weui-label">EMail</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入EMail" value="1234567" readonly/>
+            </div>
+          </div>
+          <div class="weui-cell weui-cell_disabled">
+            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入微信号" value="WeUI" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_vcode">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">验证码</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
@@ -737,36 +868,47 @@
         </div>
         <div class="weui-cells__tips"><a href="javascript:;">收不到验证码</a></div>
       </div>
+    </div>
+    <div class="weui-form__tips-area">
+      <label for="weuiAgree" class="weui-agree">
+        <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+        </span>
+      </label>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_checkbox">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">复选框</div>
+    </div>
+    <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">表单报错</div>
-        <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_warn">
-            <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入QQ号" value="1234567"/>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">表单只读、置灰</div>
-        <div class="weui-cells weui-cells_form">
-          <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">EMail</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" placeholder="请输入EMail" value="1234567" readonly/>
-            </div>
-          </div>
-          <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" placeholder="请输入微信号" value="WeUI" disabled/>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">复选列表项</div>
         <div class="weui-cells weui-cells_checkbox">
             <label class="weui-cell weui-check__label" for="s11">
                 <div class="weui-cell__hd">
@@ -791,8 +933,46 @@
             </a>
         </div>
       </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">下一步</a>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        点击下一步即表示<a href="javascript:;">同意用户协议</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_radio">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">单选框</div>
+    </div>
+    <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">单选列表项</div>
         <div class="weui-cells weui-cells_radio">
             <label class="weui-cell weui-check__label" for="x11">
                 <div class="weui-cell__bd">
@@ -818,8 +998,41 @@
             </a>
         </div>
       </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_switch">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">开关</div>
+    </div>
+    <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">开关</div>
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell weui-cell_switch">
                 <div class="weui-cell__bd">标题文字</div>
@@ -838,8 +1051,41 @@
             </div>
         </div>
       </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_select">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">选择框</div>
+    </div>
+    <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">选择</div>
         <div class="weui-cells">
             <div class="weui-cell weui-cell_select">
                 <div class="weui-cell__bd">
@@ -877,42 +1123,13 @@
             </div>
         </div>
       </div>
-      <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">文本域</div>
-        <div class="weui-cells weui-cells_form">
-            <div class="weui-cell">
-                <div class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
-                    <div class="weui-textarea-counter"><span>0</span>/200</div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="weui-form__tips-area">
-      <label for="weuiAgree" class="weui-agree">
-        <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:void(0);">《相关条款》</a>
-        </span>
-      </label>
     </div>
     <div class="weui-form__opr-area">
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
-    <div class="weui-form__tips-area">
-      <p class="weui-form__tips">
-        点击下一步即表示<a href="javascript:;">同意用户协议</a>
-      </p>
-    </div>
-    <div class="weui-form__extra-area">
-      <div class="weui-footer">
-        <p class="weui-footer__links">
-          <a href="javascript:void(0);" class="weui-footer__link">底部链接文本</a>
-        </p>
-        <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
-      </div>
-    </div>
   </div>
 </div>
+
 <script type="text/javascript">
     $(function(){
         var $tooltips = $('.js_tooltips');
@@ -930,6 +1147,33 @@
         });
     });
 </script>
+
+</script>
+    <script type="text/html" id="tpl_form_textarea">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">文本域</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">文本域</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+                    <div class="weui-textarea-counter"><span>0</span>/200</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+</div>
 
 </script>
     <script type="text/html" id="tpl_toast">
@@ -1690,6 +1934,7 @@
                 <p class="icon-box__desc">用于表示等待</p>
             </div>
         </div>
+        <!--
         <div class="icon_sp_area">
             <i class="weui-icon-circle"></i>
             <i class="weui-icon-success"></i>
@@ -1714,6 +1959,7 @@
             <i class="weui-icon-back"></i>
             <i class="weui-icon-back-circle"></i>
         </div>
+        -->
     </div>
     <div class="page__ft">
         <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
