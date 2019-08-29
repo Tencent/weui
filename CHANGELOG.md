@@ -1,22 +1,16 @@
 ### [v2.1.0](https://github.com/Tencent/weui/compare/v2.0.1...v2.1.0) (2019-08-29)
 
 #### Features
-* feat: icons([55d53aa](https://github.com/Tencent/weui/commit/55d53aa))
-* feat: form([59ac11f](https://github.com/Tencent/weui/commit/59ac11f))
+* feat: 新增form组件
+* feat: 更新表单新UI，cell新增`weui-cells__group`结构，加扩展`weui-cells__group_form`可显示新表单UI
 
 #### Style
-* style: agree([8a9a8e9](https://github.com/Tencent/weui/commit/8a9a8e9))
-* style: actionsheet([d5b369c](https://github.com/Tencent/weui/commit/d5b369c))
-* style: icon([64e4731](https://github.com/Tencent/weui/commit/64e4731))
-* style: icon([b18fe16](https://github.com/Tencent/weui/commit/b18fe16))
-* style: svg([e0fdc3e](https://github.com/Tencent/weui/commit/e0fdc3e))
-* style: font to svg([717b46a](https://github.com/Tencent/weui/commit/717b46a))
-* style: form([6c212b6](https://github.com/Tencent/weui/commit/6c212b6))
-* style: form([659254e](https://github.com/Tencent/weui/commit/659254e))
-* style: agree([f2374b6](https://github.com/Tencent/weui/commit/f2374b6))
-* style: toast([5a0bee8](https://github.com/Tencent/weui/commit/5a0bee8))
-* style: 优化弹窗UI([0c3b3e5](https://github.com/Tencent/weui/commit/0c3b3e5))
-* style: 优化半屏组件UI([5dcca15](https://github.com/Tencent/weui/commit/5dcca15))
+* style: icon实现从字体图标平滑升级为SVG
+* style: 优化agree UI，更新图标，文字等样式
+* style: 优化toast UI，布局改为`flex`，toast方块宽高单位改成`px`，不再相对当前字号
+* style: 优化弹窗 UI，自适应规则调整：与屏幕左右各留16px的安全距离，宽度自适应，最大值为320px
+* style: 优化半屏组件 UI
+* style: 优化actionsheet UI
 
 
 
