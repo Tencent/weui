@@ -1,3 +1,25 @@
+### [v2.1.0](https://github.com/Tencent/weui/compare/v2.0.1...v2.1.0) (2019-08-29)
+
+#### Features
+* feat: icons([55d53aa](https://github.com/Tencent/weui/commit/55d53aa))
+* feat: form([59ac11f](https://github.com/Tencent/weui/commit/59ac11f))
+
+#### Style
+* style: agree([8a9a8e9](https://github.com/Tencent/weui/commit/8a9a8e9))
+* style: actionsheet([d5b369c](https://github.com/Tencent/weui/commit/d5b369c))
+* style: icon([64e4731](https://github.com/Tencent/weui/commit/64e4731))
+* style: icon([b18fe16](https://github.com/Tencent/weui/commit/b18fe16))
+* style: svg([e0fdc3e](https://github.com/Tencent/weui/commit/e0fdc3e))
+* style: font to svg([717b46a](https://github.com/Tencent/weui/commit/717b46a))
+* style: form([6c212b6](https://github.com/Tencent/weui/commit/6c212b6))
+* style: form([659254e](https://github.com/Tencent/weui/commit/659254e))
+* style: agree([f2374b6](https://github.com/Tencent/weui/commit/f2374b6))
+* style: toast([5a0bee8](https://github.com/Tencent/weui/commit/5a0bee8))
+* style: 优化弹窗UI([0c3b3e5](https://github.com/Tencent/weui/commit/0c3b3e5))
+* style: 优化半屏组件UI([5dcca15](https://github.com/Tencent/weui/commit/5dcca15))
+
+
+
 ### [v2.0.1](https://github.com/Tencent/weui/compare/v2.0.0...v2.0.1) (2019-07-15)
 
 #### Features
