@@ -1,8 +1,8 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">表单页描述</div>
+      <h2 class="weui-form__title">表单结构</h2>
+      <div class="weui-form__desc">表单由头部区域、控件区域、提示区域、操作区域、底部区域组成。</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -11,7 +11,19 @@
           <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
             <div class="weui-cell__bd">
-                <input id="js_input" class="weui-input" placeholder="请输入微信号"/>
+                <input id="js_input" class="weui-input" placeholder="填写本人微信号"/>
+            </div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
+            <div class="weui-cell__bd">
+                <input id="js_input" class="weui-input" placeholder="填写本人微信号的昵称"/>
+            </div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input id="js_input" class="weui-input" placeholder="填写绑定的电话号码" type="number" pattern="[0-9]*" />
             </div>
           </div>
         </div>

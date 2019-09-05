@@ -81,9 +81,15 @@ z-index:
             display: none;
         }
     }
-    &:not(.weui-cell_readonly):not(.weui-cell_disabled){
-      &:active{
-        background-color:#ECECEC;
+    &:not(.weui-cell_readonly){
+      &:not(.weui-cell_disabled){
+        &:not(.weui-cell_vcode){
+          &:not(.weui-cell_switch){
+            &:active{
+              background-color:#ECECEC;
+            }
+          }
+        }
       }
     }
 }

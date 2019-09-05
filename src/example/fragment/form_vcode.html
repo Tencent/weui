@@ -13,7 +13,7 @@
                     <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" value="12345678907"/>
                 </div>
                 <div class="weui-cell__ft">
-                  <i class="weui-icon-info-circle"></i>
+                  <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
                 </div>
             </div>
             <div class="weui-cell weui-cell_vcode">
@@ -46,6 +46,32 @@
           <p class="weui-toast__content">已完成</p>
       </div>
   </div>
+  <div id="dialogs">
+      <!--BEGIN dialog1-->
+      <div class="js_dialog" id="iosDialog1" style="display: none;">
+          <div class="weui-mask"></div>
+          <div class="weui-half-screen-dialog">
+              <div class="weui-half-screen-dialog__hd">
+                <div class="weui-half-screen-dialog__hd__side">
+                  <button class="weui-icon-btn weui-icon-btn_close">关闭</button>
+                </div>
+                <div class="weui-half-screen-dialog__hd__main">
+                  <strong class="weui-half-screen-dialog__title">标题</strong>
+                </div>
+              </div>
+              <div class="weui-half-screen-dialog__bd">
+                <br>
+                <br>
+                可放自定义内容
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+          </div>
+      </div>
+      <!--END dialog1-->
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -71,17 +97,27 @@
         }
       });
 
-        $('#showTooltips').on('click', function(){
-          if ($(this).hasClass('weui-btn_disabled')) return;
-          if ($tooltips.css('display') != 'none') return;
+      $('#showTooltips').on('click', function(){
+        if ($(this).hasClass('weui-btn_disabled')) return;
+        if ($tooltips.css('display') != 'none') return;
 
-            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
-            $('.page.cell').removeClass('slideIn');
+        // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+        $('.page.cell').removeClass('slideIn');
 
-            $toast.fadeIn(100);
-            setTimeout(function () {
-              $toast.fadeOut(100);
-            }, 2000);
-        });
+        $toast.fadeIn(100);
+        setTimeout(function () {
+          $toast.fadeOut(100);
+        }, 2000);
+      });
+
+      var $iosDialog1 = $('#iosDialog1');
+
+      $('#dialogs').on('click', '.weui-mask', function(){
+        $(this).parents('.js_dialog').fadeOut(200);
+      });
+
+      $('#showIOSDialog1').on('click', function(){
+        $iosDialog1.fadeIn(200);
+      });
     });
 </script>
