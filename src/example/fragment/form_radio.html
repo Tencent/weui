@@ -36,11 +36,19 @@
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
         var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
 
         $('#showTooltips').on('click', function(){
             if ($tooltips.css('display') != 'none') return;
@@ -48,9 +56,9 @@
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
+            $toast.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $toast.fadeOut(100);
             }, 2000);
         });
     });

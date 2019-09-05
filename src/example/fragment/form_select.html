@@ -2,7 +2,7 @@
   <div class="weui-form">
     <div class="weui-form__text-area">
       <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">选择框</div>
+      <div class="weui-form__desc">原生选择框</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -26,7 +26,7 @@
                     </select>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码"/>
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -48,22 +48,29 @@
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
+      var $toast = $('#js_toast');
         var $tooltips = $('.js_tooltips');
 
         $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
 
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
-            setTimeout(function () {
-                $tooltips.css('display', 'none');
-            }, 2000);
+          $toast.fadeIn(100);
+          setTimeout(function () {
+          $toast.fadeOut(100);
+        }, 2000);
         });
     });
 </script>

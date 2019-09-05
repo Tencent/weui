@@ -35,12 +35,14 @@
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
+                        <!--
                         <a class="weui-cell weui-cell_access js_item" data-id="input" href="javascript:;">
                             <div class="weui-cell__bd">
                                 <p>Input</p>
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
+                        -->
                         <a class="weui-cell weui-cell_access js_item" data-id="form" href="javascript:;">
                             <div class="weui-cell__bd">
                                 <p>Form</p>
@@ -695,7 +697,8 @@
       <a href="#form_checkbox" class="weui-btn weui-btn_default">复选框</a>
       <a href="#form_radio" class="weui-btn weui-btn_default">单选框</a>
       <a href="#form_switch" class="weui-btn weui-btn_default">开关</a>
-      <a href="#form_select" class="weui-btn weui-btn_default">选择框</a>
+      <a href="#form_select" class="weui-btn weui-btn_default">原生选择框</a>
+      <a href="#form_select_primary" class="weui-btn weui-btn_default">模拟选择框</a>
       <a href="#form_textarea" class="weui-btn weui-btn_default">文本域</a>
   </div>
 </div>
@@ -713,21 +716,9 @@
         <div class="weui-cells__title">表单组标题</div>
         <div class="weui-cells weui-cells_form">
           <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">QQ号</label></div>
+            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入QQ号"/>
-            </div>
-          </div>
-          <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">日期</label></div>
-            <div class="weui-cell__bd">
-              <input class="weui-input" type="date" value=""/>
-            </div>
-          </div>
-          <div class="weui-cell">
-            <div class="weui-cell__hd"><label class="weui-label">时间</label></div>
-            <div class="weui-cell__bd">
-              <input class="weui-input" type="datetime-local" value="" placeholder=""/>
+                <input id="js_input" class="weui-input" placeholder="请输入微信号"/>
             </div>
           </div>
         </div>
@@ -739,7 +730,7 @@
       </p>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
     </div>
     <div class="weui-form__tips-area">
       <p class="weui-form__tips">
@@ -755,22 +746,36 @@
       </div>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 <script type="text/javascript">
     $(function(){
-        var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      $input.on('input', function(){
+        if ($input.val()){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $('#showTooltips').on('click', function(){
+        if ($(this).hasClass('weui-btn_disabled')) return;
 
-        $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
+        // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+        $('.page.cell').removeClass('slideIn');
 
-            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
-            $('.page.cell').removeClass('slideIn');
-
-            $tooltips.css('display', 'block');
-            setTimeout(function () {
-                $tooltips.css('display', 'none');
-            }, 2000);
-        });
+        $toast.fadeIn(100);
+        setTimeout(function () {
+          $toast.fadeOut(100);
+        }, 2000);
+      });
     });
 </script>
 
@@ -786,10 +791,10 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_warn">
+          <div class="weui-cell" id="js_cell">
             <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" autofocus type="number" pattern="[0-9]*" placeholder="请输入QQ号" value="1234567"/>
+                <input id="js_input" class="weui-input" autofocus type="number" pattern="[0-9]*" placeholder="请输入卡号" maxlength="16" />
             </div>
           </div>
         </div>
@@ -813,26 +818,58 @@
       </div>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
     </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
   </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
-        var $tooltips = $('.js_tooltips');
+      var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      var $cell = $('#js_cell');
 
-        $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
+      $input.on('input', function(){
+        var $value = $input.val();
+        if ($cell.hasClass('weui-cell_warn')){
+          $cell.removeClass('weui-cell_warn');
+        }
+        if ($value){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $('#showTooltips').on('click', function(){
+          if ($(this).hasClass('weui-btn_disabled')) return;
 
-            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
-            $('.page.cell').removeClass('slideIn');
+          var $value = $input.val();
+          if ($tooltips.css('display') != 'none') return;
 
-            $tooltips.css('display', 'block');
+          // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+          $('.page.cell').removeClass('slideIn');
+
+          if($value.length < 16){
+            $cell.addClass('weui-cell_warn');
+            $tooltips.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $tooltips.fadeOut(100);
             }, 2000);
-        });
+          }else{
+            $toast.fadeIn(100);
+            setTimeout(function () {
+              $toast.fadeOut(100);
+            }, 2000);
+          }
+      });
     });
 </script>
 
@@ -850,7 +887,7 @@
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号"/>
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" value="12345678907"/>
                 </div>
                 <div class="weui-cell__ft">
                   <i class="weui-icon-info-circle"></i>
@@ -859,7 +896,7 @@
             <div class="weui-cell weui-cell_vcode">
                 <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
                 <div class="weui-cell__bd">
-                  <input autofocus class="weui-input" type="number" pattern="[0-9]*" placeholder=""/>
+                  <input autofocus class="weui-input" type="number" pattern="[0-9]*" id="js_input" placeholder=""/>
                 </div>
                 <div class="weui-cell__ft">
                   <button class="weui-btn weui-btn_default weui-vcode-btn">获取验证码</button>
@@ -876,24 +913,51 @@
       </label>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
     </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
   </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
-        var $tooltips = $('.js_tooltips');
+      var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      var $agree = $('#weuiAgree');
+
+      $agree.on('change', function(){
+        var $value = $input.val();
+        var flag = false;
+
+        if ($value && $(this).prop("checked")){
+          flag = true;
+        }else{
+          flag = false;
+        }
+        if (flag){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
 
         $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
+          if ($(this).hasClass('weui-btn_disabled')) return;
+          if ($tooltips.css('display') != 'none') return;
 
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
+            $toast.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $toast.fadeOut(100);
             }, 2000);
         });
     });
@@ -943,21 +1007,27 @@
       </p>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
         var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
 
         $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
-
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
+            $toast.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $toast.fadeOut(100);
             }, 2000);
         });
     });
@@ -1003,11 +1073,19 @@
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
         var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
 
         $('#showTooltips').on('click', function(){
             if ($tooltips.css('display') != 'none') return;
@@ -1015,9 +1093,9 @@
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
+            $toast.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $toast.fadeOut(100);
             }, 2000);
         });
     });
@@ -1056,11 +1134,19 @@
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
         var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
 
         $('#showTooltips').on('click', function(){
             if ($tooltips.css('display') != 'none') return;
@@ -1068,9 +1154,9 @@
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
+            $toast.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $toast.fadeOut(100);
             }, 2000);
         });
     });
@@ -1082,7 +1168,7 @@
   <div class="weui-form">
     <div class="weui-form__text-area">
       <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">选择框</div>
+      <div class="weui-form__desc">原生选择框</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -1106,7 +1192,7 @@
                     </select>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码"/>
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -1128,22 +1214,137 @@
       <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
+      var $toast = $('#js_toast');
         var $tooltips = $('.js_tooltips');
 
         $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
 
             // toptips的fixed, 如果有`animation`, `position: fixed`不生效
             $('.page.cell').removeClass('slideIn');
 
-            $tooltips.css('display', 'block');
-            setTimeout(function () {
-                $tooltips.css('display', 'none');
-            }, 2000);
+          $toast.fadeIn(100);
+          setTimeout(function () {
+          $toast.fadeOut(100);
+        }, 2000);
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_select_primary">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单页标题</h2>
+      <div class="weui-form__desc">模拟选择框</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells">
+          <div class="weui-cell weui-cell_access" id="showDatePicker">
+            <div class="weui-cell__bd">日期</div>
+            <div class="weui-cell__ft"></div>
+          </div>
+          <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-before">
+            <div class="weui-cell__hd" id="showPhone"><label class="weui-label">+86</label></div>
+            <div class="weui-cell__bd">
+              <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+            </div>
+          </div>
+          <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd"><label class="weui-label">票种</label></div>
+            <div class="weui-cell__bd" id="showPicker">的士票</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Picker</h1>
+        <p class="page__desc">多列选择器，需要配合js实现</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showPicker">单列选择器</a>
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showDatePicker">日期选择器</a>
+    </div>
+</div>
+-->
+<script type="text/javascript">
+    $('#showPhone').on('click', function () {
+        weui.picker([{
+            label: '+86',
+            value: 0
+        }, {
+            label: '+80',
+            value: 1
+        }, {
+            label: '+84',
+            value: 2
+        }, {
+            label: '+87',
+            value: 3
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            },
+            title: '单列选择器'
+        });
+    });
+    $('#showPicker').on('click', function () {
+        weui.picker([{
+            label: '飞机票',
+            value: 0
+        }, {
+            label: '火车票',
+            value: 1
+        }, {
+            label: '的士票',
+            value: 2
+        },{
+            label: '公交票 (disabled)',
+            disabled: true,
+            value: 3
+        }, {
+            label: '其他',
+            value: 4
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            },
+            title: '单列选择器'
+        });
+    });
+    $('#showDatePicker').on('click', function () {
+        weui.datePicker({
+            start: 1990,
+            end: new Date().getFullYear(),
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            },
+            title: '多列选择器'
         });
     });
 </script>

@@ -8,10 +8,10 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_warn">
+          <div class="weui-cell" id="js_cell">
             <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" autofocus type="number" pattern="[0-9]*" placeholder="请输入QQ号" value="1234567"/>
+                <input id="js_input" class="weui-input" autofocus type="number" pattern="[0-9]*" placeholder="请输入卡号" maxlength="16" />
             </div>
           </div>
         </div>
@@ -35,25 +35,57 @@
       </div>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
     </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
   </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
-        var $tooltips = $('.js_tooltips');
+      var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      var $cell = $('#js_cell');
 
-        $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
+      $input.on('input', function(){
+        var $value = $input.val();
+        if ($cell.hasClass('weui-cell_warn')){
+          $cell.removeClass('weui-cell_warn');
+        }
+        if ($value){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $('#showTooltips').on('click', function(){
+          if ($(this).hasClass('weui-btn_disabled')) return;
 
-            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
-            $('.page.cell').removeClass('slideIn');
+          var $value = $input.val();
+          if ($tooltips.css('display') != 'none') return;
 
-            $tooltips.css('display', 'block');
+          // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+          $('.page.cell').removeClass('slideIn');
+
+          if($value.length < 16){
+            $cell.addClass('weui-cell_warn');
+            $tooltips.fadeIn(100);
             setTimeout(function () {
-                $tooltips.css('display', 'none');
+              $tooltips.fadeOut(100);
             }, 2000);
-        });
+          }else{
+            $toast.fadeIn(100);
+            setTimeout(function () {
+              $toast.fadeOut(100);
+            }, 2000);
+          }
+      });
     });
 </script>
