@@ -2,6 +2,7 @@
 
 #### Features
 * feat: 升级表单UI，新增form页面模板，cell新增`weui-cells__group`结构，加扩展`weui-cells__group_form`可显示表单新皮肤
+* feat: 新增模拟选择框
 
 #### Style
 * style: icon实现从字体图标平滑升级为SVG
