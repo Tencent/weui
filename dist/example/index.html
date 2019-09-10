@@ -910,8 +910,8 @@
       </div>
     </div>
     <div class="weui-form__tips-area">
-      <label for="weuiAgree" class="weui-agree">
-        <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+      <label id="weuiAgree" for="weuiAgreeCheckbox" class="weui-agree">
+        <input id="weuiAgreeCheckbox" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:void(0);">《相关条款》</a>
         </span>
       </label>
     </div>
@@ -959,35 +959,38 @@
       var $tooltips = $('.js_tooltips');
       var $toast = $('#js_toast');
       var $input = $('#js_input');
-      var $agree = $('#weuiAgree');
+      var $agree= $('#weuiAgree');
+      var $agreeCheckbox = $('#weuiAgreeCheckbox');
 
-      $agree.on('change', function(){
+      $input.on('input', function(){
         var $value = $input.val();
-        var flag = false;
-
-        if ($value && $(this).prop("checked")){
-          flag = true;
-        }else{
-          flag = false;
-        }
-        if (flag){
+        if ($value){
           $('#showTooltips').removeClass('weui-btn_disabled');
         }else{
           $('#showTooltips').addClass('weui-btn_disabled');
         }
       });
 
+      //$agreeCheckbox.on('change', function(){
+      //});
+
       $('#showTooltips').on('click', function(){
         if ($(this).hasClass('weui-btn_disabled')) return;
         if ($tooltips.css('display') != 'none') return;
-
+        if ($agree.hasClass('weui-checkbox-animate')){
+          $agree.removeClass('weui-checkbox-animate');
+        }
         // toptips的fixed, 如果有`animation`, `position: fixed`不生效
         $('.page.cell').removeClass('slideIn');
 
-        $toast.fadeIn(100);
-        setTimeout(function () {
-          $toast.fadeOut(100);
-        }, 2000);
+        if($agreeCheckbox.prop("checked")){
+          $toast.fadeIn(100);
+          setTimeout(function () {
+            $toast.fadeOut(100);
+          }, 2000);
+        }else{
+          $agree.addClass('weui-agree_animate');
+        }
       });
 
       var $iosDialog1 = $('#iosDialog1');
