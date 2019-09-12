@@ -700,7 +700,7 @@
   <div class="weui-form">
     <div class="weui-form__text-area">
       <h2 class="weui-form__title">表单结构</h2>
-      <div class="weui-form__desc">表单由头部区域、控件区域、提示区域、操作区域、底部区域组成。</div>
+      <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -788,7 +788,7 @@
   <div class="weui-form">
     <div class="weui-form__text-area">
       <h2 class="weui-form__title">输入框状态</h2>
-      <div class="weui-form__desc">状态展示</div>
+      <div class="weui-form__desc">可体验表单输入样式，当输入位数不等于16位的时候点击按钮可看到报错样式。</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -797,7 +797,10 @@
           <div class="weui-cell" id="js_cell">
             <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
             <div class="weui-cell__bd">
-                <input id="js_input" class="weui-input" autofocus type="number" pattern="[0-9]*" placeholder="请输入卡号" maxlength="16" />
+                <input id="js_input" class="weui-input" autofocus type="text" pattern="[0-9]*" placeholder="请输入16位数卡号" maxlength="16" />
+                <button id="js_input_clear" class="weui-btn_reset weui-btn_icon weui-btn_input-clear">
+                  <i class="weui-icon-clear"></i>
+                </button>
             </div>
           </div>
         </div>
@@ -838,6 +841,7 @@
       var $tooltips = $('.js_tooltips');
       var $toast = $('#js_toast');
       var $input = $('#js_input');
+      var $inputClear = $('#js_input_clear');
       var $cell = $('#js_cell');
 
       $input.on('input', function(){
@@ -873,6 +877,9 @@
             }, 2000);
           }
       });
+      $inputClear.on('click', function(){
+        $input.val('');
+      });
     });
 </script>
 
@@ -881,8 +888,8 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">验证码</div>
+      <h2 class="weui-form__title">验证码</h2>
+      <div class="weui-form__desc">验证手机号样式</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -893,13 +900,15 @@
                     <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" value="12345678907"/>
                 </div>
                 <div class="weui-cell__ft">
-                  <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
+                  <button class="weui-btn_reset weui-btn_icon">
+                    <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
+                  </button>
                 </div>
             </div>
             <div class="weui-cell weui-cell_vcode">
                 <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
                 <div class="weui-cell__bd">
-                  <input autofocus class="weui-input" type="number" pattern="[0-9]*" id="js_input" placeholder=""/>
+                  <input autofocus class="weui-input" type="text" pattern="[0-9]*" id="js_input" placeholder="输入验证码" maxlength="6"/>
                 </div>
                 <div class="weui-cell__ft">
                   <button class="weui-btn weui-btn_default weui-vcode-btn">获取验证码</button>
@@ -930,10 +939,10 @@
       <!--BEGIN dialog1-->
       <div class="js_dialog" id="iosDialog1" style="display: none;">
           <div class="weui-mask"></div>
-          <div class="weui-half-screen-dialog">
+          <div id="" class="weui-half-screen-dialog">
               <div class="weui-half-screen-dialog__hd">
                 <div class="weui-half-screen-dialog__hd__side">
-                  <button class="weui-icon-btn weui-icon-btn_close">关闭</button>
+                  <button id="dialogClose" class="weui-icon-btn weui-icon-btn_close">关闭</button>
                 </div>
                 <div class="weui-half-screen-dialog__hd__main">
                   <strong class="weui-half-screen-dialog__title">标题</strong>
@@ -977,9 +986,6 @@
       $('#showTooltips').on('click', function(){
         if ($(this).hasClass('weui-btn_disabled')) return;
         if ($tooltips.css('display') != 'none') return;
-        if ($agree.hasClass('weui-checkbox-animate')){
-          $agree.removeClass('weui-checkbox-animate');
-        }
         // toptips的fixed, 如果有`animation`, `position: fixed`不生效
         $('.page.cell').removeClass('slideIn');
 
@@ -990,12 +996,18 @@
           }, 2000);
         }else{
           $agree.addClass('weui-agree_animate');
+          setTimeout(function () {
+            $agree.removeClass('weui-agree_animate');
+          }, 1000);
         }
       });
 
       var $iosDialog1 = $('#iosDialog1');
 
       $('#dialogs').on('click', '.weui-mask', function(){
+        $(this).parents('.js_dialog').fadeOut(200);
+      });
+      $('#dialogClose').on('click', function(){
         $(this).parents('.js_dialog').fadeOut(200);
       });
 
@@ -1010,8 +1022,7 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">复选框</div>
+      <h2 class="weui-form__title">复选框样式展示</h2>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -1080,8 +1091,7 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">单选框</div>
+      <h2 class="weui-form__title">单选框样式展示</h2>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -1148,8 +1158,7 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">开关</div>
+      <h2 class="weui-form__title">开关样式展示</h2>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -1209,8 +1218,7 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">原生选择框</div>
+      <h2 class="weui-form__title">原生选择框</h2>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -1288,8 +1296,8 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">模拟选择框</div>
+      <h2 class="weui-form__title">模拟选择框</h2>
+      <div class="weui-form__desc">用于丰富原生选择框结构，使其更具有扩展性</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
@@ -1396,16 +1404,16 @@
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单页标题</h2>
-      <div class="weui-form__desc">文本域</div>
+      <h2 class="weui-form__title">文本域</h2>
+      <div class="weui-form__desc">输入更多内容的输入区域样式展示</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">文本域</div>
+        <div class="weui-cells__title">问题描述</div>
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell">
                 <div class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+                    <textarea class="weui-textarea" placeholder="请描述你所发生的问题" rows="3"></textarea>
                     <div class="weui-textarea-counter"><span>0</span>/200</div>
                 </div>
             </div>

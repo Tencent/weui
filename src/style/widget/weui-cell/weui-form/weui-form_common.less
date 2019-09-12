@@ -37,6 +37,13 @@
       -webkit-appearance: none;
       margin: 0;
     }
+    &:focus{
+      &:not(:placeholder-shown){
+          &+.weui-btn_input-clear{
+            display:inline;
+          }
+      }
+    }
 }
 .weui-textarea {
     display: block;
@@ -77,6 +84,9 @@
     background-color: @weuiColorWarn;
 }
 .weui-cells_form {
+    .weui-cell__bd{
+      display:flex;
+    }
     .weui-cell__ft{
         font-size:0;
     }
@@ -101,5 +111,12 @@
     &[readonly]{
       color:@weuiTextColorDesc;
     }
+  }
+}
+.weui-btn_input-clear{
+  display:none;
+  padding-left: 8px;
+  [class*="weui-icon-"]{
+    width:18px;
   }
 }

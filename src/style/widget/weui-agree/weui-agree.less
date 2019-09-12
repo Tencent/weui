@@ -19,7 +19,7 @@
 .weui-agree{
     display: block;
     padding: 8px 15px 0;
-    font-size :12px;
+    font-size :14px;
 
     a{
         color: @weuiLinkColorDefault;
@@ -57,39 +57,42 @@
     }
 }
 .weui-agree_animate{
-  animation:weuiAgree 1s;
+  animation:weuiAgree .3s 1;
 }
 @keyframes weuiAgree {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
 
   16% {
-    transform: translateX(-132.27%);
+    transform: translateX(-8px);
   }
 
   28% {
-    transform: translateX(-86.88%);
+    transform: translateX(-16px);
   }
 
   44% {
-    transform: translateX(-104.63%);
+    transform: translateX(0);
   }
 
   59% {
-    transform: translateX(-98.36%);
+    transform: translateX(-16px);
   }
 
   73% {
-    transform: translateX(-100.58%);
+    transform: translateX(0);
   }
 
-  88% {
-    transform: translateX(-99.8%);
+  82% {
+    transform: translateX(16px);
+  }
+
+  94% {
+    transform: translateX(8px);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(0);
   }
-
 }

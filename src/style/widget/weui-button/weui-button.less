@@ -77,3 +77,18 @@ button, input {
         }
     }
 }
+
+.weui-btn_reset{
+  background:transparent;
+  border:0;
+  padding:0;
+  outline:0;
+}
+.weui-btn_icon{
+  font-size:0;
+  &:active{
+    [class*="weui-icon-"]{
+      color:rgba(0,0,0,.5);
+    }
+  }
+}
