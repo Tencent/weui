@@ -16,9 +16,9 @@
     "scripts": {
         "start": "gulp -ws",
         "test": "gulp build",
-        "changelog": "picklog -lw CHANGELOG.md",
+        "changelog": "picklog -l -w CHANGELOG.md",
         "build": "gulp build",
-        "release": "gulp release"
+        "version": "npm run build && npm run changelog && git add -A ."
     },
     "author": "wechat ui team",
     "repository": {
@@ -42,8 +42,7 @@
         "gulp-replace": "^0.5.2",
         "gulp-sourcemaps": "^2.2.0",
         "gulp-tap": "^0.1.3",
-        "inquirer": "^6.5.0",
-        "picklog": "^2.0.1",
+        "picklog": "^2.1.3",
         "postcss-discard-comments": "^2.0.4",
         "yargs": "^1.3.3"
     }
