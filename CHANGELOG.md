@@ -1,4 +1,3 @@
-### [v2.1.0](https://github.com/Tencent/weui/compare/v2.0.1...v2.1.0) (2019-08-29)
 
 #### Features
 * feat: 升级表单UI，新增form页面模板，cell新增`weui-cells__group`结构，加扩展`weui-cells__group_form`可显示表单新皮肤
