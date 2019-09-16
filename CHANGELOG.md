@@ -1,17 +1,3 @@
-#### Features
-* feat: 升级表单UI，新增form页面模板，cell新增`weui-cells__group`结构，加扩展`weui-cells__group_form`可显示表单新皮肤
-* feat: 新增模拟选择框
-
-#### Style
-* style: icon实现从字体图标平滑升级为SVG
-* style: 优化agree UI，更新图标，文字等样式
-* style: 优化toast UI，布局改为`flex`，toast方块宽高单位改成`px`，不再相对当前字号
-* style: 优化弹窗 UI，自适应规则调整：与屏幕左右各留16px的安全距离，宽度自适应，最大值为320px
-* style: 优化半屏组件 UI
-* style: 优化actionsheet UI
-
-
-
 ### [v2.0.1](https://github.com/Tencent/weui/compare/v2.0.0...v2.0.1) (2019-07-15)
 
 #### Features
@@ -122,8 +108,8 @@
 - 【修复】 图片上传组件无法选中图片的缺陷
 - 【修复】 九宫格组件少于3个时出现多余线段的缺陷
 - 【修复】 解决某些组件的z-index冲突，标准化z-index
-- 【修复】 解决`pannel`图标没有对齐的问题 
-- 【增强】 demo 更新 router 
+- 【修复】 解决`pannel`图标没有对齐的问题
+- 【增强】 demo 更新 router
 - 【增强】 autoprefixer 指定浏览器范围
 
 详情参考:
