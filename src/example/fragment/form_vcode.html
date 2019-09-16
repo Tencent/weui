@@ -52,7 +52,7 @@
       <!--BEGIN dialog1-->
       <div class="js_dialog" id="iosDialog1" style="display: none;">
           <div class="weui-mask"></div>
-          <div id="" class="weui-half-screen-dialog">
+          <div id="js_half_screen_dialog" class="weui-half-screen-dialog">
               <div class="weui-half-screen-dialog__hd">
                 <div class="weui-half-screen-dialog__hd__side">
                   <button id="dialogClose" class="weui-icon-btn weui-icon-btn_close">关闭</button>
@@ -83,6 +83,7 @@
       var $input = $('#js_input');
       var $agree= $('#weuiAgree');
       var $agreeCheckbox = $('#weuiAgreeCheckbox');
+      var $halfScreenDialog = $('#js_half_screen_dialog');
 
       $input.on('input', function(){
         var $value = $input.val();
@@ -118,14 +119,17 @@
       var $iosDialog1 = $('#iosDialog1');
 
       $('#dialogs').on('click', '.weui-mask', function(){
+        $halfScreenDialog.removeClass('weui-half-screen-dialog_show');
         $(this).parents('.js_dialog').fadeOut(200);
       });
       $('#dialogClose').on('click', function(){
+        $halfScreenDialog.removeClass('weui-half-screen-dialog_show');
         $(this).parents('.js_dialog').fadeOut(200);
       });
 
       $('#showIOSDialog1').on('click', function(){
         $iosDialog1.fadeIn(200);
+        $halfScreenDialog.addClass('weui-half-screen-dialog_show');
       });
     });
 </script>
