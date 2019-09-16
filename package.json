@@ -18,7 +18,8 @@
         "test": "gulp build",
         "changelog": "picklog -l -w CHANGELOG.md",
         "build": "gulp build",
-        "version": "npm run build && npm run changelog && git add -A ."
+        "version": "npm run build && npm run changelog && git add -A .",
+        "postversion": "git push && git push --tags"
     },
     "author": "wechat ui team",
     "repository": {
