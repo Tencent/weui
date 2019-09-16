@@ -1,16 +1,3 @@
-### [v](https://github.com/Tencent/weui/compare/v2.1.0...v) (2019-09-16)
-
-#### Features
-* feat: 增加模拟选择框([3d081fd](https://github.com/Tencent/weui/commit/3d081fd))
-
-#### Style
-* style: 优化表单页demo([29d44af](https://github.com/Tencent/weui/commit/29d44af))
-* style: 丰富demo的展示([c39a8ab](https://github.com/Tencent/weui/commit/c39a8ab))
-* style: 增加agree未勾选时的提示动画([33af94c](https://github.com/Tencent/weui/commit/33af94c))
-* style: 丰富表单页展示组件([91a31aa](https://github.com/Tencent/weui/commit/91a31aa))
-
-
-
 ### [v2.1.0](https://github.com/Tencent/weui/compare/v2.0.1...v2.1.0) (2019-08-29)
 
 #### Features
