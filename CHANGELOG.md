@@ -1,3 +1,27 @@
+### [v2.1.1](https://github.com/Tencent/weui/compare/v2.0.1...v2.1.1) (2019-09-16)
+
+#### Features
+* feat: 增加模拟选择框([3d081fd](https://github.com/Tencent/weui/commit/3d081fd))
+* feat: icons([55d53aa](https://github.com/Tencent/weui/commit/55d53aa))
+* feat: form([59ac11f](https://github.com/Tencent/weui/commit/59ac11f))
+
+#### Style
+* style: 优化表单页demo([29d44af](https://github.com/Tencent/weui/commit/29d44af))
+* style: 丰富demo的展示([c39a8ab](https://github.com/Tencent/weui/commit/c39a8ab))
+* style: 增加agree未勾选时的提示动画([33af94c](https://github.com/Tencent/weui/commit/33af94c))
+* style: 丰富表单页展示组件([91a31aa](https://github.com/Tencent/weui/commit/91a31aa))
+* style: agree([8a9a8e9](https://github.com/Tencent/weui/commit/8a9a8e9))
+* style: actionsheet([d5b369c](https://github.com/Tencent/weui/commit/d5b369c))
+* style: icon([64e4731](https://github.com/Tencent/weui/commit/64e4731))
+* style: svg([e0fdc3e](https://github.com/Tencent/weui/commit/e0fdc3e))
+* style: font to svg([717b46a](https://github.com/Tencent/weui/commit/717b46a))
+* style: form([6c212b6](https://github.com/Tencent/weui/commit/6c212b6))
+* style: toast([5a0bee8](https://github.com/Tencent/weui/commit/5a0bee8))
+* style: 优化弹窗UI([0c3b3e5](https://github.com/Tencent/weui/commit/0c3b3e5))
+* style: 优化半屏组件UI([5dcca15](https://github.com/Tencent/weui/commit/5dcca15))
+
+
+
 ### [v2.0.1](https://github.com/Tencent/weui/compare/v2.0.0...v2.0.1) (2019-07-15)
 
 #### Features
