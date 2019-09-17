@@ -1,0 +1,78 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+@import "../weui-cell/weui-cells__group";
+
+.weui-form {
+  padding:56px 0 0;
+  padding:calc(56px ~"+ constant(safe-area-inset-top)") constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+  padding:calc(56px ~"+ env(safe-area-inset-top)") env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  display:flex;
+  flex-direction:column;
+  line-height:1.4;
+  min-height:100%;
+  box-sizing:border-box;
+  line-height:1.4;
+  background-color:#FFFFFF;
+
+  a{
+    &:not(.weui-btn){
+      color:@weuiLinkColorDefault;
+    }
+  }
+  .weui-footer,.weui-footer__link{
+    font-size:12px;
+  }
+  .weui-agree{
+    padding:0;
+  }
+}
+.weui-form__text-area{
+  padding:0 32px;
+  color:rgba(0,0,0,.9);
+  text-align:center;
+}
+.weui-form__control-area{
+  flex:1;
+  margin:48px 0;
+}
+.weui-form__tips-area{
+  overflow:hidden;
+}
+.weui-form__tips-area,.weui-form__extra-area{
+  margin-bottom:24px;
+  text-align:center;
+}
+.weui-form__opr-area{
+  margin-bottom:64px;
+  &:last-child{
+    margin-bottom:96px;
+  }
+}
+.weui-form__title{
+  font-size:22px;
+  font-weight:700;
+  line-height:1.36;
+}
+.weui-form__desc{
+  font-size:17px;
+  margin-top:16px;
+}
+.weui-form__tips{
+  color:rgba(0,0,0,.5);
+  font-size:14px;
+}

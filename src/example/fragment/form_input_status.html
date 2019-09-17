@@ -1,0 +1,98 @@
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">输入框状态</h2>
+      <div class="weui-form__desc">可体验表单输入样式，当输入位数不等于16位的时候点击按钮可看到报错样式。</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单报错</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell" id="js_cell">
+            <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
+            <div class="weui-cell__bd">
+                <input id="js_input" class="weui-input" autofocus type="text" pattern="[0-9]*" placeholder="请输入16位数卡号" maxlength="16" />
+                <button id="js_input_clear" class="weui-btn_reset weui-btn_icon weui-btn_input-clear">
+                  <i class="weui-icon-clear"></i>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单只读、置灰</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell weui-cell_readonly">
+            <div class="weui-cell__hd"><label class="weui-label">EMail</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入EMail" value="1234567" readonly/>
+            </div>
+          </div>
+          <div class="weui-cell weui-cell_disabled">
+            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入微信号" value="WeUI" disabled/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+      var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      var $inputClear = $('#js_input_clear');
+      var $cell = $('#js_cell');
+
+      $input.on('input', function(){
+        var $value = $input.val();
+        if ($cell.hasClass('weui-cell_warn')){
+          $cell.removeClass('weui-cell_warn');
+        }
+        if ($value){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $('#showTooltips').on('click', function(){
+          if ($(this).hasClass('weui-btn_disabled')) return;
+
+          var $value = $input.val();
+          if ($tooltips.css('display') != 'none') return;
+
+          // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+          $('.page.cell').removeClass('slideIn');
+
+          if($value.length < 16){
+            $cell.addClass('weui-cell_warn');
+            $tooltips.fadeIn(100);
+            setTimeout(function () {
+              $tooltips.fadeOut(100);
+            }, 2000);
+          }else{
+            $toast.fadeIn(100);
+            setTimeout(function () {
+              $toast.fadeOut(100);
+            }, 2000);
+          }
+      });
+      $inputClear.on('click', function(){
+        $input.val('');
+      });
+    });
+</script>

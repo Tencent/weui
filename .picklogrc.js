@@ -2,6 +2,8 @@ const origin = 'https://github.com/Tencent/weui';
 const comparePath = `${origin}/compare/`;
 const commitPath = `${origin}/commit/`;
 
+const logs = [];
+
 module.exports = {
   filters: [
     {
@@ -39,6 +41,9 @@ module.exports = {
         output += `#### ${result.filter.name}\n`;
 
         result.commits.forEach((commit) => {
+          if (logs.indexOf(commit.s) > -1) return;
+
+          logs.push(commit.s);
           output += `* ${commit.s}([${commit.h}](${commitPath}${commit.h}))\n`;
         });
 

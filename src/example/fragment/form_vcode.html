@@ -1,0 +1,135 @@
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">验证码</h2>
+      <div class="weui-form__desc">验证手机号样式</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" value="12345678907"/>
+                </div>
+                <div class="weui-cell__ft">
+                  <button class="weui-btn_reset weui-btn_icon">
+                    <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
+                  </button>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                <div class="weui-cell__bd">
+                  <input autofocus class="weui-input" type="text" pattern="[0-9]*" id="js_input" placeholder="输入验证码" maxlength="6"/>
+                </div>
+                <div class="weui-cell__ft">
+                  <button class="weui-btn weui-btn_default weui-vcode-btn">获取验证码</button>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells__tips"><a href="javascript:;">收不到验证码</a></div>
+      </div>
+    </div>
+    <div class="weui-form__tips-area">
+      <label id="weuiAgree" for="weuiAgreeCheckbox" class="weui-agree">
+        <input id="weuiAgreeCheckbox" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+        </span>
+      </label>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+    </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
+  <div id="dialogs">
+      <!--BEGIN dialog1-->
+      <div class="js_dialog" id="iosDialog1" style="display: none;">
+          <div class="weui-mask"></div>
+          <div id="js_half_screen_dialog" class="weui-half-screen-dialog">
+              <div class="weui-half-screen-dialog__hd">
+                <div class="weui-half-screen-dialog__hd__side">
+                  <button id="dialogClose" class="weui-icon-btn weui-icon-btn_close">关闭</button>
+                </div>
+                <div class="weui-half-screen-dialog__hd__main">
+                  <strong class="weui-half-screen-dialog__title">标题</strong>
+                </div>
+              </div>
+              <div class="weui-half-screen-dialog__bd">
+                <br>
+                <br>
+                可放自定义内容
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+          </div>
+      </div>
+      <!--END dialog1-->
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+      var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      var $agree= $('#weuiAgree');
+      var $agreeCheckbox = $('#weuiAgreeCheckbox');
+      var $halfScreenDialog = $('#js_half_screen_dialog');
+
+      $input.on('input', function(){
+        var $value = $input.val();
+        if ($value){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+
+      //$agreeCheckbox.on('change', function(){
+      //});
+
+      $('#showTooltips').on('click', function(){
+        if ($(this).hasClass('weui-btn_disabled')) return;
+        if ($tooltips.css('display') != 'none') return;
+        // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+        $('.page.cell').removeClass('slideIn');
+
+        if($agreeCheckbox.prop("checked")){
+          $toast.fadeIn(100);
+          setTimeout(function () {
+            $toast.fadeOut(100);
+          }, 2000);
+        }else{
+          $agree.addClass('weui-agree_animate');
+          setTimeout(function () {
+            $agree.removeClass('weui-agree_animate');
+          }, 1000);
+        }
+      });
+
+      var $iosDialog1 = $('#iosDialog1');
+
+      $('#dialogs').on('click', '.weui-mask', function(){
+        $halfScreenDialog.removeClass('weui-half-screen-dialog_show');
+        $(this).parents('.js_dialog').fadeOut(200);
+      });
+      $('#dialogClose').on('click', function(){
+        $halfScreenDialog.removeClass('weui-half-screen-dialog_show');
+        $(this).parents('.js_dialog').fadeOut(200);
+      });
+
+      $('#showIOSDialog1').on('click', function(){
+        $iosDialog1.fadeIn(200);
+        $halfScreenDialog.addClass('weui-half-screen-dialog_show');
+      });
+    });
+</script>

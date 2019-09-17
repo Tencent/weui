@@ -28,8 +28,14 @@
 .weui-footer_fixed-bottom{
     position: fixed;
     bottom: 16px;
+    bottom: calc(16px ~"+ constant(safe-area-inset-bottom)");
+    bottom: calc(16px ~"+ env(safe-area-inset-bottom)");
     left: 0;
+    left: constant(safe-area-inset-left);
+    left: env(safe-area-inset-left);
     right: 0;
+    right: constant(safe-area-inset-right);
+    right: env(safe-area-inset-right);
 }
 .weui-footer__links{
     font-size: 0;

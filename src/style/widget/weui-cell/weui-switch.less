@@ -28,11 +28,11 @@
     position: relative;
     width: 52px;
     height: @weuiSwitchHeight;
-    border: 1px solid @weuiLineColorLight;
+    border: 2px solid @weuiLineColorLight;
     outline: 0;
     border-radius: 16px;
     box-sizing: border-box;
-    background-color: @weuiLineColorLight;
+    background-color: #FFFFFF;
     transition: background-color .1s, border .1s;
 
     &:before{
@@ -40,8 +40,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 50px;
-        height: @weuiSwitchHeight - 2;
+        bottom: 0;
+        right: 0;
         border-radius: 15px;
         background-color: #FDFDFD;
         transition:transform .35s cubic-bezier(0.45, 1, 0.4, 1);
@@ -51,8 +51,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: @weuiSwitchHeight - 2;
-        height: @weuiSwitchHeight - 2;
+        width: @weuiSwitchHeight - 4;
+        height: @weuiSwitchHeight - 4;
         border-radius: 15px;
         background-color: #FFFFFF;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);

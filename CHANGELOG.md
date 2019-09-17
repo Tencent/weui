@@ -1,3 +1,22 @@
+### [v2.1.2](https://github.com/Tencent/weui/compare/v2.1.1...v2.1.2) (2019-09-17)
+
+#### Features
+* feat: 增加模拟选择框([3d081fd](https://github.com/Tencent/weui/commit/3d081fd))
+* feat: 升级表单UI，新增form页面模板，cell新增`weui-cells__group`结构，加扩展`weui-cells__group_form`可显示表单新皮肤([59ac11f](https://github.com/Tencent/weui/commit/59ac11f))
+
+#### Style
+* style: 更正表单cell的点击态场景([eafb43e](https://github.com/Tencent/weui/commit/eafb43e))
+* style: 更新表单demo样式([ba4e192](https://github.com/Tencent/weui/commit/ba4e192))
+* style: 优化switch UI([0206f0c](https://github.com/Tencent/weui/commit/0206f0c))
+* style: 增加agree未勾选时的提示动画([33af94c](https://github.com/Tencent/weui/commit/33af94c))
+* style: 优化actionsheet UI([d5b369c](https://github.com/Tencent/weui/commit/d5b369c))
+* style: icon实现从字体图标平滑升级为SVG([717b46a](https://github.com/Tencent/weui/commit/717b46a))
+* style: 优化toast UI，布局改为`flex`，toast方块宽高单位改成`px`，不再相对当前字号([5a0bee8](https://github.com/Tencent/weui/commit/5a0bee8))
+* style: 优化弹窗 UI，自适应规则调整：与屏幕左右各留16px的安全距离，宽度自适应，最大值为320px([0c3b3e5](https://github.com/Tencent/weui/commit/0c3b3e5))
+* style: 优化半屏组件UI([5dcca15](https://github.com/Tencent/weui/commit/5dcca15))
+
+
+
 ### [v2.0.1](https://github.com/Tencent/weui/compare/v2.0.0...v2.0.1) (2019-07-15)
 
 #### Features
@@ -108,8 +127,8 @@
 - 【修复】 图片上传组件无法选中图片的缺陷
 - 【修复】 九宫格组件少于3个时出现多余线段的缺陷
 - 【修复】 解决某些组件的z-index冲突，标准化z-index
-- 【修复】 解决`pannel`图标没有对齐的问题 
-- 【增强】 demo 更新 router 
+- 【修复】 解决`pannel`图标没有对齐的问题
+- 【增强】 demo 更新 router
 - 【增强】 autoprefixer 指定浏览器范围
 
 详情参考:

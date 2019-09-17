@@ -1,0 +1,85 @@
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单结构</h2>
+      <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单组标题</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
+            <div class="weui-cell__bd">
+                <input id="js_input" class="weui-input" placeholder="填写本人微信号"/>
+            </div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
+            <div class="weui-cell__bd">
+                <input id="js_input" class="weui-input" placeholder="填写本人微信号的昵称"/>
+            </div>
+          </div>
+          <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input id="js_input" class="weui-input" placeholder="填写绑定的电话号码" type="number" pattern="[0-9]*" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        表单页提示，居中对齐
+      </p>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        表单页提示，居中对齐
+      </p>
+    </div>
+    <div class="weui-form__extra-area">
+      <div class="weui-footer">
+        <p class="weui-footer__links">
+          <a href="javascript:void(0);" class="weui-footer__link">底部链接文本</a>
+        </p>
+        <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+      </div>
+    </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      $input.on('input', function(){
+        if ($input.val()){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $('#showTooltips').on('click', function(){
+        if ($(this).hasClass('weui-btn_disabled')) return;
+
+        // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+        $('.page.cell').removeClass('slideIn');
+
+        $toast.fadeIn(100);
+        setTimeout(function () {
+          $toast.fadeOut(100);
+        }, 2000);
+      });
+    });
+</script>

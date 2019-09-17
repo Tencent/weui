@@ -34,14 +34,22 @@
 
     // hides the spin-button
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
-        -webkit-appearance: none;
-        margin: 0;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:focus{
+      &:not(:placeholder-shown){
+          &+.weui-btn_input-clear{
+            display:inline;
+          }
+      }
     }
 }
 .weui-textarea {
     display: block;
     border: 0;
     resize: none;
+    background:transparent;
     width: 100%;
     color: inherit;
     font-size: 1em;
@@ -61,10 +69,11 @@
     display:none;
     position: fixed;
     transform: translateZ(0);
-    top: 0;
-    left: 0;
-    right: 0;
-    padding:5px;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    padding:10px;
+    border-radius:8px;
     font-size:14px;
     text-align: center;
     color: #FFF;
@@ -75,6 +84,22 @@
     background-color: @weuiColorWarn;
 }
 .weui-cells_form {
+  .weui-cell{
+    &:not(.weui-cell_readonly){
+      &:not(.weui-cell_disabled){
+        &:not(.weui-cell_vcode){
+          &:not(.weui-cell_switch){
+            &:active{
+              background-color:#ECECEC;
+            }
+          }
+        }
+      }
+    }
+  }
+    .weui-cell__bd{
+      display:flex;
+    }
     .weui-cell__ft{
         font-size:0;
     }
@@ -88,4 +113,23 @@
 .weui-cell_warn{
     color:@weuiTextColorWarn;
     .weui-icon-warn{display:inline-block;}
+}
+.weui-cell_readonly,.weui-cell_disabled{
+  .weui-input,.weui-textarea {
+    &:disabled{
+      opacity:1;
+      -webkit-text-fill-color:@weuiTextColorDesc;
+    }
+    &[disabled],
+    &[readonly]{
+      color:@weuiTextColorDesc;
+    }
+  }
+}
+.weui-btn_input-clear{
+  display:none;
+  padding-left: 8px;
+  [class*="weui-icon-"]{
+    width:18px;
+  }
 }

@@ -48,6 +48,7 @@
 }
 .weui-half-screen-dialog__hd__side{
   position:relative;
+  left:-8px;
 }
 .weui-half-screen-dialog__hd__main {
   flex:1;
@@ -56,6 +57,8 @@
     padding:0 40px;
   }
   & + .weui-half-screen-dialog__hd__side{
+    right:-8px;
+    left:auto;
     .weui-icon-btn{
       right:0;
     }
@@ -80,6 +83,7 @@
 .weui-half-screen-dialog__desc {
   padding-top:4px;
   font-size:17px;
+  font-weight:700;
   color:rgba(0,0,0,.9);
   line-height:1.4;
 }
@@ -92,7 +96,8 @@
 .weui-half-screen-dialog__ft {
   padding:40px 24px 32px;
   text-align:center;
-  .weui-btn{
+  .weui-btn:nth-last-child(n+2),
+  .weui-btn:nth-last-child(n+2) ~ .weui-btn{
     display:inline-block;
     vertical-align:top;
     margin:0 8px;

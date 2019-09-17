@@ -11,10 +11,8 @@ var comments = require('postcss-discard-comments');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
-var prompt = require('inquirer').prompt;
 var childProcess = require('child_process');
 var pkg = require('./package.json');
-var bower = require('./bower.json');
 var yargs = require('yargs').options({
   w: {
     alias: 'watch',
@@ -74,7 +72,8 @@ gulp.task('build:style', function() {
     .pipe(
       nano({
         zindex: false,
-        autoprefixer: false
+        autoprefixer: false,
+        svgo: false
       })
     )
     .pipe(
@@ -170,43 +169,6 @@ gulp.task('server', function() {
     },
     port: yargs.p,
     startPath: '/example'
-  });
-});
-
-gulp.task('release', function() {
-  return new Promise(async (resolve) => {
-    try {
-      const answers = await prompt({
-        type: 'input',
-        name: 'tag',
-        message: 'Input a tag:',
-      });
-
-      const tag = answers.tag.replace(/^v/, '');
-      const tagName = `v${tag}`;
-
-      pkg.version = tag;
-      bower.version = tag;
-      fs.writeFileSync('package.json', JSON.stringify(pkg, null, 4));
-      fs.writeFileSync('bower.json', JSON.stringify(bower, null, 4));
-
-      console.log('Building Project');
-      await exec(`npm run build && git add . && git commit -m "[release] ${tagName}"`);
-
-      console.log(`Setting tag ${tagName}`);
-      await exec(`git tag ${tagName}`);
-
-      console.log('Generating Changelog');
-      await exec(`npm run changelog && git add . && git commit -m "docs: update changelog"`);
-
-      console.log('Pushing Project');
-      await exec('git push && git push --tag');
-
-      console.log('Release Success!');
-      resolve();
-    } catch(error) {
-      throw error;
-    }
   });
 });
 

@@ -1,0 +1,105 @@
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">模拟选择框</h2>
+      <div class="weui-form__desc">用于丰富原生选择框结构，使其更具有扩展性</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells">
+          <div class="weui-cell weui-cell_access" id="showDatePicker">
+            <div class="weui-cell__bd">日期</div>
+            <div class="weui-cell__ft"></div>
+          </div>
+          <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-before">
+            <div class="weui-cell__hd" id="showPhone"><label class="weui-label">+86</label></div>
+            <div class="weui-cell__bd">
+              <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+            </div>
+          </div>
+          <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd"><label class="weui-label">票种</label></div>
+            <div class="weui-cell__bd" id="showPicker">的士票</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Picker</h1>
+        <p class="page__desc">多列选择器，需要配合js实现</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showPicker">单列选择器</a>
+        <a href="javascript:;" class="weui-btn weui-btn_default" id="showDatePicker">日期选择器</a>
+    </div>
+</div>
+-->
+<script type="text/javascript">
+    $('#showPhone').on('click', function () {
+        weui.picker([{
+            label: '+86',
+            value: 0
+        }, {
+            label: '+80',
+            value: 1
+        }, {
+            label: '+84',
+            value: 2
+        }, {
+            label: '+87',
+            value: 3
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            },
+            title: '单列选择器'
+        });
+    });
+    $('#showPicker').on('click', function () {
+        weui.picker([{
+            label: '飞机票',
+            value: 0
+        }, {
+            label: '火车票',
+            value: 1
+        }, {
+            label: '的士票',
+            value: 2
+        },{
+            label: '公交票 (disabled)',
+            disabled: true,
+            value: 3
+        }, {
+            label: '其他',
+            value: 4
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            },
+            title: '单列选择器'
+        });
+    });
+    $('#showDatePicker').on('click', function () {
+        weui.datePicker({
+            start: 1990,
+            end: new Date().getFullYear(),
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            },
+            title: '多列选择器'
+        });
+    });
+</script>

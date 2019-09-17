@@ -1,0 +1,66 @@
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">复选框样式展示</h2>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s11">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="checkbox1" id="s11" checked="checked"/>
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>standard is dealt for u.</p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s12">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="checkbox1" class="weui-check" id="s12"/>
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>standard is dealicient for u.</p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">添加更多</div>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="weui-form__opr-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">下一步</a>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        点击下一步即表示<a href="javascript:;">同意用户协议</a>
+      </p>
+    </div>
+  </div>
+  <div id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+      var $toast = $('#js_toast');
+
+        $('#showTooltips').on('click', function(){
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $toast.fadeIn(100);
+            setTimeout(function () {
+              $toast.fadeOut(100);
+            }, 2000);
+        });
+    });
+</script>

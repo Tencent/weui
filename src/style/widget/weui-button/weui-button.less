@@ -52,7 +52,7 @@ button, input {
 
 
 /*gap between btn*/
-.weui-btn + .weui-btn {
+.weui-btn:not(.weui-btn_mini) + .weui-btn:not(.weui-btn_mini) {
     margin-top: @weuiBtnDefaultGap;
 }
 
@@ -76,4 +76,19 @@ button, input {
             margin-right: 0;
         }
     }
+}
+
+.weui-btn_reset{
+  background:transparent;
+  border:0;
+  padding:0;
+  outline:0;
+}
+.weui-btn_icon{
+  font-size:0;
+  &:active{
+    [class*="weui-icon-"]{
+      color:rgba(0,0,0,.5);
+    }
+  }
 }
