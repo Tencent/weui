@@ -199,17 +199,12 @@ body, .page {
   }
 }
 
-.page.form_page,
-.page.form_radio,
-.page.form_checkbox,
-.page.form_textarea,
-.page.form_switch,
-.page.form_select,
-.page.form_select_primary,
-.page.form_input_status,
-.page.form_vcode{
-  padding:0;
+[class^="form_"], [class*=" form_"]{
+    &.page{
+      padding:0;
+    }
 }
+
 .page.form_vcode,
 .page.form_input_status,
 .page.form_select,
