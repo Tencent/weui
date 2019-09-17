@@ -1,3 +1,12 @@
+### [v2.1.2](https://github.com/Tencent/weui/compare/v2.1.1...v2.1.2) (2019-09-17)
+
+#### Style
+* style: 更正表单cell的点击态场景([eafb43e](https://github.com/Tencent/weui/commit/eafb43e))
+* style: 更新表单demo样式([ba4e192](https://github.com/Tencent/weui/commit/ba4e192))
+* style: 优化switch UI([0206f0c](https://github.com/Tencent/weui/commit/0206f0c))
+
+
+
 ### [v2.1.1](https://github.com/Tencent/weui/compare/v2.0.1...v2.1.1) (2019-09-16)
 
 #### Features
