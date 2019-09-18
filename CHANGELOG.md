@@ -1,3 +1,12 @@
+### [v2.1.3](https://github.com/Tencent/weui/compare/v2.1.2...v2.1.3) (2019-09-18)
+
+#### Style
+* style: 修复form场景下uploader布局兼容问题([6eba009](https://github.com/Tencent/weui/commit/6eba009))
+* style: 对固定底部的footer增加刘海屏安全区域([816a631](https://github.com/Tencent/weui/commit/816a631))
+* style: 优化form展示([54f804b](https://github.com/Tencent/weui/commit/54f804b))
+
+
+
 ### [v2.1.2](https://github.com/Tencent/weui/compare/v2.1.1...v2.1.2) (2019-09-17)
 
 #### Features
