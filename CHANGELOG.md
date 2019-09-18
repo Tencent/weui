@@ -2,8 +2,6 @@
 
 #### Style
 * style: 修复form场景下uploader布局兼容问题([6eba009](https://github.com/Tencent/weui/commit/6eba009))
-* style: 对固定底部的footer增加刘海屏安全区域([816a631](https://github.com/Tencent/weui/commit/816a631))
-* style: 优化form展示([54f804b](https://github.com/Tencent/weui/commit/54f804b))
 
 
 
@@ -14,6 +12,7 @@
 * feat: 升级表单UI，新增form页面模板，cell新增`weui-cells__group`结构，加扩展`weui-cells__group_form`可显示表单新皮肤([59ac11f](https://github.com/Tencent/weui/commit/59ac11f))
 
 #### Style
+* style: 对固定底部的footer增加刘海屏安全区域([816a631](https://github.com/Tencent/weui/commit/816a631))
 * style: 更正表单cell的点击态场景([eafb43e](https://github.com/Tencent/weui/commit/eafb43e))
 * style: 更新表单demo样式([ba4e192](https://github.com/Tencent/weui/commit/ba4e192))
 * style: 优化switch UI([0206f0c](https://github.com/Tencent/weui/commit/0206f0c))
