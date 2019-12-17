@@ -13,33 +13,3 @@
         }
     }
 }
-
-.setColor(@rule) {
-    .setColor(@rule[var], @rule[light], @rule[dark]);
-}
-
-.setColor(@var, @color) {
-    .setColor(@var, @color, @color);
-}
-
-.setColor(@var, @light, @dark) {
-    ._setColor({
-        @{var}: @light;
-    }, {
-        @{var}: @dark;
-    });
-}
-
-._setColor(@lightRule, @darkRule) {
-    body {
-        @lightRule();
-    }
-    body[data-weui-theme='dark'] {
-        @darkRule();
-    }
-    @media (prefers-color-scheme: dark) {
-        body:not([data-weui-theme='light']) {
-            @darkRule();
-        }
-    }
-}
