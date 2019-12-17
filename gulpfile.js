@@ -13,6 +13,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var childProcess = require('child_process');
 var pkg = require('./package.json');
+var convertCssVar = require('gulp-convert-css-var');
+
 var yargs = require('yargs').options({
   w: {
     alias: 'watch',
@@ -65,6 +67,7 @@ gulp.task('build:style', function() {
       })
     )
     .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1']), comments()]))
+    .pipe(convertCssVar())
     .pipe(header(banner, { pkg: pkg }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(dist))

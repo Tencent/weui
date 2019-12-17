@@ -15,7 +15,7 @@ ul{
 }
 
 body, .page {
-    background-color: #EDEDED;
+    background-color: var(--weui-BG-0);
 }
 .page{
   box-sizing:border-box;
@@ -25,7 +25,7 @@ body, .page {
 /* lib */
 
 .link{
-    color: #07C160;
+    color: var(--weui-LINK);
 }
 
 
@@ -38,6 +38,7 @@ body, .page {
     bottom: 0;
     left: 0;
     overflow: hidden;
+    color:var(--weui-FG-0)
 }
 
 .page {
@@ -90,7 +91,7 @@ body, .page {
 
 .page__desc {
     margin-top: 4px;
-    color: rgba(0,0,0,.5);
+    color: var(--weui-FG-1);
     text-align: left;
     font-size: 14px;
 }
@@ -127,7 +128,7 @@ body, .page {
         }
         li{
             margin: 8px 0;
-            background-color: #FFFFFF;
+            background-color: var(--weui-BG-2);
             overflow: hidden;
             border-radius: 2px;
             cursor: pointer;
@@ -212,7 +213,7 @@ body, .page {
   .weui-label{width:3.1em;}
 }
 .page.button {
-    background-color:#EDEDED;
+    background-color:var(--weui-BG-0);
     .weui-btn_mini{
       vertical-align:middle;
     }
