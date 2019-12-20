@@ -35,7 +35,7 @@
         "autoprefixer": "^6.3.1",
         "browser-sync": "^2.9.11",
         "gulp": "^3.9.1",
-        "gulp-convert-css-var": "0.0.3",
+        "gulp-convert-css-var": "^0.1.2",
         "gulp-cssnano": "^2.0.0",
         "gulp-header": "^1.7.1",
         "gulp-less": "^4.0.1",
