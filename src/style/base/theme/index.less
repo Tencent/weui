@@ -6,10 +6,8 @@
         @rule();
     }
     @media (prefers-color-scheme: dark) {
-        body:not([data-weui-theme='light']) {
-            & {
-                @rule();
-            }
+        body:not([data-weui-theme='light']) & {
+            @rule();
         }
     }
 }
