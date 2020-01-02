@@ -14,8 +14,12 @@
 * limitations under the License.
 */
 
-@weuiDialogBackgroundColor: #FFFFFF;
-@weuiDialogLineColor: rgba(0,0,0,.1);
+@import "../../base/fn";
+
+.setColor(--weui-DIALOG-LINE-COLOR, rgba(0, 0, 0, .1), rgba(255, 255, 255, .1));
+
+@weuiDialogBackgroundColor: var(--weui-BG-2);
+@weuiDialogLineColor: var(--weui-DIALOG-LINE-COLOR);
 @weuiDialogLinkColor: @weuiLinkColorDefault;
 @weuiDialogLinkActiveBc: @weuiBgColorActive;
 @weuiDialogGapWidth: 24px;

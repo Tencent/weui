@@ -14,59 +14,54 @@
 * limitations under the License.
 */
 
-@weuiBtnWidth:184px;
-@weuiBtnHeight:40px;
-@weuiBtnFontSize:17px;
-@weuiBtnBorderRadius:4px;
-@weuiBtnDefaultGap:16px;
+@import "../../base/fn";
 
-@weuiBtnMiniFontSize:16px;
-@weuiBtnMiniHeight:32px;
+.setColor(--weui-BTN-FONT-COLOR, #fff);
+.setColor(--weui-BTN-DISABLED-FONT-COLOR, rgba(0, 0, 0, .2), rgba(255, 255, 255, .2));
+.setColor(--weui-BTN-DISABLED-BG, #f2f2f2, #3c3c3c);
+.setColor(--weui-BTN-DEFAULT-BG, #f2f2f2, #3c3c3c);
+.setColor(--weui-BTN-DEFAULT-ACTIVE-BG, overlay(rgba(0, 0, 0, .05), #f2f2f2), overlay(rgba(0, 0, 0, .08), #3c3c3c));
 
-@weuiBtnCellHeight:56px;
-@weuiBtnCellGap:16px;
-@weuiBtnCellLineHeight: unit((@weuiBtnCellHeight - 2 * @weuiBtnCellGap) / @weuiBtnFontSize);
+@weuiBtnWidth: 184px;
+@weuiBtnHeight: 40px;
+@weuiBtnFontSize: 17px;
+@weuiBtnBorderRadius: 4px;
+@weuiBtnDefaultGap: 16px;
 
-@weuiBtnFontColor:#FFFFFF;
-@weuiBtnActiveFontColor:#FFFFFF;
-@weuiBtnDisabledFontColor:rgba(0,0,0,.18);
-@weuiBtnDisabledBg:overlay(rgba(0,0,0,.02),#FFFFFF);
-@weuiBtnHoverDefaultMask:@weuiActiveMaskWhite;
-@weuiBtnHoverPrimaryMask:@weuiActiveMaskColored;
+@weuiBtnMiniFontSize: 16px;
+@weuiBtnMiniHeight: 32px;
 
-@weuiBtnDefaultFontColor:#06AE56;
-@weuiBtnDefaultActiveFontColor:#06AE56;
-@weuiBtnDefaultDisabledFontColor:@weuiBtnDisabledFontColor;
+@weuiBtnCellHeight: 56px;
+@weuiBtnCellGap: 16px;
+@weuiBtnCellLineHeight:unit((@weuiBtnCellHeight - 2 * @weuiBtnCellGap) / @weuiBtnFontSize);
 
-@weuiBtnDefaultBg:#F2F2F2;
-@weuiBtnDefaultActiveBg:#D9D9D9;
-@weuiBtnDefaultDisabledBg:@weuiBtnDisabledBg;
+@weuiBtnFontColor: var(--weui-BTN-FONT-COLOR);
+@weuiBtnDisabledFontColor: var(--weui-BTN-DISABLED-FONT-COLOR);
+@weuiBtnDisabledBg: var(--weui-BTN-DISABLED-BG);
 
+// default
+@weuiBtnDefaultFontColor: var(--weui-TAG-TEXT-GREEN);
+@weuiBtnDefaultDisabledFontColor: @weuiBtnDisabledFontColor;
+@weuiBtnDefaultBg: var(--weui-BTN-DEFAULT-BG);
+@weuiBtnDefaultActiveBg: var(--weui-BTN-DEFAULT-ACTIVE-BG);
+@weuiBtnDefaultDisabledBg: @weuiBtnDisabledBg;
 
-@weuiBtnPrimaryFontColor:#FFFFFF;
-@weuiBtnPrimaryActiveFontColor:#FFFFFF;
-@weuiBtnPrimaryDisabledFontColor:@weuiBtnDisabledFontColor;
+// primary
+@weuiBtnPrimaryFontColor: var(--weui-BTN-FONT-COLOR);
+@weuiBtnPrimaryDisabledFontColor: @weuiBtnDisabledFontColor;
+@weuiBtnPrimaryBg: var(--weui-BRAND);
+@weuiBtnPrimaryActiveBg: var(--weui-TAG-TEXT-GREEN);
+@weuiBtnPrimaryDisabledBg: @weuiBtnDisabledBg;
 
-@weuiBtnPrimaryBg:#07C160;
-@weuiBtnPrimaryActiveBg:#06AD56;
-@weuiBtnPrimaryDisabledBg:@weuiBtnDisabledBg;
+// warn
+@weuiBtnWarnFontColor: @weuiColorWarn;
+@weuiBtnWarnDisabledFontColor: @weuiBtnDisabledFontColor;
+@weuiBtnWarnBg: @weuiBtnDefaultBg;
+@weuiBtnWarnActiveBg: @weuiBtnDefaultActiveBg;
+@weuiBtnwarnDisabledBg: @weuiBtnDefaultDisabledBg;
 
-
-@weuiBtnWarnFontColor:@weuiColorWarn;
-@weuiBtnWarnActiveFontColor:@weuiColorWarn;
-@weuiBtnWarnDisabledFontColor:@weuiBtnDisabledFontColor;
-
-@weuiBtnWarnBg:#F2F2F2;
-@weuiBtnWarnActiveBg:#D9D9D9;
-@weuiBtnwarnDisabledBg:@weuiBtnDisabledBg;
-
-
-@weuiBtnPlainPrimaryColor:#07C160;
-@weuiBtnPlainPrimaryBorderColor:rgba(26,173,25,1);
-@weuiBtnPlainPrimaryActiveColor:overlay(@weuiBtnHoverPrimaryMask,@weuiBtnPlainPrimaryColor);
-@weuiBtnPlainPrimaryActiveBorderColor:overlay(@weuiBtnHoverPrimaryMask,@weuiBtnPlainPrimaryBorderColor);
-
-@weuiBtnPlainDefaultColor:rgba(53,53,53,1);
-@weuiBtnPlainDefaultBorderColor:rgba(53,53,53,1);
-@weuiBtnPlainDefaultActiveColor:overlay(@weuiBtnHoverDefaultMask,@weuiBtnPlainDefaultColor);
-@weuiBtnPlainDefaultActiveBorderColor:overlay(@weuiBtnHoverDefaultMask,@weuiBtnPlainDefaultBorderColor);
+// plain-btn
+@weuiBtnPlainPrimaryColor: var(--weui-BRAND);
+@weuiBtnPlainPrimaryBorderColor: var(--weui-BRAND);
+@weuiBtnPlainDefaultColor: var(--weui-BTN-DEFAULT-BG);
+@weuiBtnPlainDefaultBorderColor: var(--weui-BTN-DEFAULT-BG);

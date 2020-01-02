@@ -1,4 +1,5 @@
 /* reset */
+@import "../style/base/theme/index";
 
 html, body {
     height: 100%;
@@ -74,6 +75,9 @@ body, .page {
     text-align: center;
     img{
         height: 19px;
+        .dark({
+            filter: invert(100) hue-rotate(180deg);
+        });
     }
     &.j_bottom{
         position: absolute;
@@ -120,11 +124,17 @@ body, .page {
     .page__title{
         font-size: 0;
         margin-bottom: 15px;
+        .dark({
+            filter: invert(100) hue-rotate(180deg);
+        });
     }
     .page__bd{
         img{
             width: 30px;
             height: 30px;
+            .dark({
+                filter: invert(100) hue-rotate(180deg);
+            });
         }
         li{
             margin: 8px 0;
