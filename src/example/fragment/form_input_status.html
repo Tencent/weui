@@ -8,7 +8,7 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell" id="js_cell">
+          <div class="weui-cell weui-cell_active" id="js_cell">
             <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
             <div class="weui-cell__bd">
                 <input id="js_input" class="weui-input" autofocus type="text" pattern="[0-9]*" placeholder="请输入16位数卡号" maxlength="16" />
@@ -22,13 +22,13 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单只读、置灰</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_readonly">
+          <div class="weui-cell weui-cell_active weui-cell_readonly">
             <div class="weui-cell__hd"><label class="weui-label">EMail</label></div>
             <div class="weui-cell__bd">
                 <input class="weui-input" placeholder="请输入EMail" value="1234567" readonly/>
             </div>
           </div>
-          <div class="weui-cell weui-cell_disabled">
+          <div class="weui-cell weui-cell_active weui-cell_disabled">
             <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
             <div class="weui-cell__bd">
                 <input class="weui-input" placeholder="请输入微信号" value="WeUI" disabled/>

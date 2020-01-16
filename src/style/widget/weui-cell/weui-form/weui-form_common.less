@@ -84,19 +84,14 @@
     background-color: @weuiColorWarn;
 }
 .weui-cells_form {
-  .weui-cell{
-    &:not(.weui-cell_readonly){
-      &:not(.weui-cell_disabled){
-        &:not(.weui-cell_vcode){
-          &:not(.weui-cell_switch){
-            &:active{
-              background-color:#ECECEC;
-            }
-          }
-        }
+    .weui-cell_switch,
+    .weui-cell_vcode,
+    .weui-cell_readonly,
+    .weui-cell_disabled{
+      &:active{
+        background-color:transparent;
       }
     }
-  }
     .weui-cell__bd{
       display:flex;
     }
