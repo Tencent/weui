@@ -1,3 +1,21 @@
+### [v2.1.4](https://github.com/Tencent/weui/compare/v2.1.3...v2.1.4) (2020-01-17)
+
+#### Features
+* feat: 更改weui-cell点击态的实现方式，需要点击态额外加weui-cell_active扩展类([0aa806d](https://github.com/Tencent/weui/commit/0aa806d))
+
+#### Bugfixes
+* fix: 修复弹窗组件在ios10下内容区域无法局部滚动的问题([9fe8971](https://github.com/Tencent/weui/commit/9fe8971))
+* fix: 修复文本域计数器对齐问题([587c35c](https://github.com/Tencent/weui/commit/587c35c))
+* fix: 修复图片预览组件在刘海屏下安全间距的问题以及多个文字颜色问题([f923afb](https://github.com/Tencent/weui/commit/f923afb))
+* fix: 优化footer组件固定底部在刘海屏上的体验([1034346](https://github.com/Tencent/weui/commit/1034346))
+* fix: 优化半屏弹窗的头部图标，使背景透明化，weui-icon-btn_close更名为weui-icon-close-thin，weui-icon-btn_more更名为weui-icon-more，weui-icon-btn_goback更名为weui-icon-back-arrow-thin([0c2c0c1](https://github.com/Tencent/weui/commit/0c2c0c1))
+* fix: 修复半屏弹窗非刘海屏下的布局问题([ae86a50](https://github.com/Tencent/weui/commit/ae86a50))
+* fix: 修复新表单底部提示区域链接颜色([ddf0a89](https://github.com/Tencent/weui/commit/ddf0a89))
+* fix: 修复weui-cell_access在新表单下的字体颜色被覆盖的问题([a993864](https://github.com/Tencent/weui/commit/a993864))
+* fix: 去掉同意协议ios默认点击态([3863da6](https://github.com/Tencent/weui/commit/3863da6))
+
+
+
 ### [v2.1.3](https://github.com/Tencent/weui/compare/v2.1.2...v2.1.3) (2019-09-18)
 
 #### Style
