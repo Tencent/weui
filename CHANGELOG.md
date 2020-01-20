@@ -3,10 +3,6 @@
 #### Features
 * feat: 更改weui-cell点击态的实现方式，需要点击态额外加weui-cell_active扩展类([0aa806d](https://github.com/Tencent/weui/commit/0aa806d))
 
-#### Breakchanges
-* fix: 更新表单下默认链接字体颜色，去掉了weui-form的超链接默认色值。若需要使用原链接色，可对超链接加扩展类weui-link([a993864](https://github.com/Tencent/weui/commit/a993864))
-* fix: weui-cells下方提示增加超链接默认颜色([5d22c51](https://github.com/Tencent/weui/commit/6344135abcddf77ff93c5ac31f35d9e3c5d22c51))
-
 #### Bugfixes
 * fix: 修复弹窗组件在ios10下内容区域无法局部滚动的问题([9fe8971](https://github.com/Tencent/weui/commit/9fe8971))
 * fix: 修复文本域计数器对齐问题([587c35c](https://github.com/Tencent/weui/commit/587c35c))
@@ -17,6 +13,11 @@
 * fix: 修复新表单底部提示区域链接颜色([ddf0a89](https://github.com/Tencent/weui/commit/ddf0a89))
 * fix: 修复weui-cell_access在新表单下的字体颜色被覆盖的问题([a993864](https://github.com/Tencent/weui/commit/a993864))
 * fix: 去掉同意协议ios默认点击态([3863da6](https://github.com/Tencent/weui/commit/3863da6))
+
+#### Breaking Changes
+* fix: 更新表单下默认链接字体颜色，去掉了weui-form的超链接默认色值。若需要使用原链接色，可对超链接加扩展类weui-link([a993864](https://github.com/Tencent/weui/commit/a993864))
+* fix: weui-cells下方提示增加超链接默认颜色([5d22c51](https://github.com/Tencent/weui/commit/6344135abcddf77ff93c5ac31f35d9e3c5d22c51))
+
 
 
 
