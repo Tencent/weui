@@ -5,6 +5,7 @@
 
 #### Breakchanges
 * fix: 更新表单下默认链接字体颜色，去掉了weui-form的超链接默认色值。若需要使用原链接色，可对超链接加扩展类weui-link([a993864](https://github.com/Tencent/weui/commit/a993864))
+* fix: weui-cells下方提示增加超链接默认颜色([5d22c51](https://github.com/Tencent/weui/commit/6344135abcddf77ff93c5ac31f35d9e3c5d22c51))
 
 #### Bugfixes
 * fix: 修复弹窗组件在ios10下内容区域无法局部滚动的问题([9fe8971](https://github.com/Tencent/weui/commit/9fe8971))
