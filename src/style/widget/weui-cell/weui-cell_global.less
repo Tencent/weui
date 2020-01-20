@@ -64,6 +64,9 @@ z-index:
     padding-right: @weuiCellGapH;
     font-size: @weuiCellTipsFontSize;
     line-height:1.4;
+    a{
+      color:@weuiLinkColorDefault;
+    }
 }
 
 .weui-cell {
@@ -81,6 +84,11 @@ z-index:
             display: none;
         }
     }
+}
+.weui-cell_active{
+  &:active{
+    background-color:@weuiBgColorActive;
+  }
 }
 .weui-cell_primary{
     align-items: flex-start;
