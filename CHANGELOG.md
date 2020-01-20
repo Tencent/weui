@@ -1,4 +1,4 @@
-### [v2.1.4](https://github.com/Tencent/weui/compare/v2.1.3...v2.1.4) (2020-01-17)
+### [v2.1.4](https://github.com/Tencent/weui/compare/v2.1.3...v2.1.4) (2020-01-20)
 
 #### Features
 * feat: 更改weui-cell点击态的实现方式，需要点击态额外加weui-cell_active扩展类([0aa806d](https://github.com/Tencent/weui/commit/0aa806d))
