@@ -24,7 +24,7 @@
     left: 0;
     bottom: 0;
     z-index: 5000;
-    background-color: #fff;
+    background-color: var(--weui-BG-2);
     padding-bottom:constant(safe-area-inset-bottom);
     padding-bottom:env(safe-area-inset-bottom);
     backface-visibility: hidden;
@@ -50,7 +50,7 @@
 .weui-picker__bd {
     display: flex;
     position: relative;
-    background-color: #fff;
+    background-color: var(--weui-BG-2);
     height: 240px;
     overflow: hidden;
 }
@@ -81,7 +81,7 @@
     height: 100%;
     margin: 0 auto;
     z-index: 3;
-    background: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6));
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)); // TODO 咨询视觉
     background-position: top, bottom;
     background-size: 100% 92px;
     background-repeat: no-repeat;
