@@ -14,6 +14,10 @@
 * limitations under the License.
 */
 
+@import "../theme/index";
+
+.setColor(--weui-BG-COLOR-ACTIVE, overlay(rgba(0, 0, 0, .05), #fff), overlay(rgba(0, 0, 0, .08), #2c2c2c));
+
 // color
 @weuiColorPrimary: var(--weui-BRAND);
 @weuiColorWarn: var(--weui-RED);
@@ -27,7 +31,7 @@
 // background
 @weuiBgColorDefault: var(--weui-BG-0);
 @weuiBgColorPrimary: var(--weui-BG-1);
-@weuiBgColorActive: #ECECEC;
+@weuiBgColorActive: var(--weui-BG-COLOR-ACTIVE);
 
 // line
 @weuiLineColorLight: var(--weui-FG-3);

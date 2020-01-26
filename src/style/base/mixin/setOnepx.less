@@ -14,7 +14,9 @@
 * limitations under the License.
 */
 
-.setTopLine(@c: #C7C7C7) {
+@import "../variable/color";
+
+.setTopLine(@c: @weuiLineColorLight) {
     content: " ";
     position: absolute;
     left: 0;
@@ -27,7 +29,7 @@
     transform: scaleY(0.5);
 }
 
-.setBottomLine(@c: #C7C7C7) {
+.setBottomLine(@c: @weuiLineColorLight) {
     content: " ";
     position: absolute;
     left: 0;
@@ -40,7 +42,7 @@
     transform: scaleY(0.5);
 }
 
-.setLeftLine(@c: #C7C7C7) {
+.setLeftLine(@c: @weuiLineColorLight) {
     content: " ";
     position: absolute;
     left: 0;
@@ -53,7 +55,7 @@
     transform: scaleX(0.5);
 }
 
-.setRightLine(@c: #C7C7C7) {
+.setRightLine(@c: @weuiLineColorLight) {
     content: " ";
     position: absolute;
     right: 0;

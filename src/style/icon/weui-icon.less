@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-
+@import "../base/variable/color";
 
 [class^="weui-icon-"], [class*=" weui-icon-"] {
     display: inline-block;
@@ -117,13 +117,13 @@
     color: @weuiColorPrimary;
 }
 .weui-icon-waiting {
-    color: #10AEFF;
+    color: var(--weui-BLUE);
 }
 .weui-icon-warn {
     color: @weuiColorWarn;
 }
 .weui-icon-info {
-    color: #10AEFF;
+    color: var(--weui-BLUE);
 }
 
 .weui-icon-success-circle {
@@ -133,10 +133,10 @@
     color: @weuiColorPrimary;
 }
 .weui-icon-waiting-circle {
-    color: #10AEFF;
+    color: var(--weui-BLUE);
 }
 .weui-icon-circle {
-    color: rgba(0,0,0,.3);
+    color: @weuiTextColorTips;
 }
 .weui-icon-download {
     color: @weuiColorPrimary;
@@ -150,7 +150,7 @@
     color: @weuiColorPrimary;
 }
 .weui-icon-safe-warn {
-    color: #FFBE00;
+    color: var(--weui-YELLOW);
 }
 
 .weui-icon-cancel {
@@ -170,7 +170,7 @@
 
 .weui-icon-delete {
     &.weui-icon_gallery-delete{
-        color:#FFFFFF;
+        color: #FFFFFF; // 固定色值
     }
 }
 .weui-icon-arrow,.weui-icon-arrow-bold,
@@ -198,6 +198,6 @@
     width: 64px;
     height: 64px;
     &.weui-icon-warn {
-        color: rgb(255,195,0);
+        color: var(--weui-YELLOW);
     }
 }

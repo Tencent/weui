@@ -22,38 +22,38 @@
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
-    font-weight:700;
+    font-weight: 700;
     font-size: @weuiBtnFontSize;
     text-align: center;
     text-decoration: none;
     color: @weuiBtnFontColor;
     line-height: @weuiBtnCellLineHeight;
-    padding:@weuiBtnCellGap;
+    padding: @weuiBtnCellGap;
     .setTapColor();
     overflow: hidden;
-    background-color:#FFFFFF;
+    background-color: var(--weui-BG-5);
     & + &{
-      margin-top:@weuiBtnDefaultGap;
+      margin-top: @weuiBtnDefaultGap;
     }
     &:active{
-      background-color:@weuiBgColorActive;
+      background-color: @weuiBgColorActive;
     }
 }
 .weui-btn_cell__icon{
-  display:inline-block;
-  vertical-align:middle;
-  width:24px;
-  height:24px;
-  margin:-.2em .34em 0 0;
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  margin: -.2em .34em 0 0;
 }
 .weui-btn_cell-default{
-  color:rgba(0,0,0,.9);
+  color: var(--weui-FG-0);
 }
 .weui-btn_cell-primary{
-  color:@weuiLinkColorDefault;
+  color: @weuiLinkColorDefault;
 }
 .weui-btn_cell-warn{
-  color:@weuiColorWarn;
+  color: @weuiColorWarn;
 }
 
 
