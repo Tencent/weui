@@ -51,7 +51,9 @@
   }
   .weui-cell{
     padding:16px 32px;
-    color:rgba(0,0,0,.9);
+    &:not(.weui-cell_link){
+      color:@weuiTextColorTitle;
+    }
   }
   .weui-cell__hd{
     padding-right:16px;
@@ -74,9 +76,11 @@
 
   .weui-cells__tips{
     margin-top:8px;
-    font-weight:700;
     padding:0 32px;
     color:rgba(0,0,0,.3);
+    a{
+      font-weight:700;
+    }
   }
 
 
