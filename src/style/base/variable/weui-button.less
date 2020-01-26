@@ -16,7 +16,6 @@
 
 @import "../../base/fn";
 
-.setColor(--weui-BTN-FONT-COLOR, #fff);
 .setColor(--weui-BTN-DISABLED-FONT-COLOR, rgba(0, 0, 0, .2), rgba(255, 255, 255, .2));
 .setColor(--weui-BTN-DISABLED-BG, #f2f2f2, #3c3c3c);
 .setColor(--weui-BTN-DEFAULT-BG, #f2f2f2, #3c3c3c);
@@ -35,7 +34,7 @@
 @weuiBtnCellGap: 16px;
 @weuiBtnCellLineHeight:unit((@weuiBtnCellHeight - 2 * @weuiBtnCellGap) / @weuiBtnFontSize);
 
-@weuiBtnFontColor: var(--weui-BTN-FONT-COLOR);
+@weuiBtnFontColor: #fff; // 固定色值
 @weuiBtnDisabledFontColor: var(--weui-BTN-DISABLED-FONT-COLOR);
 @weuiBtnDisabledBg: var(--weui-BTN-DISABLED-BG);
 

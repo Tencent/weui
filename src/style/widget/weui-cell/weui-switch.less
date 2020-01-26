@@ -32,7 +32,6 @@
     outline: 0;
     border-radius: 16px;
     box-sizing: border-box;
-    background-color: #FFFFFF;
     transition: background-color .1s, border .1s;
 
     &:before{
@@ -43,7 +42,7 @@
         bottom: 0;
         right: 0;
         border-radius: 15px;
-        background-color: #FDFDFD;
+        background-color: var(--weui-BG-3);
         transition:transform .35s cubic-bezier(0.45, 1, 0.4, 1);
     }
     &:after{
@@ -54,7 +53,7 @@
         width: @weuiSwitchHeight - 4;
         height: @weuiSwitchHeight - 4;
         border-radius: 15px;
-        background-color: #FFFFFF;
+        background-color: #FFFFFF; // 固定色值
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         transition:transform .35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
     }
