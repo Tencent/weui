@@ -25,7 +25,7 @@
     backface-visibility: hidden;
     z-index: 5000;
     width: 100%;
-    background-color: #EAE7E8;
+    background-color: @weuiBgColorDefault;
     //slide up animation
     transition: transform .3s;
 
@@ -44,7 +44,7 @@
     font-size: 12px;
     color: @weuiTextColorDesc;
     line-height: 1.4;
-    background: #FFFFFF;
+    background: var(--weui-BG-2);
     &:before {
         .setBottomLine(@weuiCellBorderColor);
     }
@@ -54,11 +54,11 @@
 }
 .weui-actionsheet__menu{
   color:@weuiTextColorTitle;
-  background-color: #FFFFFF;
+  background-color: var(--weui-BG-2);
 }
 .weui-actionsheet__action {
     margin-top: 8px;
-    background-color: #FFFFFF;
+    background-color: var(--weui-BG-2);
     padding-bottom:constant(safe-area-inset-bottom);
     padding-bottom:env(safe-area-inset-bottom);
 }
