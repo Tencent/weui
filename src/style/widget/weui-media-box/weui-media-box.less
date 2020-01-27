@@ -21,18 +21,19 @@
     position: relative;
     &:before {
         .setTopLine(@weuiLineColorLight);
+
         left: 16px;
     }
     &:first-child {
         &:before {
-            display: none
+            display: none;
         }
     }
 
-    a&{
-        color:#000000;
+    a& {
+        color: #000;
         .setTapColor();
-        &:active{
+        &:active {
             background-color: @weuiBgColorActive;
         }
     }
@@ -40,17 +41,18 @@
 .weui-media-box__title {
     font-weight: 400;
     font-size: 17px;
-    line-height:1.4;
-    color:@weuiTextColorTitle;
+    line-height: 1.4;
+    color: @weuiTextColorTitle;
     .ellipsis();
+
     word-wrap: break-word;
     word-break: break-all;
 }
 .weui-media-box__desc {
     color: @weuiTextColorTips;
     font-size: 14px;
-    line-height:1.4;
-    padding-top:4px;
+    line-height: 1.4;
+    padding-top: 4px;
     .ellipsisLn(2);
 }
 .weui-media-box__info {

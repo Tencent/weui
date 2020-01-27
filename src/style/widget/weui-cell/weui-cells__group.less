@@ -17,118 +17,119 @@
 @import "../../base/fn";
 
 .weui-cells__group{}
-.weui-cells__group_form{
+.weui-cells__group_form {
 
-  &:first-child{
-    .weui-cells__title{
-      margin-top:0;
+    &:first-child {
+        .weui-cells__title {
+            margin-top: 0;
+        }
     }
-  }
 
-  .weui-cells__title{
-    margin-top:24px;
-    margin-bottom:8px;
-    padding:0 32px;
-  }
+    .weui-cells__title {
+        margin-top: 24px;
+        margin-bottom: 8px;
+        padding: 0 32px;
+    }
   
 
-  .weui-cells,.weui-cell{
-    &:before{
-      left:32px;
-      right:32px;
+    .weui-cells,
+    .weui-cell {
+        &:before {
+            left: 32px;
+            right: 32px;
+        }
     }
-  }
-  .weui-cells_checkbox {
-    .weui-check__label{
-      &:before{left:72px;}
+    .weui-cells_checkbox {
+        .weui-check__label {
+            &:before { left: 72px; }
+        }
     }
-  }
-  .weui-cells{
-    &:after{
-      left:32px;
-      right:32px;
+    .weui-cells {
+        &:after {
+            left: 32px;
+            right: 32px;
+        }
     }
-  }
-  .weui-cell{
-    padding:16px 32px;
-    &:not(.weui-cell_link){
-      color:@weuiTextColorTitle;
+    .weui-cell {
+        padding: 16px 32px;
+        &:not(.weui-cell_link) {
+            color: @weuiTextColorTitle;
+        }
     }
-  }
-  .weui-cell__hd{
-    padding-right:16px;
-  }
-  .weui-cell__ft{
-    padding-left:16px;
-  }
-  .weui-cell_warn{
-    input{
-      color:@weuiColorWarn;
+    .weui-cell__hd {
+        padding-right: 16px;
     }
-  }
+    .weui-cell__ft {
+        padding-left: 16px;
+    }
+    .weui-cell_warn {
+        input {
+            color: @weuiColorWarn;
+        }
+    }
 
 
-  .weui-label{
-    max-width:5em;
-    margin-right:8px;
-  }
-
-
-  .weui-cells__tips{
-    margin-top:8px;
-    padding:0 32px;
-    color:rgba(0,0,0,.3);
-    a{
-      font-weight:700;
+    .weui-label {
+        max-width: 5em;
+        margin-right: 8px;
     }
-  }
 
 
-  .weui-cell_vcode{
-    padding:12px 32px;
-  }
-  .weui-vcode-btn{
-    font-size:16px;
-    padding:0 12px;
-    margin-left:0;
-    height:auto;
-    width:auto;
-    line-height:2em;
-    color: var(--weui-TAG-TEXT-GREEN);
-    background-color: var(--weui-BTN-DEFAULT-BG);
-    &:before{
-      display:none;
+    .weui-cells__tips {
+        margin-top: 8px;
+        padding: 0 32px;
+        color: rgba(0, 0, 0, 0.3);
+        a {
+            font-weight: 700;
+        }
     }
-  }
 
 
-  .weui-cell_select{
-    padding:0;
-    .weui-select{
-      padding:0 32px;
+    .weui-cell_vcode {
+        padding: 12px 32px;
     }
-    .weui-cell__bd:after{
-      right:32px;
+    .weui-vcode-btn {
+        font-size: 16px;
+        padding: 0 12px;
+        margin-left: 0;
+        height: auto;
+        width: auto;
+        line-height: 2em;
+        color: var(--weui-TAG-TEXT-GREEN);
+        background-color: var(--weui-BTN-DEFAULT-BG);
+        &:before {
+            display: none;
+        }
     }
-  }
-  .weui-cell_select-before{
-    .weui-label{
-      margin-right:24px;
-    }
-    .weui-select{
-      padding-right:24px;
-      box-sizing:initial;
-    }
-  }
-  .weui-cell_select-after{
-    padding-left:32px;
-    .weui-select{
-      padding-left:0;
-    }
-  }
 
 
-  .weui-cell_switch{
-    padding:12px 32px;
-  }
+    .weui-cell_select {
+        padding: 0;
+        .weui-select {
+            padding: 0 32px;
+        }
+        .weui-cell__bd:after {
+            right: 32px;
+        }
+    }
+    .weui-cell_select-before {
+        .weui-label {
+            margin-right: 24px;
+        }
+        .weui-select {
+            padding-right: 24px;
+            box-sizing: initial;
+        }
+    }
+    .weui-cell_select-after {
+        padding-left: 32px;
+        .weui-select {
+            padding-left: 0;
+        }
+    }
+
+
+    .weui-cell_switch {
+        padding: 12px 32px;
+    }
 }

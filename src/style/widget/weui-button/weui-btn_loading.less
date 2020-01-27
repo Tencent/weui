@@ -16,20 +16,18 @@
 
 @import "../../base/fn";
 
-.weui-btn_loading{
-	.weui-loading{
-		margin:-.2em .34em 0 0;
-	}
+.weui-btn_loading {
+    .weui-loading {
+        margin: -0.2em 0.34em 0 0;
+    }
     &.weui-btn_primary {
+        background-color: @weuiBtnPrimaryActiveBg;
         color: @weuiBtnFontColor;
     }
-	&.weui-btn_default{
+    &.weui-btn_default {
         background-color: @weuiBtnDefaultActiveBg;
-	}
-	&.weui-btn_primary{
-        background-color: @weuiBtnPrimaryActiveBg;
-	}
-	&.weui-btn_warn{
+    }
+    &.weui-btn_warn {
         background-color: @weuiBtnWarnActiveBg;
-	}
+    }
 }

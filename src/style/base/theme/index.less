@@ -5,6 +5,7 @@
     body[data-weui-theme='dark'] & {
         @rule();
     }
+
     @media (prefers-color-scheme: dark) {
         body:not([data-weui-theme='light']) & {
             @rule();
@@ -24,8 +25,8 @@
     ._setColor({
         @{var}: @light;
     }, {
-        @{var}: @dark;
-    });
+    @{var}: @dark;
+  });
 }
 ._setColor(@lightRule, @darkRule) {
     body {
@@ -34,6 +35,7 @@
     body[data-weui-theme='dark'] {
         @darkRule();
     }
+
     @media (prefers-color-scheme: dark) {
         body:not([data-weui-theme='light']) {
             @darkRule();

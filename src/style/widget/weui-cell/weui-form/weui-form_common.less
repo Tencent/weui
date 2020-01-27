@@ -16,10 +16,10 @@
 
 @import "../../../base/fn";
 
-.weui-label{
-  display:block;
-  width:@weuiCellLabelWidth;
-  .text_wrap();
+.weui-label {
+    display: block;
+    width: @weuiCellLabelWidth;
+    .text_wrap();
 }
 .weui-input {
     width: 100%;
@@ -33,23 +33,24 @@
     line-height: @weuiCellLineHeight;
 
     // hides the spin-button
-    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
-      -webkit-appearance: none;
-      margin: 0;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
-    &:focus{
-      &:not(:placeholder-shown){
-          &+.weui-btn_input-clear{
-            display:inline;
-          }
-      }
+    &:focus {
+        &:not(:placeholder-shown) {
+            & + .weui-btn_input-clear {
+                display: inline;
+            }
+        }
     }
 }
 .weui-textarea {
     display: block;
     border: 0;
     resize: none;
-    background:transparent;
+    background: transparent;
     width: 100%;
     color: inherit;
     font-size: 1em;
@@ -57,11 +58,11 @@
     outline: 0;
 }
 
-.weui-textarea-counter{
+.weui-textarea-counter {
     color: @weuiTextColorTips;
     text-align: right;
-    font-size:14px;
-    .weui-cell_warn &{
+    font-size: 14px;
+    .weui-cell_warn & {
         color: @weuiTextColorWarn;
     }
 }
@@ -70,41 +71,45 @@
     .weui-cell_switch,
     .weui-cell_vcode,
     .weui-cell_readonly,
-    .weui-cell_disabled{
-      &:active{
-        background-color:transparent;
-      }
+    .weui-cell_disabled {
+        &:active {
+            background-color: transparent;
+        }
     }
-    .weui-cell__ft{
-        font-size:0;
+    .weui-cell__ft {
+        font-size: 0;
     }
-    .weui-icon-warn{
-        display:none;
+    .weui-icon-warn {
+        display: none;
     }
-    input, textarea, label[for]{
+    input,
+    textarea,
+    label[for] {
         .setTapColor();
     }
 }
-.weui-cell_warn{
-    color:@weuiTextColorWarn;
-    .weui-icon-warn{display:inline-block;}
+.weui-cell_warn {
+    color: @weuiTextColorWarn;
+    .weui-icon-warn { display: inline-block; }
 }
-.weui-cell_readonly,.weui-cell_disabled{
-  .weui-input,.weui-textarea {
-    &:disabled{
-      opacity:1;
-      -webkit-text-fill-color:@weuiTextColorDesc;
+.weui-cell_readonly,
+.weui-cell_disabled {
+    .weui-input,
+    .weui-textarea {
+        &:disabled {
+            opacity: 1;
+            -webkit-text-fill-color: @weuiTextColorDesc;
+        }
+        &[disabled],
+        &[readonly] {
+            color: @weuiTextColorDesc;
+        }
     }
-    &[disabled],
-    &[readonly]{
-      color:@weuiTextColorDesc;
-    }
-  }
 }
-.weui-btn_input-clear{
-  display:none;
-  padding-left: 8px;
-  [class*="weui-icon-"]{
-    width:18px;
-  }
+.weui-btn_input-clear {
+    display: none;
+    padding-left: 8px;
+    [class*="weui-icon-"] {
+        width: 18px;
+    }
 }

@@ -16,38 +16,39 @@
 
 @import "../../../base/fn";
 
-.weui-form-preview{
+.weui-form-preview {
     position: relative;
     background-color: var(--weui-BG-2);
-    &:before{
+    &:before {
         .setTopLine(@weuiCellBorderColor);
     }
-    &:after{
+    &:after {
         .setBottomLine(@weuiCellBorderColor);
     }
 }
-.weui-form-preview__hd{
+.weui-form-preview__hd {
     position: relative;
     padding: @weuiCellGapV;
     text-align: right;
     line-height: 2.5em;
-    &:after{
+    &:after {
         .setBottomLine(@weuiCellBorderColor);
+
         left: @weuiCellGapH;
     }
-    .weui-form-preview__value{
+    .weui-form-preview__value {
         font-style: normal;
         font-size: 1.6em;
     }
 }
-.weui-form-preview__bd{
+.weui-form-preview__bd {
     padding: @weuiCellGapV;
-    font-size: .9em;
+    font-size: 0.9em;
     text-align: right;
     color: @weuiTextColorDesc;
     line-height: 2;
 }
-.weui-form-preview__ft{
+.weui-form-preview__ft {
     position: relative;
     line-height: 50px;
     display: flex;
@@ -55,10 +56,10 @@
         .setTopLine(@weuiDialogLineColor);
     }
 }
-.weui-form-preview__item{
+.weui-form-preview__item {
     overflow: hidden;
 }
-.weui-form-preview__label{
+.weui-form-preview__label {
     float: left;
     margin-right: 1em;
     min-width: 4em;
@@ -66,10 +67,10 @@
     text-align: justify;
     text-align-last: justify;
 }
-.weui-form-preview__value{
+.weui-form-preview__value {
     display: block;
     overflow: hidden;
-    word-break:normal;
+    word-break: normal;
     word-wrap: break-word;
     color: var(--weui-FG-0);
 }
@@ -80,7 +81,7 @@
     color: @weuiDialogLinkColor;
     text-align: center;
     .setTapColor();
-    button&{
+    button& {
         background-color: transparent;
         border: 0;
         outline: 0;

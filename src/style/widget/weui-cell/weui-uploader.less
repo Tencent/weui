@@ -16,30 +16,30 @@
 
 @import "../../base/fn";
 
-.weui-uploader{
-  flex:1;
+.weui-uploader {
+    flex: 1;
 }
-.weui-uploader__hd{
+.weui-uploader__hd {
     display: flex;
     padding-bottom: @weuiCellGapV;
     align-items: center;
 }
-.weui-uploader__title{
+.weui-uploader__title {
     flex: 1;
 }
-.weui-uploader__info{
+.weui-uploader__info {
     color: @weuiTextColorTips;
 }
 
-.weui-uploader__bd{
+.weui-uploader__bd {
     margin-bottom: @weuiCellGapH - (@weuiCellGapV + @weuiUploaderFileSpacing);
     margin-right: -@weuiUploaderFileSpacing;
     overflow: hidden;
 }
-.weui-uploader__files{
+.weui-uploader__files {
     list-style: none;
 }
-.weui-uploader__file{
+.weui-uploader__file {
     float: left;
     margin-right: @weuiUploaderFileSpacing;
     margin-bottom: @weuiUploaderFileSpacing;
@@ -48,42 +48,43 @@
     background: no-repeat center center;
     background-size: cover;
 }
-.weui-uploader__file_status{
+.weui-uploader__file_status {
     position: relative;
-    &:before{
+    &:before {
         content: " ";
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, .5); // 固定色值
+        background-color: rgba(0, 0, 0, 0.5); // 固定色值
     }
-    .weui-uploader__file-content{
+    .weui-uploader__file-content {
         display: block;
     }
 }
-.weui-uploader__file-content{
+.weui-uploader__file-content {
     display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #FFFFFF; // 固定色值
-    .weui-icon-warn{
+    color: #fff; // 固定色值
+    .weui-icon-warn {
         display: inline-block;
     }
 }
-.weui-uploader__input-box{
-    float:left;
+.weui-uploader__input-box {
+    float: left;
     position: relative;
     margin-right: @weuiUploaderFileSpacing;
     margin-bottom: @weuiUploaderFileSpacing;
     width: @weuiUploaderSize;
     height: @weuiUploaderSize;
     box-sizing: border-box;
-    background-color:@weuiBgColorDefault;
-    &:before, &:after{
+    background-color: @weuiBgColorDefault;
+    &:before,
+    &:after {
         content: " ";
         position: absolute;
         top: 50%;
@@ -91,22 +92,23 @@
         transform: translate(-50%, -50%);
         background-color: @weuiUploaderBorderColor;
     }
-    &:before{
+    &:before {
         width: @weuiUploaderBorderWidth + 1;
         height: @weuiUploaderSize / 3;
     }
-    &:after{
+    &:after {
         width: @weuiUploaderSize / 3;
         height: @weuiUploaderBorderWidth + 1;
     }
-    &:active{
+    &:active {
         border-color: @weuiUploaderActiveBorderColor;
-        &:before, &:after{
+        &:before,
+        &:after {
             background-color: @weuiUploaderActiveBorderColor;
         }
     }
 }
-.weui-uploader__input{
+.weui-uploader__input {
     position: absolute;
     z-index: 1;
     top: 0;

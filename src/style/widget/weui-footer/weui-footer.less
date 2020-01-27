@@ -19,48 +19,49 @@
 .weui-footer {
     color: @weuiTextColorTips;
     font-size: 14px;
-    line-height:1.4;
+    line-height: 1.4;
     text-align: center;
-    a{
+    a {
         color: @weuiLinkColorDefault;
     }
 }
-.weui-footer_fixed-bottom{
+.weui-footer_fixed-bottom {
     position: fixed;
-    bottom:0;
+    bottom: 0;
     left: 0;
     right: 0;
-    padding-top:16px;
-    padding-bottom:16px;
-    padding-bottom:calc(16px ~"+ constant(safe-area-inset-bottom)");
-    padding-bottom:calc(16px ~"+ env(safe-area-inset-bottom)");
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-bottom: calc(16px ~"+ constant(safe-area-inset-bottom)");
+    padding-bottom: calc(16px ~"+ env(safe-area-inset-bottom)");
     left: constant(safe-area-inset-left);
     left: env(safe-area-inset-left);
     right: constant(safe-area-inset-right);
     right: env(safe-area-inset-right);
 }
-.weui-footer__links{
+.weui-footer__links {
     font-size: 0;
 }
-.weui-footer__link{
+.weui-footer__link {
     display: inline-block;
     vertical-align: top;
     margin: 0 8px;
     position: relative;
     font-size: 14px;
-    &:before{
+    &:before {
         .setLeftLine();
+
         left: -8px;
-        top: .36em;
-        bottom: .36em;
+        top: 0.36em;
+        bottom: 0.36em;
     }
-    &:first-child{
-        &:before{
+    &:first-child {
+        &:before {
             display: none;
         }
     }
 }
-.weui-footer__text{
+.weui-footer__text {
     padding: 0 16px;
     font-size: 12px;
 }

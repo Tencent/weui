@@ -21,26 +21,23 @@
     .weui-select {
         padding-right: 30px;
     }
-    .weui-cell__bd{
-        &:after{
+    .weui-cell__bd {
+        &:after {
             content: " ";
-            width:12px;
-            height:24px;
-            mask-position:0 0;
-            mask-repeat:no-repeat;
-            mask-size:100%;
-            background-color:currentColor;
-            color:@weuiTextColorTips;
-
-            mask-image:url(data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.454%206.58l1.06-1.06%205.78%205.779a.996.996%200%20010%201.413l-5.78%205.779-1.06-1.061%205.425-5.425-5.425-5.424z%22%20fill%3D%22%23B2B2B2%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
-
+            width: 12px;
+            height: 24px;
+            mask-position: 0 0;
+            mask-repeat: no-repeat;
+            mask-size: 100%;
+            background-color: currentColor;
+            color: @weuiTextColorTips;
+            mask-image: url(data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.454%206.58l1.06-1.06%205.78%205.779a.996.996%200%20010%201.413l-5.78%205.779-1.06-1.061%205.425-5.425-5.425-5.424z%22%20fill%3D%22%23B2B2B2%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
             position: absolute;
             top: 50%;
             right: @weuiCellGapH;
             margin-top: -12px;
         }
     }
-
 }
 
 .weui-select {
@@ -59,28 +56,26 @@
 }
 
 .weui-cell_select-before {
-    padding-right:@weuiCellGapH;
-    .weui-select{
-        width:@weuiCellLabelWidth;
+    padding-right: @weuiCellGapH;
+    .weui-select {
+        width: @weuiCellLabelWidth;
         box-sizing: border-box;
     }
     .weui-cell__hd {
-        position:relative;
+        position: relative;
         &:after {
             .setRightLine(@weuiCellBorderColor);
         }
-        &:before{
+        &:before {
             content: " ";
-            width:12px;
-            height:24px;
-            mask-position:0 0;
-            mask-repeat:no-repeat;
-            mask-size:100%;
-            background-color:currentColor;
-            color:@weuiTextColorTips;
-
-            mask-image:url(data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.454%206.58l1.06-1.06%205.78%205.779a.996.996%200%20010%201.413l-5.78%205.779-1.06-1.061%205.425-5.425-5.425-5.424z%22%20fill%3D%22%23B2B2B2%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
-
+            width: 12px;
+            height: 24px;
+            mask-position: 0 0;
+            mask-repeat: no-repeat;
+            mask-size: 100%;
+            background-color: currentColor;
+            color: @weuiTextColorTips;
+            mask-image: url(data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.454%206.58l1.06-1.06%205.78%205.779a.996.996%200%20010%201.413l-5.78%205.779-1.06-1.061%205.425-5.425-5.425-5.424z%22%20fill%3D%22%23B2B2B2%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
             position: absolute;
             top: 50%;
             right: @weuiCellGapH;
@@ -88,28 +83,28 @@
         }
     }
     .weui-cell__bd {
-        padding-left:@weuiCellGapH;
-        &:after{
-            display:none;
+        padding-left: @weuiCellGapH;
+        &:after {
+            display: none;
         }
     }
-    &.weui-cell_access{
-      .weui-cell__hd{
-        line-height:56px;
-        padding-left:32px;
-      }
+    &.weui-cell_access {
+        .weui-cell__hd {
+            line-height: 56px;
+            padding-left: 32px;
+        }
     }
 }
 
 .weui-cell_select-after {
-    padding-left:@weuiCellGapH;
+    padding-left: @weuiCellGapH;
     .weui-select {
-        padding-left:0;
+        padding-left: 0;
     }
-    &.weui-cell_access{
-      .weui-cell__bd{
-        line-height:56px;
-      }
+    &.weui-cell_access {
+        .weui-cell__bd {
+            line-height: 56px;
+        }
     }
 }
 

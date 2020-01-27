@@ -28,17 +28,18 @@ z-index:
     background-color: @weuiCellBg;
     line-height: @weuiCellLineHeight;
     font-size: @weuiCellFontSize; //cell中间有效高度23px，跟客户端默认图标尺寸一致
-
     overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
 
     // onepx
     position: relative;
     &:before {
         .setTopLine(@weuiCellBorderColor);
+
         z-index: 2;
     }
     &:after {
         .setBottomLine(@weuiCellBorderColor);
+
         z-index: 2;
     }
 }
@@ -50,7 +51,7 @@ z-index:
     padding-right: @weuiCellGapH;
     color: @weuiTextColorDesc;
     font-size: @weuiCellTipsFontSize;
-    line-height:1.4;
+    line-height: 1.4;
 
     & + .weui-cells {
         margin-top: 0;
@@ -63,9 +64,9 @@ z-index:
     padding-left: @weuiCellGapH;
     padding-right: @weuiCellGapH;
     font-size: @weuiCellTipsFontSize;
-    line-height:1.4;
-    a{
-      color:@weuiLinkColorDefault;
+    line-height: 1.4;
+    a {
+        color: @weuiLinkColorDefault;
     }
 }
 
@@ -76,6 +77,7 @@ z-index:
     align-items: center;
     &:before {
         .setTopLine(@weuiCellBorderColor);
+
         left: @weuiCellGapH;
         z-index: 2;
     }
@@ -85,15 +87,15 @@ z-index:
         }
     }
 }
-.weui-cell_active{
-  &:active{
-    background-color:@weuiBgColorActive;
-  }
+.weui-cell_active {
+    &:active {
+        background-color: @weuiBgColorActive;
+    }
 }
-.weui-cell_primary{
+.weui-cell_primary {
     align-items: flex-start;
 }
-.weui-cell__bd{
+.weui-cell__bd {
     flex: 1;
 }
 .weui-cell__ft {

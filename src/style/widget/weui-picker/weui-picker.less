@@ -25,12 +25,12 @@
     bottom: 0;
     z-index: 5000;
     background-color: var(--weui-BG-2);
-    padding-bottom:constant(safe-area-inset-bottom);
-    padding-bottom:env(safe-area-inset-bottom);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
     backface-visibility: hidden;
     transform: translate(0, 100%);
     //slide up animation
-    transition: transform .3s;
+    transition: transform 0.3s;
 }
 
 .weui-picker__hd {
@@ -41,7 +41,7 @@
     position: relative;
     text-align: center;
     font-size: 17px;
-    line-height:1.4;
+    line-height: 1.4;
     &:after {
         .setBottomLine(@weuiLineColorLight);
     }
@@ -60,16 +60,17 @@
     position: relative;
     height: 100%;
     //-webkit-mask-box-image: -webkit-linear-gradient(bottom,transparent,transparent 5%,#fff 50%,#fff 50%,transparent 95%,transparent);
-    &:first-child{
-      .weui-picker__item {
-        padding-left:constant(safe-area-inset-left);
-        padding-left:env(safe-area-inset-left);
-      }
-    } &:last-child{
-      .weui-picker__item {
-        padding-right:constant(safe-area-inset-right);
-        padding-right:env(safe-area-inset-right);
-      }
+    &:first-child {
+        .weui-picker__item {
+            padding-left: constant(safe-area-inset-left);
+            padding-left: env(safe-area-inset-left);
+        }
+    }
+    &:last-child {
+        .weui-picker__item {
+            padding-right: constant(safe-area-inset-right);
+            padding-right: env(safe-area-inset-right);
+        }
     }
 }
 
@@ -81,7 +82,7 @@
     height: 100%;
     margin: 0 auto;
     z-index: 3;
-    background: linear-gradient(180deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)), linear-gradient(0deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .6)); // TODO 咨询视觉
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)), linear-gradient(0deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)); // TODO 咨询视觉
     background-position: top, bottom;
     background-size: 100% 92px;
     background-repeat: no-repeat;
