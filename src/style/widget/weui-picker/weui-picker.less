@@ -59,7 +59,6 @@
     flex: 1;
     position: relative;
     height: 100%;
-    //-webkit-mask-box-image: -webkit-linear-gradient(bottom,transparent,transparent 5%,#fff 50%,#fff 50%,transparent 95%,transparent);
     &:first-child {
         .weui-picker__item {
             padding-left: constant(safe-area-inset-left);
@@ -82,7 +81,10 @@
     height: 100%;
     margin: 0 auto;
     z-index: 3;
-    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)), linear-gradient(0deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.6)); // TODO 咨询视觉
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+    .dark({
+        background-image: linear-gradient(180deg, rgba(35, 35, 35, 0.95), rgba(35, 35, 35, 0.6)), linear-gradient(0deg, rgba(35, 35, 35, 0.95), rgba(35, 35, 35, 0.6));
+    });
     background-position: top, bottom;
     background-size: 100% 92px;
     background-repeat: no-repeat;

@@ -69,7 +69,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff; // 固定色值
+    color: var(--weui-WHITE);
     .weui-icon-warn {
         display: inline-block;
     }
@@ -82,7 +82,10 @@
     width: @weuiUploaderSize;
     height: @weuiUploaderSize;
     box-sizing: border-box;
-    background-color: @weuiBgColorDefault;
+    background-color: #ededed;
+    .dark({
+        background-color: #2e2e2e;
+    });
     &:before,
     &:after {
         content: " ";
@@ -90,7 +93,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: @weuiUploaderBorderColor;
+        background-color: #a3a3a3;
+        .dark({
+            background-color: #6d6d6d;
+        });
     }
     &:before {
         width: @weuiUploaderBorderWidth + 1;
@@ -101,10 +107,9 @@
         height: @weuiUploaderBorderWidth + 1;
     }
     &:active {
-        border-color: @weuiUploaderActiveBorderColor;
         &:before,
         &:after {
-            background-color: @weuiUploaderActiveBorderColor;
+            opacity: 0.7;
         }
     }
 }

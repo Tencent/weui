@@ -17,9 +17,9 @@
 @import "../../base/fn";
 
 .setColor(--weui-BTN-DISABLED-FONT-COLOR, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
-.setColor(--weui-BTN-DISABLED-BG, #f2f2f2, #3c3c3c);
-.setColor(--weui-BTN-DEFAULT-BG, #f2f2f2, #3c3c3c);
-.setColor(--weui-BTN-DEFAULT-ACTIVE-BG, overlay(rgba(0, 0, 0, 0.05), #f2f2f2), overlay(rgba(0, 0, 0, 0.08), #3c3c3c));
+.setColor(--weui-BTN-DEFAULT-BG, #f2f2f2, rgba(255, 255, 255, 0.08));
+.setColor(--weui-BTN-DEFAULT-COLOR, #06ae56, rgba(255, 255, 255, 0.8));
+.setColor(--weui-BTN-DEFAULT-ACTIVE-BG, overlay(rgba(0, 0, 0, 0.05), #f2f2f2), overlay(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.08)));
 
 @weuiBtnWidth: 184px;
 @weuiBtnHeight: 40px;
@@ -34,12 +34,12 @@
 @weuiBtnCellGap: 16px;
 @weuiBtnCellLineHeight:unit((@weuiBtnCellHeight - 2 * @weuiBtnCellGap) / @weuiBtnFontSize);
 
-@weuiBtnFontColor: #fff; // 固定色值
+@weuiBtnFontColor: #fff;
 @weuiBtnDisabledFontColor: var(--weui-BTN-DISABLED-FONT-COLOR);
-@weuiBtnDisabledBg: var(--weui-BTN-DISABLED-BG);
+@weuiBtnDisabledBg: var(--weui-BTN-DEFAULT-BG);
 
 // default
-@weuiBtnDefaultFontColor: var(--weui-TAG-TEXT-GREEN);
+@weuiBtnDefaultFontColor: var(--weui-BTN-DEFAULT-COLOR);
 @weuiBtnDefaultDisabledFontColor: @weuiBtnDisabledFontColor;
 @weuiBtnDefaultBg: var(--weui-BTN-DEFAULT-BG);
 @weuiBtnDefaultActiveBg: var(--weui-BTN-DEFAULT-ACTIVE-BG);

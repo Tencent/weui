@@ -24,19 +24,22 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(17, 17, 17, 0.7); // TODO 咨询视觉
     text-align: center;
     border-radius: 5px;
-    color: #fff; // TODO 咨询视觉
+    color: rgba(255, 255, 255, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #4c4c4c;
+    .dark({
+        background-color: #606060;
+    });
 }
 .weui-icon_toast {
     display: block;
     &.weui-icon-success-no-circle {
-        color: #fff; // TODO 咨询视觉
+        color: rgba(255, 255, 255, 0.9);
         width: 55px;
         height: 55px;
     }
