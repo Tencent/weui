@@ -31,6 +31,10 @@
     padding: 0 24px;
     padding: 0 calc(24px ~"+ constant(safe-area-inset-right)") constant(safe-area-inset-bottom) calc(24px ~"+ constant(safe-area-inset-left)");
     padding: 0 calc(24px ~"+ env(safe-area-inset-right)") env(safe-area-inset-bottom) calc(24px ~"+ env(safe-area-inset-left)");
+
+    @media only screen and (max-height: 558px) {
+        max-height: none;
+    }
 }
 .weui-half-screen-dialog__hd {
     font-size: 8px;
