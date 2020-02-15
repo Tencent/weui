@@ -1,3 +1,18 @@
+### [v2.2.0](https://github.com/Tencent/weui/compare/v2.1.4...v2.2.0) (2020-02-15)
+
+#### Features
+* feat: DarkMode 黑暗模式 适配。默认跟随系统，可在`body`添加属性`data-weui-theme`来控制，值为`light`/`dark`。([d2aa336](https://github.com/Tencent/weui/commit/d2aa336))
+* feat: 不再对`weui-btn_plain`进行支持，可使用`weui-btn`代替([699609f](https://github.com/Tencent/weui/commit/699609f))
+
+#### Bugfixes
+* fix: 在 iphone se 下，不能看到确认按钮的问题 #816([a2c83d3](https://github.com/Tencent/weui/commit/a2c83d3))
+
+#### Breaking Changes
+* feat: 不再对`weui-btn_plain`进行支持，可使用`weui-btn`代替([699609f](https://github.com/Tencent/weui/commit/699609f))
+
+
+
+
 ### [v2.1.4](https://github.com/Tencent/weui/compare/v2.1.3...v2.1.4) (2020-01-20)
 
 #### Features
