@@ -8,19 +8,15 @@ module.exports = {
   filters: [
     {
       name: 'Features',
-      regExp: /^(?:feat|add)/i,
+      regExp: /^(?:feat|add):/i,
     },
     {
       name: 'Bugfixes',
-      regExp: /^fix/i,
-    },
-    {
-      name: 'Style',
-      regExp: /^style/i,
+      regExp: /^fix:/i,
     },
     {
       name: 'Performance',
-      regExp: /^perf/i,
+      regExp: /^perf:/i,
     }
   ],
   parse(commits){
