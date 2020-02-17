@@ -13,10 +13,6 @@
     }
 }
 
-.setColor(@rule) {
-    .setColor(@rule[var], @rule[light], @rule[dark]);
-}
-
 .setColor(@var, @color) {
     .setColor(@var, @color, @color);
 }
@@ -25,8 +21,8 @@
     ._setColor({
         @{var}: @light;
     }, {
-    @{var}: @dark;
-  });
+        @{var}: @dark;
+    });
 }
 ._setColor(@lightRule, @darkRule) {
     body {
