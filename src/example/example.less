@@ -1,5 +1,5 @@
 /* reset */
-@import "../style/base/theme/index";
+@import "../style/base/theme/fn";
 
 html,
 body {
@@ -32,6 +32,23 @@ body,
     z-index: 1; // fix 滑动几次后可滚动区域会卡住的问题
     &.js_show {
         opacity: 1;
+    }
+    
+    &.actionsheet,
+    &.dialog,
+    &.msg,
+    &.msg_text,
+    &.msg_text_primary,
+    &.msg_success,
+    &.msg_warn,
+    &.toast,
+    &.article,
+    &.form,
+    &.loadmore,
+    &.picker,
+    &.top-tips,
+    &.progress {
+        background-color: var(--weui-BG-2);
     }
 }
 
@@ -98,6 +115,19 @@ body,
     font-size: 14px;
 }
 
+.page {
+    &.footer,
+    &[class*="form_"],
+    &.gallery,
+    &[class*="msg_"],
+    &.navbar,
+    &.tabbar {
+        .page__ft {
+            display: none;
+        }
+    }
+}
+
 
 /*  widget */
 
@@ -107,9 +137,6 @@ body,
     }
 }
 
-.page.progress {
-    background-color: var(--weui-BG-2);
-}
 .page.home {
     @pageHomePadding: 20px;
     .page__intro-icon {
@@ -192,7 +219,6 @@ body,
 }
 
 .page.form {
-    background-color: var(--weui-BG-2);
     .page__bd {
         padding-bottom: 30px;
     }
@@ -249,38 +275,16 @@ body,
     }
 }
 
-.page.actionsheet {
-    overflow: hidden;
-    background-color: var(--weui-BG-2);
-}
-
 .page.dialog {
-    background-color: var(--weui-BG-2);
     .page__bd {
         padding: 0 15px;
     }
-}
-
-.page.msg,
-.page.msg_text,
-.page.msg_text_primary,
-.page.msg_success,
-.page.msg_warn {
-    background-color: var(--weui-BG-2);
-}
-
-.page.toast {
-    background-color: var(--weui-BG-2);
 }
 
 .page.panel {
     .page__bd {
         padding-bottom: 20px;
     }
-}
-
-.page.article {
-    background-color: var(--weui-BG-2);
 }
 
 .page.icons-svg,
@@ -328,10 +332,6 @@ body,
         text-align: center;
         color: var(--weui-FG-1);
     }
-}
-
-.page.loadmore {
-    background-color: var(--weui-BG-2);
 }
 
 .page.layers {
@@ -465,14 +465,9 @@ body,
         font-size: 14px;
         .weui-cell__bd {
             padding: 2px 0 2px 20px;
-            color: #666;
+            color: var(--weui-FG-1);
         }
     }
-}
-
-.page.picker {
-    background-color: var(--weui-BG-2);
-    overflow: hidden;
 }
 
 .page.gallery {

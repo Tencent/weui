@@ -1,40 +1,15 @@
-@import 'light';
-@import 'dark';
+@import 'fn';
 
-.dark(@rule) {
-    body[data-weui-theme='dark'] & {
-        @rule();
-    }
+body {
+    .varsLight();
+}
 
-    @media (prefers-color-scheme: dark) {
-        body:not([data-weui-theme='light']) & {
-            @rule();
-        }
+@media (prefers-color-scheme: dark) {
+    body:not([data-weui-theme='light']) {
+        .varsDark();
     }
 }
 
-.setColor(@var, @color) {
-    .setColor(@var, @color, @color);
-}
-
-.setColor(@var, @light, @dark) {
-    ._setColor({
-        @{var}: @light;
-    }, {
-        @{var}: @dark;
-    });
-}
-._setColor(@lightRule, @darkRule) {
-    body {
-        @lightRule();
-    }
-    body[data-weui-theme='dark'] {
-        @darkRule();
-    }
-
-    @media (prefers-color-scheme: dark) {
-        body:not([data-weui-theme='light']) {
-            @darkRule();
-        }
-    }
+body[data-weui-theme='dark'] {
+    .varsDark();
 }

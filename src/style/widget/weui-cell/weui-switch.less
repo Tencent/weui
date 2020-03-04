@@ -59,7 +59,8 @@
     }
 }
 .weui-switch:checked,
-.weui-switch-cp__input:checked ~ .weui-switch-cp__box {
+.weui-switch-cp__input:checked + .weui-switch-cp__box,
+.weui-switch-cp__input[aria-checked="true"] + .weui-switch-cp__box {
     border-color: @weuiColorPrimary;
     background-color: @weuiColorPrimary;
     &:before {
@@ -70,7 +71,7 @@
     }
 }
 
-// 兼容IE Edge的版本
+// 兼容小程序/IE Edge的版本
 .weui-switch-cp__input {
     position: absolute;
     left: -9999px;

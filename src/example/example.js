@@ -2,6 +2,7 @@
  * Created by jf on 2015/9/11.
  * Modified by bear on 2016/9/7.
  */
+const footerTmpl = $('#footerTmpl').html();
 $(function () {
     var pageManager = {
         $container: $('#container'),
@@ -267,15 +268,18 @@ $(function () {
         }
         pageManager
             .setPageAppend(function($html){
-                var $foot = $html.find('.page__ft');
-                if($foot.length < 1) return;
+                $html.eq(0).append(footerTmpl);
+                setTimeout(() => {
+                    var $foot = $html.find('.page__ft');
+                    if($foot.length < 1) return;
 
-                var winH = $(window).height();
-                if($foot.position().top + $foot.height() < winH){
-                    $foot.addClass('j_bottom');
-                }else{
-                    $foot.removeClass('j_bottom');
-                }
+                    var winH = $(window).height();
+                    if($foot.position().top + $foot.height() < winH){
+                        $foot.addClass('j_bottom');
+                    }else{
+                        $foot.removeClass('j_bottom');
+                    }
+                });
             })
             .setDefault('home')
             .init();

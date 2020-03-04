@@ -1,6 +1,6 @@
 {
     "name": "weui",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "A UI library by WeChat official design team, includes the most useful widgets/modules in mobile web applications.",
     "keywords": [
         "weui",
@@ -18,7 +18,7 @@
         "test": "gulp build",
         "changelog": "picklog -l -w CHANGELOG.md",
         "build": "gulp build",
-        "version": "npm run build && npm run changelog && git add -A .",
+        "version": "git add -A .",
         "postversion": "git push && git push --tags",
         "lint": "stylelint src",
         "lint:fix": "stylelint src --fix"
