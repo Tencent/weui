@@ -1,3 +1,18 @@
+### v2.3.0 (2020-03-04)
+
+#### Features
+* feat: input的placeholder更改颜色
+* feat: 更改cell的点击态背景颜色
+
+#### Bugfixes
+* fix: msg的title没有适配黑暗模式
+* fix: input placeholder的样式
+* fix: fix default 按钮的点击态
+* fix: form表单的验证码样式
+* fix: darkmode右滑组件、修复图片预览组件刘海屏安全间距问题
+* fix: 搜索框的文本没有适配黑暗模式
+
+
 ### [v2.2.0](https://github.com/Tencent/weui/compare/v2.1.4...v2.2.0) (2020-02-17)
 
 #### Features

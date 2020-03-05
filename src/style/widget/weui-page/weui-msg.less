@@ -48,6 +48,7 @@
     margin-bottom: @weuiMsgTitleGap;
     font-weight: 700;
     font-size: 22px;
+    color: @weuiTextColorTitle;
     word-wrap: break-word;
     word-break: break-all;
 }
@@ -92,7 +93,13 @@
     margin-bottom: 24px;
     font-size: 12px;
     color: @weuiTextColorDesc;
-    a { color: @weuiLinkColorDefault; }
+    a,
+    navigator {
+        color: @weuiLinkColorDefault;
+    }
+    navigator {
+        display: inline;
+    }
 }
 
 

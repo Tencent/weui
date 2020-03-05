@@ -63,6 +63,7 @@
         box-sizing: content-box;
         background: transparent;
         caret-color: @weuiColorPrimary;
+        color: @weuiTextColorTitle;
         &:focus {
             outline: none;
         }
@@ -93,8 +94,9 @@
     z-index: 2;
     font-size: 0;
     border-radius: 4px;
-    line-height: 32px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: @weuiTextColorDesc;
     background: var(--weui-BG-2);
     span {
@@ -113,7 +115,7 @@
     color: @weuiLinkColorDefault;
     white-space: nowrap;
 }
-.weui-search-bar__input:not(:valid) ~ .weui-icon-clear {
+.weui-search-bar__input:not(:valid) + .weui-icon-clear {
     display: none;
 }
 

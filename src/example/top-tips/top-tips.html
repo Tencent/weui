@@ -1,0 +1,22 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">TopTips</h1>
+        <p class="page__desc">顶部提示条</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showTopTips">显示提示条</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="hideTopTips">隐藏提示条</a>
+    </div>
+
+    <div class="weui-toptips weui-toptips_warn" id="topTips">错误提示</div>
+</div>
+<script type="text/javascript">
+    $(function(){
+          $('#showTopTips').on('click', function(){
+                $('#topTips').fadeIn(200);
+          });
+          $('#hideTopTips').on('click', function(){
+                $('#topTips').fadeOut(200);
+          });
+    });
+</script>
