@@ -19,35 +19,49 @@
 .weui-toast {
     position: fixed;
     z-index: 5000;
-    width: 120px;
-    height: 120px;
+    width: 136px;
+    height: 136px;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    border-radius: 5px;
+    border-radius: 12px;
     color: rgba(255, 255, 255, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--weui-BG-4);
+    box-sizing:border-box;
+    line-height:1.4;
+}
+.weui-toast_text {
+  height:auto;
+  min-width:152px;
+  max-width:216px;
+  padding:12px 0;
+  .weui-toast__content {
+    font-size:14px;
+  }
 }
 .weui-icon_toast {
     display: block;
+    width: 40px;
+    height: 40px;
+    margin-bottom:16px;
     &.weui-icon-success-no-circle {
         color: rgba(255, 255, 255, 0.9);
-        width: 55px;
-        height: 55px;
     }
-    &.weui-loading {
-        margin: 8px 0;
-        width: 38px;
-        height: 38px;
-        vertical-align: baseline;
+    &.weui-icon-warn {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    &.weui-primary-loading {
+      .setWeuiPrimaryLoading(36px);
     }
 }
 
 .weui-toast__content {
-    font-size: 14px;
+    font-size: 17px;
+    padding:0 12px;
+    .hyphens;
 }

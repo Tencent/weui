@@ -5,7 +5,9 @@
     </div>
     <div class="page__bd page__bd_spacing">
         <a href="javascript:" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
     </div>
 
     <!--BEGIN toast-->
@@ -16,14 +18,32 @@
             <p class="weui-toast__content">已完成</p>
         </div>
     </div>
-    <!--end toast-->
+
+    <!--BEGIN toast-->
+    <div id="warnToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-warn weui-icon_toast"></i>
+            <p class="weui-toast__content">获取链接失败</p>
+        </div>
+    </div>
 
     <!-- loading toast -->
     <div id="loadingToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
-            <i class="weui-loading weui-icon_toast"></i>
-            <p class="weui-toast__content">数据加载中</p>
+            <span class="weui-primary-loading weui-primary-loading_transparent weui-icon_toast">
+              <span class="weui-primary-loading__dot"></span>
+            </span>
+            <p class="weui-toast__content">加载中</p>
+        </div>
+    </div>
+
+    <!-- text toast -->
+    <div id="textToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast weui-toast_text">
+            <p class="weui-toast__content">文字提示</p>
         </div>
     </div>
 </div>
@@ -41,6 +61,19 @@
         });
     });
 
+    // warn
+    $(function(){
+        var $warnToast = $('#warnToast');
+        $('#showWarnToast').on('click', function(){
+            if ($warnToast.css('display') != 'none') return;
+
+            $warnToast.fadeIn(100);
+            setTimeout(function () {
+                $warnToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
     // loading
     $(function(){
         var $loadingToast = $('#loadingToast');
@@ -50,6 +83,19 @@
             $loadingToast.fadeIn(100);
             setTimeout(function () {
                 $loadingToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
+    // text
+    $(function(){
+        var $textToast = $('#textToast');
+        $('#showTextToast').on('click', function(){
+            if ($textToast.css('display') != 'none') return;
+
+            $textToast.fadeIn(100);
+            setTimeout(function () {
+                $textToast.fadeOut(100);
             }, 2000);
         });
     });

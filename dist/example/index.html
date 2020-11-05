@@ -119,6 +119,12 @@
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
+                        <a class="weui-cell weui-cell_active weui-cell_access js_item" data-id="loading" href="javascript:">
+                            <div class="weui-cell__bd">
+                                <p>Loading</p>
+                            </div>
+                            <div class="weui-cell__ft"></div>
+                        </a>
                         <a class="weui-cell weui-cell_active weui-cell_access js_item" data-id="loadmore" href="javascript:">
                             <div class="weui-cell__bd">
                                 <p>Loadmore</p>
@@ -396,13 +402,13 @@
 
         <div class="button-sp-area">
         <a href="javascript:" class="weui-btn weui-btn_primary">页面主操作</a>
-		<a href="javascript:" class="weui-btn weui-btn_primary weui-btn_loading"><i class="weui-loading"></i>页面主操作</a>
+        <a href="javascript:" class="weui-btn weui-btn_primary weui-btn_loading"><span class="weui-primary-loading weui-primary-loading_transparent"><i class="weui-primary-loading__dot"></i></span>页面主操作</a>
         <a href="javascript:" class="weui-btn weui-btn_disabled weui-btn_primary">页面主操作</a>
         <a href="javascript:" class="weui-btn weui-btn_default">页面次要操作</a>
-		<a href="javascript:" class="weui-btn weui-btn_default weui-btn_loading"><i class="weui-loading"></i>页面次操作</a>
+		<a href="javascript:" class="weui-btn weui-btn_default weui-btn_loading"><span class="weui-primary-loading"><i class="weui-primary-loading__dot"></i></span>页面次操作</a>
         <a href="javascript:" class="weui-btn weui-btn_disabled weui-btn_default">页面次要操作</a>
         <a href="javascript:" class="weui-btn weui-btn_warn">警告类操作</a>
-		<a href="javascript:" class="weui-btn weui-btn_warn weui-btn_loading"><i class="weui-loading"></i>警告类操作</a>
+		<a href="javascript:" class="weui-btn weui-btn_warn weui-btn_loading"><span class="weui-primary-loading"><i class="weui-primary-loading__dot"></i></span>警告类操作</a>
         <a href="javascript:" class="weui-btn weui-btn_disabled weui-btn_warn">警告类操作</a>
         </div>
 
@@ -1520,7 +1526,9 @@
     </div>
     <div class="page__bd page__bd_spacing">
         <a href="javascript:" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
     </div>
 
     <!--BEGIN toast-->
@@ -1531,14 +1539,32 @@
             <p class="weui-toast__content">已完成</p>
         </div>
     </div>
-    <!--end toast-->
+
+    <!--BEGIN toast-->
+    <div id="warnToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-warn weui-icon_toast"></i>
+            <p class="weui-toast__content">获取链接失败</p>
+        </div>
+    </div>
 
     <!-- loading toast -->
     <div id="loadingToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
-            <i class="weui-loading weui-icon_toast"></i>
-            <p class="weui-toast__content">数据加载中</p>
+            <span class="weui-primary-loading weui-primary-loading_transparent weui-icon_toast">
+              <span class="weui-primary-loading__dot"></span>
+            </span>
+            <p class="weui-toast__content">加载中</p>
+        </div>
+    </div>
+
+    <!-- text toast -->
+    <div id="textToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast weui-toast_text">
+            <p class="weui-toast__content">文字提示</p>
         </div>
     </div>
 </div>
@@ -1556,6 +1582,19 @@
         });
     });
 
+    // warn
+    $(function(){
+        var $warnToast = $('#warnToast');
+        $('#showWarnToast').on('click', function(){
+            if ($warnToast.css('display') != 'none') return;
+
+            $warnToast.fadeIn(100);
+            setTimeout(function () {
+                $warnToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
     // loading
     $(function(){
         var $loadingToast = $('#loadingToast');
@@ -1565,6 +1604,19 @@
             $loadingToast.fadeIn(100);
             setTimeout(function () {
                 $loadingToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
+    // text
+    $(function(){
+        var $textToast = $('#textToast');
+        $('#showTextToast').on('click', function(){
+            if ($textToast.css('display') != 'none') return;
+
+            $textToast.fadeIn(100);
+            setTimeout(function () {
+                $textToast.fadeOut(100);
             }, 2000);
         });
     });
@@ -2515,6 +2567,29 @@
     </div>
 </div>
 </script>
+    <script type="text/html" id="tpl_loading">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Loading</h1>
+        <p class="page__desc">加载中</p>
+    </div>
+    <div class="page__bd">
+      <div class="loading_demo">
+        <i class="weui-loading"></i>
+        <span class="weui-primary-loading">
+          <span class="weui-primary-loading__dot"></span>
+        </span>
+        <span class="weui-primary-loading weui-primary-loading_brand">
+          <span class="weui-primary-loading__dot"></span>
+        </span>
+        <span class="weui-primary-loading weui-primary-loading_transparent">
+          <span class="weui-primary-loading__dot"></span>
+        </span>
+      </div>
+    </div>
+</div>
+
+</script>
     <script type="text/html" id="tpl_loadmore">
 <div class="page">
     <div class="page__hd">
@@ -2523,7 +2598,9 @@
     </div>
     <div class="page__bd">
         <div class="weui-loadmore">
-            <i class="weui-loading"></i>
+            <span class="weui-primary-loading">
+              <i class="weui-primary-loading__dot"></i>
+            </span>
             <span class="weui-loadmore__tips">正在加载</span>
         </div>
         <div class="weui-loadmore weui-loadmore_line">
@@ -2534,6 +2611,7 @@
         </div>
     </div>
 </div>
+
 </script>
     <script type="text/html" id="tpl_uploader">
 <div class="page">

@@ -1,0 +1,78 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+// 默认灰色
+.weui-primary-loading{
+  display:inline-flex;
+  position:relative;
+  width:16px;
+  height:16px;
+  vertical-align:middle;
+  color:var(--weui-FG);
+  animation: weuiLoading 1s steps(60,end) infinite;
+
+  &:before,&:after{
+    content:"";
+    display:block;
+    width:8px;
+    height:16px;
+    box-sizing:border-box;
+    border:2px solid;
+    border-color:currentColor;
+    opacity:.5;
+  }
+}
+.weui-primary-loading:before{
+  border-right-width:0;
+  border-top-left-radius:16px;
+  border-bottom-left-radius:16px;
+  -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,1) 8%, rgba(0,0,0,.3) 95%);
+}
+.weui-primary-loading:after{
+  border-left-width:0;
+  border-top-right-radius:16px;
+  border-bottom-right-radius:16px;
+  -webkit-mask-image:linear-gradient(225deg, rgba(0,0,0,0) 45% , rgba(0,0,0,.3) 95%);
+}
+.weui-primary-loading__dot{
+  position:absolute;
+  top:0;
+  left:50%;
+  width:1px;
+  height:2px;
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
+  background:currentColor;
+  opacity:.5;
+}
+
+// 默认灰色
+.weui-primary-loading_transparent{
+  color:#FFFFFF;
+}
+
+// 品牌色
+.weui-primary-loading_brand{
+  color:var(--weui-BRAND);
+  .weui-primary-loading__dot,
+  &:before,&:after{
+    opacity:.85;
+  }
+}
+
+
