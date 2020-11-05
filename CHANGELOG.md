@@ -1,3 +1,14 @@
+### v2.4.1 (2020-11-05)
+
+#### Features
+* feat: 升级toast组件的UI
+* feat: 新增圆圈loading组件
+* feat: 升级button组件的loading UI
+
+#### Bugfixes
+* fix: msg组件文本区域新增英文词间折行加破折号的效果
+
+
 ### v2.4.0 (2020-06-17)
 
 #### Features

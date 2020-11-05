@@ -18,20 +18,26 @@
 
 .weui-loadmore {
     width: 65%;
-    margin: 1.5em auto;
-    line-height: 1.6em;
-    font-size: 14px;
+    margin: 20px auto;
     text-align: center;
+    font-size:0;
+
+    .weui-loading,
+    .weui-primary-loading{
+      margin-right:8px;
+    }
 }
 .weui-loadmore__tips {
     display: inline-block;
     vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.6;
     color: @weuiTextColorTitle;
 }
 
 .weui-loadmore_line {
     border-top: 1px solid @weuiLineColorLight;
-    margin-top: 2.4em;
+    margin-top: 32px;
     .weui-loadmore__tips {
         position: relative;
         top: -0.9em;

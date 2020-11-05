@@ -14,24 +14,21 @@
 * limitations under the License.
 */
 
-// theme
-@import "./theme/index";
-
-// mixin
-@import "./mixin/mobile";
-@import "./mixin/setOnepx";
-@import "./mixin/setArrow";
-@import "./mixin/setLoading";
-@import "./mixin/text";
-
-
-// variable
-@import "./variable/global";
-@import "./variable/color";
-@import "./variable/weui-tab";
-@import "./variable/weui-cell";
-@import "./variable/weui-button";
-@import "./variable/weui-msg";
-@import "./variable/weui-grid";
-@import "./variable/weui-progress";
-@import "./variable/weui-dialog";
+.setWeuiPrimaryLoading(@size:20px){
+  width:@size;
+  height:@size;
+  &:before,&:after{
+    content:"";
+    display:block;
+    width:@size / 2;
+    height:@size;
+  }
+  &:before{
+    border-top-left-radius:@size;
+    border-bottom-left-radius:@size;
+  }
+  &:after{
+    border-top-right-radius:@size;
+    border-bottom-right-radius:@size;
+  }
+}
