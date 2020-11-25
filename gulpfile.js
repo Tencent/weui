@@ -14,6 +14,7 @@ var browserSync = require('browser-sync');
 var childProcess = require('child_process');
 var pkg = require('./package.json');
 var convertCssVar = require('gulp-convert-css-var');
+var exec = require('child_process').exec;
 
 var yargs = require('yargs').options({
     w: {
@@ -197,6 +198,11 @@ gulp.task('server', function() {
         port: yargs.p,
         startPath: '/example',
     });
+});
+
+gulp.task('tag', function() {
+    const tag = `v${pkg.version}`;
+    exec(`git tag ${tag}`);
 });
 
 // 参数说明

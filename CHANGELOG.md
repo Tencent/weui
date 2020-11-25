@@ -1,3 +1,11 @@
+### v2.4.2 (2020-11-25)
+
+#### Bugfixes
+* fix: 修复picker组件darkmode下的背景色适配问题
+* fix: 修复toast组件的旧版loading图标大小
+* fix: 修复msg组件英文文本词间断行问题
+
+
 ### v2.4.1 (2020-11-05)
 
 #### Features
