@@ -6,6 +6,7 @@
     <div class="page__bd page__bd_spacing">
         <a href="javascript:" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showTextMoreToast">长文案提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
     </div>
@@ -16,6 +17,15 @@
         <div class="weui-toast">
             <i class="weui-icon-success-no-circle weui-icon_toast"></i>
             <p class="weui-toast__content">已完成</p>
+        </div>
+    </div>
+
+    <!--BEGIN toast-->
+    <div id="textMoreToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast weui-toast_text-more">
+            <i class="weui-icon-warn weui-icon_toast"></i>
+            <p class="weui-toast__content">此处为长文案提示详情</p>
         </div>
     </div>
 
@@ -32,7 +42,7 @@
     <div id="loadingToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
-            <span class="weui-primary-loading weui-primary-loading_transparent weui-icon_toast">
+            <span class="weui-primary-loading weui-icon_toast">
               <span class="weui-primary-loading__dot"></span>
             </span>
             <p class="weui-toast__content">加载中</p>
@@ -70,6 +80,19 @@
             $warnToast.fadeIn(100);
             setTimeout(function () {
                 $warnToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
+    // text-more
+    $(function(){
+        var $textMoreToast = $('#textMoreToast');
+        $('#showTextMoreToast').on('click', function(){
+            if ($textMoreToast.css('display') != 'none') return;
+
+            $textMoreToast.fadeIn(100);
+            setTimeout(function () {
+                $textMoreToast.fadeOut(100);
             }, 2000);
         });
     });

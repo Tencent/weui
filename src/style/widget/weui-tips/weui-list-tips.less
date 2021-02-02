@@ -16,20 +16,40 @@
 
 @import "../../base/fn";
 
-// 默认色
-.weui-primary-loading{
-  font-size:16px;
-  .setCircleLoading(#606060,1em,0.125em);
-}
+.weui-list-tips{
+  list-style:none;
+  padding-top:24px;
+  padding-bottom:24px;
+  line-height:1.4;
+  font-size:14px;
+  color:var(--weui-FG-1);
 
-// 跟随系统切换的品牌色
-.weui-primary-loading_brand{
-  color:var(--weui-BRAND);
+  position:relative;
+  &:before{
+    content:"";
+    .setTopLine(var(--weui-FG-3));
+  }
+  &:last-child{
+    padding-bottom:0;
+  }
 }
-
-// 固定白色半透明
-.weui-primary-loading_transparent{
-  color:#EDEDED;
+.weui-list-tips__item{
+  position:relative;
+  padding-left:15px;
+  margin:16px 0;
+  &:before{
+    content:"\2022";
+    position:absolute;
+    left:0;
+    top:-.1em;
+  }
+  &:first-child{
+    margin-top:0;
+  }
+  .weui-form-preview__list + .weui-list-tips > &{
+    &:first-child{
+      margin-top:6px;
+    }
+  }
 }
-
 
