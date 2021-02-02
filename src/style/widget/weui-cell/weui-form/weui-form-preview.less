@@ -106,3 +106,35 @@
 .weui-form-preview__btn_primary {
     color: @weuiLinkColorDefault;
 }
+
+// 列表块，一般放msg组件的自定义区域
+.weui-form-preview__list{
+  padding-top:24px;
+  padding-bottom:24px;
+  line-height:1.4;
+  font-size:14px;
+  position:relative;
+  &:before{
+    content:"";
+    .setTopLine(var(--weui-FG-3));
+  }
+  &:last-child{
+    padding-bottom:0;
+  }
+  .weui-form-preview__label{
+    text-align:left;
+    text-align-last:unset;
+    width:6em;
+  }
+  .weui-form-preview__value{hyphens:auto;}
+  .weui-form-preview__item{
+    margin-top:12px;
+    &:first-child{margin-top:0;}
+  }
+  &>.weui-cells__title{
+    &:first-child{
+      margin-top:0;
+    }
+  }
+}
+

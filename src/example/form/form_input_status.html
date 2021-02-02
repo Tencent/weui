@@ -2,11 +2,11 @@
   <div class="weui-form">
     <div class="weui-form__text-area">
       <h2 class="weui-form__title">输入框状态</h2>
-      <div class="weui-form__desc">可体验表单输入样式，当输入位数不等于16位的时候点击按钮可看到报错样式。</div>
+      <div class="weui-form__desc">可体验表单输入的反馈状态。显示报错信息有两种类型，一种是超过1个输入项的时候，用置顶tipsbar报错信息，告知错误原因，页面聚焦到对应的报错区域，内容标红色，另一种是在当前输入项位置报错，适用于只有1个输入项的时候，用户焦点主要是输入区域。</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">表单报错</div>
+        <div class="weui-cells__title">表单报错：置顶tipsbar报错信息</div>
         <div class="weui-cells weui-cells_form">
           <div class="weui-cell weui-cell_active" id="js_cell">
             <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
@@ -17,7 +17,25 @@
                 </button>
             </div>
           </div>
+          <div class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><label class="weui-label">持卡人</label></div>
+            <div class="weui-cell__bd weui-flex">
+                <input class="weui-input" type="text" placeholder="请输入持卡人姓名" />
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单报错：当前项位置报错</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><label class="weui-label">金额</label></div>
+            <div class="weui-cell__bd weui-flex">
+                <input id="js_current_input" class="weui-input" type="text" placeholder="请输入金额" />
+            </div>
+          </div>
+        </div>
+        <div id="js_current_tips" style="display:none;" class="weui-cells__tips weui-cells__tips_warn">最多支持8位数</div>
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单只读、置灰</div>
@@ -57,6 +75,7 @@
       var $input = $('#js_input');
       var $inputClear = $('#js_input_clear');
       var $cell = $('#js_cell');
+      var $currentInput = $('#js_current_input');
 
       $input.on('input', function(){
         var $value = $input.val();
@@ -67,6 +86,14 @@
           $('#showTooltips').removeClass('weui-btn_disabled');
         }else{
           $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $currentInput.on('input', function(){
+        var $value = $currentInput.val();
+        if ($value){
+          $('#js_current_tips').css('display','block');
+        }else{
+          $('#js_current_tips').css('display','none');
         }
       });
       $('#showTooltips').on('click', function(){

@@ -218,6 +218,37 @@ body,
     }
 }
 
+.page.badge {
+  .demo_badge_tips{
+    vertical-align: middle; font-size: 17px;
+    &+.weui-badge{
+      margin-left: 5px; margin-right: 5px;
+    }
+  }
+  .demo_badge_cells{
+    .weui-cell__hd{
+      position: relative; margin-right: 10px;
+      img{
+        width: 50px; display: block;
+      }
+      .weui-badge{
+        position: absolute; top: -0.4em; right: -0.4em;
+      }
+    }
+    .weui-cell__bd{
+      .demo_badge_title{
+        vertical-align: middle;
+        &+.weui-badge{
+          margin-left:5px;
+        }
+      }
+      .demo_badge_desc{
+        font-size: 13px; color: #888;
+      }
+    }
+  }
+}
+
 .page.form {
     .page__bd {
         padding-bottom: 30px;
@@ -284,6 +315,16 @@ body,
 .page.panel {
     .page__bd {
         padding-bottom: 20px;
+    }
+    .weui-cell_example{
+      .weui-cell__hd{
+        img{
+          width:20px;
+          height:20px;
+          display:block;
+          margin-right:16px;
+        }
+      }
     }
 }
 

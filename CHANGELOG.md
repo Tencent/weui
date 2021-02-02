@@ -1,3 +1,31 @@
+### v2.4.3 (2021-02-01)
+
+#### Features
+* feat: 调整Loading组件UI
+* feat: Toast组件新增长文案场景、加载中场景升级UI
+* feat: 新增msg自定义区域，可加key-value、普通提示、cell等列表
+* feat: 表单状态新增当前位置报错场景
+* feat: 表单组件新增跳转列表项
+* feat: 新增链接点击态色值变量
+* feat: 更新License年份 & 提供rpx版本
+
+#### Bugfixes
+* fix: 修复Input组件placeholde字体颜色
+* fix: 修复rpx版本下的demo展示问题
+
+
+
+### v2.4.2 (2020-11-25)
+
+#### Bugfixes
+* fix: 回退version版本到2.4.1
+* fix: 把weui和weui-wxss的changelog对齐现网版本
+* fix: 修复picker组件darkmode下的背景色适配问题
+* fix: 修复toast组件的旧版loading图标大小
+* fix: 修复msg组件英文文本词间断行问题
+
+
+
 ### v2.4.2 (2020-11-25)
 
 #### Bugfixes

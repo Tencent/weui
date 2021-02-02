@@ -773,6 +773,7 @@
       <a href="#form_input_status" class="weui-btn weui-btn_default">输入框状态</a>
       <a href="#form_vcode" class="weui-btn weui-btn_default">验证码</a>
       <a href="#form_checkbox" class="weui-btn weui-btn_default">复选框</a>
+      <a href="#form_access" class="weui-btn weui-btn_default">跳转列表项</a>
       <a href="#form_radio" class="weui-btn weui-btn_default">单选框</a>
       <a href="#form_switch" class="weui-btn weui-btn_default">开关</a>
       <a href="#form_select" class="weui-btn weui-btn_default">原生选择框</a>
@@ -875,11 +876,11 @@
   <div class="weui-form">
     <div class="weui-form__text-area">
       <h2 class="weui-form__title">输入框状态</h2>
-      <div class="weui-form__desc">可体验表单输入样式，当输入位数不等于16位的时候点击按钮可看到报错样式。</div>
+      <div class="weui-form__desc">可体验表单输入的反馈状态。显示报错信息有两种类型，一种是超过1个输入项的时候，用置顶tipsbar报错信息，告知错误原因，页面聚焦到对应的报错区域，内容标红色，另一种是在当前输入项位置报错，适用于只有1个输入项的时候，用户焦点主要是输入区域。</div>
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells__title">表单报错</div>
+        <div class="weui-cells__title">表单报错：置顶tipsbar报错信息</div>
         <div class="weui-cells weui-cells_form">
           <div class="weui-cell weui-cell_active" id="js_cell">
             <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
@@ -890,7 +891,25 @@
                 </button>
             </div>
           </div>
+          <div class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><label class="weui-label">持卡人</label></div>
+            <div class="weui-cell__bd weui-flex">
+                <input class="weui-input" type="text" placeholder="请输入持卡人姓名" />
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单报错：当前项位置报错</div>
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><label class="weui-label">金额</label></div>
+            <div class="weui-cell__bd weui-flex">
+                <input id="js_current_input" class="weui-input" type="text" placeholder="请输入金额" />
+            </div>
+          </div>
+        </div>
+        <div id="js_current_tips" style="display:none;" class="weui-cells__tips weui-cells__tips_warn">最多支持8位数</div>
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单只读、置灰</div>
@@ -930,6 +949,7 @@
       var $input = $('#js_input');
       var $inputClear = $('#js_input_clear');
       var $cell = $('#js_cell');
+      var $currentInput = $('#js_current_input');
 
       $input.on('input', function(){
         var $value = $input.val();
@@ -940,6 +960,14 @@
           $('#showTooltips').removeClass('weui-btn_disabled');
         }else{
           $('#showTooltips').addClass('weui-btn_disabled');
+        }
+      });
+      $currentInput.on('input', function(){
+        var $value = $currentInput.val();
+        if ($value){
+          $('#js_current_tips').css('display','block');
+        }else{
+          $('#js_current_tips').css('display','none');
         }
       });
       $('#showTooltips').on('click', function(){
@@ -1107,6 +1135,30 @@
       });
     });
 </script>
+
+</script>
+    <script type="text/html" id="tpl_form_access">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">跳转列表项</h2>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells">
+          <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd"><p>cell standard</p></div>
+            <div class="weui-cell__ft"></div>
+          </a>
+          <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd"><p>cell standard</p></div>
+            <div class="weui-cell__ft"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </script>
     <script type="text/html" id="tpl_form_checkbox">
@@ -1527,6 +1579,7 @@
     <div class="page__bd page__bd_spacing">
         <a href="javascript:" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showTextMoreToast">长文案提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
     </div>
@@ -1537,6 +1590,15 @@
         <div class="weui-toast">
             <i class="weui-icon-success-no-circle weui-icon_toast"></i>
             <p class="weui-toast__content">已完成</p>
+        </div>
+    </div>
+
+    <!--BEGIN toast-->
+    <div id="textMoreToast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast weui-toast_text-more">
+            <i class="weui-icon-warn weui-icon_toast"></i>
+            <p class="weui-toast__content">此处为长文案提示详情</p>
         </div>
     </div>
 
@@ -1553,7 +1615,7 @@
     <div id="loadingToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
-            <span class="weui-primary-loading weui-primary-loading_transparent weui-icon_toast">
+            <span class="weui-primary-loading weui-icon_toast">
               <span class="weui-primary-loading__dot"></span>
             </span>
             <p class="weui-toast__content">加载中</p>
@@ -1591,6 +1653,19 @@
             $warnToast.fadeIn(100);
             setTimeout(function () {
                 $warnToast.fadeOut(100);
+            }, 2000);
+        });
+    });
+
+    // text-more
+    $(function(){
+        var $textMoreToast = $('#textMoreToast');
+        $('#showTextMoreToast').on('click', function(){
+            if ($textMoreToast.css('display') != 'none') return;
+
+            $textMoreToast.fadeIn(100);
+            setTimeout(function () {
+                $textMoreToast.fadeOut(100);
             }, 2000);
         });
     });
@@ -1888,6 +1963,9 @@
         <a href="#msg_warn" class="weui-btn weui-btn_default">失败提示页</a>
         <a href="#msg_text" class="weui-btn weui-btn_default">无图标提示页</a>
         <a href="#msg_text_primary" class="weui-btn weui-btn_default">无图标提示页</a>
+        <a href="#msg_custom_area_preview" class="weui-btn weui-btn_default">key-value场景</a>
+        <a href="#msg_custom_area_tips" class="weui-btn weui-btn_default">描述列表场景</a>
+        <a href="#msg_custom_area_cell" class="weui-btn weui-btn_default">跳转列表场景</a>
     </div>
 </div>
 
@@ -1978,6 +2056,84 @@
         </div>
         <div class="weui-msg__tips-area">
           <p class="weui-msg__tips">提示详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<a href="javascript:">文字链接</a></p>
+        </div>
+    </div>
+</div>
+
+</script>
+    <script type="text/html" id="tpl_msg_custom_area_preview">
+<div class="page">
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">操作成功</h2>
+            <p class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<a href="javascript:">文字链接</a></p>
+            <div class="weui-msg__custom-area">
+              <ul class="weui-form-preview__list">
+                <li class="weui-form-preview__item"><label class="weui-form-preview__label">姓名</label><p class="weui-form-preview__value">张三</p></li>
+                <li class="weui-form-preview__item"><label class="weui-form-preview__label">微信号</label><p class="weui-form-preview__value">zhangsan</p></li>
+              </ul>
+            </div>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="javascript:history.back();" class="weui-btn weui-btn_primary">推荐操作</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+</script>
+    <script type="text/html" id="tpl_msg_custom_area_tips">
+<div class="page">
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">操作成功</h2>
+            <p class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<a href="javascript:">文字链接</a></p>
+            <div class="weui-msg__custom-area">
+              <ul class="weui-list-tips">
+                <li class="weui-list-tips__item">列表提示项</li>
+                <li class="weui-list-tips__item">列表提示项</li>
+                <li class="weui-list-tips__item">列表提示项</li>
+              </ul>
+            </div>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="javascript:history.back();" class="weui-btn weui-btn_primary">推荐操作</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+</script>
+    <script type="text/html" id="tpl_msg_custom_area_cell">
+<div class="page">
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">操作成功</h2>
+            <p class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<a href="javascript:">文字链接</a></p>
+            <div class="weui-msg__custom-area">
+              <div class="weui-cells__group weui-cells__group_form">
+                <div class="weui-cells">
+                  <a class="weui-cell weui-cell_access" href="javascript:">
+                    <div class="weui-cell__bd"><p>cell standard</p></div>
+                    <div class="weui-cell__ft"></div>
+                  </a>
+                  <a class="weui-cell weui-cell_access" href="javascript:">
+                    <div class="weui-cell__bd"><p>cell standard</p></div>
+                    <div class="weui-cell__ft"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="javascript:history.back();" class="weui-btn weui-btn_primary">推荐操作</a>
+            </p>
         </div>
     </div>
 </div>
@@ -2153,14 +2309,14 @@
                 <div class="weui-media-box weui-media-box_small-appmsg">
                     <div class="weui-cells">
                         <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example" href="javascript:">
-                            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; height: 20px; margin-right: 16px; display: block;"></div>
+                            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt=""></div>
                             <div class="weui-cell__bd weui-cell_primary">
                                 <p>文字标题</p>
                             </div>
                             <span class="weui-cell__ft"></span>
                         </a>
                         <a class="weui-cell weui-cell_active weui-cell_access weui-cell_example" href="javascript:">
-                            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; height: 20px; margin-right: 16px; display: block;"></div>
+                            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt=""></div>
                             <div class="weui-cell__bd weui-cell_primary">
                                 <p>文字标题</p>
                             </div>
@@ -2830,42 +2986,42 @@
             <div class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd">单行列表</div>
                 <div class="weui-cell__ft" style="font-size: 0;">
-                    <span style="vertical-align: middle; font-size: 17px;">详细信息</span>
-                    <span class="weui-badge weui-badge_dot" style="margin-left: 5px; margin-right: 5px;"></span>
+                    <span class="demo_badge_tips">详细信息</span>
+                    <span class="weui-badge weui-badge_dot"></span>
                 </div>
             </div>
         </div>
 
         <div class="weui-cells__title">未读数红点跟在主题信息后，统一在列表左侧</div>
-        <div class="weui-cells">
+        <div class="weui-cells demo_badge_cells">
             <div class="weui-cell weui-cell_active">
-                <div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
-                    <img src="images/pic_160.png" style="width: 50px; display: block;"/>
-                    <span class="weui-badge" style="position: absolute; top: -0.4em; right: -0.4em;">8</span>
+                <div class="weui-cell__hd">
+                    <img src="images/pic_160.png">
+                    <span class="weui-badge">8</span>
                 </div>
                 <div class="weui-cell__bd">
                     <p>联系人名称</p>
-                    <p style="font-size: 13px; color: #888;">摘要信息</p>
+                    <p class="demo_badge_desc">摘要信息</p>
                 </div>
             </div>
             <div class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd">
-                    <span style="vertical-align: middle;">单行列表</span>
-                    <span class="weui-badge" style="margin-left: 5px;">8</span>
+                    <span class="demo_badge_title">单行列表</span>
+                    <span class="weui-badge">8</span>
                 </div>
                 <div class="weui-cell__ft"></div>
             </div>
             <div class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd">
-                    <span style="vertical-align: middle;">单行列表</span>
-                    <span class="weui-badge" style="margin-left: 5px;">8</span>
+                    <span class="demo_badge_title">单行列表</span>
+                    <span class="weui-badge">8</span>
                 </div>
                 <div class="weui-cell__ft">详细信息</div>
             </div>
             <div class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd">
-                    <span style="vertical-align: middle;">单行列表</span>
-                    <span class="weui-badge" style="margin-left: 5px;">New</span>
+                    <span class="demo_badge_title">单行列表</span>
+                    <span class="weui-badge">New</span>
                 </div>
                 <div class="weui-cell__ft"></div>
             </div>
