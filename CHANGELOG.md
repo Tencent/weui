@@ -7,11 +7,10 @@
 * feat: 表单状态新增当前位置报错场景
 * feat: 表单组件新增跳转列表项
 * feat: 新增链接点击态色值变量
-* feat: 更新License年份 & 提供rpx版本
+* feat: 更新License年份
 
 #### Bugfixes
 * fix: 修复Input组件placeholde字体颜色
-* fix: 修复rpx版本下的demo展示问题
 
 
 
