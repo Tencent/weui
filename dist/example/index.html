@@ -1802,6 +1802,7 @@
     <div class="page__bd page__bd_spacing">
         <a href="javascript:" class="weui-btn weui-btn_default" id="showIOSDialog1">样式一</a>
         <a href="javascript:" class="weui-btn weui-btn_default" id="showIOSDialog2">样式二</a>
+        <a href="javascript:" class="weui-btn weui-btn_default" id="showIOSDialog3">样式三</a>
     </div>
 
     <div id="dialogs">
@@ -1861,19 +1862,53 @@
             </div>
         </div>
         <!--END dialog2-->
+        <!--BEGIN dialog3-->
+        <div class="js_dialog" id="iosDialog3" style="display: none;">
+            <div class="weui-mask"></div>
+            <div id="js_dialog_3" class="weui-half-screen-dialog">
+                <div class="weui-half-screen-dialog__hd">
+                  <div class="weui-half-screen-dialog__hd__main">
+                    <div class="weui-flex" style="align-items:center;">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 24px; margin-right: 8px; border-radius:50%;display: block;">
+                      昵称
+                    </div>
+                  </div>
+                </div>
+                <div class="weui-half-screen-dialog__bd">
+                  <br>
+                  <br>
+                  可放自定义内容
+                  <br>
+                  <br>
+                </div>
+                <div class="weui-half-screen-dialog__ft">
+                  <div class="weui-half-screen-dialog__btn-area">
+                    <a href="javascript:" class="weui-btn weui-btn_default">辅助操作</a>
+                    <a href="javascript:" class="weui-btn weui-btn_primary">主操作</a>
+                  </div>
+                  <div class="weui-half-screen-dialog__attachment-area">
+                    <a class="weui-link" href="javacript:;">附加操作</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!--END dialog3-->
     </div>
 </div>
 <script type="text/javascript">
     $(function(){
         var $dialog1 = $('#js_dialog_1'),
             $dialog2 = $('#js_dialog_2'),
+            $dialog3 = $('#js_dialog_3'),
             $iosDialog1 = $('#iosDialog1'),
             $iosDialog2 = $('#iosDialog2');
+            $iosDialog3 = $('#iosDialog3');
 
         $('#dialogs').on('click', '.weui-mask', function(){
             $(this).parents('.js_dialog').fadeOut(200);
             $dialog1.removeClass('weui-half-screen-dialog_show');
             $dialog2.removeClass('weui-half-screen-dialog_show');
+            $dialog3.removeClass('weui-half-screen-dialog_show');
         });
 
         $('#showIOSDialog1').on('click', function(){
@@ -1883,6 +1918,10 @@
         $('#showIOSDialog2').on('click', function(){
             $iosDialog2.fadeIn(200);
             $dialog2.addClass('weui-half-screen-dialog_show');
+        });
+        $('#showIOSDialog3').on('click', function(){
+            $iosDialog3.fadeIn(200);
+            $dialog3.addClass('weui-half-screen-dialog_show');
         });
     });
 </script>

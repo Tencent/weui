@@ -1,3 +1,16 @@
+### v2.4.4 (2021-03-23)
+
+#### Features
+* feat: 升级半屏弹窗组件UI
+* feat: 升级msg组件UI
+
+#### Bugfixes
+* fix: 修复半屏弹窗单个按钮的布局问题
+* fix: 修复actionsheet组件取消按钮字体颜色问题
+* fix: 调整上传组件边距
+
+
+
 ### v2.4.3 (2021-02-01)
 
 #### Features
@@ -7,10 +20,11 @@
 * feat: 表单状态新增当前位置报错场景
 * feat: 表单组件新增跳转列表项
 * feat: 新增链接点击态色值变量
-* feat: 更新License年份
+* feat: 更新License年份 & 提供rpx版本
 
 #### Bugfixes
 * fix: 修复Input组件placeholde字体颜色
+* fix: 修复rpx版本下的demo展示问题
 
 
 
@@ -23,14 +37,6 @@
 * fix: 修复toast组件的旧版loading图标大小
 * fix: 修复msg组件英文文本词间断行问题
 
-
-
-### v2.4.2 (2020-11-25)
-
-#### Bugfixes
-* fix: 修复picker组件darkmode下的背景色适配问题
-* fix: 修复toast组件的旧版loading图标大小
-* fix: 修复msg组件英文文本词间断行问题
 
 
 ### v2.4.1 (2020-11-05)

@@ -85,7 +85,7 @@
 
     overflow-y: auto;
     padding-top: 4px;
-    padding-bottom: 40px;
+    padding-bottom: 56px;
     font-size: 14px;
     color: var(--weui-FG-0);
 }
@@ -102,7 +102,7 @@
     line-height: 1.4;
 }
 .weui-half-screen-dialog__ft {
-    padding: 0 24px 32px;
+    padding: 0 0 64px;
     text-align: center;
     .weui-btn:nth-last-child(n+2),
     .weui-btn:nth-last-child(n+2) + .weui-btn {
@@ -110,9 +110,20 @@
         vertical-align: top;
         margin: 0 8px;
         width: 120px;
+        &:first-child{
+          margin-left:0;
+        }
+        &:last-child{
+          margin-right:0;
+        }
     }
 }
-
+.weui-half-screen-dialog__btn-area{
+  &+.weui-half-screen-dialog__attachment-area{
+    margin-top:24px;
+    margin-bottom:-44px;
+  }
+}
 .weui-icon-btn {
     outline: 0;
     -webkit-appearance: none;
