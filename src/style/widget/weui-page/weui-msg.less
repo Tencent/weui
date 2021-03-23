@@ -51,9 +51,19 @@ a{
 }
 .weui-msg__title {
     margin-bottom: @weuiMsgTitleGap;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 22px;
-    color: @weuiTextColorTitle;
+    color: #191919;
+    .dark({
+      color: #D1D1D1;
+    });
+    -webkit-text-stroke: .02em;
+}
+@supports (-webkit-overflow-scrolling:touch){
+  .weui-msg__title {
+    font-weight: 500;
+    -webkit-text-stroke: initial;
+  }
 }
 .weui-msg__desc {
     font-size: 17px;
