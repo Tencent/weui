@@ -1,0 +1,62 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "fn";
+
+.weui-hidden_abs{
+  opacity:0;
+  position:absolute;
+  width:1px;//1px是为了兼容ios15
+  height:1px;
+  overflow:hidden;
+}
+.weui-hidden-space:empty{
+  &:before{
+    content:"\00A0";
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+}
+.weui-wa-hotarea-el{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    min-width:44px;
+    min-height:44px;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0);
+}
+.weui-wa-hotarea-el__wrp,
+.weui-wa-hotarea,
+.weui-wa-hotarea_before{
+  position:relative;
+
+  // 如果是合法的点击嵌套，例如label[for]里的出现链接，需要把层级提高
+  a{
+    position:relative;
+    z-index:1;
+  }
+}
+.weui-wa-hotarea_before:before,
+.weui-wa-hotarea:after{
+  content:"";
+  .weui-wa-hotarea-el;
+}
+

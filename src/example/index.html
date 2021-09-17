@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="./example.css"/>
 </head>
 <body ontouchstart>
-    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+    <span aria-hidden="true" id="js_a11y_comma" class="weui-hidden_abs">，</span>
+
+    <div role="alert" class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
 
     <div class="container" id="container"></div>
 
@@ -16,6 +18,8 @@
     <link rel="import" href="./layers.html">
 
     <link rel="import" href="./button/button.html">
+    <link rel="import" href="./button/button_default.html">
+    <link rel="import" href="./button/button_bottom_fixed.html">
     <link rel="import" href="./list/list.html">
     <link rel="import" href="./input/input.html">
     <link rel="import" href="./form/form.html">
@@ -68,7 +72,11 @@
     </script>
     <script src="./zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script>
+    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.5/weui.min.js"></script>
     <script src="./example.js"></script>
+    <script src="./wah.js"></script>
+    <script type="text/javascript">
+      //WAH.default.init()
+    </script>
 </body>
 </html>

@@ -69,18 +69,19 @@
 }
 .weui-dialog__ft {
     position: relative;
-    line-height: 56px;
-    min-height: 56px;
-    font-size: 17px;
     display: flex;
     &:after {
         content: " ";
         .setTopLine(@weuiDialogLineColor);
     }
+
 }
 .weui-dialog__btn {
-    display: block;
     flex: 1;
+    display: block;
+    line-height: (56-32)/17;
+    padding:16px 0;
+    font-size: 17px;
     color: @weuiDialogLinkColor;
     font-weight: 700;
     text-decoration: none;
@@ -90,6 +91,7 @@
     }
 
     position: relative;
+    overflow:hidden;//兼容小程序旁白点击无效
     &:after {
         content: " ";
         .setLeftLine(@weuiDialogLineColor);

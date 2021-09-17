@@ -23,7 +23,6 @@
     display: flex;
     box-sizing: border-box;
     background-color: @weuiBgColorDefault;
-    -webkit-text-size-adjust: 100%;
     align-items: center;
     &.weui-search-bar_focusing {
         .weui-search-bar__cancel-btn {
@@ -35,24 +34,27 @@
     }
 
     .weui-icon-search {
-        width: 16px;
-        height: 16px;
+      font-size:10px;
+      width: 1.6em;
+      height: 1.6em;
+      margin-left: 8px;
+      margin-right: 4px;
+      flex-shrink:0;
     }
 }
 .weui-search-bar__form {
     position: relative;
-    flex: auto;
+    flex: 1;
+    min-width:0;
     background-color: var(--weui-BG-2);
     border-radius: 4px;
 }
 .weui-search-bar__box {
     position: relative;
-    padding-left: 28px;
-    padding-right: 32px;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
     z-index: 1;
+    display:flex;
+    align-items:center;
+
     .weui-search-bar__input {
         padding: 8px 0;
         width: 100%;
@@ -68,21 +70,22 @@
             outline: none;
         }
     }
-    .weui-icon-search {
-        position: absolute;
-        top: 50%;
-        left: 8px;
-        margin-top: -8px;
-    }
     .weui-icon-clear {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        margin-top: -16px;
-        padding: 8px;
-        width: 16px;
-        height: 16px;
-        mask-size: 16px;
+        flex-shrink:0;
+        font-size:10px;
+        width: 2em;
+        height: 2em;
+        margin-left:8px;
+        mask-size: 2em;
+        mask-position:~"calc(100% - 8px)" 0;
+        min-width:44px;
+        &:after{
+          content:"";
+          position:absolute;
+          top:0;
+          bottom:0;
+          width:44px;
+        }
     }
 }
 .weui-search-bar__label {
@@ -104,16 +107,13 @@
         font-size: 14px;
         vertical-align: middle;
     }
-    .weui-icon-search {
-        margin-right: 4px;
-    }
 }
 .weui-search-bar__cancel-btn {
+    flex-shrink: 0;
     display: none;
     margin-left: 8px;
     line-height: 28px;
     color: @weuiLinkColorDefault;
-    white-space: nowrap;
 }
 .weui-search-bar__input:not(:valid) + .weui-icon-clear {
     display: none;

@@ -1,13 +1,16 @@
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Uploader</h1>
-        <p class="page__desc">上传组件，一般配合<a class="link" href="#gallery">组件Gallery</a>来使用。</p>
+        <p id="x123" class="page__desc">
+          <input class="weui-hidden_abs" readonly style="width:1px;height:1px;" aria-labelledby="x123" role="option">
+          上传组件，一般配合<a class="weui-wa-hotarea link" href="#gallery">组件Gallery</a>来使用。
+        </p>
     </div>
     <div class="page__bd">
-        <div class="weui-gallery" id="gallery">
-            <span class="weui-gallery__img" id="galleryImg"></span>
+        <div role="dialog" aria-hidden="true" aria-modal="true" class="weui-gallery" id="gallery">
+            <span role="img" tabindex="0" class="weui-gallery__img" id="galleryImg"></span>
             <div class="weui-gallery__opr">
-                <a href="javascript:" class="weui-gallery__del">
+                <a role="button" aria-label="删除" href="javascript:" class="weui-gallery__del">
                     <i class="weui-icon-delete weui-icon_gallery-delete"></i>
                 </a>
             </div>
@@ -17,22 +20,26 @@
             <div class="weui-cell  weui-cell_uploader">
                 <div class="weui-cell__bd">
                     <div class="weui-uploader">
-                        <div class="weui-uploader__hd">
-                            <p class="weui-uploader__title">图片上传</p>
-                            <div class="weui-uploader__info">0/2</div>
+                        <div class="weui-uploader__hd" role="option" aria-labelledby="js_uploader_title js_a11y_comma js_uploader_current_num js_uploader_unit js_a11y_comma js_uploader_max_tips js_uploader_max_num js_uploader_unit">
+                            <p id="js_uploader_title" class="weui-uploader__title">图片上传</p>
+                            <div class="weui-uploader__info">
+                              <span id="js_uploader_current_num">0</span>/<span id="js_uploader_max_num">2</span>
+                            </div>
+                            <div id="js_uploader_unit" class="weui-hidden_abs">张</div>
+                            <div id="js_uploader_max_tips" class="weui-hidden_abs">可上传</div>
                         </div>
                         <div class="weui-uploader__bd">
                             <ul class="weui-uploader__files" id="uploaderFiles">
-                                <li class="weui-uploader__file" style="background-image: url(./images/pic_160.png);"></li>
-                                <li class="weui-uploader__file" style="background-image: url(./images/pic_160.png);"></li>
-                                <li class="weui-uploader__file" style="background-image: url(./images/pic_160.png);"></li>
+                                <li class="weui-uploader__file" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0" style="background-image: url(./images/pic_160.png);"></li>
+                                <li class="weui-uploader__file" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0" style="background-image: url(./images/pic_160.png);"></li>
+                                <li class="weui-uploader__file" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0" style="background-image: url(./images/pic_160.png);"></li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image: url(./images/pic_160.png);">
-                                    <div class="weui-uploader__file-content">
-                                        <i class="weui-icon-warn"></i>
+                                    <div role="alert" class="weui-uploader__file-content">
+                                        <i role="img" tabindex="0" aria-label="错误" class="weui-icon-warn"></i>
                                     </div>
                                 </li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image: url(./images/pic_160.png);">
-                                    <div class="weui-uploader__file-content">50%</div>
+                                    <div role="alert" class="weui-uploader__file-content">50%</div>
                                 </li>
                             </ul>
                             <div class="weui-uploader__input-box">
@@ -47,7 +54,7 @@
 </div>
 <script type="text/javascript">
     $(function(){
-        var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+        var tmpl = '<li class="weui-uploader__file" role="img" tabindex="0" style="background-image:url(#url#)"></li>',
             $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
             $uploaderInput = $("#uploaderInput"),
             $uploaderFiles = $("#uploaderFiles")
@@ -67,12 +74,25 @@
                 $uploaderFiles.append($(tmpl.replace('#url#', src)));
             }
         });
+        var currentImg;
         $uploaderFiles.on("click", "li", function(){
             $galleryImg.attr("style", this.getAttribute("style"));
+            $gallery.attr('aria-hidden','false');
+            $gallery.attr('aria-modal','true');
             $gallery.fadeIn(100);
+            setTimeout(function(){
+              $galleryImg.attr("tabindex", '-1').trigger('focus');
+            },200);
+            currentImg = this;
         });
         $gallery.on("click", function(){
+            $gallery.attr('aria-modal','false');
+            $gallery.attr('aria-hidden','true');
             $gallery.fadeOut(100);
+            setTimeout(function(){
+              $galleryImg.removeAttr("tabindex");
+            },200);
+            currentImg.focus();
         });
     });
 </script>

@@ -32,10 +32,10 @@
       </div>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
-  <div id="js_toast" style="display: none;">
+  <div role="alert" id="js_toast" style="display: none;">
       <div class="weui-mask_transparent"></div>
       <div class="weui-toast">
           <i class="weui-icon-success-no-circle weui-icon_toast"></i>
@@ -56,8 +56,10 @@
             $('.page.cell').removeClass('slideIn');
 
             $toast.fadeIn(100);
+            $toast.attr('aria-live','assertive');
             setTimeout(function () {
               $toast.fadeOut(100);
+              $toast.attr('aria-live','off');
             }, 2000);
         });
     });

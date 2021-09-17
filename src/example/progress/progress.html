@@ -8,30 +8,34 @@
             <div class="weui-progress__bar">
                 <div class="weui-progress__inner-bar js_progress" style="width: 0%;"></div>
             </div>
-            <a href="javascript:" class="weui-progress__opr">
-                <i class="weui-icon-cancel"></i>
+            <a href="javascript:" role="button" class="weui-wa-hotarea weui-progress__opr">
+                <i role="img" aria-label="取消" class="weui-icon-cancel"></i>
             </a>
+            <span id="js_current" role="alert" class="weui-hidden_abs">0%</span>
         </div>
+
         <br>
         <div class="weui-progress">
             <div class="weui-progress__bar">
                 <div class="weui-progress__inner-bar js_progress" style="width: 50%;"></div>
             </div>
-            <a href="javascript:" class="weui-progress__opr">
-                <i class="weui-icon-cancel"></i>
+            <a href="javascript:" role="button" class="weui-wa-hotarea weui-progress__opr">
+                <i role="img" aria-label="取消" class="weui-icon-cancel"></i>
             </a>
+            <span id="js_current" role="alert" class="weui-hidden_abs">50%</span>
         </div>
         <br>
         <div class="weui-progress">
             <div class="weui-progress__bar">
                 <div class="weui-progress__inner-bar js_progress" style="width: 80%;"></div>
             </div>
-            <a href="javascript:" class="weui-progress__opr">
-                <i class="weui-icon-cancel"></i>
+            <a href="javascript:" role="button" class="weui-progress__opr">
+                <i role="img" aria-label="取消" class="weui-icon-cancel"></i>
             </a>
+            <span id="js_current" role="alert" class="weui-hidden_abs">80%</span>
         </div>
         <div class="weui-btn-area">
-            <a href="javascript:" class="weui-btn weui-btn_primary" id="btnUpload">上传</a>
+            <button type="button" class="weui-btn weui-btn_primary" id="btnUpload">上传</button>
         </div>
     </div>
 </div>
@@ -40,9 +44,20 @@
         var $progress = $('.js_progress'),
             $btnUpload = $('#btnUpload');
         var progress = 0;
+        var $current = $('#js_current');
+        var currentDate = +new Date();
+
+      window.test=$current;
 
         function next() {
-            if(progress > 100){
+            if(progress > 10){
+              if (+new Date() - currentDate > 3000) {
+                $current.text('已上传百分之' + progress);
+                currentDate = +new Date()
+              }
+            }
+            if(progress === 100){
+                $current.text('已上传百分之' + progress);
                 progress = 0;
                 $btnUpload.removeClass('weui-btn_disabled');
                 return;

@@ -8,40 +8,41 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell weui-cell_active">
-                <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+                <div class="weui-cell__hd"><label for="js_input1" class="weui-label">手机号</label></div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" value="12345678907"/>
+                    <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号" value="12345678907"/>
                 </div>
                 <div class="weui-cell__ft">
-                  <a class="weui-btn_reset weui-btn_icon">
-                    <i id="showIOSDialog1" class="weui-icon-info-circle"></i>
-                  </a>
+                  <button type="button" id="showIOSDialog1" class="weui-btn_reset weui-btn_icon">
+                    <i role="img" alt="帮助" class="js_target weui-icon-info-circle"></i>
+                  </button>
                 </div>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_vcode">
-                <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
-                <div class="weui-cell__bd">
-                  <input autofocus class="weui-input" type="text" pattern="[0-9]*" id="js_input" placeholder="输入验证码" maxlength="6"/>
-                </div>
-                <div class="weui-cell__ft">
-                  <button class="weui-btn weui-btn_default weui-vcode-btn">获取验证码</button>
+            <div id="js_cell_vcode" class="weui-cell weui-cell_active weui-cell_vcode weui-cell_wrap">
+                <div class="weui-cell__hd"><label for="js_input2" class="weui-label">验证码</label></div>
+                <div class="weui-cell__bd weui-flex">
+                  <input id="js_input2" class="weui-input weui-cell__control weui-cell__control_flex" type="text" pattern="[0-9]*" id="js_input" placeholder="输入验证码" maxlength="6"/>
+                  <button id="js_input_clear" class="weui-btn_reset weui-btn_icon weui-btn_input-clear">
+                    <i class="weui-icon-clear"></i>
+                  </button>
+                  <button id="js_btn_vcode" role="button" class="js_target weui-cell__control weui-btn weui-btn_default weui-vcode-btn">获取验证码</button>
                 </div>
             </div>
         </div>
-        <div class="weui-cells__tips"><a class="weui-link" href="javascript:">收不到验证码</a></div>
+        <div class="weui-cells__tips"><a class="weui-link weui-wa-hotarea" href="javascript:">收不到验证码</a></div>
       </div>
     </div>
     <div class="weui-form__tips-area">
-      <label id="weuiAgree" for="weuiAgreeCheckbox" class="weui-agree">
-        <input id="weuiAgreeCheckbox" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="javascript:">《相关条款》</a>
+      <label id="weuiAgree" for="weuiAgreeCheckbox" class="weui-agree weui-wa-hotarea">
+        <input id="weuiAgreeCheckbox" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="/example/" target="_blank">《相关条款》</a>
         </span>
       </label>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+      <a role="button" aria-disabled="true" disabled class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
-  <div id="js_toast" style="display: none;">
+  <div role="alert" id="js_toast" style="display: none;">
       <div class="weui-mask_transparent"></div>
       <div class="weui-toast">
           <i class="weui-icon-success-no-circle weui-icon_toast"></i>
@@ -50,7 +51,7 @@
   </div>
   <div id="dialogs">
       <!--BEGIN dialog1-->
-      <div class="js_dialog" id="iosDialog1" style="display: none;">
+      <div role="dialog" aria-modal="true" class="js_dialog" id="iosDialog1" style="display: none;">
           <div class="weui-mask"></div>
           <div id="js_half_screen_dialog" class="weui-half-screen-dialog">
               <div class="weui-half-screen-dialog__hd">
@@ -80,17 +81,23 @@
     $(function(){
       var $tooltips = $('.js_tooltips');
       var $toast = $('#js_toast');
-      var $input = $('#js_input');
+      var $input = $('#js_input1');
+      var $inputClear = $('#js_input_clear');
       var $agree= $('#weuiAgree');
       var $agreeCheckbox = $('#weuiAgreeCheckbox');
+      var $iosDialog1 = $('#iosDialog1');
       var $halfScreenDialog = $('#js_half_screen_dialog');
 
       $input.on('input', function(){
         var $value = $input.val();
         if ($value){
           $('#showTooltips').removeClass('weui-btn_disabled');
+          $('#showTooltips').removeAttr('disabled');
+          $('#showTooltips').attr('aria-disabled','false');
         }else{
           $('#showTooltips').addClass('weui-btn_disabled');
+          $('#showTooltips').addAttr('disabled');
+          $('#showTooltips').attr('aria-disabled','true');
         }
       });
 
@@ -105,31 +112,51 @@
 
         if($agreeCheckbox.prop("checked")){
           $toast.fadeIn(100);
+          $toast.attr('aria-live','assertive');
           setTimeout(function () {
             $toast.fadeOut(100);
+            $toast.attr('aria-live','off');
           }, 2000);
         }else{
           $agree.addClass('weui-agree_animate');
           setTimeout(function () {
-            $agree.removeClass('weui-agree_animate');
+            $agree.removeClass('weui-agree_animate').trigger('focus');
           }, 1000);
         }
       });
 
-      var $iosDialog1 = $('#iosDialog1');
 
       $('#dialogs').on('click', '.weui-mask', function(){
         $halfScreenDialog.removeClass('weui-half-screen-dialog_show');
         $(this).parents('.js_dialog').fadeOut(200);
+        $iosDialog1.attr('aria-modal','false');
+          $('#showIOSDialog1').attr('tabindex','-1').trigger('focus');
       });
       $('#dialogClose').on('click', function(){
         $halfScreenDialog.removeClass('weui-half-screen-dialog_show');
         $(this).parents('.js_dialog').fadeOut(200);
+        $iosDialog1.attr('aria-modal','false');
+          $('#showIOSDialog1').attr('tabindex','-1').trigger('focus');
       });
 
       $('#showIOSDialog1').on('click', function(){
         $iosDialog1.fadeIn(200);
         $halfScreenDialog.addClass('weui-half-screen-dialog_show');
+        $iosDialog1.attr('aria-modal','true');
+        setTimeout(function () {
+          $('#dialogClose').trigger('focus');
+        }, 500);
       });
+
+      $('.weui-cell').on('click', function(e){
+        if(e.target.classList.contains('js_target')){
+          return;
+        }
+        $(this).find('input').trigger('focus');
+      });
+      $inputClear.on('click', function(){
+        $input.val('');
+      });
+
     });
 </script>

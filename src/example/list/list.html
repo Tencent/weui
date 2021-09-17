@@ -6,14 +6,14 @@
     <div class="page__bd">
         <div class="weui-cells__title">带说明的列表项</div>
         <div class="weui-cells">
-            <div class="weui-cell ">
+            <div role="option" class="weui-cell ">
                 <div class="weui-cell__bd">
                     <p>标题文字</p>
                 </div>
                 <div class="weui-cell__ft">说明文字</div>
             </div>
             <div class="weui-cell  weui-cell_swiped">
-                <div class="weui-cell__bd" style="transform: translateX(-68px);">
+                <div role="option" class="weui-cell__bd" style="transform: translateX(-68px);">
                     <div class="weui-cell ">
                         <div class="weui-cell__bd">
                             <p>标题文字</p>
@@ -22,21 +22,21 @@
                     </div>
                 </div>
                 <div class="weui-cell__ft">
-                    <a class="weui-swiped-btn weui-swiped-btn_warn" href="javascript:">删除</a>
+                    <a role="button" class="weui-swiped-btn weui-swiped-btn_warn" href="javascript:">删除</a>
                 </div>
             </div>
         </div>
 
         <div class="weui-cells__title">带图标、说明的列表项</div>
         <div class="weui-cells">
-            <div class="weui-cell  weui-cell_example">
+            <div role="option" class="weui-cell  weui-cell_example">
                 <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; margin-right: 16px; display: block;"></div>
                 <div class="weui-cell__bd">
                     <p>标题文字</p>
                 </div>
                 <div class="weui-cell__ft">说明文字</div>
             </div>
-            <div class="weui-cell  weui-cell_example">
+            <div role="option" class="weui-cell  weui-cell_example">
                 <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; margin-right: 16px; display: block;"></div>
                 <div class="weui-cell__bd">
                     <p>标题文字</p>
@@ -48,34 +48,34 @@
         <div class="weui-cells__title">带跳转的列表项</div>
         <div class="weui-cells">
             <a class="weui-cell  weui-cell_access" href="javascript:">
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
+                <span class="weui-cell__bd">
+                    <span>cell standard</span>
+                </span>
+                <span class="weui-cell__ft">
+                </span>
             </a>
             <a class="weui-cell  weui-cell_access" href="javascript:">
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
+                <span class="weui-cell__bd">
+                    <span>cell standard</span>
+                </span>
+                <span class="weui-cell__ft">
+                </span>
             </a>
         </div>
 
         <div class="weui-cells__title">带说明、跳转的列表项</div>
         <div class="weui-cells">
-            <a class="weui-cell  weui-cell_access" href="javascript:">
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
+            <a aria-labelledby="js_cell_tl1_tips js_cell_tl1_link" class="weui-cell weui-cell_access" href="javascript:">
+                <span class="weui-cell__bd" id="js_cell_tl1_tips" aria-hidden="true">
+                    <span>cell standard</span>
+                </span>
+                <span class="weui-cell__ft" aria-hidden="true" id="js_cell_tl1_link">说明文字</span>
             </a>
-            <a class="weui-cell  weui-cell_access" href="javascript:">
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
+            <a aria-labelledby="js_cell_tl2_tips js_cell_tl2_link" class="weui-cell  weui-cell_access" href="javascript:">
+                <span class="weui-cell__bd" aria-hidden="true" id="js_cell_tl2_tips">
+                    <span>cell standard</span>
+                </span>
+                <span class="weui-cell__ft" aria-hidden="true" id="js_cell_tl2_link">说明文字</span>
             </a>
 
         </div>
@@ -83,19 +83,19 @@
         <div class="weui-cells__title">带图标、说明、跳转的列表项</div>
         <div class="weui-cells">
 
-            <a class="weui-cell  weui-cell_access weui-cell_example" href="javascript:">
-                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; margin-right: 16px; display: block;"></div>
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
+            <a aria-labelledby="js_cell_itl1_hd js_cell_itl1_bd js_cell_itl1_ft" class="weui-cell weui-cell_access weui-cell_example" href="javascript:">
+                <span class="weui-cell__hd" id="js_cell_itl1_hd" aria-hidden="true"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="头像" style="width: 20px; margin-right: 16px; display: block;"></span>
+                <span class="weui-cell__bd" id="js_cell_itl1_bd" aria-hidden="true">
+                    <span>cell standard</span>
+                </span>
+                <span class="weui-cell__ft" id="js_cell_itl1_ft" aria-hidden="true">说明文字</span>
             </a>
-            <a class="weui-cell  weui-cell_access weui-cell_example" href="javascript:">
-                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; margin-right: 16px; display: block;"></div>
-                <div class="weui-cell__bd">
-                    <p>cell standard</p>
-                </div>
-                <div class="weui-cell__ft">说明文字</div>
+            <a aria-labelledby="js_cell_itl2_hd js_cell_itl2_bd js_cell_itl2_ft" class="weui-cell weui-cell_access weui-cell_example" href="javascript:">
+                <span class="weui-cell__hd" id="js_cell_itl2_hd" aria-hidden="true"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 20px; margin-right: 16px; display: block;"></span>
+                <span class="weui-cell__bd" id="js_cell_itl2_bd" aria-hidden="true">
+                    <span>cell standard</span>
+                </span>
+                <span class="weui-cell__ft" id="js_cell_itl2_ft" aria-hidden="true">说明文字</span>
             </a>
         </div>
     </div>

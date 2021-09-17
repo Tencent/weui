@@ -64,7 +64,9 @@ $(function () {
             var $html = $(html).addClass('slideIn').addClass(config.name);
             $html.on('animationend webkitAnimationEnd', function(){
                 $html.removeClass('slideIn').addClass('js_show');
+                setPageA11y();
             });
+
             this.$container.append($html);
             this._pageAppend.call(this, $html);
             this._pageStack.push({
@@ -108,6 +110,7 @@ $(function () {
 
             stack.dom.addClass('slideOut').on('animationend webkitAnimationEnd', function () {
                 stack.dom.remove();
+                setPageA11y();
             });
 
             return this;
@@ -283,6 +286,13 @@ $(function () {
             })
             .setDefault('home')
             .init();
+    }
+    function setPageA11y() {
+        var $pages = $('.page');
+        var $lastPage = $pages.eq($pages.length - 1);
+
+        $pages.attr('aria-hidden','true'); // 所有page都加
+        $lastPage.removeAttr('aria-hidden').attr('tabindex','-1').trigger('focus'); // 最后一个page不用加
     }
 
     function init(){

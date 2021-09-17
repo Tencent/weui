@@ -4,34 +4,33 @@
         <p class="page__desc">弹出式菜单</p>
     </div>
     <div class="page__bd page__bd_spacing">
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showIOSActionSheet">iOS ActionSheet</a>
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showAndroidActionSheet">Android ActionSheet</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSActionSheet">ActionSheet</a>
     </div>
     <!--BEGIN actionSheet-->
     <div>
         <div class="weui-mask" id="iosMask" style="display: none;"></div>
-        <div class="weui-actionsheet" id="iosActionsheet">
+        <div role="dialog" aria-modal="true" tabindex="0" aria-hidden="true" class="weui-actionsheet" id="iosActionsheet">
             <div class="weui-actionsheet__title">
                 <p class="weui-actionsheet__title-text">这是一个标题，可以为一行或者两行。</p>
             </div>
             <div class="weui-actionsheet__menu">
-                <div class="weui-actionsheet__cell">示例菜单</div>
-                <div class="weui-actionsheet__cell">示例菜单</div>
-                <div class="weui-actionsheet__cell weui-actionsheet__cell_warn">负向菜单</div>
+                <div id="current1" tabindex="0" role="button" class="weui-actionsheet__cell">示例菜单</div>
+                <div role="button" tabindex="0" class="weui-actionsheet__cell">示例菜单</div>
+                <div role="button" tabindex="0" class="weui-actionsheet__cell weui-actionsheet__cell_warn">负向菜单</div>
             </div>
             <div class="weui-actionsheet__action">
-                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+                <div role="button" tabindex="0" class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
             </div>
         </div>
     </div>
 
-    <div class="weui-skin_android" id="androidActionsheet" style="display: none;">
-        <div class="weui-mask"></div>
+    <div role="dialog" aria-modal="true" aria-hidden="true" class="weui-skin_android" id="androidActionsheet" style="display: none;">
+        <div id="androidClose" tabindex="0" role="option" aria-label="关闭" class="weui-mask"></div>
         <div class="weui-actionsheet">
             <div class="weui-actionsheet__menu">
-                <div class="weui-actionsheet__cell">示例菜单</div>
-                <div class="weui-actionsheet__cell">示例菜单</div>
-                <div class="weui-actionsheet__cell">示例菜单</div>
+                <div tabindex="0" role="button" class="weui-actionsheet__cell">示例菜单</div>
+                <div tabindex="0" role="button" class="weui-actionsheet__cell">示例菜单</div>
+                <div tabindex="0" role="button" class="weui-actionsheet__cell">示例菜单</div>
             </div>
         </div>
     </div>
@@ -44,28 +43,36 @@
         var $iosMask = $('#iosMask');
 
         function hideActionSheet() {
-            $iosActionsheet.removeClass('weui-actionsheet_toggle');
+            $iosActionsheet.removeClass('weui-actionsheet_toggle').attr('aria-hidden','true');
             $iosMask.fadeOut(200);
+            $('#showIOSActionSheet').trigger('focus');
         }
 
         $iosMask.on('click', hideActionSheet);
         $('#iosActionsheetCancel').on('click', hideActionSheet);
         $("#showIOSActionSheet").on("click", function(){
-            $iosActionsheet.addClass('weui-actionsheet_toggle');
+            $iosActionsheet.attr('aria-hidden','false').addClass('weui-actionsheet_toggle');
             $iosMask.fadeIn(200);
+            setTimeout(function(){
+              $('#current1').trigger('focus');
+            },200)
         });
     });
 
     // android
     $(function(){
         var $androidActionSheet = $('#androidActionsheet');
-        var $androidMask = $androidActionSheet.find('.weui-mask');
 
         $("#showAndroidActionSheet").on('click', function(){
-            $androidActionSheet.fadeIn(200);
-            $androidMask.on('click',function () {
-                $androidActionSheet.fadeOut(200);
-            });
+            $androidActionSheet.attr('aria-hidden','false').fadeIn(200);
+            setTimeout(function(){
+              $('#androidClose').trigger('focus');
+            },200)
         });
+        $('#androidClose').on('click',function () {
+          $androidActionSheet.attr('aria-hidden','true').fadeOut(200);
+          $('#showAndroidActionSheet').trigger('focus');
+        });
+
     });
 </script>

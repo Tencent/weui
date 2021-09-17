@@ -47,7 +47,7 @@
     background-color: transparent;
     width: 100%;
     font-size: inherit;
-    height: @weuiCellHeight;
+    min-height: @weuiCellHeight;
     line-height: @weuiCellHeight;
     position: relative;
     z-index: 1;
@@ -56,6 +56,7 @@
 }
 
 .weui-cell_select-before {
+    align-items:initial;
     padding-right: @weuiCellGapH;
     .weui-select {
         width: @weuiCellLabelWidth;
@@ -87,6 +88,8 @@
         &:after {
             display: none;
         }
+        display:flex;
+        align-items:center;
     }
     &.weui-cell_access {
         .weui-cell__hd {

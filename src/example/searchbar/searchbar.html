@@ -4,38 +4,37 @@
         <p class="page__desc">搜索栏</p>
     </div>
     <div class="page__bd">
-        <!--<a href="javascript:" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
         <div class="weui-search-bar" id="searchBar">
-            <form class="weui-search-bar__form">
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
                 <div class="weui-search-bar__box">
                     <i class="weui-icon-search"></i>
-                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
-                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                    <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
                 </div>
-                <label class="weui-search-bar__label" id="searchText">
+                <label for="searchInput" class="weui-search-bar__label" id="searchText">
                     <i class="weui-icon-search"></i>
-                    <span>搜索</span>
+                    <span aria-hidden="true">搜索</span>
                 </label>
             </form>
-            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+            <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
-        <div class="weui-cells searchbar-result" id="searchResult">
-            <div class="weui-cell weui-cell_active weui-cell_access">
+        <div role="listbox" class="weui-cells searchbar-result" id="searchResult">
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd weui-cell_primary">
                     <p>实时搜索文本</p>
                 </div>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_access">
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd weui-cell_primary">
                     <p>实时搜索文本</p>
                 </div>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_access">
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd weui-cell_primary">
                     <p>实时搜索文本</p>
                 </div>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_access">
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd weui-cell_primary">
                     <p>实时搜索文本</p>
                 </div>
@@ -50,10 +49,12 @@
             $searchText = $('#searchText'),
             $searchInput = $('#searchInput'),
             $searchClear = $('#searchClear'),
+            $searchForm = $('#searchForm'),
             $searchCancel = $('#searchCancel');
 
         function hideSearchResult(){
             $searchResult.hide();
+            $searchForm.attr('aria-expanded','false');
             $searchInput.val('');
         }
         function cancelSearch(){
@@ -73,8 +74,10 @@
             .on('input', function(){
                 if(this.value.length) {
                     $searchResult.show();
+                    $searchForm.attr('aria-expanded','true');
                 } else {
                     $searchResult.hide();
+                    $searchForm.attr('aria-expanded','false');
                 }
             })
         ;

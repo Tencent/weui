@@ -49,7 +49,7 @@ function exec(cmd) {
     });
 }
 
-gulp.task('build:style', function() {
+function buildStyle() {
     var banner = [
         '/*!',
         ' * WeUI v<%= pkg.version %> (<%= pkg.homepage %>)',
@@ -58,7 +58,7 @@ gulp.task('build:style', function() {
         ' */',
         '',
     ].join('\n');
-    gulp
+    return gulp
     .src('src/style/weui.less', option)
     .pipe(sourcemaps.init())
     .pipe(
@@ -86,17 +86,15 @@ gulp.task('build:style', function() {
         }),
     )
     .pipe(gulp.dest(dist));
-});
-
-gulp.task('build:example:assets', function() {
-    gulp
+}
+function buildExampleAssets() {
+    return gulp
     .src('src/example/**/*.?(png|jpg|gif|js)', option)
     .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({ stream: true }));
-});
-
-gulp.task('build:example:style', function() {
-    gulp
+}
+function buildExampleStyle() {
+    return gulp
     .src('src/example/example.less', option)
     .pipe(
         less().on('error', function(e) {
@@ -113,10 +111,9 @@ gulp.task('build:example:style', function() {
     )
     .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({ stream: true }));
-});
-
-gulp.task('build:example:html', function() {
-    gulp
+}
+function buildExampleHTML() {
+    return gulp
     .src('src/example/index.html', option)
     .pipe(
         tap(function(file) {
@@ -142,79 +139,81 @@ gulp.task('build:example:html', function() {
     )
     .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({ stream: true }));
-});
+}
 
-gulp.task('build:example', [
-    'build:example:assets',
-    'build:example:style',
-    'build:example:html',
-]);
+gulp.task('build:style', buildStyle);
+gulp.task('build:example:assets', buildExampleAssets);
+gulp.task('build:example:style', buildExampleStyle);
+gulp.task('build:example:html', buildExampleHTML);
 
-gulp.task('build', ['build:style', 'build:example']);
+gulp.task('build:example', gulp.parallel('build:example:assets', 'build:example:style', 'build:example:html'));
 
-gulp.task('watch', ['build'], function() {
-    var list = [
-        {
-            path: 'src/style/**/*',
-            task: ['build:style'],
-        },
-        {
-            path: 'src/example/example.less',
-            task: ['build:example:style'],
-        },
-        {
-            path: 'src/example/**/*.?(png|jpg|gif|js)',
-            task: ['build:example:assets'],
-        },
-        {
-            path: 'src/**/*.html',
-            task: ['build:example:html'],
-        },
-    ];
-    list.forEach((item) => {
-        var timeout = null;
-        gulp.watch(path.resolve(__dirname, item.path)).on('change', function() {
-            clearTimeout(timeout);
-
-            timeout = setTimeout(() => {
-                gulp.run(item.task);
-            }, 300);
-        });
-    });
-});
-
-gulp.task('server', function() {
-    yargs.p = yargs.p || 8080;
-    browserSync.init({
-        server: {
-            baseDir: './dist',
-        },
-        ui: {
-            port: yargs.p + 1,
-            weinre: {
-                port: yargs.p + 2,
-            },
-        },
-        port: yargs.p,
-        startPath: '/example',
-    });
-});
+gulp.task('build', gulp.parallel('build:style', 'build:example'));
 
 gulp.task('tag', function() {
-    const tag = `v${pkg.version}`;
-    exec(`git tag ${tag}`);
+    return new Promise(resolve => {
+        const tag = `v${pkg.version}`;
+        exec(`git tag ${tag}`).then(resolve);
+    });
 });
 
 // 参数说明
 //  -w: 实时监听
 //  -s: 启动服务器
 //  -p: 服务器启动端口，默认8080
-gulp.task('default', ['build'], function() {
-    if (yargs.s) {
-        gulp.start('server');
-    }
+gulp.task('default', gulp.series('build', function() {
+    return new Promise(resolve => {
+        if (yargs.s) {
+            yargs.p = yargs.p || 8080;
+            browserSync.init({
+                server: {
+                    baseDir: './dist',
+                },
+                ui: {
+                    port: yargs.p + 1,
+                    weinre: {
+                        port: yargs.p + 2,
+                    },
+                },
+                port: yargs.p,
+                startPath: '/example',
+            });
+            resolve();
+        }
 
-    if (yargs.w) {
-        gulp.start('watch');
-    }
-});
+        if (yargs.w) {
+            var list = [
+                {
+                    path: 'src/style/**/*',
+                    task: buildStyle,
+                },
+                {
+                    path: 'src/example/**/*.?(png|jpg|gif|js)',
+                    task: buildExampleAssets,
+                },
+                {
+                    path: 'src/example/example.less',
+                    task: buildExampleStyle,
+                },
+                {
+                    path: 'src/example/**/*.html',
+                    task: buildExampleHTML,
+                },
+            ];
+            list.forEach((item) => {
+                var timeout = null;
+                gulp.watch(path.resolve(__dirname, item.path)).on('change', function(path) {
+                    clearTimeout(timeout);
+
+                    console.log(path);
+                    timeout = setTimeout(() => {
+                        item.task();
+                    }, 300);
+                });
+            });
+            resolve();
+        }
+
+        resolve();
+    });
+}));

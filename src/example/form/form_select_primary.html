@@ -11,12 +11,12 @@
             <div class="weui-cell__bd">日期</div>
             <div class="weui-cell__ft"></div>
           </div>
-          <div class="weui-cell weui-cell_active weui-cell_access weui-cell_select weui-cell_select-before">
+          <label for="js_input1" class="weui-cell weui-cell_active weui-cell_access weui-cell_select weui-cell_select-before">
             <div class="weui-cell__hd" id="showPhone"><label class="weui-label">+86</label></div>
             <div class="weui-cell__bd">
-              <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+              <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
             </div>
-          </div>
+          </label>
           <div class="weui-cell weui-cell_active weui-cell_access weui-cell_select weui-cell_select-after">
             <div class="weui-cell__hd"><label class="weui-label">票种</label></div>
             <div class="weui-cell__bd" id="showPicker">的士票</div>
@@ -33,8 +33,8 @@
         <p class="page__desc">多列选择器，需要配合js实现</p>
     </div>
     <div class="page__bd page__bd_spacing">
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showPicker">单列选择器</a>
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showDatePicker">日期选择器</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showPicker">单列选择器</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDatePicker">日期选择器</a>
     </div>
 </div>
 -->

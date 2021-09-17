@@ -72,6 +72,9 @@ body,
     color: var(--weui-FG-0);
 }
 
+.page{
+    outline:0;
+}
 .page__hd {
     padding: 40px;
 }
@@ -120,6 +123,7 @@ body,
     &[class*="form_"],
     &.gallery,
     &[class*="msg_"],
+    &[class*="button_"],
     &.navbar,
     &.tabbar {
         .page__ft {
@@ -243,6 +247,7 @@ body,
         }
       }
       .demo_badge_desc{
+        display:block;
         font-size: 13px; color: #888;
       }
     }
@@ -254,7 +259,7 @@ body,
         padding-bottom: 30px;
     }
     .weui-label {
-        width: 3.1em;
+        width: 3.14em;
     }
 }
 .page.form_page {
@@ -264,7 +269,7 @@ body,
     .weui-cells__group_form {
         .weui-cell_select-before {
             .weui-select {
-                width: 3.1em;
+                width: 3.14em;
             }
         }
     }
@@ -281,12 +286,14 @@ body,
 .page.form_input_status,
 .page.form_select,
 .page.form_select_primary {
-    .weui-label { width: 3.1em; }
+    .weui-label { width: 3.14em; }
 }
-.page.button {
+.page.button,
+.page.button_default {
     background-color: var(--weui-BG-0);
     .weui-btn_mini {
         vertical-align: middle;
+        margin:0 12px;
     }
     .page__bd {
         padding: 0;
@@ -298,6 +305,12 @@ body,
         text-align: center;
         &.cell { padding: 15px 0; }
     }
+}
+.page.button_bottom_fixed{
+  background-color: var(--weui-BG-2);
+  .weui-bottom-fixed-opr-demo{
+    padding:32px 32px 0;
+  }
 }
 
 .page.cell {
@@ -369,7 +382,7 @@ body,
         padding: 0 10px;
         background-color: var(--weui-BG-1);
         height: 2.3em;
-        line-height: 2.3em;
+        line-height: 2.3;
         text-align: center;
         color: var(--weui-FG-1);
     }
@@ -513,6 +526,13 @@ body,
 
 .page.gallery {
     overflow: hidden;
+}
+
+.page.tabbar ,
+.page.navbar {
+  .weui-tab__panel{
+    padding:32px;
+  }
 }
 
 .weui-half-screen-dialog {
