@@ -31,6 +31,8 @@
     padding: 0 24px;
     padding: 0 calc(24px ~"+ constant(safe-area-inset-right)") constant(safe-area-inset-bottom) calc(24px ~"+ constant(safe-area-inset-left)");
     padding: 0 calc(24px ~"+ env(safe-area-inset-right)") env(safe-area-inset-bottom) calc(24px ~"+ env(safe-area-inset-left)");
+    display:flex;
+    flex-direction:column;
 
     @media only screen and (max-height: 558px) {
         max-height: none;
@@ -41,6 +43,7 @@
     height: 8em;
     display: flex;
     align-items: center;
+    flex-shrink:0;
 
     .weui-icon-btn {
         position: absolute;
@@ -81,9 +84,13 @@
 }
 
 .weui-half-screen-dialog__bd {
-    .hyphens();
-
+    flex:1;
+    min-height:0;
     overflow-y: auto;
+    display:flex;
+    flex-direction:column;
+
+    .hyphens();
     padding-top: 4px;
     padding-bottom: 56px;
     font-size: 14px;
@@ -104,12 +111,15 @@
 .weui-half-screen-dialog__ft {
     padding: 0 0 64px;
     text-align: center;
+    .weui-btn{
+        width: @weuiBtnWidth;
+        padding-left:16px;
+        padding-right:16px;
+    }
     .weui-btn:nth-last-child(n+2),
     .weui-btn:nth-last-child(n+2) + .weui-btn {
-        display: inline-block;
-        vertical-align: top;
         margin: 0 8px;
-        width: 120px;
+        width: 136px;
         &:first-child{
           margin-left:0;
         }
@@ -119,9 +129,12 @@
     }
 }
 .weui-half-screen-dialog__btn-area{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &+.weui-half-screen-dialog__attachment-area{
     margin-top:24px;
-    margin-bottom:-44px;
+    margin-bottom:-34px;
   }
 }
 .weui-icon-btn {
@@ -132,6 +145,8 @@
     background-color: transparent;
     color: var(--weui-FG-0);
     font-size: 0;
+    width:auto;
+    height:auto;
 }
 .weui-icon-more {
     display: inline-block;
@@ -166,3 +181,4 @@
     mask-size: cover;
     background-color: currentColor;
 }
+

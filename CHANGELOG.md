@@ -1,3 +1,21 @@
+### v2.5.0 (2021-09-17)
+
+#### Features
+* feat: WeUI组件库适配无障碍
+* feat: WeUI组件库适配大字号
+* feat: 新增无障碍、热区工具类(见`/style/base/a11y.less`)
+* feat: 按钮组件UI升级：高度、圆角属性
+* feat: 新增底部悬浮按钮
+* feat: 统一各平台组件样式（涉及dialog、actionsheet）
+* feat: 构建支持Node.js 12+的环境
+
+#### Bugfixes
+* fix: msg组件extra-area新增水平间距
+* fix: 修复toast文字场景默认宽度问题
+
+
+
+
 ### v2.4.4 (2021-03-23)
 
 #### Features

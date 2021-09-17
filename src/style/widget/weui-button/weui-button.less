@@ -22,6 +22,7 @@
 @import "weui-btn_disabled";
 @import "weui-btn_loading";
 @import "weui-btn_cell";
+@import "weui-btn_bottom-fixed";
 
 button,
 input {
@@ -42,10 +43,21 @@ input {
 .weui-btn_mini {
     display: inline-block;
     width: auto;
-    padding: 0 unit(12px/@weuiBtnMiniFontSize, em);
+    padding: 0 12px;
     line-height: unit(@weuiBtnMiniHeight/@weuiBtnMiniFontSize);
     font-size: @weuiBtnMiniFontSize;
+    border-radius:6px;
 }
+
+.weui-btn_xmini{
+  display: inline-block;
+  width: auto;
+  padding: 0 12px;
+  line-height: 2;
+  font-size: 14px;
+  border-radius:2.8px;
+}
+
 
 
 /* gap between btn */

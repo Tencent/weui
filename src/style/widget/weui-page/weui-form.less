@@ -43,21 +43,34 @@
 }
 .weui-form__control-area {
     flex: 1;
-    margin: 48px 0;
-}
-.weui-form__tips-area {
-    overflow: hidden;
+    margin: 48px 0 40px;
 }
 .weui-form__tips-area,
 .weui-form__extra-area {
     margin-bottom: 24px;
+    padding: 0 32px;
     text-align: center;
 }
+.weui-form__extra-area {
+  margin-top:52px;
+}
 .weui-form__opr-area {
-    margin-bottom: 64px;
+    padding: 0 32px;
     &:last-child {
         margin-bottom: 96px;
     }
+    & + .weui-form__tips-area{
+      margin-top:16px;
+      margin-bottom:0;
+    }
+}
+.weui-form__tips-area{
+  & + .weui-form__extra-area {
+    margin-top:32px;
+  }
+  &:last-child{
+    margin-bottom: 60px;
+  }
 }
 .weui-form__title {
     font-size: 22px;

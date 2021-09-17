@@ -8,58 +8,58 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错：置顶tipsbar报错信息</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_active" id="js_cell">
-            <div class="weui-cell__hd"><label class="weui-label">卡号</label></div>
+          <label for="js_input1" class="weui-cell weui-cell_active" id="js_cell">
+            <div class="weui-cell__hd"><span class="weui-label">卡号</span></div>
             <div class="weui-cell__bd weui-flex">
-                <input id="js_input" class="weui-input" autofocus type="text" pattern="[0-9]*" placeholder="请输入16位数卡号" maxlength="16" />
+                <input id="js_input1" class="weui-input" type="text" pattern="[0-9]*" placeholder="请输入16位数卡号" maxlength="16" />
                 <button id="js_input_clear" class="weui-btn_reset weui-btn_icon weui-btn_input-clear">
                   <i class="weui-icon-clear"></i>
                 </button>
             </div>
-          </div>
-          <div class="weui-cell weui-cell_active">
-            <div class="weui-cell__hd"><label class="weui-label">持卡人</label></div>
+          </label>
+          <label for="js_input2" class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><span class="weui-label">持卡人</span></div>
             <div class="weui-cell__bd weui-flex">
-                <input class="weui-input" type="text" placeholder="请输入持卡人姓名" />
+                <input id="js_input2" class="weui-input" type="text" placeholder="请输入持卡人姓名" />
             </div>
-          </div>
+          </label>
         </div>
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错：当前项位置报错</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_active">
-            <div class="weui-cell__hd"><label class="weui-label">金额</label></div>
+          <label for="js_current_input" class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><span class="weui-label">金额</span></div>
             <div class="weui-cell__bd weui-flex">
                 <input id="js_current_input" class="weui-input" type="text" placeholder="请输入金额" />
             </div>
-          </div>
+          </label>
         </div>
-        <div id="js_current_tips" style="display:none;" class="weui-cells__tips weui-cells__tips_warn">最多支持8位数</div>
+        <div role="alert" id="js_current_tips" style="display:none;" class="weui-cells__tips weui-cells__tips_warn">最多支持8位数</div>
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单只读、置灰</div>
         <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_active weui-cell_readonly">
-            <div class="weui-cell__hd"><label class="weui-label">EMail</label></div>
+          <label for="js_input3" class="weui-cell weui-cell_active weui-cell_readonly">
+            <div class="weui-cell__hd"><span class="weui-label">EMail</span></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" placeholder="请输入EMail" value="1234567" readonly/>
+                <input id="js_input3" class="weui-input" placeholder="请输入EMail" value="1234567" readonly/>
             </div>
-          </div>
-          <div class="weui-cell weui-cell_active weui-cell_disabled">
-            <div class="weui-cell__hd"><label class="weui-label">微信号</label></div>
+          </label>
+          <label for="js_input4" class="weui-cell weui-cell_active weui-cell_disabled">
+            <div class="weui-cell__hd"><span class="weui-label">微信号</span></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" placeholder="请输入微信号" value="WeUI" disabled/>
+                <input id="js_input4" class="weui-input" placeholder="请输入微信号" value="WeUI" disabled/>
             </div>
-          </div>
+          </label>
         </div>
       </div>
     </div>
     <div class="weui-form__opr-area">
-      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+      <a role="button" aria-disabled="true" disabled class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
     </div>
   </div>
-  <div id="js_toast" style="display: none;">
+  <div role="alert" id="js_toast" style="display: none;">
       <div class="weui-mask_transparent"></div>
       <div class="weui-toast">
           <i class="weui-icon-success-no-circle weui-icon_toast"></i>
@@ -72,7 +72,7 @@
     $(function(){
       var $tooltips = $('.js_tooltips');
       var $toast = $('#js_toast');
-      var $input = $('#js_input');
+      var $input = $('#js_input1');
       var $inputClear = $('#js_input_clear');
       var $cell = $('#js_cell');
       var $currentInput = $('#js_current_input');
@@ -84,8 +84,12 @@
         }
         if ($value){
           $('#showTooltips').removeClass('weui-btn_disabled');
+          $('#showTooltips').removeAttr('disabled');
+          $('#showTooltips').attr('aria-disabled','false');
         }else{
           $('#showTooltips').addClass('weui-btn_disabled');
+          $('#showTooltips').addAttr('disabled');
+          $('#showTooltips').attr('aria-disabled','true');
         }
       });
       $currentInput.on('input', function(){
@@ -113,8 +117,10 @@
             }, 2000);
           }else{
             $toast.fadeIn(100);
+            $toast.attr('aria-live','assertive');
             setTimeout(function () {
               $toast.fadeOut(100);
+              $toast.attr('aria-live','off');
             }, 2000);
           }
       });

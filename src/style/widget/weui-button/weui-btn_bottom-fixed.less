@@ -1,0 +1,94 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+@weuiBottomFixedOprMaskHeight:80px;
+
+.weui-bottom-fixed-opr-page{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.weui-bottom-fixed-opr-page__content{
+  min-height:0;
+  flex:1;
+  padding-bottom:@weuiBottomFixedOprMaskHeight;
+  box-sizing:border-box;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.weui-bottom-fixed-opr{
+  padding:16px 32px 24px;
+  padding:16px calc(32px ~"+ constant(safe-area-inset-right)") calc(24px ~"+ constant(safe-area-inset-bottom)") calc(32px ~"+ constant(safe-area-inset-left)");
+  padding:16px calc(32px ~"+ env(safe-area-inset-right)") calc(24px ~"+ env(safe-area-inset-bottom)") calc(32px ~"+ env(safe-area-inset-left)");
+  background:rgba(255,255,255,1);
+  position:relative;
+  &:before{
+    content:"";
+    height:@weuiBottomFixedOprMaskHeight;
+    background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+    position:absolute;
+    bottom:~"calc(100% - 1px)";
+    left:0;
+    right:0;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.weui-bottom-fixed-opr{
+  .dark({
+    background:rgba(25,25,25,1);
+  });
+  &:before{
+    .dark({
+      background: linear-gradient(to top, rgba(25,25,25,1), rgba(25,25,25,0));
+    });
+  }
+}
+
+.weui-half-screen-dialog{
+  &.weui-half-screen-dialog_bottom-fixed{
+    padding:0;
+    .weui-half-screen-dialog__hd{
+      padding:0 24px;
+      padding:0 calc(24px ~"+ constant(safe-area-inset-right)") 0 calc(24px ~"+ constant(safe-area-inset-left)");
+      padding:0 calc(24px ~"+ env(safe-area-inset-right)") 0 calc(24px ~"+ env(safe-area-inset-left)");
+    }
+    .weui-half-screen-dialog__bd{
+      padding-bottom:64px;
+    }
+    .weui-half-screen-dialog__ft{
+      padding:0 24px 64px;
+      padding:0 calc(24px ~"+ constant(safe-area-inset-right)") 64px calc(24px ~"+ constant(safe-area-inset-left)");
+      padding:0 calc(24px ~"+ env(safe-area-inset-right)") 64px calc(24px ~"+ env(safe-area-inset-left)");
+    }
+    .weui-bottom-fixed-opr-page__content{
+      padding:0 24px;
+      padding:0 calc(24px ~"+ constant(safe-area-inset-right)") 0 calc(24px ~"+ constant(safe-area-inset-left)");
+      padding:0 calc(24px ~"+ env(safe-area-inset-right)") 0 calc(24px ~"+ env(safe-area-inset-left)");
+    }
+
+    .weui-bottom-fixed-opr-page{
+      flex:1;
+      min-height:0;
+      .weui-bottom-fixed-opr{
+        padding:16px 0 0;
+      }
+    }
+  }
+}
+

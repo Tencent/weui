@@ -52,8 +52,11 @@
     margin-top: -0.2em;
 }
 .weui-agree__checkbox-check { // 兼容小程序
+    opacity:0;
     position: absolute;
-    left: -9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
 }
 .weui-agree__checkbox:checked,
 .weui-agree__checkbox-check[aria-checked="true"] + .weui-agree__checkbox {

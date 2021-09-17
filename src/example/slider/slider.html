@@ -7,7 +7,7 @@
         <div class="weui-slider">
             <div class="weui-slider__inner">
                 <div style="width: 0;" class="weui-slider__track"></div>
-                <div style="left: 0;" class="weui-slider__handler"></div>
+                <div role="slider" aria-label="不可调滑块" style="left: 0;" class="weui-slider__handler weui-wa-hotarea"></div>
             </div>
         </div>
         <br>
@@ -15,10 +15,10 @@
             <div class="weui-slider">
                 <div id="sliderInner" class="weui-slider__inner">
                     <div id="sliderTrack" style="width: 50%;" class="weui-slider__track"></div>
-                    <div id="sliderHandler" style="left: 50%;" class="weui-slider__handler"></div>
+                    <div role="slider" aria-label="可调滑块" id="sliderHandler" style="left: 50%;" class="weui-slider__handler weui-wa-hotarea"></div>
                 </div>
             </div>
-            <div id="sliderValue" class="weui-slider-box__value">50</div>
+            <div id="sliderValue" role="alert" class="weui-slider-box__value">50</div>
         </div>
     </div>
 </div>

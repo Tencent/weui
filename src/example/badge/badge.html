@@ -3,50 +3,53 @@
         <h1 class="page__title">Badge</h1>
         <p class="page__desc">徽章</p>
     </div>
+
     <div class="page__bd">
         <div class="weui-cells__title">新消息提示跟摘要信息后，统一在列表右侧</div>
         <div class="weui-cells">
-            <div class="weui-cell weui-cell_active weui-cell_access">
-                <div class="weui-cell__bd">单行列表</div>
-                <div class="weui-cell__ft" style="font-size: 0;">
-                    <span class="demo_badge_tips">详细信息</span>
-                    <span class="weui-badge weui-badge_dot"></span>
+            <div role="link" aria-labelledby="js_cell_l1_bd js_cell_l1_tips" aria-describedby="js_cell_l1_note" class="weui-cell weui-cell_active weui-cell_access">
+                <div aria-hidden="true" class="weui-cell__bd" id="js_cell_l1_bd">单行列表</div>
+                <div aria-hidden="true" class="weui-cell__ft" id="js_cell_l1_bd" style="font-size: 0;">
+                    <span class="demo_badge_tips" id="js_cell_l1_tips">详细信息</span>
+                    <span id="js_cell_l1_note" aria-label="，有更新" class="weui-badge weui-badge_dot"></span>
                 </div>
             </div>
         </div>
 
         <div class="weui-cells__title">未读数红点跟在主题信息后，统一在列表左侧</div>
         <div class="weui-cells demo_badge_cells">
-            <div class="weui-cell weui-cell_active">
-                <div class="weui-cell__hd">
-                    <img src="images/pic_160.png">
-                    <span class="weui-badge">8</span>
+            <div role="option" aria-labelledby="b1_txt1" aria-describedby="b1_n1" class="weui-cell weui-cell_active">
+                <div class="weui-cell__hd" aria-hidden="true">
+                    <img src="images/pic_160.png" alt="">
+                    <span id="b1_n1" class="weui-badge" aria-label="，8个新通知">8</span>
                 </div>
-                <div class="weui-cell__bd">
-                    <p>联系人名称</p>
-                    <p class="demo_badge_desc">摘要信息</p>
+                <div class="weui-cell__bd" aria-hidden="true" id="b1_txt1">
+                    <span>联系人名称</span>
+                    <div class="demo_badge_desc">摘要信息</div>
                 </div>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_access">
-                <div class="weui-cell__bd">
-                    <span class="demo_badge_title">单行列表</span>
-                    <span class="weui-badge">8</span>
-                </div>
-                <div class="weui-cell__ft"></div>
+            <div role="link" aria-labelledby="b2_n1" aria-describedby="b2_txt2" class="weui-cell weui-cell_active weui-cell_access">
+                <span class="weui-cell__bd" aria-hidden="true">
+                    <span class="demo_badge_title" id="b2_n1">单行列表</span>
+                    <span class="weui-badge" id="b2_txt2" aria-label="，8个新通知">8</span>
+                </span>
+                <span class="weui-cell__ft" aria-hidden="true"></span>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_access">
-                <div class="weui-cell__bd">
-                    <span class="demo_badge_title">单行列表</span>
-                    <span class="weui-badge">8</span>
-                </div>
-                <div class="weui-cell__ft">详细信息</div>
+            <div role="link" aria-labelledby="b3_n1 b3_n2" aria-describedby="b3_txt1 b3_txt1_note" class="weui-cell weui-cell_active weui-cell_access">
+                <span class="weui-cell__bd" aria-hidden="true">
+                    <span class="demo_badge_title" id="b3_n1">单行列表</span>
+                    <span class="weui-badge" id="b3_txt1" aria-label="">8</span>
+                    <span id="b3_txt1_note" class="weui-hidden_abs">个新通知，</span>
+                </span>
+                <span class="weui-cell__ft" aria-hidden="true" id="b3_n2">详细信息</span>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_access">
-                <div class="weui-cell__bd">
-                    <span class="demo_badge_title">单行列表</span>
-                    <span class="weui-badge">New</span>
-                </div>
-                <div class="weui-cell__ft"></div>
+
+            <div role="link" aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access">
+                <span class="weui-cell__bd" aria-hidden="true">
+                    <span id="js_a11y_nt" class="demo_badge_title">单行列表</span>
+                    <span id="js_a11y_nb" class="weui-badge">New</span>
+                </span>
+                <span class="weui-cell__ft" aria-hidden="true"></span>
             </div>
         </div>
     </div>

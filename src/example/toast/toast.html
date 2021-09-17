@@ -4,15 +4,15 @@
         <p class="page__desc">弹出式提示</p>
     </div>
     <div class="page__bd page__bd_spacing">
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showTextMoreToast">长文案提示</a>
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
-        <a href="javascript:" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showTextMoreToast">长文案提示</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
     </div>
 
     <!--BEGIN toast-->
-    <div id="toast" style="display: none;">
+    <div role="alert" id="toast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
             <i class="weui-icon-success-no-circle weui-icon_toast"></i>
@@ -21,7 +21,7 @@
     </div>
 
     <!--BEGIN toast-->
-    <div id="textMoreToast" style="display: none;">
+    <div role="alert" id="textMoreToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast weui-toast_text-more">
             <i class="weui-icon-warn weui-icon_toast"></i>
@@ -30,7 +30,7 @@
     </div>
 
     <!--BEGIN toast-->
-    <div id="warnToast" style="display: none;">
+    <div role="alert" id="warnToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
             <i class="weui-icon-warn weui-icon_toast"></i>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- loading toast -->
-    <div id="loadingToast" style="display: none;">
+    <div role="alert" id="loadingToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast">
             <span class="weui-primary-loading weui-icon_toast">
@@ -50,7 +50,7 @@
     </div>
 
     <!-- text toast -->
-    <div id="textToast" style="display: none;">
+    <div role="alert" id="textToast" style="display: none;">
         <div class="weui-mask_transparent"></div>
         <div class="weui-toast weui-toast_text">
             <p class="weui-toast__content">文字提示</p>
