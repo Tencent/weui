@@ -21,6 +21,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    min-height: 255px;
     max-height: 75%;
     z-index: 5000;
     line-height: 1.4;
@@ -31,19 +32,19 @@
     padding: 0 24px;
     padding: 0 calc(24px ~"+ constant(safe-area-inset-right)") constant(safe-area-inset-bottom) calc(24px ~"+ constant(safe-area-inset-left)");
     padding: 0 calc(24px ~"+ env(safe-area-inset-right)") env(safe-area-inset-bottom) calc(24px ~"+ env(safe-area-inset-left)");
-    display:flex;
-    flex-direction:column;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 
     @media only screen and (max-height: 558px) {
         max-height: none;
     }
 }
 .weui-half-screen-dialog__hd {
-    font-size: 8px;
-    height: 8em;
+    min-height: 64px;
     display: flex;
     align-items: center;
-    flex-shrink:0;
+    flex-shrink: 0;
 
     .weui-icon-btn {
         position: absolute;
@@ -84,13 +85,14 @@
 }
 
 .weui-half-screen-dialog__bd {
-    flex:1;
-    min-height:0;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
     .hyphens();
+
     padding-top: 4px;
     padding-bottom: 56px;
     font-size: 14px;
@@ -111,31 +113,35 @@
 .weui-half-screen-dialog__ft {
     padding: 0 0 64px;
     text-align: center;
-    .weui-btn{
+    .weui-btn {
         width: @weuiBtnWidth;
-        padding-left:16px;
-        padding-right:16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
     .weui-btn:nth-last-child(n+2),
     .weui-btn:nth-last-child(n+2) + .weui-btn {
         margin: 0 8px;
         width: 136px;
-        &:first-child{
-          margin-left:0;
+        &:first-child {
+            margin-left: 0;
         }
-        &:last-child{
-          margin-right:0;
+        &:last-child {
+            margin-right: 0;
         }
     }
 }
-.weui-half-screen-dialog__btn-area{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &+.weui-half-screen-dialog__attachment-area{
-    margin-top:24px;
-    margin-bottom:-34px;
-  }
+.weui-half-screen-dialog__btn-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & + .weui-half-screen-dialog__attachment-area {
+        margin-top: 24px;
+        margin-bottom: -34px;
+    }
+}
+.weui-half-screen-dialog_large {
+    max-height: none;
+    top: 16px;
 }
 .weui-icon-btn {
     outline: 0;
@@ -145,8 +151,8 @@
     background-color: transparent;
     color: var(--weui-FG-0);
     font-size: 0;
-    width:auto;
-    height:auto;
+    width: auto;
+    height: auto;
 }
 .weui-icon-more {
     display: inline-block;

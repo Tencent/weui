@@ -1,3 +1,13 @@
+### v2.5.1 (2021-10-11)
+
+#### Features
+* feat: 新增关怀模式色板
+* feat: 半屏弹窗组件UI升级
+* feat: 升级按钮loading UI
+* feat: msg组件标题字重调整
+* feat: article新增无障碍整合焦点例子
+
+
 ### v2.5.0 (2021-09-17)
 
 #### Features

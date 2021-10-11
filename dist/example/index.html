@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style/weui.css"/>
     <link rel="stylesheet" href="./example.css"/>
 </head>
-<body ontouchstart>
+<body ontouchstart data-weui-mode="care" >
     <span aria-hidden="true" id="js_a11y_comma" class="weui-hidden_abs">，</span>
 
     <div role="alert" class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
@@ -427,8 +427,8 @@
         <p class="page__desc">按钮</p>
     </div>
     <div class="page__bd">
-        <a href="#button_default" role="button" class="weui-btn weui-btn_default">普通按钮</a>
-        <a href="#button_bottom_fixed" role="button" class="weui-btn weui-btn_default">底部悬浮按钮</a>
+        <a href="#button_default" role="button" class="weui-btn weui-btn_default">普通型</a>
+        <a href="#button_bottom_fixed" role="button" class="weui-btn weui-btn_default">底部悬浮型</a>
     </div>
 </div>
 
@@ -974,7 +974,7 @@
             </div>
           </label>
         </div>
-        <div role="alert" id="js_current_tips" style="display:none;" class="weui-cells__tips weui-cells__tips_warn">最多支持8位数</div>
+        <div role="alert" id="js_current_tips" style="display: none;" class="weui-cells__tips weui-cells__tips_warn">最多支持8位数</div>
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单只读、置灰</div>
@@ -1985,11 +1985,11 @@
         </div>
         <div class="js_dialog" aria-labelledby="弹窗标题" role="dialog" aria-modal="false" aria-hidden="true" id="iosDialog3" style="display: none;">
             <div id="close3" aria-label="关闭" role="button" class="weui-mask"></div>
-            <div id="js_dialog_3" class="weui-half-screen-dialog">
+            <div id="js_dialog_3" class="weui-half-screen-dialog weui-half-screen-dialog_large">
                 <div class="weui-half-screen-dialog__hd">
                   <div class="weui-half-screen-dialog__hd__main">
-                    <div class="weui-flex" style="align-items:center;font-size:14px;">
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 24px; margin-right: 8px; border-radius:50%;display: block;">
+                    <div class="weui-flex" style="align-items: center; font-size: 14px;">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 24px; margin-right: 8px; border-radius: 50%; display: block;">
                       昵称
                     </div>
                   </div>
@@ -2369,11 +2369,12 @@
                 <h2 class="title">章标题</h2>
                 <section>
                     <h3>1.1 节标题</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
+                    <p class="weui-a11y-combo">
+                      <input class="weui-a11y-combo__helper" aria-labelledby="txt1 txt2" type="text" readonly role="option" >
+                      <span id="txt1" class="weui-a11y-combo__content" aria-hidden="true">
+                        Ipsum cum soluta laudantium aperiam rem? Accusamus nostrum itaque sint?
+                      </span>
+                      <a id="txt2" class="weui-a11y-combo__content weui-link weui-wa-hotarea " href="#">read more</a>
                     </p>
                     <p>
                         <img src="./images/pic_article.png" alt="配图">
@@ -2411,8 +2412,8 @@
                 </div>
             </div>
             <div role="tabpanel" id="panel1" aria-labelledby="tab1" class="weui-tab__panel">Sit sit quibusdam assumenda facilis magnam temporibus? Molestiae qui ad accusantium minus mollitia Esse maiores voluptates suscipit fugit veritatis numquam repellat omnis. Dolores facilis deleniti reiciendis ea beatae Quaerat soluta</div>
-            <div style="display:none" role="tabpanel" id="panel2" aria-labelledby="tab2" class="weui-tab__panel">Consectetur neque facere modi recusandae tempore. Sit repellendus qui voluptatibus voluptas porro perspiciatis. Incidunt iusto soluta esse ipsum ex. Consectetur blanditiis dolor facere dignissimos minus quam libero? Nemo voluptas aperiam?</div>
-            <div style="display:none" role="tabpanel" id="panel3" aria-labelledby="tab3" class="weui-tab__panel">Dolor magnam expedita ex beatae maiores assumenda Doloribus et totam numquam officiis beatae Sint eos saepe magnam error aut Doloremque necessitatibus eligendi quod fuga debitis. Error ad optio repellendus amet.</div>
+            <div style="display: none;" role="tabpanel" id="panel2" aria-labelledby="tab2" class="weui-tab__panel">Consectetur neque facere modi recusandae tempore. Sit repellendus qui voluptatibus voluptas porro perspiciatis. Incidunt iusto soluta esse ipsum ex. Consectetur blanditiis dolor facere dignissimos minus quam libero? Nemo voluptas aperiam?</div>
+            <div style="display: none;" role="tabpanel" id="panel3" aria-labelledby="tab3" class="weui-tab__panel">Dolor magnam expedita ex beatae maiores assumenda Doloribus et totam numquam officiis beatae Sint eos saepe magnam error aut Doloremque necessitatibus eligendi quod fuga debitis. Error ad optio repellendus amet.</div>
         </div>
     </div>
 </div>
@@ -2434,9 +2435,9 @@
     <div class="page__bd" style="height: 100%;">
         <div class="weui-tab">
             <div id="panel1" role="tabpanel" aria-labelledby="tab1" class="weui-tab__panel">Lorem repellat eius consectetur ab pariatur! Facere cum dignissimos sequi error perferendis quis Ipsa reiciendis earum cumque reprehenderit tenetur ab vero modi. Soluta tempore minima tempora quae voluptate! Sunt delectus?</div>
-            <div id="panel2" role="tabpanel" aria-labelledby="tab2" class="weui-tab__panel" style="display:none">Dolor eum rerum magnam voluptatem omnis fuga, dolore libero quibusdam cupiditate Sequi vero rem corrupti hic veritatis Atque exercitationem odit odit ducimus esse, sapiente laborum inventore! Ipsum harum quo minus</div>
-            <div id="panel3" role="tabpanel" aria-labelledby="tab3" class="weui-tab__panel" style="display:none">Elit deserunt dolore nemo harum neque libero numquam, minima nam Atque nesciunt iusto aperiam eligendi praesentium ratione? Quasi iste odio itaque doloribus hic? Est aliquam recusandae dolore ratione quos. Saepe</div>
-            <div id="panel4" role="tabpanel" aria-labelledby="tab4" class="weui-tab__panel" style="display:none">Amet dignissimos doloribus voluptate maxime dolorem quia Deleniti eligendi similique nisi corrupti eius aut Unde nesciunt quos quos sapiente dolorem? Odit soluta repudiandae accusantium ducimus totam accusamus. Rem ad numquam</div>
+            <div id="panel2" role="tabpanel" aria-labelledby="tab2" class="weui-tab__panel" style="display: none;">Dolor eum rerum magnam voluptatem omnis fuga, dolore libero quibusdam cupiditate Sequi vero rem corrupti hic veritatis Atque exercitationem odit odit ducimus esse, sapiente laborum inventore! Ipsum harum quo minus</div>
+            <div id="panel3" role="tabpanel" aria-labelledby="tab3" class="weui-tab__panel" style="display: none;">Elit deserunt dolore nemo harum neque libero numquam, minima nam Atque nesciunt iusto aperiam eligendi praesentium ratione? Quasi iste odio itaque doloribus hic? Est aliquam recusandae dolore ratione quos. Saepe</div>
+            <div id="panel4" role="tabpanel" aria-labelledby="tab4" class="weui-tab__panel" style="display: none;">Amet dignissimos doloribus voluptate maxime dolorem quia Deleniti eligendi similique nisi corrupti eius aut Unde nesciunt quos quos sapiente dolorem? Odit soluta repudiandae accusantium ducimus totam accusamus. Rem ad numquam</div>
             <div role="tablist" aria-label="选项卡标题" class="weui-tabbar">
                 <div id="tab1" role="tab" aria-labelledby="t1_title" aria-describedby="t1_tips" aria-selected="true" aria-controls="panel1" class="weui-tabbar__item weui-bar__item_on">
                     <div id="t1_tips" aria-hidden="true" style="display: inline-block; position: relative;">
@@ -2920,7 +2921,7 @@
         <h1 class="page__title">Gallery</h1>
         <p class="page__desc">画廊，可实现上传图片的展示或幻灯片播放</p>
     </div>
-    <div style="display:none;" role="dialog" aria-labelledby="galleryImg" aria-hidden="true" aria-modal="true" class="weui-gallery" id="gallery">
+    <div style="display: none;" role="dialog" aria-labelledby="galleryImg" aria-hidden="true" aria-modal="true" class="weui-gallery" id="gallery">
         <span id="galleryImg" alt="图片详情" role="img" class="weui-gallery__img" style="background-image: url(./images/pic_article.png);"></span>
         <div class="weui-gallery__opr">
             <a role="button" aria-label="删除" href="javascript:" class="weui-gallery__del">
@@ -3029,7 +3030,7 @@
     <div class="page__hd">
         <h1 class="page__title">Uploader</h1>
         <p id="x123" class="page__desc">
-          <input class="weui-hidden_abs" readonly style="width:1px;height:1px;" aria-labelledby="x123" role="option">
+          <input class="weui-hidden_abs" readonly style="width: 1px; height: 1px;" aria-labelledby="x123" role="option">
           上传组件，一般配合<a class="weui-wa-hotarea link" href="#gallery">组件Gallery</a>来使用。
         </p>
     </div>
@@ -3405,5 +3406,13 @@
     <script type="text/javascript">
       //WAH.default.init()
     </script>
+    <script type="text/javascript">
+      JSAPI.invoke('getUserConfig', {}, function(res) {
+        if (res.isCareMode) {
+          document.body.setAttribute('data-weui-mode','care');
+        }
+      });
+    </script>
+
 </body>
 </html>

@@ -1,4 +1,5 @@
 /* reset */
+/* stylelint-disable */
 @import "../style/base/theme/fn";
 
 html,
@@ -33,7 +34,7 @@ body,
     &.js_show {
         opacity: 1;
     }
-    
+
     &.actionsheet,
     &.dialog,
     &.msg,
@@ -72,8 +73,8 @@ body,
     color: var(--weui-FG-0);
 }
 
-.page{
-    outline:0;
+.page {
+    outline: 0;
 }
 .page__hd {
     padding: 40px;
@@ -223,35 +224,42 @@ body,
 }
 
 .page.badge {
-  .demo_badge_tips{
-    vertical-align: middle; font-size: 17px;
-    &+.weui-badge{
-      margin-left: 5px; margin-right: 5px;
-    }
-  }
-  .demo_badge_cells{
-    .weui-cell__hd{
-      position: relative; margin-right: 10px;
-      img{
-        width: 50px; display: block;
-      }
-      .weui-badge{
-        position: absolute; top: -0.4em; right: -0.4em;
-      }
-    }
-    .weui-cell__bd{
-      .demo_badge_title{
+    .demo_badge_tips {
         vertical-align: middle;
-        &+.weui-badge{
-          margin-left:5px;
+        font-size: 17px;
+        & + .weui-badge {
+            margin-left: 5px;
+            margin-right: 5px;
         }
-      }
-      .demo_badge_desc{
-        display:block;
-        font-size: 13px; color: #888;
-      }
     }
-  }
+    .demo_badge_cells {
+        .weui-cell__hd {
+            position: relative;
+            margin-right: 10px;
+            img {
+                width: 50px;
+                display: block;
+            }
+            .weui-badge {
+                position: absolute;
+                top: -0.4em;
+                right: -0.4em;
+            }
+        }
+        .weui-cell__bd {
+            .demo_badge_title {
+                vertical-align: middle;
+                & + .weui-badge {
+                    margin-left: 5px;
+                }
+            }
+            .demo_badge_desc {
+                display: block;
+                font-size: 13px;
+                color: #888;
+            }
+        }
+    }
 }
 
 .page.form {
@@ -293,7 +301,7 @@ body,
     background-color: var(--weui-BG-0);
     .weui-btn_mini {
         vertical-align: middle;
-        margin:0 12px;
+        margin: 0 12px;
     }
     .page__bd {
         padding: 0;
@@ -306,11 +314,11 @@ body,
         &.cell { padding: 15px 0; }
     }
 }
-.page.button_bottom_fixed{
-  background-color: var(--weui-BG-2);
-  .weui-bottom-fixed-opr-demo{
-    padding:32px 32px 0;
-  }
+.page.button_bottom_fixed {
+    background-color: var(--weui-BG-2);
+    .weui-bottom-fixed-opr-demo {
+        padding: 32px 32px 0;
+    }
 }
 
 .page.cell {
@@ -329,15 +337,15 @@ body,
     .page__bd {
         padding-bottom: 20px;
     }
-    .weui-cell_example{
-      .weui-cell__hd{
-        img{
-          width:20px;
-          height:20px;
-          display:block;
-          margin-right:16px;
+    .weui-cell_example {
+        .weui-cell__hd {
+            img {
+                width: 20px;
+                height: 20px;
+                display: block;
+                margin-right: 16px;
+            }
         }
-      }
     }
 }
 
@@ -528,11 +536,11 @@ body,
     overflow: hidden;
 }
 
-.page.tabbar ,
+.page.tabbar,
 .page.navbar {
-  .weui-tab__panel{
-    padding:32px;
-  }
+    .weui-tab__panel {
+        padding: 32px;
+    }
 }
 
 .weui-half-screen-dialog {
@@ -543,13 +551,14 @@ body,
     transform: translateY(0);
 }
 
-.loading_demo{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  .weui-loading,.weui-primary-loading{
-    margin:0 5px;
-  }
+.loading_demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .weui-loading,
+    .weui-primary-loading {
+        margin: 0 5px;
+    }
 }
 
 /* animation */
