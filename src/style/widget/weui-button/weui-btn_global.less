@@ -32,6 +32,21 @@
     line-height: unit((@weuiBtnHeight - 16) / @weuiBtnFontSize);
     border-radius: @weuiBtnBorderRadius;
     .setTapColor();
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--weui-BTN-ACTIVE-MASK);
+        border-radius: @weuiBtnBorderRadius;
+    }
+    &:not([disabled]):not(.weui-btn_loading):active {
+        &:before {
+            content: "";
+        }
+    }
 }
 .weui-btn_block {
     width: auto;
