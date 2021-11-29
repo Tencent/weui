@@ -55,18 +55,26 @@ input {
     padding: 0 12px;
     line-height: 2;
     font-size: 14px;
+    font-weight:500;
     border-radius: 2.8px;
 }
 
 
 
 /* gap between btn */
-.weui-btn:not(.weui-btn_mini) + .weui-btn:not(.weui-btn_mini) {
-    margin-top: @weuiBtnDefaultGap;
+.weui-btn {
+  &+.weui-btn{
+    margin-top:@weuiBtnDefaultGap;
+  }
+  &.weui-btn_mini + .weui-btn.weui-btn_mini{
+    margin-top:auto;
+  }
+  &.weui-btn_xmini + .weui-btn.weui-btn_xmini{
+    margin-top:auto;
+  }
 }
 
 .weui-btn.weui-btn_inline + .weui-btn.weui-btn_inline {
-    margin-top: auto;
     margin-left: @weuiBtnDefaultGap;
 }
 
@@ -93,6 +101,10 @@ input {
     outline: 0;
 }
 .weui-btn_icon {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    outline: 0;
     font-size: 0;
     &:active {
         [class*="weui-icon-"] {

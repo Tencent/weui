@@ -32,9 +32,22 @@
     .weui-footer__link {
         font-size: 14px;
     }
-    .weui-agree {
-        padding: 0;
+
+    .weui-agree{
+      padding: 0;
+      display: flex;
+      text-align:justify;
+      justify-content: center;
+      .hyphens;
     }
+    .weui-agree__checkbox{
+      flex-shrink: 0;
+      margin-top: 0;
+    }
+    .weui-agree__text{
+      min-width:0;
+    }
+
 }
 .weui-form__text-area {
     padding: 0 32px;

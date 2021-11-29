@@ -26,6 +26,7 @@
     }
 }
 
+.weui-animate_slide-up ,
 .weui-animate-slide-up {
     animation: slideUp ease 0.3s forwards;
 }
@@ -40,6 +41,7 @@
     }
 }
 
+.weui-animate_slide-down ,
 .weui-animate-slide-down {
     animation: slideDown ease 0.3s forwards;
 }
@@ -53,6 +55,7 @@
     }
 }
 
+.weui-animate_fade-in ,
 .weui-animate-fade-in {
     animation: fadeIn ease 0.3s forwards;
 }
@@ -66,6 +69,32 @@
     }
 }
 
+.weui-animate_fade-out ,
 .weui-animate-fade-out {
     animation: fadeOut ease 0.3s forwards;
 }
+
+
+// transition
+//模态弹窗/提示组件通用显示
+.weui-transition{
+  &.weui-mask{
+    transition:opacity .3s, visibility .3s;
+    opacity:0;
+    visibility:hidden;
+  }
+  &.weui-half-screen-dialog{
+    transition:transform .3s;
+    transform:translateY(100%);
+  }
+}
+.weui-transition_show{
+  &.weui-mask{
+    opacity:1;
+    visibility:visible;
+  }
+  &.weui-half-screen-dialog{
+    transform:translateY(0);
+  }
+}
+

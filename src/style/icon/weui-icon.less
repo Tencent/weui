@@ -20,22 +20,17 @@
 
 [class^="weui-icon-"],
 [class*=" weui-icon-"] {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 10px;
-    width: 2.4em;
-    height: 2.4em;
-    mask-position: 50% 50%;
-    mask-repeat: no-repeat;
-    mask-size: 100%;
-    background-color: currentColor;
-
-    // 平滑升级
-    //&:not([class^="weui-icon_"]):not([class*=" weui-icon_"]){
-    //    font-size:14px;
-    //    margin-left: .2em;
-    //    margin-right: .2em;
-    //}
+    && {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 10px;
+        width: 2.4em;
+        height: 2.4em;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        mask-size: 100%;
+        background-color: currentColor;
+    }
 }
 
 
@@ -182,7 +177,9 @@
 .weui-icon-arrow-bold,
 .weui-icon-back-arrow,
 .weui-icon-back-arrow-thin {
+  &&{
     width: 1.2em;
+  }
 }
 .weui-icon-arrow,
 .weui-icon-arrow-bold {
@@ -198,6 +195,7 @@
 }
 
 .weui-icon_msg {
+  &&{
     width: 6.4em;
     height: 6.4em;
     &.weui-icon-warn {
@@ -206,12 +204,15 @@
     &.weui-icon-info-circle {
         color: var(--weui-BLUE);
     }
+  }
 }
 .weui-icon_msg-primary {
+  &&{
     width: 6.4em;
     height: 6.4em;
     &.weui-icon-warn {
         color: var(--weui-YELLOW);
     }
+  }
 }
 

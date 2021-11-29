@@ -46,11 +46,13 @@
     align-items: center;
     flex-shrink: 0;
 
-    .weui-icon-btn {
+    .weui-icon-btn,//兼容老版本
+    .weui-btn_icon {
         position: absolute;
         top: 50%;
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
+        color:inherit;
         &:active { opacity: 0.5; }
     }
 }
@@ -67,7 +69,8 @@
     & + .weui-half-screen-dialog__hd__side {
         right: -8px;
         left: auto;
-        .weui-icon-btn {
+        .weui-icon-btn,//兼容老版本
+        .weui-btn_icon {
             right: 0;
         }
     }
@@ -93,7 +96,6 @@
 
     .hyphens();
 
-    padding-top: 4px;
     padding-bottom: 56px;
     font-size: 14px;
     color: var(--weui-FG-0);
@@ -113,37 +115,34 @@
 .weui-half-screen-dialog__ft {
     padding: 0 0 64px;
     text-align: center;
-    .weui-btn {
-        width: @weuiBtnWidth;
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .weui-btn:nth-last-child(n+2),
-    .weui-btn:nth-last-child(n+2) + .weui-btn {
-        margin: 0 8px;
-        width: 136px;
-        &:first-child {
-            margin-left: 0;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-    }
 }
 .weui-half-screen-dialog__btn-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .weuiBtnWrapLayoutDefault();
+
     & + .weui-half-screen-dialog__attachment-area {
         margin-top: 24px;
         margin-bottom: -34px;
+    }
+}
+.weui-half-screen-dialog_btn-wrap {
+    .weui-half-screen-dialog__btn-area {
+      .weuiBtnWrapLayoutWrap();
     }
 }
 .weui-half-screen-dialog_large {
     max-height: none;
     top: 16px;
 }
+
+
+.weui-icon-more {
+    mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E  %3Cpath fill-opacity='.9' fill-rule='evenodd' d='M5 10.25a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zm7 0a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zm7 0a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+}
+
+
+// 下面是兼容旧版本用的
 .weui-icon-btn {
+  &&{
     outline: 0;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -153,38 +152,22 @@
     font-size: 0;
     width: auto;
     height: auto;
-}
-.weui-icon-more {
-    display: inline-block;
-    vertical-align: middle;
-    width: 24px;
-    height: 24px;
-    mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E  %3Cpath fill-opacity='.9' fill-rule='evenodd' d='M5 10.25a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zm7 0a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zm7 0a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5z'/%3E%3C/svg%3E") no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: currentColor;
-    color: @weuiTextColorTitle;
+  }
 }
 .weui-icon-btn_goback {
+  &&{
     color: @weuiTextColorTitle;
-    display: inline-block;
-    vertical-align: middle;
-    width: 12px;
-    height: 24px;
+    width: 1.2em;
+    height: 2.4em;
     mask: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10%2019.438L8.955%2020.5l-7.666-7.79a1.02%201.02%200%20010-1.42L8.955%203.5%2010%204.563%202.682%2012%2010%2019.438z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: currentColor;
+  }
 }
 .weui-icon-btn_close {
+  &&{
     color: @weuiTextColorTitle;
-    display: inline-block;
-    vertical-align: middle;
-    width: 14px;
-    height: 24px;
+    width: 1.4em;
+    height: 2.4em;
     mask: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12.25%2010.693L6.057%204.5%205%205.557l6.193%206.193L5%2017.943%206.057%2019l6.193-6.193L18.443%2019l1.057-1.057-6.193-6.193L19.5%205.557%2018.443%204.5z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") no-repeat 50% 50%;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: currentColor;
+  }
 }
 

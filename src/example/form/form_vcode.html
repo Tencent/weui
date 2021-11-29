@@ -39,7 +39,7 @@
       </label>
     </div>
     <div class="weui-form__opr-area">
-      <a role="button" aria-disabled="true" disabled class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+      <button class="weui-btn weui-btn_primary" type="button" id="showTooltips">确定</button>
     </div>
   </div>
   <div role="alert" id="js_toast" style="display: none;">
@@ -49,6 +49,7 @@
           <p class="weui-toast__content">已完成</p>
       </div>
   </div>
+  <div role="alert" id="js_agree_msg" class="weui-hidden_abs" style="display: none;">未同意《相关条款》</div>
   <div id="dialogs">
       <!--BEGIN dialog1-->
       <div role="dialog" aria-modal="true" class="js_dialog" id="iosDialog1" style="display: none;">
@@ -84,6 +85,7 @@
       var $input = $('#js_input1');
       var $inputClear = $('#js_input_clear');
       var $agree= $('#weuiAgree');
+      var $agreeMsg= $('#js_agree_msg');
       var $agreeCheckbox = $('#weuiAgreeCheckbox');
       var $iosDialog1 = $('#iosDialog1');
       var $halfScreenDialog = $('#js_half_screen_dialog');
@@ -91,11 +93,9 @@
       $input.on('input', function(){
         var $value = $input.val();
         if ($value){
-          $('#showTooltips').removeClass('weui-btn_disabled');
           $('#showTooltips').removeAttr('disabled');
           $('#showTooltips').attr('aria-disabled','false');
         }else{
-          $('#showTooltips').addClass('weui-btn_disabled');
           $('#showTooltips').addAttr('disabled');
           $('#showTooltips').attr('aria-disabled','true');
         }
@@ -105,7 +105,6 @@
       //});
 
       $('#showTooltips').on('click', function(){
-        if ($(this).hasClass('weui-btn_disabled')) return;
         if ($tooltips.css('display') != 'none') return;
         // toptips的fixed, 如果有`animation`, `position: fixed`不生效
         $('.page.cell').removeClass('slideIn');
@@ -119,9 +118,11 @@
           }, 2000);
         }else{
           $agree.addClass('weui-agree_animate');
+          $agreeMsg.show();
           setTimeout(function () {
-            $agree.removeClass('weui-agree_animate').trigger('focus');
-          }, 1000);
+            $agree.removeClass('weui-agree_animate');
+            $agreeMsg.hide();
+          }, 200);
         }
       });
 

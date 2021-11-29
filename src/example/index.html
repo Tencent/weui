@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style/weui.css"/>
     <link rel="stylesheet" href="./example.css"/>
 </head>
-<body ontouchstart data-weui-mode="care" >
+<body ontouchstart>
     <span aria-hidden="true" id="js_a11y_comma" class="weui-hidden_abs">，</span>
 
     <div role="alert" class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
@@ -79,11 +79,24 @@
       //WAH.default.init()
     </script>
     <script type="text/javascript">
-      JSAPI.invoke('getUserConfig', {}, function(res) {
-        if (res.isCareMode) {
-          document.body.setAttribute('data-weui-mode','care');
+      function wxReady(callback) {
+        if (
+          typeof WeixinJSBridge === 'object' &&
+          typeof window.WeixinJSBridge.invoke === 'function'
+        ) {
+          callback()
+        } else {
+          document.addEventListener('WeixinJSBridgeReady', callback, false)
         }
+      }
+      wxReady(function() {
+        WeixinJSBridge.invoke('getUserConfig', {}, function(res) {
+          if (res.isCareMode) {
+            document.body.setAttribute('data-weui-mode','care');
+          }
+        });
       });
+
     </script>
 
 </body>

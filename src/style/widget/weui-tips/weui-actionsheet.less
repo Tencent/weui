@@ -36,6 +36,8 @@
     position: relative;
     height: 56px;
     padding: 0 24px;
+    padding: 0 calc(24px ~"+ constant(safe-area-inset-right)") 0 calc(24px ~"+ constant(safe-area-inset-left)");
+    padding: 0 calc(24px ~"+ env(safe-area-inset-right)") 0 calc(24px ~"+ env(safe-area-inset-left)");
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -59,12 +61,18 @@
     margin-top: 8px;
     color: @weuiTextColorTitle;
     background-color: var(--weui-BG-2);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
+    .weui-actionsheet__cell {
+      &:last-child{
+        padding-bottom: calc(@weuiCellGapV ~"+ constant(safe-area-inset-bottom)");
+        padding-bottom: calc(@weuiCellGapV ~"+ env(safe-area-inset-bottom)");
+      }
+    }
 }
 .weui-actionsheet__cell {
     position: relative;
     padding: @weuiCellGapV;
+    padding: @weuiCellGapV calc(@weuiCellGapV ~"+ constant(safe-area-inset-right)") @weuiCellGapV calc(@weuiCellGapV ~"+ constant(safe-area-inset-left)");
+    padding: @weuiCellGapV calc(@weuiCellGapV ~"+ env(safe-area-inset-right)") @weuiCellGapV calc(@weuiCellGapV ~"+ env(safe-area-inset-left)");
     text-align: center;
     font-size: 17px;
     line-height: @weuiCellLineHeight;

@@ -1,3 +1,21 @@
+### v2.5.2 (2021-11-29)
+
+#### Features
+* feat: 升级article组件UI
+* feat: 底部悬浮按钮、半屏弹窗按钮支持垂直布局
+* feat: 新增transition模态显示动画
+
+#### Bugfixes
+* fix: 表单组件验证码同意协议复选框优化无障碍体验
+* fix: 调整gallery组件底部安全间距、删除按钮增加点击态
+* fix: actionsheet组件适配刘海屏
+* fix: a11y热区去掉冗余背景声明
+* fix: 修复图标按钮整合
+* fix: 表单同意协议居中布局
+* fix: 提高weui icon组件的选择器权重，用来规避和weui-icon混搭使用的权重问题
+
+
+
 ### v2.5.1 (2021-10-11)
 
 #### Features
