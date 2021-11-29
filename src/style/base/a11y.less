@@ -56,7 +56,6 @@
     min-height: 44px;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0);
 }
 .weui-wa-hotarea-el__wrp,
 .weui-wa-hotarea,
@@ -64,7 +63,8 @@
     position: relative;
 
     // 如果是合法的点击嵌套，例如label[for]里的出现链接，需要把层级提高
-    a {
+    a ,
+    navigator {
         position: relative;
         z-index: 1;
     }

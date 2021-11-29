@@ -14,25 +14,38 @@
 * limitations under the License.
 */
 
-// theme
-@import "./theme/index";
+.weuiBtnWrapLayoutDefault(){
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-// mixin
-@import "./mixin/mobile";
-@import "./mixin/setOnepx";
-@import "./mixin/setArrow";
-@import "./mixin/setLoading";
-@import "./mixin/text";
-@import "./mixin/btnWrapLayout";
+  .weui-btn {
+    width: @weuiBtnWidth;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .weui-btn:nth-last-child(n+2),
+  .weui-btn:nth-last-child(n+2) + .weui-btn {
+    margin: 0 8px;
+    width: 136px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
+}
+.weuiBtnWrapLayoutWrap(){
+  flex-direction: column;
+  .weui-btn:nth-last-child(n+2),
+  .weui-btn:nth-last-child(n+2) + .weui-btn {
+    width: 184px;
+    margin: 16px 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
 
-// variable
-@import "./variable/global";
-@import "./variable/color";
-@import "./variable/weui-tab";
-@import "./variable/weui-cell";
-@import "./variable/weui-button";
-@import "./variable/weui-msg";
-@import "./variable/weui-grid";
-@import "./variable/weui-progress";
-@import "./variable/weui-dialog";

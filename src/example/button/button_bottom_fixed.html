@@ -1,10 +1,52 @@
 <div class="page">
-  <div class="weui-bottom-fixed-opr-page">
+  <div class="weui-bottom-fixed-opr-page" id="js_wrp">
     <div class="weui-bottom-fixed-opr-page__content">
       <div class="weui-bottom-fixed-opr-demo">Dolor tempora dolore aperiam fuga necessitatibus? Odio atque tempora deleniti voluptates voluptatem. Dolorem earum voluptas blanditiis labore quisquam? Quibusdam nesciunt consequatur aliquam ea corrupti animi, itaque consequatur neque? At porroSit nemo aliquid quas error doloremque Reiciendis ratione repellendus quae sit commodi amet architecto? Aut officiis aliquam fugit nulla at necessitatibus Optio totam quibusdam laboriosam aperiam libero! Officiis reiciendis Elit quaerat sed vero perferendis architecto consequatur. Consequuntur ad illum dolore ut accusamus. Cum possimus odit sequi quaerat beatae, eveniet. Rerum dolore ipsam quia consectetur iste Veniam mollitia dolores tempore? Dolor tempora dolore aperiam fuga necessitatibus? Odio atque tempora deleniti voluptates voluptatem. Dolorem earum voluptas blanditiis labore quisquam? Quibusdam nesciunt consequatur aliquam ea corrupti animi, itaque consequatur neque? At porroSit nemo aliquid quas error doloremque Reiciendis ratione repellendus quae sit commodi amet architecto? Aut officiis aliquam fugit nulla at necessitatibus Optio totam quibusdam laboriosam aperiam libero! Officiis reiciendis Elit quaerat sed vero perferendis architecto consequatur. Consequuntur ad illum dolore ut accusamus. Cum possimus odit sequi quaerat beatae, eveniet. Rerum dolore ipsam quia consectetur iste Veniam mollitia dolores tempore? </div>
     </div>
-    <div class="weui-bottom-fixed-opr">
-      <a href="javascript:;" role="button" class="weui-btn weui-btn_primary">完成</a>
+    <div class="weui-bottom-fixed-opr" id="js_opr">
+      <a href="javascript:;" role="button" class="weui-btn weui-btn_primary" id="js_btn">阅读并同意</a>
+      <a href="javascript:;" role="button" class="weui-btn weui-btn_default">取消</a>
     </div>
   </div>
+  <script type="text/javascript">
+    var btn = document.getElementById('js_btn');
+    var wrp = document.getElementById('js_wrp');
+    const btnHeight = 48;
+
+    try {
+      document.body.style.webkitTextSizeAdjust = JSON.parse(window.__wxWebEnv.getEnv()).fontScale + '%';
+    } catch (e) {
+      console.warn(e);
+    }
+    wrp.style.visibility = 'hidden';
+
+    window.addEventListener('switched', function (e) {
+      if(btn.offsetHeight > 48){
+        wrp.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
+      }
+      wrp.style.visibility = 'visible';
+    });
+
+    function wxReady(callback) {
+      if (
+        typeof WeixinJSBridge === 'object' &&
+        typeof window.WeixinJSBridge.invoke === 'function'
+      ) {
+        callback()
+      } else {
+        document.addEventListener('WeixinJSBridgeReady', callback, false)
+      }
+    }
+    wxReady(function() {
+      WeixinJSBridge.on('menu:setfont', function(res){
+        document.body.style.webkitTextSizeAdjust = res.fontScale + '%';
+        if(btn.offsetHeight > 48){
+          wrp.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
+        }else{
+          wrp.classList.remove('weui-bottom-fixed-opr-page_btn-wrap');
+        }
+      });
+    });
+  </script>
+
 </div>

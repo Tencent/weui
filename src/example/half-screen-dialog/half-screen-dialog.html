@@ -4,18 +4,19 @@
         <p class="page__desc">半屏组件</p>
     </div>
     <div class="page__bd page__bd_spacing">
-        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog1">样式一</a>
-        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog2">样式二</a>
-        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog3">样式三</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog1">样式一</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog2">样式二</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog3">样式三</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog4">样式四</a>
     </div>
 
     <div id="dialogs">
-        <div class="js_dialog" aria-labelledby="js_title1" role="dialog" aria-modal="false" aria-hidden="true" id="iosDialog1" style="display: none;">
-            <div id="mask1" class="weui-mask"></div>
-            <div id="js_dialog_1" class="weui-half-screen-dialog">
+        <div id="dialogWrap1" class="js_dialog_wrap" ref="showDialog1" aria-labelledby="js_title1" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
+            <div id="mask1" class="js_close weui-mask"></div>
+            <div id="js_dialog_1" class="js_dialog weui-half-screen-dialog">
                 <div class="weui-half-screen-dialog__hd">
                   <div class="weui-half-screen-dialog__hd__side">
-                    <button id="close1" class="weui-icon-btn weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
+                    <button class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
                   </div>
                   <div class="weui-half-screen-dialog__hd__main">
                     <strong class="weui-half-screen-dialog__title" id="js_title1">标题</strong>
@@ -33,23 +34,23 @@
                 </div>
             </div>
         </div>
-        <div class="js_dialog" aria-labelledby="js_title2" role="dialog" aria-modal="false" aria-hidden="true" id="iosDialog2" style="display: none;">
-            <div id="mask2" class="weui-mask"></div>
-            <div id="js_dialog_2" class="weui-half-screen-dialog weui-half-screen-dialog_bottom-fixed">
+        <div id="dialogWrap2" class="js_dialog_wrap" ref="showDialog2" aria-labelledby="js_title2" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
+            <div id="mask2" class="js_close weui-mask"></div>
+            <div id="js_dialog_2" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_bottom-fixed">
               <div class="weui-half-screen-dialog__hd">
                 <div class="weui-half-screen-dialog__hd__side">
-                  <button style="display: none;" class="weui-icon-btn weui-wa-hotarea">返回<i class="weui-icon-back-arrow-thin"></i></button>
-                  <button id="close2" id="closeBtn" class="weui-icon-btn weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
+                  <button style="display: none;" class="weui-btn_icon weui-wa-hotarea">返回<i class="weui-icon-back-arrow-thin"></i></button>
+                  <button class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
                 </div>
                 <div class="weui-half-screen-dialog__hd__main">
                   <strong class="weui-half-screen-dialog__title" id="js_title2">标题</strong>
                 </div>
                 <div class="weui-half-screen-dialog__hd__side">
-                  <button class="weui-icon-btn weui-wa-hotarea">更多<i class="weui-icon-more"></i></button>
+                  <button class="weui-btn_icon weui-wa-hotarea">更多<i class="weui-icon-more"></i></button>
                 </div>
               </div>
               <div class="weui-half-screen-dialog__bd">
-                <div class="weui-bottom-fixed-opr-page">
+                <div class="weui-bottom-fixed-opr-page" id="js_wrap_wrp">
                   <div class="weui-bottom-fixed-opr-page__content">
                     <p class="weui-half-screen-dialog__desc">
                     辅助描述内容，可根据实际需要安排
@@ -64,15 +65,16 @@
                     </p>
                   </div>
                   <div class="weui-bottom-fixed-opr">
-                    <a href="javascript:;" role="button" class="weui-btn weui-btn_primary">完成</a>
+                    <a href="javascript:;" role="button" id="js_wrap_btn" class="js_close weui-btn weui-btn_primary">同意并完成</a>
+                    <a href="javascript:;" role="button" class="js_close weui-btn weui-btn_default">取消</a>
                   </div>
                 </div>
               </div>
             </div>
         </div>
-        <div class="js_dialog" aria-labelledby="弹窗标题" role="dialog" aria-modal="false" aria-hidden="true" id="iosDialog3" style="display: none;">
-            <div id="close3" aria-label="关闭" role="button" class="weui-mask"></div>
-            <div id="js_dialog_3" class="weui-half-screen-dialog weui-half-screen-dialog_large">
+        <div id="dialogWrap3" class="js_dialog_wrap" ref="showDialog3" aria-label="弹窗标题" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
+            <div aria-label="关闭" role="button" class="js_close weui-mask"></div>
+            <div id="js_dialog_3" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_large">
                 <div class="weui-half-screen-dialog__hd">
                   <div class="weui-half-screen-dialog__hd__main">
                     <div class="weui-flex" style="align-items: center; font-size: 14px;">
@@ -88,8 +90,35 @@
                 </div>
                 <div class="weui-half-screen-dialog__ft">
                   <div class="weui-half-screen-dialog__btn-area">
-                    <a href="javascript:" class="weui-btn weui-btn_default">次要操作</a>
-                    <a href="javascript:" class="weui-btn weui-btn_primary">主要操作</a>
+                    <a href="javascript:" class="js_close weui-btn weui-btn_default">次要操作</a>
+                    <a href="javascript:" class="js_close weui-btn weui-btn_primary">主要操作</a>
+                  </div>
+                  <div class="weui-half-screen-dialog__attachment-area">
+                    <a class="weui-link" href="javacript:;">附加操作</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialogWrap4" class="js_dialog_wrap" ref="showDialog4" aria-label="弹窗标题" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
+            <div aria-label="关闭" role="button" class="js_close weui-mask"></div>
+            <div id="js_dialog_4" class="js_dialog weui-half-screen-dialog">
+                <div class="weui-half-screen-dialog__hd">
+                  <div class="weui-half-screen-dialog__hd__main">
+                    <div class="weui-flex" style="align-items: center; font-size: 14px;">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width: 24px; margin-right: 8px; border-radius: 50%; display: block;">
+                      昵称
+                    </div>
+                  </div>
+                </div>
+                <div class="weui-half-screen-dialog__bd">
+                  <br>
+                  可放自定义内容
+                  <br>
+                </div>
+                <div class="weui-half-screen-dialog__ft">
+                  <div id="js_wrap_btn_area" class="weui-half-screen-dialog__btn-area">
+                    <a id="js_wrap_btn_1" href="javascript:" class="js_close weui-btn weui-btn_default">非主要操作</a>
+                    <a href="javascript:" class="js_close weui-btn weui-btn_primary">主要操作</a>
                   </div>
                   <div class="weui-half-screen-dialog__attachment-area">
                     <a class="weui-link" href="javacript:;">附加操作</a>
@@ -101,76 +130,119 @@
 </div>
 <script type="text/javascript">
     $(function(){
-        var $dialog1 = $('#js_dialog_1'),
-            $dialog2 = $('#js_dialog_2'),
-            $dialog3 = $('#js_dialog_3'),
-            $iosDialog1 = $('#iosDialog1'),
-            $iosDialog2 = $('#iosDialog2');
-            $iosDialog3 = $('#iosDialog3');
+        const $dialog1 = $('#js_dialog_1');
+        const $dialog2 = $('#js_dialog_2');
+        const $dialog3 = $('#js_dialog_3');
+        const $dialog4 = $('#js_dialog_4');
+        const $dialogWrap1 = $('#dialogWrap1');
+        const $dialogWrap2 = $('#dialogWrap2');
+        const $dialogWrap3 = $('#dialogWrap3');
+        const $dialogWrap4 = $('#dialogWrap4');
 
-        $('#mask1').on('click', function(){
-          $(this).parents('.js_dialog').fadeOut(200);
-          $dialog1.removeClass('weui-half-screen-dialog_show');
-        });
-        $('#mask2').on('click', function(){
-          $(this).parents('.js_dialog').fadeOut(200);
-          $dialog2.removeClass('weui-half-screen-dialog_show');
-        });
-        $('#close1').on('click', function(){
-            $(this).parents('.js_dialog').attr('aria-hidden','true').attr('aria-modal','false').removeAttr('tabindex');
-            $(this).parents('.js_dialog').fadeOut(200);
-            $dialog1.removeClass('weui-half-screen-dialog_show');
-            setTimeout(function(){
-              $('#showIOSDialog1').trigger('focus');
-            },300)
-        });
-        $('#close2').on('click', function(){
-            $(this).parents('.js_dialog').attr('aria-hidden','true').attr('aria-modal','false').removeAttr('tabindex');
-            $(this).parents('.js_dialog').fadeOut(200);
-            $dialog2.removeClass('weui-half-screen-dialog_show');
-            setTimeout(function(){
-              $('#showIOSDialog2').trigger('focus');
-            },300)
-        });
-        $('#close3').on('click', function(){
-            $(this).parents('.js_dialog').attr('aria-hidden','true').attr('aria-modal','false').removeAttr('tabindex');
-            $(this).parents('.js_dialog').fadeOut(300);
-            $dialog3.removeClass('weui-half-screen-dialog_show');
-            setTimeout(function(){
-              $('#showIOSDialog3').trigger('focus');
-            },300)
+
+        $('.js_close').on('click', function() {
+          const $jsDialogWrap = $(this).parents('.js_dialog_wrap');
+          $jsDialogWrap.attr('aria-hidden','true').attr('aria-modal','false').removeAttr('tabindex');
+          $jsDialogWrap.fadeOut(300);
+          $jsDialogWrap.find('.js_dialog').removeClass('weui-half-screen-dialog_show');
+          setTimeout(function(){
+            $('#' + $jsDialogWrap.attr('ref')).trigger('focus');
+          }, 300);
         });
 
 
-        $('#showIOSDialog1').on('click', function(){
-            $iosDialog1.fadeIn(200);
+        $('#showDialog1').on('click', function(){
+            $dialogWrap1.fadeIn(200);
             $dialog1.addClass('weui-half-screen-dialog_show');
             setTimeout(function(){
-              $iosDialog1.attr('aria-hidden','false');
-              $iosDialog1.attr('aria-modal','true');
-              $iosDialog1.attr('tabindex','0');
-              $iosDialog1.trigger('focus');
+              $dialogWrap1.attr('aria-hidden','false');
+              $dialogWrap1.attr('aria-modal','true');
+              $dialogWrap1.attr('tabindex','0');
+              $dialogWrap1.trigger('focus');
             },200)
         });
-        $('#showIOSDialog2').on('click', function(){
-            $iosDialog2.fadeIn(200);
+        $('#showDialog2').on('click', function(){
+            $dialogWrap2.fadeIn(200);
             $dialog2.addClass('weui-half-screen-dialog_show');
+            wrapPage.style.visibility = 'hidden';
             setTimeout(function(){
-              $iosDialog2.attr('aria-hidden','false');
-              $iosDialog2.attr('aria-modal','true');
-              $iosDialog2.attr('tabindex','0');
-              $iosDialog2.trigger('focus');
+              if(wrapBtn.offsetHeight > 48){
+                wrapPage.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
+              }
+              wrapPage.style.visibility = 'visible';
+            },100);
+            setTimeout(function(){
+              $dialogWrap2.attr('aria-hidden','false');
+              $dialogWrap2.attr('aria-modal','true');
+              $dialogWrap2.attr('tabindex','0');
+              $dialogWrap2.trigger('focus');
             },200)
         });
-        $('#showIOSDialog3').on('click', function(){
-            $iosDialog3.attr('aria-hidden','false');
-            $iosDialog3.attr('aria-modal','true');
-            $iosDialog3.attr('tabindex','0');
-            $iosDialog3.fadeIn(200);
+        $('#showDialog3').on('click', function(){
+            $dialogWrap3.attr('aria-hidden','false');
+            $dialogWrap3.attr('aria-modal','true');
+            $dialogWrap3.attr('tabindex','0');
+            $dialogWrap3.fadeIn(200);
             $dialog3.addClass('weui-half-screen-dialog_show');
             setTimeout(function(){
-              $iosDialog3.trigger('focus');
+              $dialogWrap3.trigger('focus');
             },200)
         });
+        $('#showDialog4').on('click', function(){
+            $dialogWrap4.attr('aria-hidden','false');
+            $dialogWrap4.attr('aria-modal','true');
+            $dialogWrap4.attr('tabindex','0');
+            $dialogWrap4.fadeIn(200);
+            $dialog4.addClass('weui-half-screen-dialog_show');
+            wrapArea.style.visibility = 'hidden';
+            setTimeout(function(){
+              if(wrapBtn1.offsetHeight > 48){
+                $dialog4.addClass('weui-half-screen-dialog_btn-wrap');
+              }
+              wrapArea.style.visibility = 'visible';
+            },100);
+            setTimeout(function(){
+              $dialogWrap4.trigger('focus');
+            },200)
+        });
+
+
+        const wrapBtn = document.getElementById('js_wrap_btn');
+        const wrapBtn1 = document.getElementById('js_wrap_btn_1');
+        const wrapPage = document.getElementById('js_wrap_wrp');
+        const wrapArea = document.getElementById('js_wrap_btn_area');
+
+        try {
+          document.body.style.webkitTextSizeAdjust = JSON.parse(window.__wxWebEnv.getEnv()).fontScale + '%';
+        } catch (e) {
+          console.warn(e);
+        }
+
+        function wxReady(callback) {
+          if (
+            typeof WeixinJSBridge === 'object' &&
+            typeof window.WeixinJSBridge.invoke === 'function'
+          ) {
+            callback()
+          } else {
+            document.addEventListener('WeixinJSBridgeReady', callback, false)
+          }
+        }
+        wxReady(function() {
+          WeixinJSBridge.on('menu:setfont', function(res){
+            document.body.style.webkitTextSizeAdjust = res.fontScale + '%';
+            if(wrapBtn.offsetHeight > 48){
+              wrapPage.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
+            }else{
+              wrapPage.classList.remove('weui-bottom-fixed-opr-page_btn-wrap');
+            }
+            if(wrapBtn1.offsetHeight > 48){
+              $dialog4.addClass('weui-half-screen-dialog_btn-wrap');
+            }else{
+              $dialog4.removeClass('weui-half-screen-dialog_btn-wrap');
+            }
+          });
+        });
+
     });
 </script>

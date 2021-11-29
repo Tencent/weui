@@ -66,6 +66,8 @@ $(() => {
       $html.on('animationend webkitAnimationEnd', () => {
         $html.removeClass('slideIn').addClass('js_show');
         setPageA11y();
+        const event = new Event('switched');
+        window.dispatchEvent(event);
       });
 
       this.$container.append($html);
