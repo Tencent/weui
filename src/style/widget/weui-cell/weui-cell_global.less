@@ -93,7 +93,16 @@ z-index:
 }
 .weui-cell_active {
     &:active {
-        background-color: @weuiBgColorActive;
+      &:after{
+        content:"";
+        position:absolute;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        background:var(--weui-FG-3);
+        pointer-events:none;
+      }
     }
 }
 .weui-cell_primary {
@@ -101,8 +110,16 @@ z-index:
 }
 .weui-cell__bd {
     flex: 1;
+    min-width:0;
 }
 .weui-cell__ft {
     text-align: right;
     color: @weuiTextColorDesc;
 }
+.weui-cell__desc{
+  font-size:12px;
+  color:var(--weui-FG-2);
+  line-height:1.4;
+  padding-top:4px;
+}
+

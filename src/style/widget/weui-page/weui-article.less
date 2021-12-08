@@ -22,7 +22,7 @@
     padding: 48px calc(24px ~"+ env(safe-area-inset-right)") calc(48px ~"+ env(safe-area-inset-bottom)") calc(24px ~"+ env(safe-area-inset-left)");
     color: var(--weui-FG-0);
     font-size: 17px;
-    line-height: 1.4;
+    line-height: 1.6;
     .hyphens;
     section {
         margin-bottom: 48px;
@@ -33,6 +33,7 @@
           }
         }
     }
+    h1,h2,h3,h4,h5,h6{line-height:1.4;}
     h1 {
         font-size: 22px;
         font-weight: 500;
@@ -67,6 +68,14 @@
     }
     p {
         margin: 0 0 24px;
-        line-height:1.6;
+    }
+    ol,ul{
+      list-style:none;
+      margin-bottom:24px;
+      & ol,
+      & ul{
+        padding-left:16px;
+        margin-bottom:0;
+      }
     }
 }

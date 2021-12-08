@@ -28,48 +28,36 @@
     position: relative;
     width: 52px;
     height: @weuiSwitchHeight;
-    border: 2px solid @weuiLineColorLight;
+    background-color: var(--weui-FG-3);
+    border:0;
+    padding:2px;
     outline: 0;
     border-radius: 16px;
     box-sizing: border-box;
     transition: background-color 0.1s, border 0.1s;
 
-    &:before {
-        content: " ";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        border-radius: 15px;
-        background-color: var(--weui-BG-3);
-        transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
-    }
     &:after {
         content: " ";
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 2px;
+        left: 2px;
         width: @weuiSwitchHeight - 4;
         height: @weuiSwitchHeight - 4;
         border-radius: 15px;
         background-color: #fff; // 固定色值
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .06);
         transition: transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
     }
 }
 .weui-switch:checked,
 .weui-switch-cp__input:checked + .weui-switch-cp__box,
 .weui-switch-cp__input[aria-checked="true"] + .weui-switch-cp__box {
-    border-color: @weuiColorPrimary;
     background-color: @weuiColorPrimary;
-    &:before {
-        transform: scale(0);
-    }
     &:after {
         transform: translateX(20px);
     }
 }
+
 
 // 兼容小程序/IE Edge的版本
 .weui-switch-cp__input {

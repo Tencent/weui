@@ -1,3 +1,17 @@
+### v2.5.3 (2021-12-08)
+
+#### Features
+* feat: 升级form组件UI
+* feat: 升级switch组件UI
+* feat: 升级articleUI、新增列表类型
+* feat: cell组件新增副标题
+* feat: 半屏弹窗新增下拉关闭图标（见样式二）
+
+#### Bugfixes
+* fix: 修复表单weui-agree组件对齐问题
+
+
+
 ### v2.5.2 (2021-11-29)
 
 #### Features
