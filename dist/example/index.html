@@ -581,6 +581,7 @@
             <a class="weui-cell  weui-cell_access" href="javascript:">
                 <span class="weui-cell__bd">
                     <span>cell standard</span>
+                    <div class="weui-cell__desc">副标题</div>
                 </span>
                 <span class="weui-cell__ft">
                 </span>
@@ -866,6 +867,7 @@
   </div>
   <div class="page__bd page__bd_spacing">
       <a href="#form_page" role="button" class="weui-btn weui-btn_default">表单结构</a>
+      <a style="display:none;" href="#form_primary" role="button" class="weui-btn weui-btn_default">反色表单</a>
       <a href="#form_input_status" role="button" class="weui-btn weui-btn_default">输入框状态</a>
       <a href="#form_vcode" role="button" class="weui-btn weui-btn_default">验证码</a>
       <a href="#form_checkbox" role="button" class="weui-btn weui-btn_default">复选框</a>
@@ -879,7 +881,7 @@
 </div>
 
 </script>
-    <script type="text/html" id="tpl_form_page">
+    <script type="text/html" id="tpl_form_primary">
 <div class="page">
   <div class="weui-form">
     <div class="weui-form__text-area">
@@ -887,9 +889,9 @@
       <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
     </div>
     <div class="weui-form__control-area">
-      <div class="weui-cells__group weui-cells__group_form">
+      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
         <div class="weui-cells__title">表单组标题</div>
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
           <label for="js_input1" class="weui-cell weui-cell_active">
             <div class="weui-cell__hd"><span class="weui-label">微信号</span></div>
             <div class="weui-cell__bd">
@@ -904,6 +906,162 @@
           </label>
           <label for="js_input3" class="weui-cell weui-cell_active">
             <div class="weui-cell__hd"><span class="weui-label">联系电话</span></div>
+            <div class="weui-cell__bd">
+                <input id="js_input3" class="weui-input" placeholder="填写绑定的电话号码" type="number" pattern="[0-9]*" />
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+        <div class="weui-cells__title">表单组标题</div>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_active weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select1">
+                        <option selected="" value="1">微信号</option>
+                        <option value="2">QQ号</option>
+                        <option value="3">Email</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+                <div class="weui-cell__hd">
+                    <select class="weui-select" name="select2">
+                        <option value="1">+86</option>
+                        <option value="2">+80</option>
+                        <option value="3">+84</option>
+                        <option value="4">+87</option>
+                    </select>
+                </div>
+                <label for="js_input1" class="weui-cell__bd">
+                    <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                </label>
+            </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">国家</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2">
+                        <option value="1">中国</option>
+                        <option value="2">美国</option>
+                        <option value="3">英国</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+        <div class="weui-cells">
+            <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
+                <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
+                <div class="weui-cell__ft">
+                    <input aria-labelledby="cb_txt" id="cb" class="weui-switch" type="checkbox"/>
+                </div>
+            </label>
+        </div>
+      </div>
+      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+        <div class="weui-cells">
+          <a class="weui-cell weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd"><p>cell standard</p></div>
+            <div class="weui-cell__ft"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        表单页提示，居中对齐
+      </p>
+    </div>
+    <div class="weui-form__opr-area">
+      <a role="button" disabled aria-disabled="true" class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+    </div>
+    <div class="weui-form__tips-area">
+      <p class="weui-form__tips">
+        表单页提示，居中对齐
+      </p>
+    </div>
+    <div class="weui-form__extra-area">
+      <div class="weui-footer">
+        <p class="weui-footer__links">
+          <a href="javascript:" class="weui-footer__link">底部链接文本</a>
+        </p>
+        <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+      </div>
+    </div>
+  </div>
+  <div role="alert" id="js_toast" style="display: none;">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+          <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+          <p class="weui-toast__content">已完成</p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+      var $toast = $('#js_toast');
+      var $input = $('#js_input');
+      $input.on('input', function(){
+        if ($input.val()){
+          $('#showTooltips').removeClass('weui-btn_disabled');
+          $('#showTooltips').attr('aria-disabled','false');
+          $('#showTooltips').removeAttr('disabled');
+        }else{
+          $('#showTooltips').addClass('weui-btn_disabled');
+          $('#showTooltips').addClass('weui-btn_disabled');
+          $('#showTooltips').attr('aria-disabled','true');
+          $('#showTooltips').addAttr('disabled');
+        }
+      });
+      $('#showTooltips').on('click', function(){
+        if ($(this).hasClass('weui-btn_disabled')) return;
+
+        // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+        $('.page.cell').removeClass('slideIn');
+
+        $toast.attr('aria-live','assertive');
+        $toast.fadeIn(100);
+        setTimeout(function () {
+          $toast.attr('aria-live','off');
+          $toast.fadeOut(100);
+        }, 2000);
+      });
+
+      //$('.weui-cell').on('click', function(){
+      //  $(this).find('input').trigger('focus');
+      //});
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_form_page">
+<div class="page">
+  <div class="weui-form">
+    <div class="weui-form__text-area">
+      <h2 class="weui-form__title">表单结构</h2>
+      <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
+    </div>
+    <div class="weui-form__control-area">
+      <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells__title">表单组标题</div>
+        <div class="weui-cells">
+          <label for="js_input1" class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><span class="weui-label">微信号</span></div>
+            <div class="weui-cell__bd">
+                <input id="js_input1" class="weui-input" placeholder="填写本人微信号"/>
+            </div>
+          </label>
+          <label for="js_input2" class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><span class="weui-label">昵称</span></div>
+            <div class="weui-cell__bd">
+                <input id="js_input2" class="weui-input" placeholder="填写本人微信号的昵称"/>
+            </div>
+          </label>
+          <label for="js_input3" class="weui-cell weui-cell_active">
+            <div class="weui-cell__hd"><span class="weui-label">联系电话</span><div class="weui-cell__desc">副标题</div></div>
             <div class="weui-cell__bd">
                 <input id="js_input3" class="weui-input" placeholder="填写绑定的电话号码" type="number" pattern="[0-9]*" />
             </div>
@@ -988,7 +1146,7 @@
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错：置顶tipsbar报错信息</div>
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
           <label for="js_input1" class="weui-cell weui-cell_active" id="js_cell">
             <div class="weui-cell__hd"><span class="weui-label">卡号</span></div>
             <div class="weui-cell__bd weui-flex">
@@ -1008,7 +1166,7 @@
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单报错：当前项位置报错</div>
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
           <label for="js_current_input" class="weui-cell weui-cell_active">
             <div class="weui-cell__hd"><span class="weui-label">金额</span></div>
             <div class="weui-cell__bd weui-flex">
@@ -1020,7 +1178,7 @@
       </div>
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">表单只读、置灰</div>
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
           <label for="js_input3" class="weui-cell weui-cell_active weui-cell_readonly">
             <div class="weui-cell__hd"><span class="weui-label">EMail</span></div>
             <div class="weui-cell__bd">
@@ -1121,7 +1279,7 @@
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
             <div class="weui-cell weui-cell_active">
                 <div class="weui-cell__hd"><label for="js_input1" class="weui-label">手机号</label></div>
                 <div class="weui-cell__bd">
@@ -1450,7 +1608,7 @@
     </div>
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
             <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
                 <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
                 <div class="weui-cell__ft">
@@ -1995,8 +2153,9 @@
             <div id="js_dialog_2" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_bottom-fixed">
               <div class="weui-half-screen-dialog__hd">
                 <div class="weui-half-screen-dialog__hd__side">
+                  <button class="weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-slide-down"></i></button>
                   <button style="display: none;" class="weui-btn_icon weui-wa-hotarea">返回<i class="weui-icon-back-arrow-thin"></i></button>
-                  <button class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
+                  <button style="display: none;" class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
                 </div>
                 <div class="weui-half-screen-dialog__hd__main">
                   <strong class="weui-half-screen-dialog__title" id="js_title2">标题</strong>
@@ -2474,43 +2633,69 @@
     <script type="text/html" id="tpl_article">
 <div class="page">
   <article class="weui-article">
-    <h1>大标题</h1>
+    <h1>文章页大标题</h1>
     <section>
-      <h2 class="title">章标题</h2>
+      <h2>二级标题</h2>
       <section>
-        <h3>1.1 节标题</h3>
-        <p class="weui-a11y-combo">
-        <input class="weui-a11y-combo__helper" aria-labelledby="txt1 txt2" type="text" readonly role="option" >
-        <span id="txt1" class="weui-a11y-combo__content" aria-hidden="true">
-          Ipsum cum soluta laudantium aperiam rem? Accusamus nostrum itaque sint?
-        </span>
-        <a id="txt2" class="weui-a11y-combo__content weui-link weui-wa-hotarea " href="#">read more</a>
-        </p>
-        <p>
-        <img src="./images/pic_article.png" alt="配图">
-        <img src="./images/pic_article.png" alt="配图">
-        </p>
+        <h3>三级标题</h3>
+        <section>
+          <h4>四级标题</h4>
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            <img src="./images/pic_article.png" alt="配图">
+            <img src="./images/pic_article.png" alt="配图">
+          </p>
+        </section>
+        <section>
+          <h4>列表示例</h4>
+          <section>
+            <h5>无序列表</h5>
+            <ul>
+              <li>&#8226; Elit quo illum ut voluptate possimus. Maxime</li>
+              <li>
+                &#8226; Elit quo illum ut voluptate possimus. Maxime
+                <ul>
+                  <li>&#8226; Elit facilis nam nam</li>
+                  <li>&#8226; Elit facilis nam nam</li>
+                  <li>&#8226; Elit facilis nam nam</li>
+                </ul>
+              </li>
+              <li>&#8226; Elit quo illum ut voluptate possimus. Maxime</li>
+            </ul>
+          </section>
+          <section>
+            <h5>有序列表</h5>
+            <ol>
+              <li>1 Elit quo illum ut voluptate possimus. Maxime</li>
+              <li>
+                2 Elit quo illum ut voluptate possimus. Maxime
+                <ol>
+                  <li>2.1 Adipisicing adipisci labore deleniti</li>
+                  <li>2.2 Adipisicing adipisci labore deleniti</li>
+                  <li>2.3 Adipisicing adipisci labore deleniti</li>
+                </ol>
+              </li>
+              <li>3 Elit quo illum ut voluptate possimus. Maxime</li>
+            </ol>
+          </section>
+        </section>
       </section>
+    </section>
+    <section>
+      <h2>无障碍焦点整合示例</h2>
       <section>
-        <h3>1.2 节标题</h3>
-        <section>
-          <h4>1.2.1 小节标题</h4>
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </section>
-        <section>
-          <h4>1.2.2 小节标题</h4>
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </section>
+        <p class="weui-a11y-combo">
+          <input class="weui-a11y-combo__helper" aria-labelledby="txt1 txt2" type="text" readonly role="option" >
+          <span id="txt1" class="weui-a11y-combo__content" aria-hidden="true">
+            Ipsum cum soluta laudantium aperiam rem? Accusamus nostrum itaque sint?
+          </span>
+          <a id="txt2" class="weui-a11y-combo__content weui-link weui-wa-hotarea " href="#">read more</a>
+        </p>
       </section>
     </section>
   </article>

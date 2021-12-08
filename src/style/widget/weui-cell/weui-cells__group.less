@@ -18,42 +18,33 @@
 
 .weui-cells__group {
     border: 0;
+    &:first-child{margin-top:0;}
 }
-.weui-cells__group_form {
 
-    &:first-child {
-        .weui-cells__title {
-            margin-top: 0;
+
+// 普通表单
+.weui-cells__group_form {
+    margin-top:24px;
+
+    // 表单组
+    .weui-cells {
+        margin-left:16px;
+        margin-right:16px;
+        &:before {
+            left: 16px;
+            right: 16px;
+        }
+        &:after {
+            left: 16px;
+            right: 16px;
         }
     }
-
-    .weui-cells__title {
-        margin-top: 24px;
-        margin-bottom: 8px;
-        padding: 0 32px;
-    }
-  
-
-    .weui-cells,
     .weui-cell {
         &:before {
-            left: 32px;
-            right: 32px;
+            left: 16px;
+            right: 16px;
         }
-    }
-    .weui-cells_checkbox {
-        .weui-check__label {
-            &:before { left: 72px; }
-        }
-    }
-    .weui-cells {
-        &:after {
-            left: 32px;
-            right: 32px;
-        }
-    }
-    .weui-cell {
-        padding: 16px 32px;
+        padding: 16px;
         &:not(.weui-cell_link) {
             color: @weuiTextColorTitle;
         }
@@ -62,21 +53,25 @@
         padding-right: 16px;
     }
     .weui-cell__ft {
+        font-size: 0;
         padding-left: 16px;
     }
-    .weui-cell_warn {
-        input {
-            color: @weuiColorWarn;
+
+
+    // 表单组标题
+    .weui-cells__title {
+        margin-top: 24px;
+        margin-bottom: 8px;
+        padding: 0 32px;
+    }
+    &:first-child {
+        .weui-cells__title {
+            margin-top: 0;
         }
     }
 
 
-    .weui-label {
-        max-width: 5em;
-        margin-right: 8px;
-    }
-
-
+    // 表单组提示
     .weui-cells__tips {
         margin-top: 8px;
         padding: 0 32px;
@@ -90,36 +85,50 @@
     }
 
 
-
-
-    .weui-cell_select {
-        padding: 0;
-        .weui-select {
-            padding: 0 32px;
-        }
-        .weui-cell__bd:after {
-            right: 32px;
-        }
-    }
-    .weui-cell_select-before {
-        .weui-label {
-            margin-right: 24px;
-        }
-        .weui-select {
-            padding-right: 24px;
-            box-sizing: initial;
-        }
-    }
-    .weui-cell_select-after {
-        padding-left: 32px;
-        .weui-select {
-            padding-left: 0;
-        }
+    // 表单标题
+    .weui-label {
+        max-width: 5em;
+        margin-right: 8px;
     }
 
 
-    .weui-cell_switch {
-        padding: 12px 32px;
+    // 点击态
+    .weui-cell_active {
+      &:active {
+        &:after{
+          border-radius:8px;
+        }
+      }
+    }
+
+
+
+    // 报错
+    .weui-cell_warn {
+        input {
+            color: @weuiColorWarn;
+        }
+    }
+    .weui-icon-warn {
+        display: none;
+    }
+
+
+    // 抹去点击态
+    .weui-cell_switch,
+    .weui-cell_vcode,
+    .weui-cell_readonly,
+    .weui-cell_disabled {
+        &:active {
+          &:after{
+            display:none;
+          }
+        }
+    }
+    input,
+    textarea,
+    label[for] {
+        .setTapColor();
     }
 
 
@@ -148,6 +157,7 @@
         flex: 1;
         min-width: 30vw;
     }
+
 
     // 验证码
     .weui-vcode-btn {
@@ -180,4 +190,66 @@
             }
         }
     }
+
+
+    // 复选框
+    .weui-cells_checkbox {
+        .weui-check__label {
+            &:before { left: 72px; }
+        }
+    }
+
+
+    // 选择框
+    .weui-cell_select {
+        padding: 0;
+        .weui-select {
+            padding: 0 16px;
+        }
+        .weui-cell__bd:after {
+            right: 16px;
+        }
+    }
+    .weui-cell_select-before {
+        .weui-label {
+            margin-right: 24px;
+        }
+        .weui-select {
+            padding-right: 24px;
+            box-sizing: initial;
+        }
+    }
+    .weui-cell_select-after {
+        padding-left: 16px;
+        .weui-select {
+            padding-left: 0;
+        }
+    }
+
+
+    // 开关
+    .weui-cell_switch {
+        padding: 12px 16px;
+    }
+}
+
+
+// 反色表单
+.weui-cells__group_form-primary {
+  margin-top:32px;
+  .weui-cells{
+    background:var(--weui-BG-1);
+    border-radius:8px;
+    overflow:hidden;
+    &:before,&:after{
+      display:none;
+    }
+  }
+  .weui-cell_active{
+    &:active{
+      &:after{
+        border-radius:0;
+      }
+    }
+  }
 }

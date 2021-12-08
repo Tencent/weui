@@ -1,13 +1,13 @@
 /*
 * Tencent is pleased to support the open source community by making WeUI available.
-* 
+*
 * Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
-* 
+*
 * Licensed under the MIT License (the "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
-* 
+*
 *       http://opensource.org/licenses/MIT
-* 
+*
 * Unless required by applicable law or agreed to in writing, software distributed under the License is
 * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
 * either express or implied. See the License for the specific language governing permissions and
@@ -68,27 +68,6 @@
     }
 }
 
-.weui-cells_form {
-    .weui-cell_switch,
-    .weui-cell_vcode,
-    .weui-cell_readonly,
-    .weui-cell_disabled {
-        &:active {
-            background-color: transparent;
-        }
-    }
-    .weui-cell__ft {
-        font-size: 0;
-    }
-    .weui-icon-warn {
-        display: none;
-    }
-    input,
-    textarea,
-    label[for] {
-        .setTapColor();
-    }
-}
 .weui-cell_warn {
     color: @weuiTextColorWarn;
     .weui-icon-warn { display: inline-block; }
@@ -112,5 +91,29 @@
     padding-left: 8px;
     [class*="weui-icon-"] {
         width: 18px;
+    }
+}
+
+
+// todo: 以下为兼容最开始版本的表单，新表单、反色表单均不需要
+.weui-cells_form {
+    .weui-cell_switch,
+    .weui-cell_vcode,
+    .weui-cell_readonly,
+    .weui-cell_disabled {
+        &:active {
+            background-color: transparent;
+        }
+    }
+    .weui-cell__ft {
+        font-size: 0;
+    }
+    .weui-icon-warn {
+        display: none;
+    }
+    input,
+    textarea,
+    label[for] {
+        .setTapColor();
     }
 }
