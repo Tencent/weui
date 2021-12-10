@@ -273,14 +273,11 @@ body,
 .page.form_page {
     .weui-label { width: 4.1em; }
 }
-.page.form_select,.page.form_primary {
-    .weui-cells__group_form {
-        .weui-cell_select-before {
-            .weui-select {
-                width: 3.14em;
-            }
-        }
-    }
+.page.form_primary,
+.page.form_select,
+.page.form_select_primary {
+  .weui-cell_select-before .weui-select,
+  .weui-label { width: 3.14em; }
 }
 
 [class^="form_"],
@@ -291,9 +288,7 @@ body,
 }
 
 .page.form_vcode,
-.page.form_input_status,
-.page.form_select,
-.page.form_select_primary {
+.page.form_input_status{
     .weui-label { width: 3.14em; }
 }
 .page.button,

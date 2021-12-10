@@ -18,9 +18,6 @@
 
 .weui-cell_select {
     padding: 0;
-    .weui-select {
-        padding-right: 30px;
-    }
     .weui-cell__bd {
         &:after {
             content: " ";
@@ -52,17 +49,15 @@
     position: relative;
     z-index: 1;
     padding-left: @weuiCellGapH;
+    padding-right: @weuiCellGapH + 24px;
     color: var(--weui-FG-0);
+    vertical-align:bottom;
+    box-sizing:border-box;
 }
 
 .weui-cell_select-before {
-    align-items: initial;
-    padding-right: @weuiCellGapH;
-    .weui-select {
-        width: @weuiCellLabelWidth;
-        box-sizing: border-box;
-    }
     .weui-cell__hd {
+        padding-left: 0;
         position: relative;
         &:after {
             .setRightLine(@weuiCellBorderColor);
@@ -88,27 +83,19 @@
         &:after {
             display: none;
         }
-
-        display: flex;
-        align-items: center;
     }
-    &.weui-cell_access {
-        .weui-cell__hd {
-            line-height: 56px;
-            padding-left: 32px;
-        }
+    .weui-select {
+        max-width:5em;
+        width: @weuiCellLabelWidth;
+        box-sizing: content-box;
     }
 }
 
 .weui-cell_select-after {
-    padding-left: @weuiCellGapH;
+    .weui-cell__hd{
+      padding-left:@weuiCellGapH;
+    }
     .weui-select {
         padding-left: 0;
     }
-    &.weui-cell_access {
-        .weui-cell__bd {
-            line-height: 56px;
-        }
-    }
 }
-

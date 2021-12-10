@@ -28,18 +28,66 @@
                     <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
                 </label>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+            <label for="select2" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                 <div class="weui-cell__hd">
-                    <label for="" class="weui-label">国家</label>
+                    <span class="weui-label">国家</span>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
+                    <select class="weui-select" name="select2" id="select2">
                         <option value="1">中国</option>
                         <option value="2">美国</option>
                         <option value="3">英国</option>
                     </select>
                 </div>
+            </label>
+            <label for="js_input3" class="weui-cell weui-cell_active weui-cell_wrap">
+                <div class="weui-cell__hd">
+                  <span class="weui-label">手机号</span>
+                </div>
+                <div class="weui-cell__bd">
+                    <span class="weui-cell__control">+86</span>
+                    <input id="js_input3" class="weui-input  weui-cell__control weui-cell__control_flex" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                </div>
+            </label>
+        </div>
+      </div>
+
+      <div class="weui-cells__group" style="display:none;">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_active weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select1">
+                        <option selected="" value="1">微信号</option>
+                        <option value="2">QQ号</option>
+                        <option value="3">Email</option>
+                    </select>
+                </div>
             </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+                <div class="weui-cell__hd">
+                    <select class="weui-select" name="select2">
+                        <option value="1">+86</option>
+                        <option value="2">+80</option>
+                        <option value="3">+84</option>
+                        <option value="4">+87</option>
+                    </select>
+                </div>
+                <label for="js_input1" class="weui-cell__bd">
+                    <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                </label>
+            </div>
+            <label for="select2" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <span class="weui-label">国家</span>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2" id="select2">
+                        <option value="1">中国</option>
+                        <option value="2">美国</option>
+                        <option value="3">英国</option>
+                    </select>
+                </div>
+            </label>
         </div>
       </div>
     </div>

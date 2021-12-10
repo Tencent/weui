@@ -47,9 +47,13 @@
     }
 }
 .weui-icon_toast {
+    // 重置weui-icon权重
+    &&{
+      width: 4em;
+      height: 4em;
+    }
+
     display: block;
-    width: 40px;
-    height: 40px;
     margin-bottom: 16px;
     &.weui-icon-success-no-circle {
         color: rgba(255, 255, 255, 0.9);
@@ -58,10 +62,14 @@
         color: rgba(255, 255, 255, 0.9);
     }
     &.weui-loading {
-        width: 36px;
-        height: 36px;
+        width: 3.6em;
+        height: 3.6em;
     }
     &.weui-primary-loading {
+        // 重置权重
+        width:1em;
+        height:1em;
+
         font-size: 40px;
         color: #ededed;
         &:before {

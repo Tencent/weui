@@ -1,3 +1,11 @@
+### v2.5.4 (2021-12-10)
+
+#### Bugfixes
+* fix: 修复若干UI细节问题
+* fix: 优化悬浮按钮、form、panel、cell、msg、select、switch、textarea、agree组件示例
+
+
+
 ### v2.5.3 (2021-12-08)
 
 #### Features

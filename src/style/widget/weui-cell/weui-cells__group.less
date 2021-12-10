@@ -16,6 +16,12 @@
 
 @import "../../base/fn";
 
+page,
+body{
+  --weui-cellMarginLR:16px;
+  --weui-cellPaddingLR:16px;
+}
+
 .weui-cells__group {
     border: 0;
     &:first-child{margin-top:0;}
@@ -28,23 +34,20 @@
 
     // 表单组
     .weui-cells {
-        margin-left:16px;
-        margin-right:16px;
-        &:before {
-            left: 16px;
-            right: 16px;
-        }
-        &:after {
-            left: 16px;
-            right: 16px;
+        margin-left:var(--weui-cellMarginLR);
+        margin-right:var(--weui-cellMarginLR);
+        &:before,
+        &:after{
+            left: var(--weui-cellPaddingLR);
+            right: var(--weui-cellPaddingLR);
         }
     }
     .weui-cell {
+        padding: 16px var(--weui-cellPaddingLR);
         &:before {
-            left: 16px;
-            right: 16px;
+            left: var(--weui-cellPaddingLR);
+            right: var(--weui-cellPaddingLR);
         }
-        padding: 16px;
         &:not(.weui-cell_link) {
             color: @weuiTextColorTitle;
         }
@@ -53,7 +56,6 @@
         padding-right: 16px;
     }
     .weui-cell__ft {
-        font-size: 0;
         padding-left: 16px;
     }
 
@@ -74,7 +76,7 @@
     // 表单组提示
     .weui-cells__tips {
         margin-top: 8px;
-        padding: 0 32px;
+        padding: 0 ~"calc(var(--weui-cellMarginLR) + var(--weui-cellPaddingLR))";
         color: var(--weui-FG-2);
         a {
             font-weight: 700;
@@ -93,6 +95,7 @@
 
 
     // 点击态
+    .weui-cell_access,
     .weui-cell_active {
       &:active {
         &:after{
@@ -100,7 +103,11 @@
         }
       }
     }
-
+    .weui-cell_access{
+      &:active{
+        background-color:transparent;
+      }
+    }
 
 
     // 报错
@@ -165,7 +172,8 @@
         padding: 0 12px;
         height: auto;
         width: auto;
-        line-height: 2em;
+        line-height: 2;
+        border-radius:6px;
         color: @weuiBtnDefaultFontColor;
         background-color: @weuiBtnDefaultBg;
         &:before {
@@ -195,7 +203,7 @@
     // 复选框
     .weui-cells_checkbox {
         .weui-check__label {
-            &:before { left: 72px; }
+            &:before { left: ~"calc(40px + var(--weui-cellPaddingLR))"; }
         }
     }
 
@@ -203,29 +211,12 @@
     // 选择框
     .weui-cell_select {
         padding: 0;
-        .weui-select {
-            padding: 0 16px;
-        }
-        .weui-cell__bd:after {
-            right: 16px;
-        }
     }
-    .weui-cell_select-before {
-        .weui-label {
-            margin-right: 24px;
-        }
-        .weui-select {
-            padding-right: 24px;
-            box-sizing: initial;
-        }
+    .weui-cell_select-before{
+      .weui-cell__hd{
+        padding-right:0;
+      }
     }
-    .weui-cell_select-after {
-        padding-left: 16px;
-        .weui-select {
-            padding-left: 0;
-        }
-    }
-
 
     // 开关
     .weui-cell_switch {
@@ -245,6 +236,7 @@
       display:none;
     }
   }
+  .weui-cell_access,
   .weui-cell_active{
     &:active{
       &:after{
