@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="./example.css"/>
 </head>
 <body ontouchstart>
+    <script type="text/javascript">
+        document.body.style.webkitTextSizeAdjust = JSON.parse(window.__wxWebEnv.getEnv()).fontScale + '%';
+    </script>
+
     <span aria-hidden="true" id="js_a11y_comma" class="weui-hidden_abs">，</span>
 
     <div role="alert" class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
@@ -73,7 +77,7 @@
     </script>
     <script src="./zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.5/weui.min.js"></script>
+    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
     <script src="./example.js"></script>
     <script src="./wah.js"></script>
     <script type="text/javascript">

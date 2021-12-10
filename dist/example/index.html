@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="./example.css"/>
 </head>
 <body ontouchstart>
+    <script type="text/javascript">
+        document.body.style.webkitTextSizeAdjust = JSON.parse(window.__wxWebEnv.getEnv()).fontScale + '%';
+    </script>
+
     <span aria-hidden="true" id="js_a11y_comma" class="weui-hidden_abs">，</span>
 
     <div role="alert" class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
@@ -515,12 +519,20 @@
     }
     wxReady(function() {
       WeixinJSBridge.on('menu:setfont', function(res){
+        // ios
         document.body.style.webkitTextSizeAdjust = res.fontScale + '%';
+        // android
+        WeixinJSBridge.invoke("setFontSizeCallback", {
+          fontSize: res.fontSize
+        });
+
         if(btn.offsetHeight > 48){
           wrp.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
         }else{
           wrp.classList.remove('weui-bottom-fixed-opr-page_btn-wrap');
         }
+
+
       });
     });
   </script>
@@ -904,12 +916,6 @@
                 <input id="js_input2" class="weui-input" placeholder="填写本人微信号的昵称"/>
             </div>
           </label>
-          <label for="js_input3" class="weui-cell weui-cell_active">
-            <div class="weui-cell__hd"><span class="weui-label">联系电话</span></div>
-            <div class="weui-cell__bd">
-                <input id="js_input3" class="weui-input" placeholder="填写绑定的电话号码" type="number" pattern="[0-9]*" />
-            </div>
-          </label>
         </div>
       </div>
       <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
@@ -949,6 +955,15 @@
                     </select>
                 </div>
             </div>
+            <label for="js_input3" class="weui-cell weui-cell_active weui-cell_wrap">
+                <div class="weui-cell__hd">
+                  <span class="weui-label">手机号</span>
+                </div>
+                <div class="weui-cell__bd">
+                    <span class="weui-cell__control">+86</span>
+                    <input id="js_input3" class="weui-input  weui-cell__control weui-cell__control_flex" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                </div>
+            </label>
         </div>
       </div>
       <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
@@ -1693,18 +1708,66 @@
                     <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
                 </label>
             </div>
-            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+            <label for="select2" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                 <div class="weui-cell__hd">
-                    <label for="" class="weui-label">国家</label>
+                    <span class="weui-label">国家</span>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
+                    <select class="weui-select" name="select2" id="select2">
                         <option value="1">中国</option>
                         <option value="2">美国</option>
                         <option value="3">英国</option>
                     </select>
                 </div>
+            </label>
+            <label for="js_input3" class="weui-cell weui-cell_active weui-cell_wrap">
+                <div class="weui-cell__hd">
+                  <span class="weui-label">手机号</span>
+                </div>
+                <div class="weui-cell__bd">
+                    <span class="weui-cell__control">+86</span>
+                    <input id="js_input3" class="weui-input  weui-cell__control weui-cell__control_flex" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                </div>
+            </label>
+        </div>
+      </div>
+
+      <div class="weui-cells__group" style="display:none;">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_active weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select1">
+                        <option selected="" value="1">微信号</option>
+                        <option value="2">QQ号</option>
+                        <option value="3">Email</option>
+                    </select>
+                </div>
             </div>
+            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+                <div class="weui-cell__hd">
+                    <select class="weui-select" name="select2">
+                        <option value="1">+86</option>
+                        <option value="2">+80</option>
+                        <option value="3">+84</option>
+                        <option value="4">+87</option>
+                    </select>
+                </div>
+                <label for="js_input1" class="weui-cell__bd">
+                    <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                </label>
+            </div>
+            <label for="select2" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <span class="weui-label">国家</span>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2" id="select2">
+                        <option value="1">中国</option>
+                        <option value="2">美国</option>
+                        <option value="3">英国</option>
+                    </select>
+                </div>
+            </label>
         </div>
       </div>
     </div>
@@ -1750,19 +1813,45 @@
     <div class="weui-form__control-area">
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells">
-          <div class="weui-cell weui-cell_active weui-cell_access" id="showDatePicker">
-            <div class="weui-cell__bd">日期</div>
-            <div class="weui-cell__ft"></div>
+          <div class="weui-cell weui-cell_active weui-cell_select" role="button" aria-haspopup="listbox" id="showDatePicker">
+            <div class="weui-cell__bd"><div class="weui-select">日期</div></div>
           </div>
-          <label for="js_input1" class="weui-cell weui-cell_active weui-cell_access weui-cell_select weui-cell_select-before">
-            <div class="weui-cell__hd" id="showPhone"><label class="weui-label">+86</label></div>
+          <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+            <div class="weui-cell__hd" id="showPhone" role="button" aria-haspopup="listbox"><div class="weui-select">+86</div></div>
             <div class="weui-cell__bd">
               <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
             </div>
-          </label>
-          <div class="weui-cell weui-cell_active weui-cell_access weui-cell_select weui-cell_select-after">
+          </div>
+          <div id="showPicker" role="button" aria-haspopup="listbox" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
             <div class="weui-cell__hd"><label class="weui-label">票种</label></div>
-            <div class="weui-cell__bd" id="showPicker">的士票</div>
+            <div class="weui-cell__bd"><div class="weui-select">的士票</div></div>
+          </div>
+
+          <label for="js_input3" class="weui-cell weui-cell_active weui-cell_wrap">
+              <div class="weui-cell__hd">
+                <span class="weui-label">手机号</span>
+              </div>
+              <div class="weui-cell__bd">
+                  <span class="weui-cell__control">+86</span>
+                  <input id="js_input3" class="weui-input  weui-cell__control weui-cell__control_flex" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+              </div>
+          </label>
+        </div>
+      </div>
+      <div class="weui-cells__group" style="display:none;">
+        <div class="weui-cells">
+          <div class="weui-cell weui-cell_active weui-cell_select" role="button" aria-haspopup="listbox" id="showDatePicker">
+            <div class="weui-cell__bd"><div class="weui-select">日期</div></div>
+          </div>
+          <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+            <div class="weui-cell__hd" id="showPhone" role="button" aria-haspopup="listbox"><div class="weui-select">+86</div></div>
+            <div class="weui-cell__bd">
+              <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+            </div>
+          </div>
+          <div id="showPicker" role="button" aria-haspopup="listbox" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd"><label class="weui-label">票种</label></div>
+            <div class="weui-cell__bd"><div class="weui-select">的士票</div></div>
           </div>
         </div>
       </div>
@@ -1859,7 +1948,7 @@
       <div class="weui-cells__group weui-cells__group_form">
         <div class="weui-cells__title">问题描述</div>
         <div class="weui-cells weui-cells_form">
-            <div class="weui-cell ">
+            <div class="weui-cell weui-cell_active">
                 <div class="weui-cell__bd">
                     <textarea class="weui-textarea" placeholder="请描述你所发生的问题" rows="3"></textarea>
                     <div role="option" aria-live="polite" class="weui-textarea-counter"><span>0</span>/200</div>
@@ -2153,7 +2242,7 @@
             <div id="js_dialog_2" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_bottom-fixed">
               <div class="weui-half-screen-dialog__hd">
                 <div class="weui-half-screen-dialog__hd__side">
-                  <button class="weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-slide-down"></i></button>
+                  <button class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-slide-down"></i></button>
                   <button style="display: none;" class="weui-btn_icon weui-wa-hotarea">返回<i class="weui-icon-back-arrow-thin"></i></button>
                   <button style="display: none;" class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-close-thin"></i></button>
                 </div>
@@ -2856,7 +2945,7 @@
                             <div aria-hidden="true" id="t4" class="weui-cell__bd weui-cell_primary">
                                 <p>文字标题</p>
                             </div>
-                            <div class="weui-cell__ft"></span>
+                            <div class="weui-cell__ft"></div>
                         </a>
                     </div>
                 </div>
@@ -3706,7 +3795,7 @@
     </script>
     <script src="./zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.5/weui.min.js"></script>
+    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
     <script src="./example.js"></script>
     <script src="./wah.js"></script>
     <script type="text/javascript">

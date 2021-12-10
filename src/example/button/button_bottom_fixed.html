@@ -39,12 +39,20 @@
     }
     wxReady(function() {
       WeixinJSBridge.on('menu:setfont', function(res){
+        // ios
         document.body.style.webkitTextSizeAdjust = res.fontScale + '%';
+        // android
+        WeixinJSBridge.invoke("setFontSizeCallback", {
+          fontSize: res.fontSize
+        });
+
         if(btn.offsetHeight > 48){
           wrp.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
         }else{
           wrp.classList.remove('weui-bottom-fixed-opr-page_btn-wrap');
         }
+
+
       });
     });
   </script>
