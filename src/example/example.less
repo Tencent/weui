@@ -48,6 +48,9 @@ body,
     &.loadmore,
     &.picker,
     &.top-tips,
+    &.steps,
+    &.steps_vertical,
+    &.steps_horizonal,
     &.progress {
         background-color: var(--weui-BG-2);
     }
@@ -223,6 +226,13 @@ body,
     }
 }
 
+.page.steps_vertical ,
+.page.steps_horizonal {
+  .weui-steps{
+    margin:40px auto 80px;
+    max-width:50%;
+  }
+}
 .page.badge {
     .demo_badge_tips {
         vertical-align: middle;

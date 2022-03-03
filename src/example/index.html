@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="wechat-enable-text-zoom-em" content="true">
     <title>WeUI</title>
     <link rel="stylesheet" href="../style/weui.css"/>
     <link rel="stylesheet" href="./example.css"/>
 </head>
 <body ontouchstart>
     <script type="text/javascript">
+      if(window.__wxWebEnv){
         document.body.style.webkitTextSizeAdjust = JSON.parse(window.__wxWebEnv.getEnv()).fontScale + '%';
+      }
     </script>
 
     <span aria-hidden="true" id="js_a11y_comma" class="weui-hidden_abs">，</span>
@@ -42,6 +45,9 @@
     <link rel="import" href="./dialog/dialog.html">
     <link rel="import" href="./half-screen-dialog/half-screen-dialog.html">
     <link rel="import" href="./progress/progress.html">
+    <link rel="import" href="./steps/steps.html">
+    <link rel="import" href="./steps/steps_vertical.html">
+    <link rel="import" href="./steps/steps_horizonal.html">
     <link rel="import" href="./msg/msg.html">
     <link rel="import" href="./msg/msg_success.html">
     <link rel="import" href="./msg/msg_warn.html">
