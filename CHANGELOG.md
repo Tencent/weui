@@ -1,3 +1,16 @@
+### v2.5.5 (2022-03-03)
+
+#### Features
+* feat: 增加步骤条组件
+* feat: weui-link增加点击态
+
+#### Bugfixes
+* fix: 修复actionsheet头部上下安全距离
+* fix: 修复navbar无障碍选中提示
+* fix: 调整输入框清除按钮间距
+
+
+
 ### v2.5.4 (2021-12-10)
 
 #### Bugfixes

@@ -35,9 +35,10 @@
 .weui-actionsheet__title {
     position: relative;
     height: 56px;
-    padding: 0 24px;
-    padding: 0 calc(24px ~"+ constant(safe-area-inset-right)") 0 calc(24px ~"+ constant(safe-area-inset-left)");
-    padding: 0 calc(24px ~"+ env(safe-area-inset-right)") 0 calc(24px ~"+ env(safe-area-inset-left)");
+    padding: 8px 24px;
+    padding: 8px calc(24px ~"+ constant(safe-area-inset-right)") 8px calc(24px ~"+ constant(safe-area-inset-left)");
+    padding: 8px calc(24px ~"+ env(safe-area-inset-right)") 8px calc(24px ~"+ env(safe-area-inset-left)");
+    box-sizing:border-box;
     display: flex;
     justify-content: center;
     flex-direction: column;
