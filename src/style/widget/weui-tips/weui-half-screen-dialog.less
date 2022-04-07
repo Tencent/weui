@@ -36,8 +36,8 @@
     display: flex;
     flex-direction: column;
 
-    @media only screen and (max-height: 558px) {
-        max-height: none;
+    @media only screen and (max-device-height: 558px) {
+        max-height: ~"calc(100% - 16px)";
     }
 }
 .weui-half-screen-dialog__hd {
@@ -115,6 +115,16 @@
 .weui-half-screen-dialog__ft {
     padding: 0 0 64px;
     text-align: center;
+
+    // 兼容旧版没有.weui-half-screen-dialog__btn-area的场景
+    .weui-btn:nth-last-child(n+2),
+    .weui-btn:nth-last-child(n+2) + .weui-btn {
+      display: inline-block;
+      vertical-align: top;
+      margin:0 8px;
+      width: 120px;
+    }
+
 }
 .weui-half-screen-dialog__btn-area {
     .weuiBtnWrapLayoutDefault();

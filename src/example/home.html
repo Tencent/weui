@@ -136,7 +136,7 @@
                         </a>
                         <a class="weui-cell weui-cell_active weui-cell_access js_item" role="menuitem" data-id="steps" href="javascript:">
                             <div class="weui-cell__bd">
-                                <p>steps</p>
+                                <p>Steps</p>
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
@@ -244,9 +244,20 @@
 </div>
 <script type="text/javascript">
     $(function(){
+        function setFoot(){
+          var $foot = $('.page__ft');
+          if ($foot.length > 0) {
+            $foot.removeClass('j_bottom');
+            var winH = $(window).height();
+            if ($foot.offsetTop + $foot.offsetHeight < winH) {
+              $foot.addClass('j_bottom');
+            }
+          }
+        }
         var winH = $(window).height();
         var categorySpace = 10;
         function expandMenu(){
+            setFoot();
             var $this = $(this),
                 $inner = $this.next('.js_categoryInner'),
                 $page = $this.parents('.page'),

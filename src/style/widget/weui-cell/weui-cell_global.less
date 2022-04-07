@@ -26,8 +26,6 @@ z-index:
 .weui-cells {
     margin-top: @weuiCellsMarginTop;
     background-color: @weuiCellBg;
-    line-height: @weuiCellLineHeight;
-    font-size: @weuiCellFontSize; //cell中间有效高度23px，跟客户端默认图标尺寸一致
     overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
 
     // onepx
@@ -79,6 +77,9 @@ z-index:
     position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
     display: flex;
     align-items: center;
+    line-height: @weuiCellLineHeight;
+    font-size: @weuiCellFontSize; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+    color: @weuiTextColorTitle;
     &:before {
         .setTopLine(@weuiCellBorderColor);
 
