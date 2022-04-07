@@ -160,7 +160,7 @@
                         </a>
                         <a class="weui-cell weui-cell_active weui-cell_access js_item" role="menuitem" data-id="steps" href="javascript:">
                             <div class="weui-cell__bd">
-                                <p>steps</p>
+                                <p>Steps</p>
                             </div>
                             <div class="weui-cell__ft"></div>
                         </a>
@@ -268,9 +268,20 @@
 </div>
 <script type="text/javascript">
     $(function(){
+        function setFoot(){
+          var $foot = $('.page__ft');
+          if ($foot.length > 0) {
+            $foot.removeClass('j_bottom');
+            var winH = $(window).height();
+            if ($foot.offsetTop + $foot.offsetHeight < winH) {
+              $foot.addClass('j_bottom');
+            }
+          }
+        }
         var winH = $(window).height();
         var categorySpace = 10;
         function expandMenu(){
+            setFoot();
             var $this = $(this),
                 $inner = $this.next('.js_categoryInner'),
                 $page = $this.parents('.page'),
@@ -1511,6 +1522,15 @@
                     <p>standard is dealicient for u.</p>
                 </div>
             </label>
+            <label class="weui-cell weui-cell_active weui-check__label weui-cell_disabled" for="s13">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="checkbox1" class="weui-check" checked disabled id="s13"/>
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>standard is dealicient for u.</p>
+                </div>
+            </label>
             <a href="javascript:" class="weui-cell weui-cell_active weui-cell_link">
                 <div class="weui-cell__bd">添加更多</div>
             </a>
@@ -1522,7 +1542,7 @@
     </div>
     <div class="weui-form__tips-area">
       <p class="weui-form__tips">
-        点击下一步即表示<a class="weui-wa-hotarea" href="javascript:">同意用户协议</a>
+        点击下一步即表示<a class="weui-link weui-wa-hotarea" href="javascript:">同意用户协议</a>
       </p>
     </div>
   </div>
@@ -1637,6 +1657,12 @@
                 <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
                 <div class="weui-cell__ft">
                     <input aria-labelledby="cb_txt" id="cb" class="weui-switch" type="checkbox"/>
+                </div>
+            </label>
+            <label for="cb1" class="weui-cell weui-cell_active weui-cell_disabled weui-cell_switch">
+                <div class="weui-cell__bd" id="cb1_txt" aria-hidden="true">标题文字</div>
+                <div class="weui-cell__ft">
+                    <input aria-labelledby="cb1_txt" id="cb1" disabled class="weui-switch" checked type="checkbox"/>
                 </div>
             </label>
             <label for="switchCP" class="weui-cell weui-cell_active weui-cell_switch">
@@ -2557,13 +2583,13 @@
     <script type="text/html" id="tpl_steps_vertical">
 <div class="page">
   <ul class="weui-steps weui-steps_vertical">
-    <li class="weui-steps__item weui-steps__item_success">
+    <li class="weui-steps__item">
       <div class="weui-steps__item__inner">
         <strong class="weui-steps__item__title">标题</strong>
         <span class="weui-steps__item__desc">描述内容详情</span>
       </div>
     </li>
-    <li class="weui-steps__item weui-steps__item_success">
+    <li class="weui-steps__item">
       <div class="weui-steps__item__inner">
         <strong class="weui-steps__item__title">标题</strong>
         <span class="weui-steps__item__desc">描述内容详情</span>
@@ -2589,7 +2615,33 @@
         <span class="weui-steps__item__desc">描述内容详情</span>
       </div>
     </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="weui-steps weui-steps_vertical">
     <li class="weui-steps__item weui-steps__item_success">
+      <div class="weui-steps__item__inner">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item weui-steps__item_success weui-steps__item_icon-prev">
       <div class="weui-steps__item__inner">
         <strong class="weui-steps__item__title">标题</strong>
         <span class="weui-steps__item__desc">描述内容详情</span>
@@ -2622,13 +2674,13 @@
         <span class="weui-steps__item__desc">描述内容详情</span>
       </div>
     </li>
-    <li class="weui-steps__item weui-steps__item_success">
+    <li class="weui-steps__item weui-steps__item_icon-prev weui-steps__item_success">
       <div class="weui-steps__item__inner">
         <strong class="weui-steps__item__title">标题</strong>
         <span class="weui-steps__item__desc">描述内容详情</span>
       </div>
     </li>
-    <li class="weui-steps__item weui-steps__item_icon">
+    <li class="weui-steps__item weui-steps__item_icon weui-steps__item_success">
       <div class="weui-steps__item__inner">
         <strong class="weui-steps__item__title">标题</strong>
         <span class="weui-steps__item__desc">描述内容详情</span>
@@ -2641,6 +2693,58 @@
 </script>
     <script type="text/html" id="tpl_steps_horizonal">
 <div class="page">
+  <ul class="weui-steps weui-steps_horizonal">
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="weui-steps weui-steps_horizonal">
+    <li class="weui-steps__item weui-steps__item_success">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+  </ul>
   <ul class="weui-steps weui-steps_horizonal">
     <li class="weui-steps__item weui-steps__item_success">
       <div class="weui-steps__item__inner" style="display:none">
@@ -2667,6 +2771,33 @@
       </div>
     </li>
   </ul>
+  <ul class="weui-steps weui-steps_horizonal">
+    <li class="weui-steps__item weui-steps__item_success">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item weui-steps__item_success">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item weui-steps__item_success">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+    <li class="weui-steps__item weui-steps__item_success">
+      <div class="weui-steps__item__inner" style="display:none">
+        <strong class="weui-steps__item__title">标题</strong>
+        <span class="weui-steps__item__desc">描述内容详情</span>
+      </div>
+    </li>
+  </ul>
+
   <ul class="weui-steps weui-steps_horizonal" style="display:none;">
     <li class="weui-steps__item weui-steps__item_success">
       <div class="weui-steps__item__inner">

@@ -1,3 +1,17 @@
+### v2.5.6 (2022-04-06)
+
+#### Features
+* feat: 新增单选框、复选框、开关组件的置灰态
+
+#### Bugfixes
+* fix: 优化半屏弹窗按钮布局，保证向前兼容
+* fix: 修复steps组件缺少初始化状态问题、新增icon-prev状态
+* fix: 优化底部悬浮按钮间距实现方式
+* fix: 去掉无用的weui-cell_access背景颜色点击态实现
+* fix: 优化example体验
+
+
+
 ### v2.5.5 (2022-03-03)
 
 #### Features

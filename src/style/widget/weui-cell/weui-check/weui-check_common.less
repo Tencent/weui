@@ -18,6 +18,10 @@
 
 .weui-check__label {
     .setTapColor();
+    &.weui-cell_readonly,
+    &.weui-cell_disabled {
+      color:var(--weui-FG-3);
+    }
 }
 
 .weui-check {
@@ -26,4 +30,7 @@
     width: 0;
     height: 0;
     overflow: hidden;
+    &[disabled] + .weui-icon-checked{
+      opacity:.1;
+    }
 }

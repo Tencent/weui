@@ -25,10 +25,13 @@
 body,page{
   --weui-STEPS-DEFAULT-COLOR:var(--weui-FG-3);
   --weui-STEPS-HIGHLIGHT-COLOR:var(--weui-BRAND);
-  --weui-STEPS-DOT-SIZE:~"calc(8 / var(--weui-STEPS-FONT-SIZE) * 1em)";
-  --weui-STEPS-ICON-SIZE:40;
   --weui-STEPS-FONT-SIZE:17;
   --weui-STEPS-LINEHEIGHT:1.4;
+
+  --weui-STEPS-DOT-SIZE:~"calc(8 / var(--weui-STEPS-FONT-SIZE) * 1em)";
+  --weui-STEPS-ICON-SIZE:40;
+
+  --weui-STEPS-VERTICAL-DOT-GAP:~"calc((1em - var(--weui-STEPS-DOT-SIZE)) / 2)";
   --weui-STEPS-HORIZONAL-DOT-GAP:4px;
 }
 
@@ -60,6 +63,15 @@ body,page{
       top:~"calc((var(--weui-STEPS-LINEHEIGHT) - (var(--weui-STEPS-LINEHEIGHT) - 1) / 2) * 1em)"; // 线的顶部跟文字区域底部对齐
       bottom:~"calc((var(--weui-STEPS-LINEHEIGHT) - 1) / 2 * -1em)"; // 线的底部跟下个步骤的文字区域顶部对齐
     }
+    &:first-child{
+      &:not(.weui-steps__item_success){
+        .weui-steps__item__inner{
+          &:before{
+            background-color:var(--weui-STEPS-HIGHLIGHT-COLOR);
+          }
+        }
+      }
+    }
     &:last-child{
       &:before{
         display:none;
@@ -86,6 +98,33 @@ body,page{
       transform:translate(-50%, -50%); // 和步骤文本第一行垂直居中
     }
   }
+  .weui-steps__icon{
+    font-size:~"calc(1px * var(--weui-STEPS-FONT-SIZE))";
+    width:~"calc(var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em)";
+    height:~"calc(var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em)";
+    position:absolute;
+    z-index:1;
+    left:0;
+
+    top:~"calc(var(--weui-STEPS-LINEHEIGHT) / 2 * 1em)";
+    transform:translate(-50%, -50%);
+    margin-top:~"calc((var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em - 1em) / 2 - .28em)"; // 和文本第一行顶对齐，不能直接top0，因为上下都需要盖住线，最后的0.28em是图标的空白区域多余出来
+  }
+  .weui-steps__item_icon{
+    &:before{
+      top:~"calc(var(--weui-STEPS-VERTICAL-DOT-GAP) + var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em - .14em)"; // 最后的0.14em是因为图标的空白区域需要计算进去
+    }
+    .weui-steps__item__inner{
+      &:before{
+        display:none;
+      }
+    }
+  }
+  .weui-steps__item_icon-prev{
+    &:before{
+      bottom:~"calc(var(--weui-STEPS-VERTICAL-DOT-GAP) - (var(--weui-STEPS-LINEHEIGHT) - 1) / 2 * 1em + .14em)"; // 最后0.14em是因为图标的空白区域需要计算进去
+    }
+  }
   .weui-steps__item_success{
     &:before{
       border-color:var(--weui-STEPS-HIGHLIGHT-COLOR);
@@ -102,39 +141,6 @@ body,page{
         }
       }
     }
-  }
-  .weui-steps__item_icon{
-    .weui-steps__item__inner{
-      &:before{
-        display:none;
-      }
-
-      // 由于图标大小不确定性，可能与线重叠，所以需要一个背景色块盖住
-      &:after {
-        content:"";
-        width:~"calc(var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em + (.5em - var(--weui-STEPS-DOT-SIZE) / 2))";
-        height:~"calc(var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em + (.5em - var(--weui-STEPS-DOT-SIZE) / 2))";
-        background-color:var(--weui-BG-2);
-        position:absolute;
-        left:0;
-
-        top:~"calc(var(--weui-STEPS-LINEHEIGHT) / 2 * 1em)";
-        transform:translate(-50%, -50%);
-        margin-top:~"calc((var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em - 1em) / 2 - .28em)"; // 和文本第一行顶对齐，不能直接top0，因为上下都需要盖住线，最后减去0.28em是图标的空白区域
-      }
-    }
-  }
-  .weui-steps__icon{
-    font-size:~"1px * var(--weui-STEPS-FONT-SIZE)";
-    width:~"calc(var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em)";
-    height:~"calc(var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em)";
-    position:absolute;
-    z-index:1;
-    left:0;
-
-    top:~"calc(var(--weui-STEPS-LINEHEIGHT) / 2 * 1em)";
-    transform:translate(-50%, -50%);
-    margin-top:~"calc((var(--weui-STEPS-ICON-SIZE) / var(--weui-STEPS-FONT-SIZE) * 1em - 1em) / 2 - .28em)"; // 和文本第一行顶对齐，不能直接top0，因为上下都需要盖住线，最后减去0.28em是图标的空白区域
   }
 }
 
@@ -165,6 +171,13 @@ body,page{
       flex:none;
       &:after{
         display:none;
+      }
+    }
+    &:first-child{
+      &:not(.weui-steps__item_success){
+        &:before{
+          background:var(--weui-STEPS-HIGHLIGHT-COLOR);
+        }
       }
     }
   }

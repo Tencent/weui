@@ -19,6 +19,10 @@
 .weui-cell_switch {
     padding-top: (@weuiCellHeight - @weuiSwitchHeight) / 2;
     padding-bottom: (@weuiCellHeight - @weuiSwitchHeight) / 2;
+    &.weui-cell_readonly,
+    &.weui-cell_disabled {
+      color:var(--weui-FG-3);
+    }
 }
 .weui-switch {
     appearance: none;
@@ -57,6 +61,11 @@
     &:after {
         transform: translateX(20px);
     }
+}
+.weui-switch[disabled],
+.weui-switch-cp__input[disabled] + .weui-switch-cp__box,
+.weui-switch-cp__input[aria-disabled="true"] + .weui-switch-cp__box {
+  opacity:.1;
 }
 
 
