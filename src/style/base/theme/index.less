@@ -1,28 +1,33 @@
 @import 'fn';
 
-body {
+body,.wx-root {
     .varsLight();
 }
 
 @media (prefers-color-scheme: dark) {
+    .wx-root:not([data-weui-theme='light']) ,
     body:not([data-weui-theme='light']) {
         .varsDark();
     }
 }
+.wx-root[data-weui-theme='dark'] ,
 body[data-weui-theme='dark'] {
     .varsDark();
 }
 
 
+.wx-root[data-weui-mode='care'] ,
 body[data-weui-mode='care'] {
     .varsCareLight();
 }
 
 @media (prefers-color-scheme: dark) {
+    .wx-root[data-weui-mode='care']:not([data-weui-theme='light']) ,
     body[data-weui-mode='care']:not([data-weui-theme='light']) {
         .varsCareDark();
     }
 }
+.wx-root[data-weui-mode='care'][data-weui-theme='dark'] ,
 body[data-weui-mode='care'][data-weui-theme='dark'] {
     .varsCareDark();
 }

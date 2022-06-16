@@ -57,6 +57,7 @@
     }
     h5,h6 {
       font-weight:400;
+      font-size:17px;
     }
     * {
         max-width: 100%;
@@ -70,12 +71,34 @@
         margin: 0 0 24px;
     }
     ol,ul{
-      list-style:none;
+      margin-left: 1.2em;
       margin-bottom:24px;
       & ol,
       & ul{
-        padding-left:16px;
-        margin-bottom:0;
+        margin: .5em 0 .5em 1.2em;
+      }
+    }
+    ol{
+        list-style: decimal;
+    }
+    ul {
+      list-style: disc;
+    }
+    li {
+      margin: 0.5em 0;
+    }
+    .weui-article__list_inside{
+      margin-left: 0;
+      li{
+        list-style-position: inside;
+      }
+    }
+    .weui-article__list_none{
+      margin-left: 0;
+      li{
+        list-style: none;
       }
     }
 }
+
+    
