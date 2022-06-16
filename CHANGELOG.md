@@ -1,3 +1,14 @@
+### v2.5.9 (2022-06-16)
+
+#### Features
+* feat: 升级toast组件、article组件、msg组件UI
+* feat: 增加css变量注册容器`.wx-root`
+
+#### Bugfixes
+* fix: 修复flex布局
+
+
+
 ### v2.5.8 (2022-05-27)
 
 #### Bugfixes
