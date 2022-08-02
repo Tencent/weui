@@ -91,8 +91,6 @@
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
 
     .hyphens();
 
@@ -142,6 +140,32 @@
 .weui-half-screen-dialog_large {
     max-height: none;
     top: 16px;
+}
+.weui-half-screen-dialog_slide {
+  .weui-half-screen-dialog__hd {
+    min-height:0;
+    padding:12px;
+    justify-content:center;
+  }
+  .weui-half-screen-dialog__slide-icon{
+    display:flex;
+    width:40px;
+    height:4px;
+    border-radius:2px;
+    background:var(--weui-BG-0);
+    .dark({
+      background:var(--weui-FG-3);
+    });
+    justify-content:center;
+    align-items:center;
+
+    .weui-icon-arrow{
+      transform: rotate(90deg);
+      width: 0.8em;
+      height: 1.6em;
+      opacity:0;
+    }
+  }
 }
 
 

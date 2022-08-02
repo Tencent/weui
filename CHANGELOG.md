@@ -1,3 +1,15 @@
+### v2.5.10 (2022-08-02)
+
+#### Features
+* feat: 半屏弹窗新增下拉类型
+* feat: uploader组件的上传图标大小从固定尺寸改为相对尺寸
+
+#### Bugfixes
+* fix: 优化半屏弹窗样式代码
+* fix: 升级h5 example的zepto版本至1.2.0
+
+
+
 ### v2.5.9 (2022-06-16)
 
 #### Features
