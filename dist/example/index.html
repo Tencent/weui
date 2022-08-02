@@ -2246,6 +2246,7 @@
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog2">样式二</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog3">样式三</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog4">样式四</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDialog5">样式五</a>
     </div>
 
     <div id="dialogs">
@@ -2290,7 +2291,7 @@
               </div>
               <div class="weui-half-screen-dialog__bd">
                 <div class="weui-bottom-fixed-opr-page" id="js_wrap_wrp">
-                  <div class="weui-bottom-fixed-opr-page__content">
+                  <div class="weui-bottom-fixed-opr-page__content" id="js_wrap_content">
                     <p class="weui-half-screen-dialog__desc">
                     辅助描述内容，可根据实际需要安排
                     </p>
@@ -2365,6 +2366,25 @@
                 </div>
             </div>
         </div>
+        <div id="dialogWrap5" class="js_dialog_wrap" ref="showDialog5" aria-labelledby="js_title5" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
+            <div id="js_close" class="js_close weui-mask"></div>
+            <div id="js_dialog_5" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_slide">
+                <div class="weui-half-screen-dialog__hd">
+                  <div id="js_line" class="weui-half-screen-dialog__slide-icon">
+                    <i id="js_arrow" class="weui-icon-arrow"></i>
+                  </div>
+                </div>
+                <div class="weui-half-screen-dialog__bd">
+                  <br>
+                  <br>
+                  可放自定义内容
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
@@ -2373,21 +2393,34 @@
         const $dialog2 = $('#js_dialog_2');
         const $dialog3 = $('#js_dialog_3');
         const $dialog4 = $('#js_dialog_4');
+        const $dialog5 = $('#js_dialog_5');
         const $dialogWrap1 = $('#dialogWrap1');
         const $dialogWrap2 = $('#dialogWrap2');
         const $dialogWrap3 = $('#dialogWrap3');
         const $dialogWrap4 = $('#dialogWrap4');
+        const $dialogWrap5 = $('#dialogWrap5');
 
-
-        $('.js_close').on('click', function() {
-          const $jsDialogWrap = $(this).parents('.js_dialog_wrap');
+        function closeDialog(o){
+          const $jsDialogWrap = o.parents('.js_dialog_wrap');
           $jsDialogWrap.attr('aria-hidden','true').attr('aria-modal','false').removeAttr('tabindex');
           $jsDialogWrap.fadeOut(300);
           $jsDialogWrap.find('.js_dialog').removeClass('weui-half-screen-dialog_show');
           setTimeout(function(){
             $('#' + $jsDialogWrap.attr('ref')).trigger('focus');
           }, 300);
+        }
+
+        $('.js_dialog_wrap').on('touchmove', function(e) {
+            if($.contains(document.getElementById('js_wrap_content'), e.target)){
+            } else {
+              e.preventDefault();
+            }
         });
+
+        $('.js_close').on('click', function() {
+          closeDialog($(this));
+        });
+
 
 
         $('#showDialog1').on('click', function(){
@@ -2444,6 +2477,75 @@
               $dialogWrap4.trigger('focus');
             },200)
         });
+        $('#showDialog5').on('click', function(){
+            $dialogWrap5.fadeIn(200);
+            js_line.style.height = 4 + 'px';
+            js_line.style.borderRadius = 2 + 'px';
+            js_arrow.style.opacity = 0;
+            $dialog5.addClass('weui-half-screen-dialog_show');
+            $dialog5.css('transform','translate3d(0, 0, 0)');
+            setTimeout(function(){
+              $dialogWrap5.attr('aria-hidden','false');
+              $dialogWrap5.attr('aria-modal','true');
+              $dialogWrap5.attr('tabindex','0');
+              $dialogWrap5.trigger('focus');
+            },200)
+        });
+
+        $('#js_close').on('click', function(){
+          closeDialog($(this));
+          $dialog5.css('transform','translate3d(0, 100%, 0)');
+        });
+
+
+        var dialog_5 = document.getElementById('js_dialog_5');
+        var js_line = document.getElementById('js_line');
+        var js_arrow = document.getElementById('js_arrow');
+        var start = 0
+        var end = 0
+
+        dialog_5.addEventListener('touchstart', function (e) {
+          start = e.changedTouches[0].clientY;
+        })
+
+        dialog_5.addEventListener('touchmove', function (e) {
+          var move = e.changedTouches[0].clientY - start;
+          if(move > 0){
+              dialog_5.style.transform = 'translate3d(0, ' + move + 'px, 0)';
+
+              var percent = move / 56;
+              percent = percent > 1 ? 1 : percent;
+              js_line.style.height = 4 + (16 - 4) * percent + 'px';
+              js_line.style.borderRadius = 2 + (12 - 2) * percent + 'px';
+
+              if(percent >= 0.5){
+                var pear = (percent - 0.5) / 0.5;
+                js_arrow.style.opacity = pear;
+              }
+          } else {
+              dialog_5.style.transform = 'translate3d(0,0,0)';
+              js_line.style.height = 4 + 'px';
+              js_line.style.borderRadius = 2 + 'px';
+              js_arrow.style.opacity = 0;
+          }
+        })
+
+        dialog_5.addEventListener('touchend', function (e) {
+          var move = e.changedTouches[0].clientY - start;
+          end = end + move;
+          var max = 56;
+          dialog_5.style.transition = 'transform .3s';
+
+          if(end < max){
+              dialog_5.style.transform = 'translate3d(0,0,0)';
+              js_line.style.height = 4 + 'px';
+              js_line.style.borderRadius = 2 + 'px';
+              js_arrow.style.opacity = 0;
+          } else if(end >= max){
+            closeDialog($(this));
+            dialog_5.style.transform = 'translate3d(0,100%,0)';
+          }
+        })
 
 
         const wrapBtn = document.getElementById('js_wrap_btn');
@@ -3607,6 +3709,7 @@
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showDatePicker">日期选择器</a>
     </div>
 </div>
+
 <script type="text/javascript">
     $('#showPicker').on('click', function () {
         weui.picker([{
