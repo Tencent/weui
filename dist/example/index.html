@@ -2532,7 +2532,7 @@
 
         dialog_5.addEventListener('touchend', function (e) {
           var move = e.changedTouches[0].clientY - start;
-          end = end + move;
+          end = move;
           var max = 56;
           dialog_5.style.transition = 'transform .3s';
 
@@ -2541,6 +2541,7 @@
               js_line.style.height = 4 + 'px';
               js_line.style.borderRadius = 2 + 'px';
               js_arrow.style.opacity = 0;
+              end = 0;
           } else if(end >= max){
             closeDialog($(this));
             dialog_5.style.transform = 'translate3d(0,100%,0)';
@@ -3762,7 +3763,7 @@
     </div>
     <div class="page__bd page__bd_spacing">
         <div class="weui-footer">
-            <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
+            <p class="weui-footer__text">Copyright &copy; 2008-2022 weui.io</p>
         </div>
         <br>
         <br>
@@ -3770,7 +3771,7 @@
             <p class="weui-footer__links">
                 <a href="javascript:" class="weui-footer__link weui-wa-hotarea">底部链接</a>
             </p>
-            <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
+            <p class="weui-footer__text">Copyright &copy; 2008-2022 weui.io</p>
         </div>
         <br>
         <br>
@@ -3779,13 +3780,16 @@
                 <a href="javascript:" class="weui-footer__link weui-wa-hotarea">底部链接</a>
                 <a href="javascript:" class="weui-footer__link weui-wa-hotarea">底部链接</a>
             </p>
-            <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
+            <p class="weui-footer__text">Copyright &copy; 2008-2022 weui.io</p>
         </div>
         <div class="weui-footer weui-footer_fixed-bottom">
             <p class="weui-footer__links">
                 <a href="javascript:home();" class="weui-footer__link weui-wa-hotarea">WeUI首页</a>
             </p>
-            <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
+            <p class="weui-footer__text">Copyright &copy; 2008-2022 weui.io</p>
+            <a href="//beian.miit.gov.cn/" class="page_copyright">
+              备案号：粤B2-20090059
+            </a>
         </div>
     </div>
 </div>
@@ -4271,7 +4275,12 @@
     
     <script type="text/template" id="footerTmpl">
         <div class="page__ft">
-            <a href="javascript:home()"><img src="images/icon_footer_link.png" /></a>
+            <div class="page_logo_wrp">
+              <a href="javascript:home()"><img src="images/icon_footer_link.png" /></a>
+            </div>
+            <a href="//beian.miit.gov.cn/" class="page_copyright">
+              备案号：粤B2-20090059
+            </a>
         </div>
     </script>
     <script src="./zepto.min.js"></script>

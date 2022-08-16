@@ -597,6 +597,30 @@ body,
 .page.slideOut {
     animation: slideOut 0.2s forwards;
 }
+.page_logo_wrp{
+  display:flex;
+  justify-content:center;
+  &>a{
+    display:inline-flex;
+    vertical-align:bottom;
+  }
+} 
+.page_copyright{
+  &&{
+    margin-top:12px;
+    line-height:1.4;
+    color:rgba(0,0,0,.2);
+    font-size:12px;
+    text-align:center;
+    .dark({
+      color:rgba(255,255,255,.2);
+    });
+    &:active{
+      opacity:.5;
+    }
+  }
+}
+
 
 // iphone x
 @supports (top: constant(safe-area-inset-top)) {
