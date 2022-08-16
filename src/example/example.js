@@ -304,7 +304,7 @@ $(() => {
     preload();
     fastClick();
     androidInputBugFix();
-    setJSAPI();
+    // setJSAPI();
     setPageManager();
 
     window.pageManager = pageManager;

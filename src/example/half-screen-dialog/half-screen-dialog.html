@@ -294,7 +294,7 @@
 
         dialog_5.addEventListener('touchend', function (e) {
           var move = e.changedTouches[0].clientY - start;
-          end = end + move;
+          end = move;
           var max = 56;
           dialog_5.style.transition = 'transform .3s';
 
@@ -303,6 +303,7 @@
               js_line.style.height = 4 + 'px';
               js_line.style.borderRadius = 2 + 'px';
               js_arrow.style.opacity = 0;
+              end = 0;
           } else if(end >= max){
             closeDialog($(this));
             dialog_5.style.transform = 'translate3d(0,100%,0)';

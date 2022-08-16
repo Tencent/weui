@@ -35,6 +35,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    outline:0;
 
     @media only screen and (max-device-height: 558px) {
         max-height: ~"calc(100% - 16px)";
@@ -144,10 +145,12 @@
 .weui-half-screen-dialog_slide {
   .weui-half-screen-dialog__hd {
     min-height:0;
-    padding:12px;
+    padding:12px 16px 16px;
     justify-content:center;
   }
   .weui-half-screen-dialog__slide-icon{
+    position:absolute;
+    top:12px;
     display:flex;
     width:40px;
     height:4px;

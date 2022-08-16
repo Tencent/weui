@@ -1,3 +1,16 @@
+### v2.5.11 (2022-08-16)
+
+#### Features
+* feat: 优化slide半屏、loadmore、button组件的实现
+* feat: 工信部网站信息备案
+
+
+#### Bugfixes
+* fix: 去掉弹窗适配无障碍focus时带系统默认聚焦样式
+* fix: 去掉分享签名api调用
+
+
+
 ### v2.5.10 (2022-08-02)
 
 #### Features
