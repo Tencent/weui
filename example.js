@@ -1,5 +1,5 @@
 $(function () {
-
+    // router
     var router = new Router({
         container: '#container',
         enterTimeout: 250,
