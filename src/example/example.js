@@ -311,6 +311,9 @@ $(() => {
     window.home = function () {
       location.hash = '';
     };
+
+    var year = new Date().getFullYear();
+    document.getElementById('js_copyright_year').innerHTML = year;
   }
   init();
 });
