@@ -1,3 +1,13 @@
+### v2.5.12 (2022-09-06)
+
+#### Features
+* fix: 加入公安备案信息
+
+#### Bugfixes
+* fix: toast、toptips层级调整至5500
+
+
+
 ### v2.5.11 (2022-08-16)
 
 #### Features
