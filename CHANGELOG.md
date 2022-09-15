@@ -1,3 +1,10 @@
+### v2.5.13 (2022-09-15)
+
+#### Bugfixes
+* fix: 修复ios16下text-align-last导致的问题
+
+
+
 ### v2.5.12 (2022-09-06)
 
 #### Features
