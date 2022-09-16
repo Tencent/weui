@@ -47,7 +47,6 @@
     align-items: center;
     flex-shrink: 0;
 
-    .weui-icon-btn,//兼容老版本
     .weui-btn_icon {
         position: absolute;
         top: 50%;
@@ -181,6 +180,29 @@
 
 
 // 下面是兼容旧版本用的
+.weui-half-screen-dialog__hd {
+    .weui-icon-btn{
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        color:inherit;
+        &:active { opacity: 0.5; }
+
+        &:after{
+          content:"";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+          min-width: 44px;
+          min-height: 44px;
+          width: 100%;
+          height: 100%;
+        }
+    }
+}
 .weui-icon-btn {
   &&{
     outline: 0;
@@ -197,17 +219,21 @@
 .weui-icon-btn_goback {
   &&{
     color: @weuiTextColorTitle;
-    width: 1.2em;
-    height: 2.4em;
+    background-color:currentColor;
+    width: .71rem; // 字号17px下的12px
+    height: 1.42rem;
     mask: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10%2019.438L8.955%2020.5l-7.666-7.79a1.02%201.02%200%20010-1.42L8.955%203.5%2010%204.563%202.682%2012%2010%2019.438z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") no-repeat 50% 50%;
+    mask-size:100%;
   }
 }
 .weui-icon-btn_close {
   &&{
     color: @weuiTextColorTitle;
-    width: 1.4em;
-    height: 2.4em;
+    background-color:currentColor;
+    width: 1.42rem;
+    height: 1.42rem;
     mask: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12.25%2010.693L6.057%204.5%205%205.557l6.193%206.193L5%2017.943%206.057%2019l6.193-6.193L18.443%2019l1.057-1.057-6.193-6.193L19.5%205.557%2018.443%204.5z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E") no-repeat 50% 50%;
+    mask-size:100%;
   }
 }
 
