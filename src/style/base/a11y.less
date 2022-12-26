@@ -23,6 +23,9 @@
     height: 1px;
     overflow: hidden;
 }
+.weui-a11y_ref{
+  display:none;
+}
 .weui-hidden-space:empty {
     &:before {
         content: "\00A0";
@@ -64,6 +67,7 @@
 
     // 如果是合法的点击嵌套，例如label[for]里的出现链接，需要把层级提高
     a ,
+    button,
     navigator {
         position: relative;
         z-index: 1;
@@ -72,6 +76,7 @@
 .weui-wa-hotarea_before:before,
 .weui-wa-hotarea:after {
     content: "";
+    pointer-events:auto;
     .weui-wa-hotarea-el;
 }
 

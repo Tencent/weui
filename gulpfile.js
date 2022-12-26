@@ -97,6 +97,7 @@ function buildExampleStyle() {
     .pipe(nano({
       zindex: false,
       autoprefixer: false,
+      reduceIdents: false,
     }))
     .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({ stream: true }));
