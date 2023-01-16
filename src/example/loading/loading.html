@@ -1,20 +1,16 @@
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Loading</h1>
-        <p class="page__desc">加载中</p>
+        <p class="page__desc">正在加载</p>
     </div>
     <div class="page__bd">
       <div class="loading_demo">
-        <i role="img" aria-label="加载中" class="weui-loading"></i>
-        <span role="img" aria-label="加载中" class="weui-primary-loading">
-          <span class="weui-primary-loading__dot"></span>
-        </span>
-        <span role="img" aria-label="加载中" class="weui-primary-loading weui-primary-loading_brand">
-          <span class="weui-primary-loading__dot"></span>
-        </span>
-        <span role="img" aria-label="加载中" class="weui-primary-loading weui-primary-loading_transparent">
-          <span class="weui-primary-loading__dot"></span>
-        </span>
+        <div class="loading_demo_inner">
+          <i role="img" aria-label="正在加载" class="weui-loading"></i>
+          <i role="img" aria-label="正在加载" class="weui-mask-loading"></i>
+          <i role="img" aria-label="正在加载" class="weui-mask-loading" style="color:var(--weui-BRAND);"></i>
+          <i role="img" aria-label="正在加载" class="weui-mask-loading" style="color:#EDEDED"></i>
+        </div>
       </div>
     </div>
 </div>

@@ -1,3 +1,14 @@
+### v2.5.16 (2023-01-16)
+
+#### Features
+* feat: 升级picker样式
+* feat: 升级loading样式
+
+#### Bugfixes
+* fix: 统一“正在加载”文案
+
+
+
 ### v2.5.15 (2022-12-26)
 
 #### Features
