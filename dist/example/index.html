@@ -467,13 +467,14 @@
 
         <div class="button-sp-area">
         <a href="javascript:" role="button" class="weui-btn weui-btn_primary">主要操作</a>
-        <a href="javascript:" role="button" title="等待中" class="weui-btn weui-btn_primary weui-btn_loading"><span class="weui-primary-loading weui-primary-loading_transparent"><i class="weui-primary-loading__dot"></i></span>主要操作</a>
+        <a href="javascript:" role="button" title="正在操作" class="weui-btn weui-btn_primary weui-btn_loading"><i class="weui-mask-loading"></i>主要操作</a>
+        <a href="javascript:" role="button" title="正在操作" class="weui-btn weui-btn_primary weui-btn_loading"><i class="weui-mask-loading"></i></span>主要操作</a>
         <a href="javascript:" role="button" aria-disabled="true" disabled class="weui-btn weui-btn_disabled weui-btn_primary">主要操作</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_default">次要操作</a>
-		<a href="javascript:" role="button" title="等待中" class="weui-btn weui-btn_default weui-btn_loading"><span class="weui-primary-loading"><i class="weui-primary-loading__dot"></i></span>次要操作</a>
+		<a href="javascript:" role="button" title="正在操作" class="weui-btn weui-btn_default weui-btn_loading"><i class="weui-mask-loading"></i>次要操作</a>
         <a href="javascript:" role="button" aria-disabled="true" disabled class="weui-btn weui-btn_disabled weui-btn_default">次要操作</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_warn">警示操作</a>
-		<a href="javascript:" role="button" title="等待中" class="weui-btn weui-btn_warn weui-btn_loading"><span class="weui-primary-loading"><i class="weui-primary-loading__dot"></i></span>警示操作</a>
+		<a href="javascript:" role="button" title="正在操作" class="weui-btn weui-btn_warn weui-btn_loading"><i class="weui-mask-loading"></i>警示操作</a>
         <a href="javascript:" role="button" aria-disabled="true" disabled class="weui-btn weui-btn_disabled weui-btn_warn">警示操作</a>
         </div>
 
@@ -2009,7 +2010,7 @@
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showToast">成功提示</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showWarnToast">失败提示</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showTextMoreToast">长文案提示</a>
-        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showLoadingToast">加载中提示</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showLoadingToast">正在加载提示</a>
         <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showTextToast">文字提示</a>
     </div>
 
@@ -2047,7 +2048,7 @@
             <span class="weui-primary-loading weui-icon_toast">
               <span class="weui-primary-loading__dot"></span>
             </span>
-            <p class="weui-toast__content">加载中</p>
+            <p class="weui-toast__content">正在加载</p>
         </div>
     </div>
 
@@ -3736,7 +3737,8 @@
             onConfirm: function (result) {
                 console.log(result);
             },
-            title: '单列选择器'
+            title: '单列选择器',
+            showClose: false
         });
     });
     $('#showDatePicker').on('click', function () {
@@ -3860,20 +3862,16 @@
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Loading</h1>
-        <p class="page__desc">加载中</p>
+        <p class="page__desc">正在加载</p>
     </div>
     <div class="page__bd">
       <div class="loading_demo">
-        <i role="img" aria-label="加载中" class="weui-loading"></i>
-        <span role="img" aria-label="加载中" class="weui-primary-loading">
-          <span class="weui-primary-loading__dot"></span>
-        </span>
-        <span role="img" aria-label="加载中" class="weui-primary-loading weui-primary-loading_brand">
-          <span class="weui-primary-loading__dot"></span>
-        </span>
-        <span role="img" aria-label="加载中" class="weui-primary-loading weui-primary-loading_transparent">
-          <span class="weui-primary-loading__dot"></span>
-        </span>
+        <div class="loading_demo_inner">
+          <i role="img" aria-label="正在加载" class="weui-loading"></i>
+          <i role="img" aria-label="正在加载" class="weui-mask-loading"></i>
+          <i role="img" aria-label="正在加载" class="weui-mask-loading" style="color:var(--weui-BRAND);"></i>
+          <i role="img" aria-label="正在加载" class="weui-mask-loading" style="color:#EDEDED"></i>
+        </div>
       </div>
     </div>
 </div>
@@ -3887,7 +3885,7 @@
     </div>
     <div class="page__bd">
         <div role="alert" class="weui-loadmore">
-            <span aria-hidden="true" role="img" aria-label="加载中" class="weui-primary-loading">
+            <span aria-hidden="true" role="img" aria-label="正在加载" class="weui-primary-loading">
               <i class="weui-primary-loading__dot"></i>
             </span>
             <span class="weui-loadmore__tips">正在加载</span>
@@ -4294,7 +4292,7 @@
     </script>
     <script src="./zepto.min.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+    <script src="https://res.wx.qq.com/t/wx_fed/weui.js/res/1.2.17/weui.min.js"></script>
     <script src="./example.js"></script>
     <script src="./wah.js"></script>
     <script type="text/javascript">

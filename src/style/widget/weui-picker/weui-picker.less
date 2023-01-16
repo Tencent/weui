@@ -16,7 +16,7 @@
 
 @import "../../base/fn";
 
-@pickerItemHeight: 48px;
+@pickerItemHeight: 56px;
 .weui-picker {
     position: fixed;
     width: 100%;
@@ -25,13 +25,25 @@
     bottom: 0;
     z-index: 5000;
     background-color: var(--weui-BG-2);
-    padding-bottom: constant(safe-area-inset-bottom);
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-left:0;
+    padding-left: constant(safe-area-inset-left);
+    padding-left: env(safe-area-inset-left);
+    padding-right:0;
+    padding-right: constant(safe-area-inset-right);
+    padding-right: env(safe-area-inset-right);
     backface-visibility: hidden;
     transform: translate(0, 100%);
     //slide up animation
     transition: transform 0.3s;
     outline:0;
+
+    .weui-half-screen-dialog__hd{
+      padding-left:24px;
+      padding-right:24px;
+    }
+    .weui-half-screen-dialog__bd{
+      overflow:visible;
+    }
 }
 
 .weui-picker__hd {
@@ -60,16 +72,19 @@
     flex: 1;
     position: relative;
     height: 100%;
+    font-size:17px;
     &:first-child {
-        .weui-picker__item {
-            padding-left: constant(safe-area-inset-left);
-            padding-left: env(safe-area-inset-left);
+        .weui-picker__indicator{
+          left:8px;
+          border-top-left-radius:8px;
+          border-bottom-left-radius:8px;
         }
     }
     &:last-child {
-        .weui-picker__item {
-            padding-right: constant(safe-area-inset-right);
-            padding-right: env(safe-area-inset-right);
+        .weui-picker__indicator{
+          right:8px;
+          border-top-right-radius:8px;
+          border-bottom-right-radius:8px;
         }
     }
 }
@@ -88,24 +103,19 @@
     });
     
     background-position: top, bottom;
-    background-size: 100% 92px;
+    background-size: 100% (2 * @pickerItemHeight);
     background-repeat: no-repeat;
     transform: translateZ(0);
 }
 
 .weui-picker__indicator {
-    width: 100%;
-    height: 56px;
+    height: @pickerItemHeight;
     position: absolute;
+    top: 112px;
     left: 0;
-    top: 92px;
-    z-index: 3;
-    &:before {
-        .setTopLine(@weuiLineColorLight);
-    }
-    &:after {
-        .setBottomLine(@weuiLineColorLight);
-    }
+    right: 0;
+    z-index: 1;
+    background:var(--weui-BG-3);
 }
 
 .weui-picker__content {
@@ -113,6 +123,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index:2;
 }
 
 .weui-picker__item {
