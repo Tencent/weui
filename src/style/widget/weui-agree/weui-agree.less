@@ -17,22 +17,27 @@
 @import "../../base/fn";
 
 .weui-agree {
-    display: block;
-    padding: 8px 15px 0;
-    font-size: 14px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  display: flex;
+  text-align:justify;
+  justify-content: center;
+  align-items:center;
+  .hyphens;
+  line-height:1.6;
+  font-size: 14px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-    a,
-    navigator {
-        color: @weuiLinkColorDefault;
-    }
-    navigator {
-        display: inline;
-    }
+  a,
+  navigator {
+    color: @weuiLinkColorDefault;
+  }
+  navigator {
+    display: inline;
+  }
 }
 .weui-agree__text {
     color: @weuiTextColorDesc;
     margin-left: 2px;
+    min-width:0;
 }
 .weui-agree__checkbox {
     appearance: none;
@@ -49,7 +54,8 @@
     width: 1em;
     height: 1em;
     font-size: 17px;
-    margin-top: -0.2em;
+    flex-shrink: 0;
+    margin-top: 0;
 }
 .weui-agree__checkbox-check { // 兼容小程序
     opacity: 0;

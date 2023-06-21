@@ -349,7 +349,17 @@ body,
         margin: 15px auto;
         padding: 15px;
         text-align: center;
-        &.cell { padding: 15px 0; }
+        &.cell {
+          padding: 15px 0; 
+          display:none;
+        }
+        &.overlay { 
+          padding: 15px 0;
+          background:var(--weui-BRAND);
+          .weui-btn_mini{
+            margin-top:16px;
+          }
+        }
     }
 }
 .page.button_bottom_fixed {
@@ -568,6 +578,12 @@ body,
             color: var(--weui-FG-1);
         }
     }
+}
+.page.information-bar {
+  .weui-information-bar{
+    position:static;
+    margin-bottom:20px;
+  }
 }
 
 .page.gallery {

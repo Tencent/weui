@@ -1,0 +1,95 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+
+body,wx-root,
+page{
+  --weui-informationBar-FG:#FFFFFF;
+  --weui-informationBar-LINK:var(--weui-informationBar-FG);
+  --weui-informationBar-ICON:var(--weui-informationBar-FG);
+  --weui-informationBar-BG:var(--weui-RED);
+}
+
+.weui-information-bar {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 5500;
+  .text_wrap();
+  transform: translateZ(0);
+
+  // 换色
+  color:var(--weui-informationBar-FG);
+  background:var(--weui-informationBar-BG);
+  [class*="weui-icon-"]{
+    color:var(--weui-informationBar-ICON);
+  }
+
+  .weui-btn_icon{
+    [class*="weui-icon-"]{
+      color:var(--weui-informationBar-FG);
+    }
+
+    &:active{
+      opacity:.5;
+    }
+  }
+}
+.weui-information-bar,
+.weui-information-bar__hd,
+.weui-information-bar__ft{
+  display:flex;
+  align-items:center;
+}
+.weui-information-bar__hd{
+  [class*="weui-icon-"]{
+    margin-right:8px;
+  }
+}
+.weui-information-bar__bd{
+  flex:1;
+  min-width:0;
+
+  &:first-child{
+    &:last-child{
+      text-align:center;
+    }
+  }
+}
+.weui-information-bar_warn-weak{
+  --weui-informationBar-FG:var(--weui-FG-1);
+  --weui-informationBar-LINK:var(--weui-LINK);
+  --weui-informationBar-ICON:var(--weui-RED);
+  --weui-informationBar-BG:var(--weui-TAG-BACKGROUND-RED);
+}
+.weui-information-bar_warn-no-color{
+  --weui-informationBar-BG:var(--weui-FG-2);
+}
+.weui-information-bar_tips-strong{
+  --weui-informationBar-BG:var(--weui-ORANGE);
+}
+.weui-information-bar_tips-weak{
+  --weui-informationBar-FG:var(--weui-FG-1);
+  --weui-informationBar-ICON:var(--weui-FG-1);
+  --weui-informationBar-LINK:var(--weui-LINK);
+  --weui-informationBar-BG:var(--weui-BG-1);
+}

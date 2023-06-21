@@ -1,37 +1,41 @@
 <div class="page">
   <div class="weui-form">
-    <div class="weui-form__text-area">
-      <h2 class="weui-form__title">开关样式展示</h2>
-    </div>
-    <div class="weui-form__control-area">
-      <div class="weui-cells__group weui-cells__group_form">
-        <div class="weui-cells">
-            <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
-                <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
-                <div class="weui-cell__ft">
-                    <input aria-labelledby="cb_txt" id="cb" class="weui-switch" type="checkbox"/>
-                </div>
-            </label>
-            <label for="cb1" class="weui-cell weui-cell_active weui-cell_disabled weui-cell_switch">
-                <div class="weui-cell__bd" id="cb1_txt" aria-hidden="true">标题文字</div>
-                <div class="weui-cell__ft">
-                    <input aria-labelledby="cb1_txt" id="cb1" disabled class="weui-switch" checked type="checkbox"/>
-                </div>
-            </label>
-            <label for="switchCP" class="weui-cell weui-cell_active weui-cell_switch">
-                <div class="weui-cell__bd" id="cp_txt" aria-hidden="true">兼容IE Edge的版本</div>
-                <div class="weui-cell__ft">
-                    <span class="weui-switch-cp">
-                        <input id="switchCP" aria-labelledby="cp_txt" class="weui-switch-cp__input" type="checkbox" checked="checked"/>
-                        <div class="weui-switch-cp__box"></div>
-                    </span>
-                </div>
-            </label>
+    <div class="weui-form__bd">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">开关样式展示</h2>
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <div class="weui-cells">
+              <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
+                  <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
+                  <div class="weui-cell__ft">
+                      <input aria-labelledby="cb_txt" id="cb" class="weui-switch" type="checkbox"/>
+                  </div>
+              </label>
+              <label for="cb1" class="weui-cell weui-cell_active weui-cell_disabled weui-cell_switch">
+                  <div class="weui-cell__bd" id="cb1_txt" aria-hidden="true">标题文字</div>
+                  <div class="weui-cell__ft">
+                      <input aria-labelledby="cb1_txt" id="cb1" disabled class="weui-switch" checked type="checkbox"/>
+                  </div>
+              </label>
+              <label for="switchCP" class="weui-cell weui-cell_active weui-cell_switch">
+                  <div class="weui-cell__bd" id="cp_txt" aria-hidden="true">兼容IE Edge的版本</div>
+                  <div class="weui-cell__ft">
+                      <span class="weui-switch-cp">
+                          <input id="switchCP" aria-labelledby="cp_txt" class="weui-switch-cp__input" type="checkbox" checked="checked"/>
+                          <div class="weui-switch-cp__box"></div>
+                      </span>
+                  </div>
+              </label>
+          </div>
         </div>
       </div>
     </div>
-    <div class="weui-form__opr-area">
-      <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+    <div class="weui-form__ft">
+      <div class="weui-form__opr-area">
+        <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+      </div>
     </div>
   </div>
   <div id="js_toast" style="display: none;" role="alert">

@@ -48,12 +48,14 @@ body{
             left: var(--weui-cellPaddingLR);
             right: var(--weui-cellPaddingLR);
         }
-    }
-    .weui-cell__hd {
-        padding-right: 16px;
-    }
-    .weui-cell__ft {
-        padding-left: 16px;
+        &:not(.weui-cell_vertical){
+          .weui-cell__hd {
+            padding-right: 16px;
+          }
+          .weui-cell__ft {
+            padding-left: 16px;
+          }
+        }
     }
 
 

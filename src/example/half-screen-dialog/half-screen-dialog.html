@@ -37,7 +37,7 @@
         </div>
         <div id="dialogWrap2" class="js_dialog_wrap" ref="showDialog2" aria-labelledby="js_title2" role="dialog" aria-modal="false" aria-hidden="true" style="display: none;">
             <div id="mask2" class="js_close weui-mask"></div>
-            <div id="js_dialog_2" class="js_dialog weui-half-screen-dialog weui-half-screen-dialog_bottom-fixed">
+            <div id="js_dialog_2" class="js_dialog weui-half-screen-dialog weui-bottom-fixed-opr-page">
               <div class="weui-half-screen-dialog__hd">
                 <div class="weui-half-screen-dialog__hd__side">
                   <button class="js_close weui-btn_icon weui-wa-hotarea">关闭<i class="weui-icon-slide-down"></i></button>
@@ -51,25 +51,23 @@
                   <button class="weui-btn_icon weui-wa-hotarea">更多<i class="weui-icon-more"></i></button>
                 </div>
               </div>
-              <div class="weui-half-screen-dialog__bd">
-                <div class="weui-bottom-fixed-opr-page" id="js_wrap_wrp">
-                  <div class="weui-bottom-fixed-opr-page__content" id="js_wrap_content">
-                    <p class="weui-half-screen-dialog__desc">
-                    辅助描述内容，可根据实际需要安排
-                    </p>
-                    <p class="weui-half-screen-dialog__tips" role="option">
-                    辅助提示内容，可根据实际需要安排
-                    Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
-                    Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
-                    Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
-                    Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
-                    Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
-                    </p>
-                  </div>
-                  <div class="weui-bottom-fixed-opr">
-                    <a href="javascript:;" role="button" id="js_wrap_btn" class="js_close weui-btn weui-btn_primary">同意并完成</a>
-                    <a href="javascript:;" role="button" class="js_close weui-btn weui-btn_default">取消</a>
-                  </div>
+              <div class="weui-half-screen-dialog__bd weui-bottom-fixed-opr-page__content" id="js_wrap_content">
+                <p class="weui-half-screen-dialog__desc">
+                辅助描述内容，可根据实际需要安排
+                </p>
+                <p class="weui-half-screen-dialog__tips" role="option">
+                辅助提示内容，可根据实际需要安排
+                Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
+                Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
+                Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
+                Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
+                Dolor adipisci quidem consequuntur similique consequuntur doloribus modi possimus sunt voluptas qui Aspernatur natus error quisquam quidem ipsa corrupti! Dignissimos quasi quis natus fugiat odio in? Mollitia molestias error earum.
+                </p>
+              </div>
+              <div class="weui-half-screen-dialog__ft weui-bottom-fixed-opr-page__tool">
+                <div class="weui-half-screen-dialog__btn-area">
+                  <a href="javascript:" id="js_wrap_btn" class="js_close weui-btn weui-btn_default">次要操作</a>
+                  <a href="javascript:" class="js_close weui-btn weui-btn_primary">同意下一步</a>
                 </div>
               </div>
             </div>
@@ -172,6 +170,7 @@
           }, 300);
         }
 
+        // 阻止弹窗内部滚动冒泡
         $('.js_dialog_wrap').on('touchmove', function(e) {
             if($.contains(document.getElementById('js_wrap_content'), e.target)){
             } else {
@@ -198,12 +197,12 @@
         $('#showDialog2').on('click', function(){
             $dialogWrap2.fadeIn(200);
             $dialog2.addClass('weui-half-screen-dialog_show');
-            wrapPage.style.visibility = 'hidden';
+            // wrapPage.style.visibility = 'hidden';
             setTimeout(function(){
               if(wrapBtn.offsetHeight > 48){
-                wrapPage.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
+                wrapPage.classList.add('weui-half-screen-dialog_btn-wrap');
               }
-              wrapPage.style.visibility = 'visible';
+              // wrapPage.style.visibility = 'visible';
             },100);
             setTimeout(function(){
               $dialogWrap2.attr('aria-hidden','false');
@@ -313,7 +312,7 @@
 
         const wrapBtn = document.getElementById('js_wrap_btn');
         const wrapBtn1 = document.getElementById('js_wrap_btn_1');
-        const wrapPage = document.getElementById('js_wrap_wrp');
+        const wrapPage = document.getElementById('js_dialog_2');
         const wrapArea = document.getElementById('js_wrap_btn_area');
 
         try {
@@ -336,9 +335,9 @@
           WeixinJSBridge.on('menu:setfont', function(res){
             document.body.style.webkitTextSizeAdjust = res.fontScale + '%';
             if(wrapBtn.offsetHeight > 48){
-              wrapPage.classList.add('weui-bottom-fixed-opr-page_btn-wrap');
+              wrapPage.classList.add('weui-half-screen-dialog_btn-wrap');
             }else{
-              wrapPage.classList.remove('weui-bottom-fixed-opr-page_btn-wrap');
+              wrapPage.classList.remove('weui-half-screen-dialog_btn-wrap');
             }
             if(wrapBtn1.offsetHeight > 48){
               $dialog4.addClass('weui-half-screen-dialog_btn-wrap');

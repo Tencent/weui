@@ -16,12 +16,21 @@
 
 @import "../../base/fn";
 
-.setColor(--weui-BTN-DISABLED-FONT-COLOR, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
-.setColor(--weui-BTN-DEFAULT-BG, #f2f2f2, rgba(255, 255, 255, 0.08));
-.setColor(--weui-BTN-DEFAULT-COLOR, #06ae56, rgba(255, 255, 255, 0.8));
+
+body, .wx-root,
+page{
+  --weui-BTN-DEFAULT-COLOR:var(--weui-FG-0);
+  --weui-BTN-DEFAULT-BG:var(--weui-FG-5);
+  --weui-BTN-DISABLED-FONT-COLOR:var(--weui-FG-4);
+  --weui-BTN-HEIGHT:48;
+  --weui-BTN-HEIGHT-MEDIUM:40;
+  --weui-BTN-HEIGHT-SMALL:32;
+}
+.setColor(--weui-BTN-ACTIVE-MASK, rgba(0,0,0,.1), rgba(255,255,255,.1));
+
+
+
 .setColor(--weui-BTN-DEFAULT-ACTIVE-BG, overlay(rgba(0, 0, 0, 0.05), #f2f2f2), overlay(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.08)));
-.setColor(--weui-BTN-ACTIVE-MASK, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.05));
-.setCareColor(--weui-BTN-DEFAULT-COLOR, #018942, rgba(255, 255, 255, 0.8));
 
 @weuiBtnWidth: 184px;
 @weuiBtnHeight: 48px;
@@ -29,7 +38,7 @@
 @weuiBtnBorderRadius: 8px;
 @weuiBtnDefaultGap: 16px;
 
-@weuiBtnMiniFontSize: 16px;
+@weuiBtnMiniFontSize: 14px;
 @weuiBtnMiniHeight: 32px;
 
 @weuiBtnCellHeight: 56px;
@@ -39,6 +48,7 @@
 @weuiBtnFontColor: #fff;
 @weuiBtnDisabledFontColor: var(--weui-BTN-DISABLED-FONT-COLOR);
 @weuiBtnDisabledBg: var(--weui-BTN-DEFAULT-BG);
+
 
 // default
 @weuiBtnDefaultFontColor: var(--weui-BTN-DEFAULT-COLOR);
