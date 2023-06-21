@@ -126,18 +126,12 @@
 
 }
 .weui-half-screen-dialog__btn-area {
-    .weuiBtnWrapLayoutDefault();
-
     & + .weui-half-screen-dialog__attachment-area {
         margin-top: 24px;
         margin-bottom: -34px;
     }
 }
-.weui-half-screen-dialog_btn-wrap {
-    .weui-half-screen-dialog__btn-area {
-      .weuiBtnWrapLayoutWrap();
-    }
-}
+
 .weui-half-screen-dialog_large {
     max-height: none;
     top: 16px;
@@ -168,6 +162,17 @@
       height: 1.6em;
       opacity:0;
     }
+  }
+}
+
+
+// 按钮组水平布局与垂直布局切换
+.weui-half-screen-dialog__btn-area {
+  .weuiBtnWrapLayoutDefault();
+}
+.weui-half-screen-dialog_btn-wrap {
+  .weui-half-screen-dialog__btn-area {
+    .weuiBtnWrapLayoutWrap();
   }
 }
 

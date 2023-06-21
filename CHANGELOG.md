@@ -1,3 +1,15 @@
+### v2.6.0 (2023-06-21)
+
+#### Features
+* feat: 新增informationBar组件
+* feat: cell组件支持上下结构
+* feat: actionsheet菜单新增副标题
+* feat: form新增weui-form__bd和weui-form__ft结构，布局向后兼容
+* feat: form新增底部悬浮效果
+* feat: button UI升级
+
+
+
 ### v2.5.16 (2023-01-16)
 
 #### Features

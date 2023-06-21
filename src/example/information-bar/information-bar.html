@@ -1,0 +1,73 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Information Bar</h1>
+        <p class="page__desc">信息提示条</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+      <div role="alert" class="weui-information-bar weui-information-bar_warn-strong" id="js_informationBar">
+        <div class="weui-information-bar__hd">
+          <i class="weui-icon-outlined-warn"></i>
+        </div>
+        <div class="weui-information-bar__bd">
+          信息提示 warn strong
+        </div>
+        <div class="weui-information-bar__ft">
+          <button class="weui-btn_icon">关闭<i class="weui-icon-close-thin"></i></button>
+        </div>
+      </div>
+      <div role="alert" class="weui-information-bar weui-information-bar_warn-weak" id="js_informationBar">
+        <div class="weui-information-bar__hd">
+          <i class="weui-icon-outlined-warn"></i>
+        </div>
+        <div class="weui-information-bar__bd">
+          信息提示 warn weak
+        </div>
+        <div class="weui-information-bar__ft">
+          <button class="weui-btn_icon">关闭<i class="weui-icon-close-thin"></i></button>
+        </div>
+      </div>
+      <div role="alert" class="weui-information-bar weui-information-bar_warn-no-color" id="js_informationBar">
+        <div class="weui-information-bar__hd">
+          <i class="weui-icon-outlined-warn"></i>
+        </div>
+        <div class="weui-information-bar__bd">
+          信息提示 warn no color
+        </div>
+        <div class="weui-information-bar__ft">
+          <button class="weui-btn_icon">关闭<i class="weui-icon-close-thin"></i></button>
+        </div>
+      </div>
+      <div role="alert" class="weui-information-bar weui-information-bar_tips-strong" id="js_informationBar">
+        <div class="weui-information-bar__hd">
+          <i class="weui-icon-outlined-warn"></i>
+        </div>
+        <div class="weui-information-bar__bd">
+          信息提示 tips strong
+        </div>
+        <div class="weui-information-bar__ft">
+          <button class="weui-btn_icon">关闭<i class="weui-icon-close-thin"></i></button>
+        </div>
+      </div>
+      <div role="alert" class="weui-information-bar weui-information-bar_tips-weak" id="js_informationBar">
+        <div class="weui-information-bar__hd">
+          <i class="weui-icon-outlined-warn"></i>
+        </div>
+        <div class="weui-information-bar__bd">
+          信息提示 tips weak
+        </div>
+        <div class="weui-information-bar__ft">
+          <button class="weui-btn_icon">关闭<i class="weui-icon-close-thin"></i></button>
+        </div>
+      </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+          $('#js_showInformationBar').on('click', function(){
+                $('#js_informationBar').fadeIn(200);
+          });
+          $('#js_hideInformationBar').on('click', function(){
+                $('#js_informationBar').fadeOut(200);
+          });
+    });
+</script>

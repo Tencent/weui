@@ -1,113 +1,117 @@
 <div class="page">
   <div class="weui-form">
-    <div class="weui-form__text-area">
-      <h2 class="weui-form__title">表单结构</h2>
-      <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
-    </div>
-    <div class="weui-form__control-area">
-      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
-        <div class="weui-cells__title">表单组标题</div>
-        <div class="weui-cells">
-          <label for="js_input1" class="weui-cell weui-cell_active">
-            <div class="weui-cell__hd"><span class="weui-label">微信号</span></div>
-            <div class="weui-cell__bd">
-                <input id="js_input1" class="weui-input" placeholder="填写本人微信号"/>
-            </div>
-          </label>
-          <label for="js_input2" class="weui-cell weui-cell_active">
-            <div class="weui-cell__hd"><span class="weui-label">昵称</span></div>
-            <div class="weui-cell__bd">
-                <input id="js_input2" class="weui-input" placeholder="填写本人微信号的昵称"/>
-            </div>
-          </label>
-        </div>
+    <div class="weui-form__bd">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">表单结构</h2>
+        <div class="weui-form__desc">展示表单页面的信息结构样式, 分别由头部区域/控件区域/提示区域/操作区域和底部信息区域组成。</div>
       </div>
-      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
-        <div class="weui-cells__title">表单组标题</div>
-        <div class="weui-cells">
-            <div class="weui-cell weui-cell_active weui-cell_select">
-                <div class="weui-cell__bd">
-                    <select class="weui-select" name="select1">
-                        <option selected="" value="1">微信号</option>
-                        <option value="2">QQ号</option>
-                        <option value="3">Email</option>
-                    </select>
-                </div>
-            </div>
-            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
-                <div class="weui-cell__hd">
-                    <select class="weui-select" name="select2">
-                        <option value="1">+86</option>
-                        <option value="2">+80</option>
-                        <option value="3">+84</option>
-                        <option value="4">+87</option>
-                    </select>
-                </div>
-                <label for="js_input1" class="weui-cell__bd">
-                    <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
-                </label>
-            </div>
-            <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
-                <div class="weui-cell__hd">
-                    <label for="" class="weui-label">国家</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
-                        <option value="1">中国</option>
-                        <option value="2">美国</option>
-                        <option value="3">英国</option>
-                    </select>
-                </div>
-            </div>
-            <label for="js_input3" class="weui-cell weui-cell_active weui-cell_wrap">
-                <div class="weui-cell__hd">
-                  <span class="weui-label">手机号</span>
-                </div>
-                <div class="weui-cell__bd">
-                    <span class="weui-cell__control">+86</span>
-                    <input id="js_input3" class="weui-input  weui-cell__control weui-cell__control_flex" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
-                </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+          <div class="weui-cells__title">表单组标题</div>
+          <div class="weui-cells">
+            <label for="js_input1" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">微信号</span></div>
+              <div class="weui-cell__bd">
+                  <input id="js_input1" class="weui-input" placeholder="填写本人微信号"/>
+              </div>
             </label>
-        </div>
-      </div>
-      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
-        <div class="weui-cells">
-            <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
-                <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
-                <div class="weui-cell__ft">
-                    <input aria-labelledby="cb_txt" id="cb" class="weui-switch" type="checkbox"/>
-                </div>
+            <label for="js_input2" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">昵称</span></div>
+              <div class="weui-cell__bd">
+                  <input id="js_input2" class="weui-input" placeholder="填写本人微信号的昵称"/>
+              </div>
             </label>
+          </div>
+        </div>
+        <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+          <div class="weui-cells__title">表单组标题</div>
+          <div class="weui-cells">
+              <div class="weui-cell weui-cell_active weui-cell_select">
+                  <div class="weui-cell__bd">
+                      <select class="weui-select" name="select1">
+                          <option selected="" value="1">微信号</option>
+                          <option value="2">QQ号</option>
+                          <option value="3">Email</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+                  <div class="weui-cell__hd">
+                      <select class="weui-select" name="select2">
+                          <option value="1">+86</option>
+                          <option value="2">+80</option>
+                          <option value="3">+84</option>
+                          <option value="4">+87</option>
+                      </select>
+                  </div>
+                  <label for="js_input1" class="weui-cell__bd">
+                      <input id="js_input1" class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                  </label>
+              </div>
+              <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                  <div class="weui-cell__hd">
+                      <label for="" class="weui-label">国家</label>
+                  </div>
+                  <div class="weui-cell__bd">
+                      <select class="weui-select" name="select2">
+                          <option value="1">中国</option>
+                          <option value="2">美国</option>
+                          <option value="3">英国</option>
+                      </select>
+                  </div>
+              </div>
+              <label for="js_input3" class="weui-cell weui-cell_active weui-cell_wrap">
+                  <div class="weui-cell__hd">
+                    <span class="weui-label">手机号</span>
+                  </div>
+                  <div class="weui-cell__bd">
+                      <span class="weui-cell__control">+86</span>
+                      <input id="js_input3" class="weui-input  weui-cell__control weui-cell__control_flex" type="number" pattern="[0-9]*" placeholder="请输入号码" value="12345678907"/>
+                  </div>
+              </label>
+          </div>
+        </div>
+        <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+          <div class="weui-cells">
+              <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
+                  <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">标题文字</div>
+                  <div class="weui-cell__ft">
+                      <input aria-labelledby="cb_txt" id="cb" class="weui-switch" type="checkbox"/>
+                  </div>
+              </label>
+          </div>
+        </div>
+        <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
+          <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:">
+              <div class="weui-cell__bd"><p>cell standard</p></div>
+              <div class="weui-cell__ft"></div>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="weui-cells__group weui-cells__group_form weui-cells__group_form-primary">
-        <div class="weui-cells">
-          <a class="weui-cell weui-cell_access" href="javascript:">
-            <div class="weui-cell__bd"><p>cell standard</p></div>
-            <div class="weui-cell__ft"></div>
-          </a>
-        </div>
-      </div>
     </div>
-    <div class="weui-form__tips-area">
-      <p class="weui-form__tips">
-        表单页提示，居中对齐
-      </p>
-    </div>
-    <div class="weui-form__opr-area">
-      <a role="button" disabled aria-disabled="true" class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
-    </div>
-    <div class="weui-form__tips-area">
-      <p class="weui-form__tips">
-        表单页提示，居中对齐
-      </p>
-    </div>
-    <div class="weui-form__extra-area">
-      <div class="weui-footer">
-        <p class="weui-footer__links">
-          <a href="javascript:" class="weui-footer__link">底部链接文本</a>
+    <div class="weui-form__ft">
+      <div class="weui-form__tips-area">
+        <p class="weui-form__tips">
+          表单页提示，居中对齐
         </p>
-        <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+      </div>
+      <div class="weui-form__opr-area">
+        <a role="button" disabled aria-disabled="true" class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+      </div>
+      <div class="weui-form__tips-area">
+        <p class="weui-form__tips">
+          表单页提示，居中对齐
+        </p>
+      </div>
+      <div class="weui-form__extra-area">
+        <div class="weui-footer">
+          <p class="weui-footer__links">
+            <a href="javascript:" class="weui-footer__link">底部链接文本</a>
+          </p>
+          <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+        </div>
       </div>
     </div>
   </div>
