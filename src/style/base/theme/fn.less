@@ -81,3 +81,32 @@
         }
     }
 }
+
+
+// 定义局部作用域的颜色变量
+.setThisColor(@var, @color) {
+    .setColor(@var, @color, @color);
+}
+.setThisColor(@var, @light, @dark) {
+    ._setThisColor({
+        @{var}: @light;
+    }, {
+        @{var}: @dark;
+    });
+}
+._setThisColor(@lightRule, @darkRule) {
+    & {
+        @lightRule();
+    }
+    .wx-root[data-weui-theme='dark'] &,
+    body[data-weui-theme='dark'] &{
+        @darkRule();
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .wx-root:not([data-weui-theme='light']) &,
+        body:not([data-weui-theme='light']) &{
+            @darkRule();
+        }
+    }
+}

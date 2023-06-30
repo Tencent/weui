@@ -1,3 +1,35 @@
+### v2.6.4 (2023-06-30)
+
+#### Bugfixes
+* fix: informationBar组件局部颜色变量改为全局颜色变量
+
+
+
+### v2.6.3 (2023-06-29)
+
+#### Bugfixes
+* fix: less的unit()方法向前兼容
+
+
+
+### v2.6.2 (2023-06-29)
+
+#### Features
+* feat: 小程序支持media query切换darkmode
+
+#### Bugfixes
+* fix: 修复小程序下按钮组件disabled不生效问题
+* fix: 去掉information-bar的变量嵌套引用
+
+
+
+### v2.6.1 (2023-06-28)
+
+#### Bugfixes
+* fix: 按钮背景色css变量更新为less变量
+
+
+
 ### v2.6.0 (2023-06-21)
 
 #### Features
