@@ -29,12 +29,14 @@
     text-align: center;
     text-decoration: none;
     color: @weuiBtnFontColor;
-    line-height: unit((@weuiBtnHeight - 24) / @weuiBtnFontSize);
+    line-height: unit(((@weuiBtnHeight - 24) / @weuiBtnFontSize));
     border-radius: @weuiBtnBorderRadius;
     .setTapColor();
     user-select:none;
 
-    &:before {
+    &:active{
+      &:before {
+        content:"";
         position: absolute;
         top: 0;
         left: 0;
@@ -42,12 +44,15 @@
         height: 100%;
         background-color: var(--weui-BTN-ACTIVE-MASK);
         border-radius: @weuiBtnBorderRadius;
-    }
-    &:not(.weui-btn_disabled):not(.weui-btn_loading):active ,
-    &:not([disabled]):not(.weui-btn_loading):active {
-        &:before {
-            content: "";
+      }
+
+      &.weui-btn_loading,
+      &.weui-btn_disabled,
+      &[disabled]{
+        &:before{
+          display:none;
         }
+      }
     }
 }
 .weui-btn_block {
