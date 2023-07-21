@@ -17,112 +17,112 @@
 @import "../../base/fn";
 
 .weui-cell_uploader {
-    padding-bottom: 24px;
+  padding-bottom: 24px;
 }
 .weui-uploader {
-    flex: 1;
+  flex: 1;
 }
 .weui-uploader__hd {
-    display: flex;
-    padding-bottom: 12px;
-    align-items: center;
+  display: flex;
+  padding-bottom: 12px;
+  align-items: center;
 }
 .weui-uploader__title {
-    flex: 1;
+  flex: 1;
 }
 .weui-uploader__info {
-    color: @weuiTextColorTips;
+  color: @weuiTextColorTips;
 }
 
 .weui-uploader__bd {
-    margin-bottom: @weuiCellGapH - (@weuiCellGapV + @weuiUploaderFileSpacing);
-    margin-right: -@weuiUploaderFileSpacing;
-    overflow: hidden;
+  margin-bottom: @weuiCellGapH - (@weuiCellGapV + @weuiUploaderFileSpacing);
+  margin-right: -@weuiUploaderFileSpacing;
+  overflow: hidden;
 }
 .weui-uploader__files {
-    list-style: none;
+  list-style: none;
 }
 .weui-uploader__file {
-    float: left;
-    margin-right: @weuiUploaderFileSpacing;
-    margin-bottom: @weuiUploaderFileSpacing;
-    width: @weuiUploaderSize;
-    height: @weuiUploaderSize;
-    background: no-repeat center center;
-    background-size: cover;
+  float: left;
+  margin-right: @weuiUploaderFileSpacing;
+  margin-bottom: @weuiUploaderFileSpacing;
+  width: @weuiUploaderSize;
+  height: @weuiUploaderSize;
+  background: no-repeat center center;
+  background-size: cover;
 }
 .weui-uploader__file_status {
-    position: relative;
-    &:before {
-        content: " ";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.5); // 固定色值
-    }
-    .weui-uploader__file-content {
-        display: block;
-    }
+  position: relative;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); // 固定色值
+  }
+  .weui-uploader__file-content {
+    display: block;
+  }
 }
 .weui-uploader__file-content {
-    display: none;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--weui-WHITE);
+  .weui-icon-warn {
+    display: inline-block;
+  }
+}
+.weui-uploader__input-box {
+  float: left;
+  position: relative;
+  margin-right: @weuiUploaderFileSpacing;
+  margin-bottom: @weuiUploaderFileSpacing;
+  width: @weuiUploaderSize;
+  height: @weuiUploaderSize;
+  box-sizing: border-box;
+  background-color: #ededed;
+  .dark({
+    background-color: #2e2e2e;
+  });
+  &::before,
+  &::after {
+    content: " ";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--weui-WHITE);
-    .weui-icon-warn {
-        display: inline-block;
-    }
-}
-.weui-uploader__input-box {
-    float: left;
-    position: relative;
-    margin-right: @weuiUploaderFileSpacing;
-    margin-bottom: @weuiUploaderFileSpacing;
-    width: @weuiUploaderSize;
-    height: @weuiUploaderSize;
-    box-sizing: border-box;
-    background-color: #ededed;
+    background-color: #a3a3a3;
     .dark({
-        background-color: #2e2e2e;
+      background-color: #6d6d6d;
     });
-    &:before,
-    &:after {
-        content: " ";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #a3a3a3;
-        .dark({
-            background-color: #6d6d6d;
-        });
+  }
+  &::before {
+    width: @weuiUploaderBorderWidth + 1;
+    height: 33.33%;
+  }
+  &::after {
+    width: 33.33%;
+    height: @weuiUploaderBorderWidth + 1;
+  }
+  &:active {
+    &::before,
+    &::after {
+      opacity: 0.7;
     }
-    &:before {
-        width: @weuiUploaderBorderWidth + 1;
-        height: 33.33%;
-    }
-    &:after {
-        width: 33.33%;
-        height: @weuiUploaderBorderWidth + 1;
-    }
-    &:active {
-        &:before,
-        &:after {
-            opacity: 0.7;
-        }
-    }
+  }
 }
 .weui-uploader__input {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    .setTapColor();
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  .setTapColor();
 }

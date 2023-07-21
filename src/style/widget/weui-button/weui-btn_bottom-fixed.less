@@ -19,47 +19,47 @@
 @weuiBottomFixedOprMaskHeight:80px;
 
 .weui-bottom-fixed-opr-page {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .weui-bottom-fixed-opr-page__content {
-    min-height: 0;
-    flex: 1;
-    padding-bottom: @weuiBottomFixedOprMaskHeight;
-    box-sizing: border-box;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  min-height: 0;
+  flex: 1;
+  padding-bottom: @weuiBottomFixedOprMaskHeight;
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.weui-bottom-fixed-opr-page__tool{
-    padding: 16px 32px 24px;
-    padding: 16px calc(32px ~"+ constant(safe-area-inset-right)") calc(24px ~"+ constant(safe-area-inset-bottom)") calc(32px ~"+ constant(safe-area-inset-left)");
-    padding: 16px calc(32px ~"+ env(safe-area-inset-right)") calc(24px ~"+ env(safe-area-inset-bottom)") calc(32px ~"+ env(safe-area-inset-left)");
-    background: rgba(255, 255, 255, 1);
-    position: relative;
-    z-index:50;
-    &:before {
-        content: "";
-        height: @weuiBottomFixedOprMaskHeight;
-        background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        position: absolute;
-        bottom: ~"calc(100% - 1px)";
-        left: 0;
-        right: 0;
-        transform: translate3d(0, 0, 0);
-        pointer-events:none;
-    }
+.weui-bottom-fixed-opr-page__tool {
+  padding: 16px 32px 24px;
+  padding: 16px calc(32px ~"+ constant(safe-area-inset-right)") calc(24px ~"+ constant(safe-area-inset-bottom)") calc(32px ~"+ constant(safe-area-inset-left)");
+  padding: 16px calc(32px ~"+ env(safe-area-inset-right)") calc(24px ~"+ env(safe-area-inset-bottom)") calc(32px ~"+ env(safe-area-inset-left)");
+  background: rgba(255, 255, 255, 1);
+  position: relative;
+  z-index: 50;
+  &::before {
+    content: "";
+    height: @weuiBottomFixedOprMaskHeight;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    position: absolute;
+    bottom: ~"calc(100% - 1px)";
+    left: 0;
+    right: 0;
+    transform: translate3d(0, 0, 0);
+    pointer-events: none;
+  }
 }
 
 .weui-bottom-fixed-opr-page__tool {
+  .dark({
+    background:rgba(25,25,25,1);
+  });
+  &::before {
     .dark({
-        background:rgba(25,25,25,1);
+      background: linear-gradient(to top, rgba(25,25,25,1), rgba(25,25,25,0));
     });
-    &:before {
-        .dark({
-            background: linear-gradient(to top, rgba(25,25,25,1), rgba(25,25,25,0));
-        });
-    }
+  }
 }
 .weui-bottom-fixed-opr-page__tips {
   margin-bottom: 24px;
@@ -70,9 +70,9 @@
 
 // 按钮组水平布局与垂直布局切换
 .weui-bottom-fixed-opr-page {
-    .weui-bottom-fixed-opr {
-      .weuiBtnWrapLayoutDefault();
-    }
+  .weui-bottom-fixed-opr {
+    .weuiBtnWrapLayoutDefault();
+  }
 }
 .weui-bottom-fixed-opr-page_btn-wrap {
   .weui-bottom-fixed-opr {
@@ -82,43 +82,43 @@
 
 
 // 新版底部悬浮，支持表单和半屏
-.weui-bottom-fixed-opr-page{
+.weui-bottom-fixed-opr-page {
   &.weui-form {
-    padding-top:0;
+    padding-top: 0;
 
     .weui-form__bd {
-      padding-top:56px;
-      padding-top:calc(56px ~"+ constant(safe-area-inset-top)");
-      padding-top:calc(56px ~"+ env(safe-area-inset-top)");
+      padding-top: 56px;
+      padding-top: calc(56px ~"+ constant(safe-area-inset-top)");
+      padding-top: calc(56px ~"+ env(safe-area-inset-top)");
     }
-    .weui-form__ft{
-      padding-bottom:0;
+    .weui-form__ft {
+      padding-bottom: 0;
     }
-    .weui-form__control-area{
-      margin-bottom:0;
+    .weui-form__control-area {
+      margin-bottom: 0;
     }
   }
 
   &.weui-half-screen-dialog {
-    padding:0;
+    padding: 0;
 
     .weui-half-screen-dialog__hd,
     .weui-half-screen-dialog__bd,
-    .weui-half-screen-dialog__ft{
-      padding-left:24px;
-      padding-left:calc(24px ~"+ constant(safe-area-inset-left)");
-      padding-left:calc(24px ~"+ env(safe-area-inset-left)");
-      padding-right:24px;
-      padding-right:calc(24px ~"+ constant(safe-area-inset-right)");
-      padding-right:calc(24px ~"+ env(safe-area-inset-right)");
+    .weui-half-screen-dialog__ft {
+      padding-left: 24px;
+      padding-left: calc(24px ~"+ constant(safe-area-inset-left)");
+      padding-left: calc(24px ~"+ env(safe-area-inset-left)");
+      padding-right: 24px;
+      padding-right: calc(24px ~"+ constant(safe-area-inset-right)");
+      padding-right: calc(24px ~"+ env(safe-area-inset-right)");
     }
-    .weui-half-screen-dialog__bd{
-      padding-bottom:80px;
+    .weui-half-screen-dialog__bd {
+      padding-bottom: 80px;
     }
-    .weui-half-screen-dialog__ft{
-      padding-bottom:64px;
-      padding-bottom:~"calc(64px + constant(safe-area-inset-bottom))";
-      padding-bottom:~"calc(64px + env(safe-area-inset-bottom))";
+    .weui-half-screen-dialog__ft {
+      padding-bottom: 64px;
+      padding-bottom: ~"calc(64px + constant(safe-area-inset-bottom))";
+      padding-bottom: ~"calc(64px + env(safe-area-inset-bottom))";
     }
   }
 }

@@ -18,124 +18,124 @@
 
 @pickerItemHeight: 56px;
 .weui-picker {
-    position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    left: 0;
-    bottom: 0;
-    z-index: 5000;
-    background-color: var(--weui-BG-2);
-    padding-left:0;
-    padding-left: constant(safe-area-inset-left);
-    padding-left: env(safe-area-inset-left);
-    padding-right:0;
-    padding-right: constant(safe-area-inset-right);
-    padding-right: env(safe-area-inset-right);
-    backface-visibility: hidden;
-    transform: translate(0, 100%);
-    //slide up animation
-    transition: transform 0.3s;
-    outline:0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  bottom: 0;
+  z-index: 5000;
+  background-color: var(--weui-BG-2);
+  padding-left: 0;
+  padding-left: constant(safe-area-inset-left);
+  padding-left: env(safe-area-inset-left);
+  padding-right: 0;
+  padding-right: constant(safe-area-inset-right);
+  padding-right: env(safe-area-inset-right);
+  backface-visibility: hidden;
+  transform: translate(0, 100%);
+  //slide up animation
+  transition: transform 0.3s;
+  outline: 0;
 
-    .weui-half-screen-dialog__hd{
-      padding-left:24px;
-      padding-right:24px;
-    }
-    .weui-half-screen-dialog__bd{
-      overflow:visible;
-    }
+  .weui-half-screen-dialog__hd {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .weui-half-screen-dialog__bd {
+    overflow: visible;
+  }
 }
 
 .weui-picker__hd {
-    display: flex;
-    padding: 16px;
-    padding: 16px calc(16px ~"+ constant(safe-area-inset-right)") 16px calc(16px ~"+ constant(safe-area-inset-left)");
-    padding: 16px calc(16px ~"+ env(safe-area-inset-right)") 16px calc(16px ~"+ env(safe-area-inset-left)");
-    position: relative;
-    text-align: center;
-    font-size: 17px;
-    line-height: 1.4;
-    &:after {
-        .setBottomLine(@weuiLineColorLight);
-    }
+  display: flex;
+  padding: 16px;
+  padding: 16px calc(16px ~"+ constant(safe-area-inset-right)") 16px calc(16px ~"+ constant(safe-area-inset-left)");
+  padding: 16px calc(16px ~"+ env(safe-area-inset-right)") 16px calc(16px ~"+ env(safe-area-inset-left)");
+  position: relative;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.4;
+  &::after {
+    .setBottomLine(@weuiLineColorLight);
+  }
 }
 
 .weui-picker__bd {
-    display: flex;
-    position: relative;
-    background-color: var(--weui-BG-2);
-    height: 240px;
-    overflow: hidden;
+  display: flex;
+  position: relative;
+  background-color: var(--weui-BG-2);
+  height: 240px;
+  overflow: hidden;
 }
 
 .weui-picker__group {
-    flex: 1;
-    position: relative;
-    height: 100%;
-    font-size:17px;
-    &:first-child {
-        .weui-picker__indicator{
-          left:8px;
-          border-top-left-radius:8px;
-          border-bottom-left-radius:8px;
-        }
+  flex: 1;
+  position: relative;
+  height: 100%;
+  font-size: 17px;
+  &:first-child {
+    .weui-picker__indicator {
+      left: 8px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
     }
-    &:last-child {
-        .weui-picker__indicator{
-          right:8px;
-          border-top-right-radius:8px;
-          border-bottom-right-radius:8px;
-        }
+  }
+  &:last-child {
+    .weui-picker__indicator {
+      right: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
     }
+  }
 }
 
 .weui-picker__mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    z-index: 3;
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
-    .dark({
-        background-image: linear-gradient(180deg, rgba(25, 25, 25, 0.95), rgba(25, 25, 25, 0.6)), linear-gradient(0deg, rgba(25, 25, 25, 0.95), rgba(25, 25, 25, 0.6));
-    });
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 3;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  .dark({
+    background-image: linear-gradient(180deg, rgba(25, 25, 25, 0.95), rgba(25, 25, 25, 0.6)), linear-gradient(0deg, rgba(25, 25, 25, 0.95), rgba(25, 25, 25, 0.6));
+  });
     
-    background-position: top, bottom;
-    background-size: 100% (2 * @pickerItemHeight);
-    background-repeat: no-repeat;
-    transform: translateZ(0);
+  background-position: top, bottom;
+  background-size: 100% (2 * @pickerItemHeight);
+  background-repeat: no-repeat;
+  transform: translateZ(0);
 }
 
 .weui-picker__indicator {
-    height: @pickerItemHeight;
-    position: absolute;
-    top: 112px;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background:var(--weui-BG-3);
+  height: @pickerItemHeight;
+  position: absolute;
+  top: 112px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: var(--weui-BG-3);
 }
 
 .weui-picker__content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index:2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .weui-picker__item {
-    height: @pickerItemHeight;
-    line-height: @pickerItemHeight;
-    text-align: center;
-    color: @weuiTextColorTitle;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  height: @pickerItemHeight;
+  line-height: @pickerItemHeight;
+  text-align: center;
+  color: @weuiTextColorTitle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .weui-picker__item_disabled {
-    color: @weuiTextColorDesc;
+  color: @weuiTextColorDesc;
 }

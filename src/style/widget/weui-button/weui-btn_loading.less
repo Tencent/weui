@@ -17,22 +17,22 @@
 @import "../../base/fn";
 
 .weui-btn_loading {
-    .weui-loading {
-        margin: -0.2em 8px 0 0;
+  .weui-loading {
+    margin: -0.2em 8px 0 0;
+  }
+  .weui-mask-loading {
+    margin: -0.2em 8px 0 0;
+    color: currentColor;
+  }
+  .weui-primary-loading {
+    margin: -0.2em 8px 0 0;
+    vertical-align: middle;
+    color: currentColor;
+    &::before {
+      content: "";
     }
-    .weui-mask-loading {
-        margin: -0.2em 8px 0 0;
-        color: currentColor;
-    }
-    .weui-primary-loading {
-        margin: -0.2em 8px 0 0;
-        vertical-align: middle;
-        color: currentColor;
-        &:before {
-            content: "";
-        }
-    }
-    &.weui-btn_primary {
-        color: var(--weui-WHITE);
-    }
+  }
+  &.weui-btn_primary {
+    color: var(--weui-WHITE);
+  }
 }

@@ -17,20 +17,20 @@
 @import "../../../base/fn";
 
 .weui-check__label {
-    .setTapColor();
-    &.weui-cell_readonly,
-    &.weui-cell_disabled {
-      color:var(--weui-FG-3);
-    }
+  .setTapColor();
+  &.weui-cell_readonly,
+  &.weui-cell_disabled {
+    color: var(--weui-FG-3);
+  }
 }
 
 .weui-check {
-    opacity: 0;
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    &[disabled] + .weui-icon-checked{
-      opacity:.1;
-    }
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  &[disabled] + .weui-icon-checked {
+    opacity: 0.1;
+  }
 }
