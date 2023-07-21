@@ -27,96 +27,96 @@
 
 button,
 input {
-    &.weui-btn {
-        border-width: 0;
-        outline: 0;
-        -webkit-appearance: none;
-        &:focus {
-            outline: 0;
-        }
+  &.weui-btn {
+    border-width: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    &:focus {
+      outline: 0;
     }
-    &.weui-btn_inline,
-    &.weui-btn_mini {
-        width: auto;
-    }
+  }
+  &.weui-btn_inline,
+  &.weui-btn_mini {
+    width: auto;
+  }
 }
 
 .weui-btn_medium {
-  font-size:14px;
-  padding:10px 24px;
-  line-height:~"calc((var(--weui-BTN-HEIGHT-MEDIUM) - 20) / 14)";
+  font-size: 14px;
+  padding: 10px 24px;
+  line-height: ~"calc((var(--weui-BTN-HEIGHT-MEDIUM) - 20) / 14)";
 }
 
 .weui-btn_mini {
-    display: inline-block;
-    width: auto;
-    line-height:~"calc((32 - 12) / 14)";
-    padding:6px 12px;
-    font-size: 14px;
-    border-radius: 6px;
+  display: inline-block;
+  width: auto;
+  line-height: ~"calc((32 - 12) / 14)";
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
 }
 
 .weui-btn_xmini {
-    display: inline-block;
-    width: auto;
-    padding: 4px 12px;
-    line-height: ~"calc((28 - 8) / 14)";
-    font-size: 14px;
-    font-weight:500;
-    border-radius: 4px;
+  display: inline-block;
+  width: auto;
+  padding: 4px 12px;
+  line-height: ~"calc((28 - 8) / 14)";
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
 }
 
 
 
 /* gap between btn */
 .weui-btn {
-  &+.weui-btn{
-    margin-top:@weuiBtnDefaultGap;
+  & + .weui-btn {
+    margin-top: @weuiBtnDefaultGap;
   }
-  &.weui-btn_mini + .weui-btn.weui-btn_mini{
-    margin-top:auto;
+  &.weui-btn_mini + .weui-btn.weui-btn_mini {
+    margin-top: auto;
   }
-  &.weui-btn_xmini + .weui-btn.weui-btn_xmini{
-    margin-top:auto;
+  &.weui-btn_xmini + .weui-btn.weui-btn_xmini {
+    margin-top: auto;
   }
 }
 
 .weui-btn.weui-btn_inline + .weui-btn.weui-btn_inline {
-    margin-left: @weuiBtnDefaultGap;
+  margin-left: @weuiBtnDefaultGap;
 }
 
 .weui-btn-area {
-    margin: 48px @weuiBtnDefaultGap 8px;
+  margin: 48px @weuiBtnDefaultGap 8px;
 }
 .weui-btn-area_inline {
-    display: flex;
-    .weui-btn {
-        margin-top: auto;
-        margin-right: @weuiBtnDefaultGap;
-        width: 100%;
-        flex: 1;
-        &:last-child {
-            margin-right: 0;
-        }
+  display: flex;
+  .weui-btn {
+    margin-top: auto;
+    margin-right: @weuiBtnDefaultGap;
+    width: 100%;
+    flex: 1;
+    &:last-child {
+      margin-right: 0;
     }
+  }
 }
 
 .weui-btn_reset {
-    background: transparent;
-    border: 0;
-    padding: 0;
-    outline: 0;
-    font-size:inherit;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  font-size: inherit;
 }
 .weui-btn_icon {
-    background: transparent;
-    border: 0;
-    padding: 0;
-    outline: 0;
-    font-size: 0;
-    &:active {
-        [class*="weui-icon-"] {
-            color: var(--weui-FG-1);
-        }
+  background: transparent;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 0;
+  &:active {
+    [class*="weui-icon-"] {
+      color: var(--weui-FG-1);
     }
+  }
 }

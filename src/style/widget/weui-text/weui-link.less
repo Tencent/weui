@@ -17,12 +17,12 @@
 @import "../../base/fn";
 
 .weui-link {
+  color: @weuiLinkColorDefault;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:visited {
     color: @weuiLinkColorDefault;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    &:visited {
-        color: @weuiLinkColorDefault;
-    }
-    &:active {
-      opacity:.5;
-    }
+  }
+  &:active {
+    opacity: 0.5;
+  }
 }

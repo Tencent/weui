@@ -8,105 +8,105 @@
 @import 'vars/care-dark';
 
 .dark(@rule) {
-    .wx-root[data-weui-theme='dark'] & ,
-    body[data-weui-theme='dark'] & {
-        @rule();
-    }
+  .wx-root[data-weui-theme='dark'] &,
+  body[data-weui-theme='dark'] & {
+    @rule();
+  }
 
-    @media (prefers-color-scheme: dark) {
-        .wx-root:not([data-weui-theme='light']) & ,
-        body:not([data-weui-theme='light']) & {
-            @rule();
-        }
+  @media (prefers-color-scheme: dark) {
+    .wx-root:not([data-weui-theme='light']) &,
+    body:not([data-weui-theme='light']) & {
+      @rule();
     }
+  }
 }
 .setColor(@var, @color) {
-    .setColor(@var, @color, @color);
+  .setColor(@var, @color, @color);
 }
 .setColor(@var, @light, @dark) {
-    ._setColor({
-        @{var}: @light;
-    }, {
-        @{var}: @dark;
-    });
+  ._setColor({
+    @{var}: @light;
+  }, {
+    @{var}: @dark;
+  });
 }
 ._setColor(@lightRule, @darkRule) {
-    .wx-root ,
-    body {
-        @lightRule();
-    }
-    .wx-root[data-weui-theme='dark'] ,
-    body[data-weui-theme='dark'] {
-        @darkRule();
-    }
+  .wx-root,
+  body {
+    @lightRule();
+  }
+  .wx-root[data-weui-theme='dark'],
+  body[data-weui-theme='dark'] {
+    @darkRule();
+  }
 
-    @media (prefers-color-scheme: dark) {
-        .wx-root:not([data-weui-theme='light']) ,
-        body:not([data-weui-theme='light']) {
-            @darkRule();
-        }
+  @media (prefers-color-scheme: dark) {
+    .wx-root:not([data-weui-theme='light']),
+    body:not([data-weui-theme='light']) {
+      @darkRule();
     }
+  }
 }
 
 .care(@rule) {
-    .wx-root[data-weui-mode='care'] & ,
-    body[data-weui-mode='care'] & {
-        @rule();
-    }
+  .wx-root[data-weui-mode='care'] &,
+  body[data-weui-mode='care'] & {
+    @rule();
+  }
 }
 .setCareColor(@var, @color) {
-    .setCareColor(@var, @color, @color);
+  .setCareColor(@var, @color, @color);
 }
 .setCareColor(@var, @light, @dark) {
-    ._setCareColor({
-        @{var}: @light;
-    }, {
-        @{var}: @dark;
-    });
+  ._setCareColor({
+    @{var}: @light;
+  }, {
+    @{var}: @dark;
+  });
 }
 ._setCareColor(@lightRule, @darkRule) {
-    .wx-root[data-weui-mode='care'] ,
-    body[data-weui-mode='care'] {
-        @lightRule();
-    }
-    .wx-root[data-weui-mode='care'][data-weui-theme='dark'] ,
-    body[data-weui-mode='care'][data-weui-theme='dark'] {
-        @darkRule();
-    }
+  .wx-root[data-weui-mode='care'],
+  body[data-weui-mode='care'] {
+    @lightRule();
+  }
+  .wx-root[data-weui-mode='care'][data-weui-theme='dark'],
+  body[data-weui-mode='care'][data-weui-theme='dark'] {
+    @darkRule();
+  }
 
-    @media (prefers-color-scheme: dark) {
-        .wx-root[data-weui-mode='care']:not([data-weui-theme='light']) ,
-        body[data-weui-mode='care']:not([data-weui-theme='light']) {
-            @darkRule();
-        }
+  @media (prefers-color-scheme: dark) {
+    .wx-root[data-weui-mode='care']:not([data-weui-theme='light']),
+    body[data-weui-mode='care']:not([data-weui-theme='light']) {
+      @darkRule();
     }
+  }
 }
 
 
 // 定义局部作用域的颜色变量
 .setThisColor(@var, @color) {
-    .setColor(@var, @color, @color);
+  .setColor(@var, @color, @color);
 }
 .setThisColor(@var, @light, @dark) {
-    ._setThisColor({
-        @{var}: @light;
-    }, {
-        @{var}: @dark;
-    });
+  ._setThisColor({
+    @{var}: @light;
+  }, {
+    @{var}: @dark;
+  });
 }
 ._setThisColor(@lightRule, @darkRule) {
-    & {
-        @lightRule();
-    }
-    .wx-root[data-weui-theme='dark'] &,
-    body[data-weui-theme='dark'] &{
-        @darkRule();
-    }
+  & {
+    @lightRule();
+  }
+  .wx-root[data-weui-theme='dark'] &,
+  body[data-weui-theme='dark'] & {
+    @darkRule();
+  }
 
-    @media (prefers-color-scheme: dark) {
-        .wx-root:not([data-weui-theme='light']) &,
-        body:not([data-weui-theme='light']) &{
-            @darkRule();
-        }
+  @media (prefers-color-scheme: dark) {
+    .wx-root:not([data-weui-theme='light']) &,
+    body:not([data-weui-theme='light']) & {
+      @darkRule();
     }
+  }
 }

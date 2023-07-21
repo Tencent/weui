@@ -1,3 +1,11 @@
+### v2.6.5 (2023-07-21)
+
+#### Bugfixes
+* fix: 基础色板更新（FG-5、REDORANGE、TAG-TEXT-RED、TAG-BACKGROUND-RED）
+* fix: 伪元素统一使用双冒号
+
+
+
 ### v2.6.4 (2023-06-30)
 
 #### Bugfixes

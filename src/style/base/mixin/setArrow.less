@@ -15,40 +15,40 @@
 */
 
 ._setArrow(@arrowsize, @borderColor, @borderWidth) {
-    display: inline-block;
-    height: @arrowsize;
-    width: @arrowsize;
-    border-width: @borderWidth @borderWidth 0 0;
-    border-color: @borderColor;
-    border-style: solid;
+  display: inline-block;
+  height: @arrowsize;
+  width: @arrowsize;
+  border-width: @borderWidth @borderWidth 0 0;
+  border-color: @borderColor;
+  border-style: solid;
 }
 
 .setArrow(@direction, @arrowsize, @borderColor, @borderWidth) when (@direction = top) {
-    ._setArrow(@arrowsize, @borderColor, @borderWidth);
+  ._setArrow(@arrowsize, @borderColor, @borderWidth);
 
-    transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0); // rotate(-45deg)
+  transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0); // rotate(-45deg)
 }
 
 .setArrow(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = right) {
-    ._setArrow(@arrowsize, @borderColor, @borderWidth);
+  ._setArrow(@arrowsize, @borderColor, @borderWidth);
 
-    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0); // rotate(45deg);
-    position: relative;
-    top: -2px;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0); // rotate(45deg);
+  position: relative;
+  top: -2px;
 }
 
 .setArrow(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = down) {
-    ._setArrow(@arrowsize, @borderColor, @borderWidth);
+  ._setArrow(@arrowsize, @borderColor, @borderWidth);
 
-    transform: matrix(-0.71, 0.71, -0.71, -0.71, 0, 0); // rotate(135deg);
-    position: relative;
-    top: -3px;
+  transform: matrix(-0.71, 0.71, -0.71, -0.71, 0, 0); // rotate(135deg);
+  position: relative;
+  top: -3px;
 }
 
 .setArrow(@direction, @arrowsize, @borderColor,@borderWidth) when (@direction = left) {
-    ._setArrow(@arrowsize, @borderColor, @borderWidth);
+  ._setArrow(@arrowsize, @borderColor, @borderWidth);
 
-    transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0); // rotate(-135deg);
-    position: relative;
-    top: -2px;
+  transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0); // rotate(-135deg);
+  position: relative;
+  top: -2px;
 }

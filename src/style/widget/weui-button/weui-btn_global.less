@@ -17,47 +17,48 @@
 @import "../../base/fn";
 
 .weui-btn {
-    position: relative;
-    display: block;
-    width: @weuiBtnWidth;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 24px;
-    box-sizing: border-box;
-    font-weight: 500;
-    font-size: @weuiBtnFontSize;
-    text-align: center;
-    text-decoration: none;
-    color: @weuiBtnFontColor;
-    line-height: unit(((@weuiBtnHeight - 24) / @weuiBtnFontSize));
-    border-radius: @weuiBtnBorderRadius;
-    .setTapColor();
-    user-select:none;
+  position: relative;
+  display: block;
+  width: @weuiBtnWidth;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: @weuiBtnFontSize;
+  text-align: center;
+  text-decoration: none;
+  color: @weuiBtnFontColor;
+  line-height: unit(((@weuiBtnHeight - 24) / @weuiBtnFontSize));
+  border-radius: @weuiBtnBorderRadius;
+  .setTapColor();
 
-    &:active{
-      &:before {
-        content:"";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--weui-BTN-ACTIVE-MASK);
-        border-radius: @weuiBtnBorderRadius;
-      }
+  user-select: none;
 
-      &.weui-btn_loading,
-      &.weui-btn_disabled,
-      &[disabled]{
-        &:before{
-          display:none;
-        }
+  &:active {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--weui-BTN-ACTIVE-MASK);
+      border-radius: @weuiBtnBorderRadius;
+    }
+
+    &.weui-btn_loading,
+    &.weui-btn_disabled,
+    &[disabled] {
+      &::before {
+        display: none;
       }
     }
+  }
 }
 .weui-btn_block {
-    width: auto;
+  width: auto;
 }
 .weui-btn_inline {
-    display: inline-block;
+  display: inline-block;
 }
