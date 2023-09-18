@@ -8,7 +8,7 @@ WeUI - tailor-made for WeChat web service
 
 ## Introduction
 
-WeUI is an WeChat-like UI framework officially designed by the WeChat Design Team, tailor-made for WeChat Web development, in order to improve and standardize the experience for WeChat users. Including components such as `button`、`cell`、`dialog`、 `progress`、 `toast`、`article`、`actionsheet`、`icon`.
+WeUI is a WeChat-like UI framework officially designed by the WeChat Design Team, tailor-made for WeChat Web development, in order to improve and standardize the experience for WeChat users. Includes components such as `button`, `cell`, `dialog`, `progress`, `toast`, `article`, `actionsheet`, and `icon`.
 
 ## Documentations
 
