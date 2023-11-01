@@ -74,6 +74,7 @@ function buildStyle() {
       zindex: false,
       autoprefixer: false,
       svgo: false,
+      minifySelectors: false,
     }))
     .pipe(rename((path) => {
       path.basename += '.min';

@@ -1,3 +1,17 @@
+### v2.6.7 (2023-11-01)
+
+#### Features
+* feat: 色板升级，对齐design tokens
+
+
+
+### v2.6.6 (2023-07-25)
+
+#### Bugfixes
+* fix: 修复因为cssnano配置导致的weui-wxss伪元素选择器格式问题
+
+
+
 ### v2.6.5 (2023-07-21)
 
 #### Bugfixes
