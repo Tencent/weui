@@ -16,10 +16,35 @@
 
 @import "../../base/fn";
 
+
 .weui-btn_overlay {
-  color: var(--weui-BRAND);
-  background-color: @LIGHT_BG_5;
-  &:not(.weui-btn_disabled):visited {
-    color: var(--weui-BRAND);
+  &.weui-btn_primary {
+    color: @LIGHT_FG_0;
+    background-color: #fff;
+    &:not(.weui-btn_disabled):visited {
+      color: @LIGHT_FG_0;
+    }
+  }
+
+  &.weui-btn_default {
+    color: #fff;
+    background-color: rgba(247, 247, 247, 0.3);
+    &:not(.weui-btn_disabled):visited {
+      color: #fff;
+    }
+  }
+
+  &.weui-btn_warn {
+    color: #fff;
+    background-color: var(--weui-RED-100);
+    &:not(.weui-btn_disabled):visited {
+      color: #fff;
+    }
+  }
+
+  &.weui-btn_disabled,
+  &[disabled] {
+    color: rgba(247, 247, 247, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
   }
 }

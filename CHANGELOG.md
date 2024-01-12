@@ -1,3 +1,28 @@
+### v2.6.11 (2024-01-12)
+
+
+
+### v2.6.10 (2024-01-12)
+
+#### Bugfixes
+* fix: 修复form组件上下结构带来的兼容问题
+* fix: 调整button组件loading颜色
+
+
+
+### v2.6.9 (2023-12-22)
+
+#### Features
+* feat: 组件Button UI升级
+* feat: 桌面端下鼠标形状统一为箭头
+
+
+#### Bugfixes
+* fix: 调整组件weui-agree的热区
+* fix: 调整组件weui-mask透明度
+
+
+
 ### v2.6.7 (2023-11-01)
 
 #### Features

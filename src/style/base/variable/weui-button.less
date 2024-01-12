@@ -24,7 +24,7 @@ page {
   --weui-BTN-HEIGHT-MEDIUM: 40;
   --weui-BTN-HEIGHT-SMALL: 32;
 }
-.setColor(--weui-BTN-ACTIVE-MASK, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+.setColor(--weui-BTN-ACTIVE-MASK, rgba(0,0,0,0.2), rgba(255,255,255,0.2));
 
 
 
@@ -63,8 +63,8 @@ page {
 @weuiBtnPrimaryDisabledBg: @weuiBtnDisabledBg;
 
 // warn
-@weuiBtnWarnFontColor: @weuiColorWarn;
+@weuiBtnWarnFontColor: @weuiBtnFontColor;
 @weuiBtnWarnDisabledFontColor: @weuiBtnDisabledFontColor;
-@weuiBtnWarnBg: @weuiBtnDefaultBg;
+@weuiBtnWarnBg: var(--weui-RED-100);
 @weuiBtnWarnActiveBg: @weuiBtnDefaultActiveBg;
 @weuiBtnwarnDisabledBg: @weuiBtnDefaultDisabledBg;

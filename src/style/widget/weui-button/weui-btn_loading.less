@@ -17,22 +17,35 @@
 @import "../../base/fn";
 
 .weui-btn_loading {
-  .weui-loading {
-    margin: -0.2em 8px 0 0;
-  }
   .weui-mask-loading {
-    margin: -0.2em 8px 0 0;
+    font-size: 20px;
+    margin: -0.2em 4px 0 0;
     color: currentColor;
+
+    // 临时用，为了向后兼容，等designtoken完成后再改成默认loading，按需loading+text
+    &.weui-mask-loading_only {
+      margin-right: 0;
+    }
+  }
+
+  &.weui-btn_default {
+    .weui-mask-loading {
+      color: #606060;
+    }
+  }
+
+  .weui-loading {
+    font-size: 20px;
+    margin: -0.2em 4px 0 0;
   }
   .weui-primary-loading {
-    margin: -0.2em 8px 0 0;
+    font-size: 20px;
+    margin: -0.2em 4px 0 0;
     vertical-align: middle;
     color: currentColor;
     &::before {
       content: "";
     }
   }
-  &.weui-btn_primary {
-    color: var(--weui-WHITE);
-  }
 }
+
