@@ -48,13 +48,28 @@ body {
       left: var(--weui-cellPaddingLR);
       right: var(--weui-cellPaddingLR);
     }
-    &:not(.weui-cell_vertical) {
-      .weui-cell__hd {
-        padding-right: 16px;
-      }
-      .weui-cell__ft {
-        padding-left: 16px;
-      }
+    .weui-cell__hd {
+      padding-right: 16px;
+    }
+    .weui-cell__ft {
+      padding-left: 16px;
+    }
+  }
+
+  .weui-cell_vertical {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .weui-cell__hd {
+      padding-right: 0;
+      margin-bottom: 12px;
+    }
+    .weui-cell__ft {
+      padding-left: 0;
+    }
+    .weui-cell__hd,
+    .weui-cell__bd {
+      width: 100%;
     }
   }
 
