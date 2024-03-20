@@ -1562,6 +1562,7 @@
         $('.page.cell').removeClass('slideIn');
 
         if($agreeCheckbox.prop("checked")){
+          $agree.removeClass('weui-agree_warn');
           $toast.fadeIn(100);
           $toast.attr('aria-live','assertive');
           setTimeout(function () {
@@ -1569,10 +1570,11 @@
             $toast.attr('aria-live','off');
           }, 2000);
         }else{
-          $agree.addClass('weui-agree_animate');
+          // $agree.addClass('weui-agree_animate');
+          $agree.addClass('weui-agree_warn');
           $agreeMsg.show();
           setTimeout(function () {
-            $agree.removeClass('weui-agree_animate');
+            // $agree.removeClass('weui-agree_animate');
             $agreeMsg.hide();
           }, 200);
         }
@@ -4025,22 +4027,40 @@
         <h1 class="page__title">SearchBar</h1>
         <p class="page__desc">搜索栏</p>
     </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="#searchbar_filled" role="button" class="weui-btn weui-btn_default">Filled (default)</a>
+        <a href="#searchbar_grey" role="button" class="weui-btn weui-btn_default">Filled Grey</a>
+        <a href="#searchbar_outlined" role="button" class="weui-btn weui-btn_default">Outlined</a>
+        <a href="#searchbar_homepage" role="button" class="weui-btn weui-btn_default">Homepage</a>
+    </div>
+</div>
+
+</script>
+    <script type="text/html" id="tpl_searchbar_filled">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Filled</p>
+    </div>
     <div class="page__bd">
         <div class="weui-search-bar" id="searchBar">
+            <a href="javascript:" role="button" class="weui-search-bar__back-btn"><i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i></a>
             <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
-                <div class="weui-search-bar__box">
+                <div aria-hidden="true" id="searchBox" class="weui-search-bar__box">
                     <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__words">微信</span>
                     <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <div class="weui-search-bar__mask"></div>
                     <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
                 </div>
                 <label for="searchInput" class="weui-search-bar__label" id="searchText">
                     <i class="weui-icon-search"></i>
-                    <span aria-hidden="true">搜索</span>
+                    <span class="weui-search-bar__label__text">搜索</span>
                 </label>
             </form>
             <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
-        <div role="listbox" class="weui-cells searchbar-result" id="searchResult">
+        <div role="listbox" class="weui-cells searchbar-result" id="searchResult" style="display: none;">
             <div role="option" class="weui-cell weui-cell_active weui-cell_access">
                 <div class="weui-cell__bd weui-cell_primary">
                     <p>实时搜索文本</p>
@@ -4068,6 +4088,7 @@
     $(function(){
         var $searchBar = $('#searchBar'),
             $searchResult = $('#searchResult'),
+            $searchBox = $('#searchBox'),
             $searchText = $('#searchText'),
             $searchInput = $('#searchInput'),
             $searchClear = $('#searchClear'),
@@ -4082,11 +4103,14 @@
         function cancelSearch(){
             hideSearchResult();
             $searchBar.removeClass('weui-search-bar_focusing');
-            $searchText.show();
+            $searchText.attr('aria-hidden','false').show();
+            $searchBox.attr('aria-hidden','true');
         }
 
         $searchText.on('click', function(){
             $searchBar.addClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','true');
+            $searchBox.attr('aria-hidden','false');
             $searchInput.focus();
         });
         $searchInput
@@ -4112,6 +4136,123 @@
             $searchInput.blur();
         });
     });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_searchbar_grey">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Grey</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-search-bar weui-search-bar_filled-grey" id="searchBar">
+            <a href="javascript:" role="button" class="weui-search-bar__back-btn"><i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i></a>
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
+                <div aria-hidden="true" id="searchBox" class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__words">微信</span>
+                    <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <div class="weui-search-bar__mask"></div>
+                    <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label for="searchInput" class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__label__text">搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $searchBar = $('#searchBar'),
+            $searchText = $('#searchText'),
+            $searchBox = $('#searchBox'),
+            $searchInput = $('#searchInput'),
+            $searchClear = $('#searchClear'),
+            $searchForm = $('#searchForm'),
+            $searchCancel = $('#searchCancel');
+
+        function cancelSearch(){
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','false').show();
+            $searchBox.attr('aria-hidden','true');
+        }
+
+        $searchText.on('click', function(){
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','true');
+            $searchBox.attr('aria-hidden','false');
+            $searchInput.focus();
+        });
+        $searchInput
+            .on('blur', function () {
+                if(!this.value.length) cancelSearch();
+            })
+            .on('input', function(){
+                if(this.value.length) {
+                    $searchForm.attr('aria-expanded','true');
+                } else {
+                    $searchForm.attr('aria-expanded','false');
+                }
+            })
+        ;
+        $searchClear.on('click', function(){
+            $searchInput.focus();
+            $searchInput.val('');
+        });
+        $searchCancel.on('click', function(){
+            cancelSearch();
+            $searchInput.blur();
+        });
+    });
+</script>
+
+</script>
+    <script type="text/html" id="tpl_searchbar_outlined">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Outlined</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-search-bar weui-search-bar_outlined" id="searchBar">
+            <a href="javascript:" role="button" class="weui-search-bar__back-btn"><i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i></a>
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <div class="weui-search-bar__mask"></div>
+                    <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+            </form>
+            <a href="javascript:" role="button" class="weui-search-bar__search-btn weui-btn weui-btn_primary" id="searchBtn">搜索</a>
+            <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+    </div>
+</div>
+
+</script>
+    <script type="text/html" id="tpl_searchbar_homepage">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Homepage</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-search-bar weui-search-bar_homepage" id="searchBar">
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <div class="weui-search-bar__input weui-search-bar__input_text">搜索</div>
+                    <a href="javascript:" role="button" title="拍照" class="weui-icon-camera weui-wa-hotarea"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){});
 </script>
 
 </script>

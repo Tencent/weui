@@ -1,0 +1,69 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Grey</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-search-bar weui-search-bar_filled-grey" id="searchBar">
+            <a href="javascript:" role="button" class="weui-search-bar__back-btn"><i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i></a>
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
+                <div aria-hidden="true" id="searchBox" class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__words">微信</span>
+                    <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <div class="weui-search-bar__mask"></div>
+                    <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label for="searchInput" class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__label__text">搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $searchBar = $('#searchBar'),
+            $searchText = $('#searchText'),
+            $searchBox = $('#searchBox'),
+            $searchInput = $('#searchInput'),
+            $searchClear = $('#searchClear'),
+            $searchForm = $('#searchForm'),
+            $searchCancel = $('#searchCancel');
+
+        function cancelSearch(){
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','false').show();
+            $searchBox.attr('aria-hidden','true');
+        }
+
+        $searchText.on('click', function(){
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','true');
+            $searchBox.attr('aria-hidden','false');
+            $searchInput.focus();
+        });
+        $searchInput
+            .on('blur', function () {
+                if(!this.value.length) cancelSearch();
+            })
+            .on('input', function(){
+                if(this.value.length) {
+                    $searchForm.attr('aria-expanded','true');
+                } else {
+                    $searchForm.attr('aria-expanded','false');
+                }
+            })
+        ;
+        $searchClear.on('click', function(){
+            $searchInput.focus();
+            $searchInput.val('');
+        });
+        $searchCancel.on('click', function(){
+            cancelSearch();
+            $searchInput.blur();
+        });
+    });
+</script>

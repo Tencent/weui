@@ -114,6 +114,7 @@
         $('.page.cell').removeClass('slideIn');
 
         if($agreeCheckbox.prop("checked")){
+          $agree.removeClass('weui-agree_warn');
           $toast.fadeIn(100);
           $toast.attr('aria-live','assertive');
           setTimeout(function () {
@@ -121,10 +122,11 @@
             $toast.attr('aria-live','off');
           }, 2000);
         }else{
-          $agree.addClass('weui-agree_animate');
+          // $agree.addClass('weui-agree_animate');
+          $agree.addClass('weui-agree_warn');
           $agreeMsg.show();
           setTimeout(function () {
-            $agree.removeClass('weui-agree_animate');
+            // $agree.removeClass('weui-agree_animate');
             $agreeMsg.hide();
           }, 200);
         }

@@ -1,0 +1,20 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Outlined</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-search-bar weui-search-bar_outlined" id="searchBar">
+            <a href="javascript:" role="button" class="weui-search-bar__back-btn"><i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i></a>
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <div class="weui-search-bar__mask"></div>
+                    <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+            </form>
+            <a href="javascript:" role="button" class="weui-search-bar__search-btn weui-btn weui-btn_primary" id="searchBtn">搜索</a>
+            <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+    </div>
+</div>
