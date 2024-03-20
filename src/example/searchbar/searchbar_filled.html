@@ -1,0 +1,100 @@
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">SearchBar</h1>
+        <p class="page__desc">搜索栏 Filled</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-search-bar" id="searchBar">
+            <a href="javascript:" role="button" class="weui-search-bar__back-btn"><i role="img" aria-label="返回" class="weui-icon-back-arrow-thin"></i></a>
+            <form id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
+                <div aria-hidden="true" id="searchBox" class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__words">微信</span>
+                    <input type="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                    <div class="weui-search-bar__mask"></div>
+                    <a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label for="searchInput" class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span class="weui-search-bar__label__text">搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" role="button" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+        <div role="listbox" class="weui-cells searchbar-result" id="searchResult" style="display: none;">
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
+                <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
+                <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
+                <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div role="option" class="weui-cell weui-cell_active weui-cell_access">
+                <div class="weui-cell__bd weui-cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $searchBar = $('#searchBar'),
+            $searchResult = $('#searchResult'),
+            $searchBox = $('#searchBox'),
+            $searchText = $('#searchText'),
+            $searchInput = $('#searchInput'),
+            $searchClear = $('#searchClear'),
+            $searchForm = $('#searchForm'),
+            $searchCancel = $('#searchCancel');
+
+        function hideSearchResult(){
+            $searchResult.hide();
+            $searchForm.attr('aria-expanded','false');
+            $searchInput.val('');
+        }
+        function cancelSearch(){
+            hideSearchResult();
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','false').show();
+            $searchBox.attr('aria-hidden','true');
+        }
+
+        $searchText.on('click', function(){
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchText.attr('aria-hidden','true');
+            $searchBox.attr('aria-hidden','false');
+            $searchInput.focus();
+        });
+        $searchInput
+            .on('blur', function () {
+                if(!this.value.length) cancelSearch();
+            })
+            .on('input', function(){
+                if(this.value.length) {
+                    $searchResult.show();
+                    $searchForm.attr('aria-expanded','true');
+                } else {
+                    $searchResult.hide();
+                    $searchForm.attr('aria-expanded','false');
+                }
+            })
+        ;
+        $searchClear.on('click', function(){
+            hideSearchResult();
+            $searchInput.focus();
+        });
+        $searchCancel.on('click', function(){
+            cancelSearch();
+            $searchInput.blur();
+        });
+    });
+</script>

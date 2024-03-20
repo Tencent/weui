@@ -1,3 +1,16 @@
+### v2.6.12 (2024-03-20)
+
+#### Features
+* feat: searchbar组件升级，分为filled(默认)、outlined和homepage三种变体
+* feat: weui-agree组件对齐方式调整为顶对齐
+* feat: weui-agree组件去掉摆动动画
+
+#### Bugfixes
+* fix: 修复weui-select标题折行后的样式问题
+* fix: 修复表单里验证码按钮disabled态被覆盖的问题
+
+
+
 ### v2.6.11 (2024-01-12)
 
 #### Bugfixes

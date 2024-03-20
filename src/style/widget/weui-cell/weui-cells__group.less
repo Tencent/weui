@@ -159,6 +159,7 @@ body {
     }
     .weui-label {
       margin-top: 8px;
+      margin-bottom: 8px;
     }
     .weui-cell__bd {
       display: flex;
@@ -185,8 +186,16 @@ body {
     border-radius: 6px;
     color: @weuiBtnDefaultFontColor;
     background-color: @weuiBtnDefaultBg;
-    &::before {
+    &::after {
       display: none;
+    }
+    
+    &.weui-btn_disabled,
+    &[disabled] {
+      color: rgba(0, 0, 0, 0.15);
+      color: var(--weui-FG-4);
+      background-color: rgba(0, 0, 0, 0.05);
+      background-color: var(--weui-FG-5);
     }
   }
 
