@@ -1482,12 +1482,32 @@
         </div>
       </div>
     </div>
-    <div class="weui-form__ft">
+    <div style="display: none;" class="weui-form__ft">
       <div class="weui-form__tips-area">
         <label id="weuiAgree" for="weuiAgreeCheckbox" class="weui-agree weui-wa-hotarea">
           <input id="weuiAgreeCheckbox" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="/example/" target="_blank">《相关条款》</a>
           </span>
         </label>
+      </div>
+      <div class="weui-form__opr-area">
+        <button class="weui-btn weui-btn_primary" type="button" id="showTooltips">确定</button>
+      </div>
+    </div>
+    <div class="weui-form__ft">
+      <div class="weui-form__tips-area">
+        <div class="weui-form__tips__group weui-form__tips__group_primary">
+          <div class="weui-form__tips__wrp">
+            <label id="weuiAgree1" for="weuiAgreeCheckbox1" class="weui-agree weui-wa-hotarea">
+              <input id="weuiAgreeCheckbox1" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">阅读并同意<a href="/example/" target="_blank">《相关条款》</a>
+              </span>
+            </label>
+          </div>
+          <div class="weui-form__tips__wrp">
+            <label id="weuiAgree0" for="weuiAgreeCheckbox0" class="weui-agree weui-wa-hotarea">
+              <input id="weuiAgreeCheckbox0" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">以上信息用于核对账号绑定的身份</span>
+            </label>
+          </div>
+        </div>
       </div>
       <div class="weui-form__opr-area">
         <button class="weui-btn weui-btn_primary" type="button" id="showTooltips">确定</button>
@@ -2765,9 +2785,19 @@
                   </div>
                 </div>
                 <div class="weui-half-screen-dialog__bd">
-                  <br>
-                  可放自定义内容
-                  <br>
+                  <div class="weui-form__tips__group">
+                    <div class="weui-form__tips__wrp">
+                      <label id="weuiAgree1" for="weuiAgreeCheckbox1" class="weui-agree weui-wa-hotarea">
+                        <input id="weuiAgreeCheckbox1" type="checkbox" class="weui-agree__checkbox"><span class="weui-agree__text">阅读并同意<a href="/example/" target="_blank">《相关条款》</a>
+                        </span>
+                      </label>
+                    </div>
+                    <div class="weui-form__tips__wrp">
+                      <label id="weuiAgree0" for="weuiAgreeCheckbox0" class="weui-agree weui-wa-hotarea">
+                        <input id="weuiAgreeCheckbox0" type="checkbox" class="weui-agree__checkbox"/><span class="weui-agree__text">以上信息用于核对账号绑定的身份</span>
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div class="weui-half-screen-dialog__ft">
                   <div id="js_wrap_btn_area" class="weui-half-screen-dialog__btn-area">
