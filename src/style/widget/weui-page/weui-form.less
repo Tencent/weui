@@ -77,12 +77,32 @@
 }
 .weui-form__title {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.36;
 }
 .weui-form__desc {
   font-size: 17px;
   margin-top: 16px;
+}
+.weui-form__tips__group {
+  display: flex;
+  flex-direction: column;
+}
+.weui-form__tips__group_primary {
+  display: inline-flex;
+  max-width: 100%;
+}
+.weui-form__tips__wrp {
+  display: inline-flex;
+  text-align: left;
+  margin: 8px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 .weui-form__tips {
   color: @weuiTextColorDesc;

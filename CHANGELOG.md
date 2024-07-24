@@ -1,3 +1,19 @@
+### v2.6.15 (2024-07-23)
+
+#### Bugfixes
+* fix: iOS 18的PingFang字体font-weight开始支持bold，涉及到的组件需要把bold改为medium
+
+
+
+### v2.6.14 (2024-07-23)
+
+#### Features
+* feat: 表单weui-form__tips和weui-agree UI更新，新增weui-form-tips__group和weui-form-tips__wrp结构
+* feat: checkbox图标更新
+* feat: weui-form多选/单选组件disabled态UI更新
+
+
+
 ### v2.6.13 (2024-06-03)
 
 #### Bugfixes
