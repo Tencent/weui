@@ -1,3 +1,13 @@
+### v2.6.16 (2024-08-12)
+
+#### Features
+* feat: weui-dialog组件UI升级
+
+#### Bugfixes
+* fix: 去掉系统自带的点击效果
+
+
+
 ### v2.6.15 (2024-07-23)
 
 #### Bugfixes
