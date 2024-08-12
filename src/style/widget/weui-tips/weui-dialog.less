@@ -34,6 +34,7 @@
   flex-direction: column;
   max-height: 90%;
   outline: 0;
+  .hyphens;
 }
 .weui-dialog__hd {
   padding: 32px @weuiDialogGapWidth 16px;
@@ -51,8 +52,6 @@
   margin-bottom: 32px;
   font-size: 17px;
   line-height: 1.4;
-  .hyphens;
-
   color: @weuiTextColorDesc;
   &:first-child {
     min-height: 40px;
@@ -72,6 +71,7 @@
 .weui-dialog__ft {
   position: relative;
   display: flex;
+  align-items: center;
   &::after {
     content: " ";
     .setTopLine(@weuiDialogLineColor);
@@ -80,8 +80,8 @@
 .weui-dialog__btn {
   flex: 1;
   display: block;
-  line-height: (56-32)/17;
-  padding: 16px 0;
+  line-height: (64-40)/17;
+  padding: 20px 8px;
   font-size: 17px;
   color: @weuiDialogLinkColor;
   font-weight: 500;
@@ -107,6 +107,34 @@
 }
 .weui-dialog__btn_default {
   color: var(--weui-FG-HALF);
+}
+.weui-dialog__btn_warn {
+  color: var(--weui-RED);
+}
+.weui-dialog__btn_disabled {
+  color: var(--weui-FG-2);
+}
+.weui-dialog_btn-wrap {
+  .weui-dialog__ft {
+    flex-direction: column;
+    align-items: initial;
+  }
+  .weui-dialog__btn {
+    &::after {
+      width: auto;
+      bottom: auto;
+      right: 0;
+      height: 1px;
+      transform: scaleY(0.5);
+      border-top: 1px solid var(--weui-DIALOG-LINE-COLOR);
+      border-left: 0;
+    }
+    &:first-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
 }
 
 .weui-skin_android {

@@ -4,12 +4,12 @@
         <p class="page__desc">对话框</p>
     </div>
     <div class="page__bd page__bd_spacing">
-        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog1">iOS Dialog样式一</a>
-        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog2">iOS Dialog样式二</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog1">样式一</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog2">样式二</a>
+        <a href="javascript:" role="button" class="weui-btn weui-btn_default" id="showIOSDialog5">样式三</a>
     </div>
 
     <div id="dialogs">
-        <!--BEGIN dialog1-->
         <div class="js_dialog" role="dialog"  aria-hidden="true" aria-modal="true" aria-labelledby="js_title1" id="iosDialog1" style="display: none;">
             <div class="weui-mask"></div>
             <div class="weui-dialog">
@@ -21,19 +21,30 @@
                 </div>
             </div>
         </div>
-        <!--END dialog1-->
-        <!--BEGIN dialog2-->
-        <div class="js_dialog" role="dialog"  aria-hidden="true" aria-modal="true" aria-labelledby="js_title2" id="iosDialog2" style="display: none;">
+        <div class="js_dialog" role="dialog"  aria-hidden="true" aria-modal="true" id="iosDialog2" style="display: none;">
             <div class="weui-mask"></div>
             <div class="weui-dialog">
                 <div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
                 <div class="weui-dialog__ft">
-                    <a role="button" href="javascript:" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+                    <a role="button" href="javascript:" class="weui-dialog__btn weui-dialog__btn_default">辅助操作</a>
+                    <a role="button" href="javascript:" class="weui-dialog__btn weui-dialog__btn_warn">负向操作</a>
                 </div>
             </div>
         </div>
-        <!--END dialog2-->
-        <!--BEGIN dialog3-->
+        <div class="js_dialog" role="dialog"  aria-hidden="true" aria-modal="true" aria-labelledby="js_title5" id="iosDialog5" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog weui-dialog_btn-wrap">
+                <div class="weui-dialog__hd"><strong class="weui-dialog__title" id="js_title5">弹窗标题</strong></div>
+                <div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+                <div class="weui-dialog__ft">
+                  <a role="button" href="javascript:" class="weui-dialog__btn weui-dialog__btn_primary">主操作</a>
+                  <a role="button" href="javascript:" class="weui-dialog__btn weui-dialog__btn_default">辅助操作</a>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="js_dialog" role="dialog"  aria-hidden="true" aria-modal="true" aria-labelledby="js_title3" id="androidDialog1" style="display: none;">
             <div class="weui-mask"></div>
             <div class="weui-dialog weui-skin_android">
@@ -47,8 +58,6 @@
                 </div>
             </div>
         </div>
-        <!--END dialog3-->
-        <!--BEGIN dialog4-->
         <div class="js_dialog" role="dialog"  aria-hidden="true" aria-modal="true" aria-labelledby="js_title4" id="androidDialog2" style="display: none;">
             <div class="weui-mask"></div>
             <div class="weui-dialog weui-skin_android">
@@ -61,13 +70,13 @@
                 </div>
             </div>
         </div>
-        <!--END dialog4-->
     </div>
 </div>
 <script type="text/javascript">
     $(function(){
         var $iosDialog1 = $('#iosDialog1'),
             $iosDialog2 = $('#iosDialog2'),
+            $iosDialog5 = $('#iosDialog5'),
             $androidDialog1 = $('#androidDialog1'),
             $androidDialog2 = $('#androidDialog2');
 
@@ -88,6 +97,12 @@
             $iosDialog2.attr('aria-hidden','false');
             $iosDialog2.attr('tabindex','0');
             $iosDialog2.trigger('focus');
+        });
+        $('#showIOSDialog5').on('click', function(){
+            $iosDialog5.fadeIn(200);
+            $iosDialog5.attr('aria-hidden','false');
+            $iosDialog5.attr('tabindex','0');
+            $iosDialog5.trigger('focus');
         });
         $('#showAndroidDialog1').on('click', function(){
             $androidDialog1.fadeIn(200);
