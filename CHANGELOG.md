@@ -1,3 +1,23 @@
+### v2.6.18 (2024-10-31)
+
+#### Features
+* feat: half-screen-dialog组件头部区域新增weui-half-screen-dialog__hd__action-group结构（用于存放左右上角的操作列表）
+* feat: half-screen-dialog组件升级拖拽杆样式，新增half-screen-dialog_grab场景
+
+#### Bugfixes
+* fix: 表单weui-label支持英文词间折行加破折号
+* fix: 表单weui-cell支持顶部对齐 
+* fix: 修复weui-cell_access字体颜色继承问题
+
+
+
+### v2.6.17 (2024-10-16)
+
+#### Bugfixes
+* fix: 去掉小程序darkmode的媒体查询
+
+
+
 ### v2.6.16 (2024-08-12)
 
 #### Features

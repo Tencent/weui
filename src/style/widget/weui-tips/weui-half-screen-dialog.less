@@ -56,6 +56,29 @@
     color: inherit;
     &:active { opacity: 0.5; }
   }
+  .weui-half-screen-dialog__hd__action-group {
+    position: absolute;
+    top: 50%;
+    white-space: nowrap;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+
+  .weui-half-screen-dialog__hd__action {
+    margin-right: 16px;
+    position: static;
+    transform: none;
+
+    &.weui-wa-hotarea {
+      position: relative;
+    }
+
+    &.weui-link {
+      font-size: 15px;
+    }
+  }
 }
 .weui-half-screen-dialog__hd__side {
   position: relative;
@@ -70,6 +93,15 @@
   & + .weui-half-screen-dialog__hd__side {
     right: -8px;
     left: auto;
+
+    .weui-half-screen-dialog__hd__action-group {
+      right: 0;
+    }
+    .weui-half-screen-dialog__hd__action {
+      margin-right: 0;
+      margin-left: 16px;
+    }
+
     //兼容老版本
     .weui-icon-btn,
     .weui-btn_icon {
@@ -136,35 +168,60 @@
   max-height: none;
   top: 16px;
 }
+
+// 按住下拉
+.weui-half-screen-dialog__slide-icon {
+  position: absolute;
+  top: 12px;
+  display: flex;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--weui-BG-0);
+  .dark({
+    background:var(--weui-FG-3);
+  });
+
+  justify-content: center;
+  align-items: center;
+
+  .weui-icon-arrow {
+    transform: rotate(90deg);
+    width: 0.8em;
+    height: 1.6em;
+    opacity: 0;
+  }
+}
+.weui-half-screen-dialog_grab {
+  .weui-half-screen-dialog__hd {
+    box-sizing: border-box;
+    min-height: 0;
+    flex-direction: column;
+  }
+  .weui-half-screen-dialog__hd__grab {
+    padding: 12px 16px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .weui-half-screen-dialog__hd__grab,
+  .weui-half-screen-dialog__hd__nav {
+    width: 100%;
+  }
+  .weui-half-screen-dialog__hd__nav {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+  }
+}
+// 兼容老版本
 .weui-half-screen-dialog_slide {
   .weui-half-screen-dialog__hd {
     min-height: 0;
     padding: 12px 16px 16px;
     justify-content: center;
   }
-  .weui-half-screen-dialog__slide-icon {
-    position: absolute;
-    top: 12px;
-    display: flex;
-    width: 40px;
-    height: 4px;
-    border-radius: 2px;
-    background: var(--weui-BG-0);
-    .dark({
-      background:var(--weui-FG-3);
-    });
-
-    justify-content: center;
-    align-items: center;
-
-    .weui-icon-arrow {
-      transform: rotate(90deg);
-      width: 0.8em;
-      height: 1.6em;
-      opacity: 0;
-    }
-  }
 }
+
 
 
 // 按钮组水平布局与垂直布局切换
