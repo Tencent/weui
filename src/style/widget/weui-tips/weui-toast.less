@@ -19,34 +19,26 @@
 .weui-toast {
   position: fixed;
   z-index: 5500;
-  font-size: 10px;
-  width: 13.6em;
-  height: 13.6em;
+  min-width: 132px;
+  max-width: 320px;
+  padding: 28px 20px;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  border-radius: 12px;
+  border-radius: 8px;
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--weui-BG-4);
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.1));
   box-sizing: border-box;
   line-height: 1.4;
 }
 .weui-toast_text {
-  width: auto;
-  height: auto;
-  min-width: 152px;
-  max-width: 216px;
-  padding: 12px 0;
-  border-radius: 8px;
-  .weui-toast__content {
-    font-size: 14px;
-    padding: 0 20px;
-  }
+  padding: 12px 20px;
 }
 .weui-icon_toast {
   // 重置weui-icon权重
@@ -90,19 +82,11 @@
 }
 
 .weui-toast__content {
-  font-size: 17px;
-  padding: 0 12px;
+  font-size: 14px;
   .hyphens;
 }
 
 // 多行文本场景
 .weui-toast_text-more {
-  .weui-icon_toast {
-    margin-bottom: 12px;
-  }
-  .weui-toast__content {
-    font-size: 14px;
-    line-height: 1.6;
-  }
 }
 
