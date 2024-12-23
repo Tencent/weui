@@ -37,8 +37,27 @@
   box-sizing: border-box;
   line-height: 1.4;
 }
+.weui-toast__wrp {
+  z-index: 5500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .weui-toast {
+    position: static;
+    transform: none;
+    margin-top: -10%;
+  }
+}
 .weui-toast_text {
   padding: 12px 20px;
+  min-width: 0;
+  min-height: 0;
 }
 .weui-icon_toast {
   // 重置weui-icon权重
@@ -49,6 +68,7 @@
 
   display: block;
   margin-bottom: 16px;
+  flex-shrink: 0;
   &.weui-icon-success-no-circle {
     color: rgba(255, 255, 255, 0.9);
   }
@@ -84,6 +104,8 @@
 .weui-toast__content {
   font-size: 14px;
   .hyphens;
+
+  max-width: 100%;
 }
 
 // 多行文本场景
