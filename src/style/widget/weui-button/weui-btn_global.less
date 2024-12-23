@@ -19,7 +19,9 @@
 .weui-btn {
   position: relative;
   display: block;
-  width: @weuiBtnWidth;
+  min-width: @weuiBtnWidth;
+  max-width: 280px;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
   padding: 12px 24px;
@@ -56,6 +58,10 @@
       }
     }
   }
+}
+.weui-btn__inner {
+  .ellipsisLn(2);
+  .hyphens;
 }
 .weui-btn_block {
   width: auto;
