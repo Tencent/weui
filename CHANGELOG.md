@@ -1,3 +1,10 @@
+### v2.6.22 (2025-06-16)
+
+#### Bugfixes
+* fix: Button 组件新增扩展类 weui-btn_margin-reset 支持去掉默认水平居中效果
+
+
+
 ### v2.6.21 (2024-12-23)
 
 #### Features
