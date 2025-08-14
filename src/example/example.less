@@ -337,10 +337,6 @@ body,
 .page.button,
 .page.button_default {
     background-color: var(--weui-BG-0);
-    .weui-btn_mini {
-        vertical-align: middle;
-        margin: 0 12px;
-    }
     .page__bd {
         padding: 0;
     }
@@ -348,7 +344,6 @@ body,
     .button-sp-area {
         margin: 15px auto;
         padding: 15px;
-        text-align: center;
         &.cell {
           padding: 15px 0; 
           display:none;
@@ -359,6 +354,17 @@ body,
           .weui-btn_mini{
             margin-top:16px;
           }
+        }
+        &:not(.margin){
+          text-align: center;
+          .weui-btn_mini {
+              vertical-align: middle;
+              margin: 0 12px;
+          }
+        }
+        &.margin{
+          display:flex;
+          justify-content:space-between;
         }
     }
 }
