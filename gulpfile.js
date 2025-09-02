@@ -58,7 +58,7 @@ function buildStyle() {
     '',
   ].join('\n');
   return gulp
-    .src('src/style/weui.less', option)
+    .src('src/style/**/*.less', option)
     .pipe(sourcemaps.init())
     .pipe(less().on('error', function (e) {
       console.error(e.message);
