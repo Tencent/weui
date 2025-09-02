@@ -1,3 +1,10 @@
+### v2.6.23 (2025-09-02)
+
+#### Chores
+* chore: weui构建的buildStyle支持所有Less文件单独构建
+
+
+
 ### v2.6.22 (2025-06-16)
 
 #### Bugfixes
