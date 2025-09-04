@@ -33,6 +33,120 @@ const yargs = require('yargs').options({
 const option = { base: 'src' };
 const dist = `${__dirname}/dist`;
 
+// 样式标记常量定义
+const STYLE_MARKERS = {
+  // 主题样式
+  THEME: {
+    START: 'WeUI theme START',
+    END: 'WeUI theme END'
+  },
+
+  // COMPONENT: {
+  //   START: 'WeUI component START',
+  //   END: 'WeUI component END'
+  // }
+};
+
+// 创建标记注释
+function createMarkerComment(marker) {
+  return `/*! ${marker} */`;
+}
+
+// 创建保留正则表达式
+function createPreserveRegex(markers) {
+  const allMarkers = Object.values(markers).flatMap(m => [m.START, m.END]);
+  return new RegExp(allMarkers.join('|'));
+}
+
+// 移除指定标记区间的样式内容
+function removeStylesBetweenMarkers(cssContent, startMarker, endMarker) {
+  const startComment = createMarkerComment(startMarker);
+  const endComment = createMarkerComment(endMarker);
+
+  const startIndex = cssContent.indexOf(startComment);
+  const endIndex = cssContent.indexOf(endComment);
+
+  if (startIndex !== -1 && endIndex !== -1) {
+    const endPosition = endIndex + endComment.length;
+    return cssContent.substring(0, startIndex) + cssContent.substring(endPosition);
+  }
+
+  return cssContent;
+}
+
+// 移除注释标记里的内容
+function removeThemeStyles(cssContent) {
+  return removeStylesBetweenMarkers(
+    cssContent,
+    STYLE_MARKERS.THEME.START,
+    STYLE_MARKERS.THEME.END
+  );
+}
+
+// 移除注释标记
+function removeThemeMarkers(cssContent) {
+  const startComment = createMarkerComment(STYLE_MARKERS.THEME.START);
+  const endComment = createMarkerComment(STYLE_MARKERS.THEME.END);
+
+  return cssContent
+    .replace(startComment, '\n\n')
+    .replace(endComment, '\n\n');
+}
+
+// 组件映射表
+// 定义需要构建的组件和对应的源文件
+const componentMap = {
+  'weui': 'src/style/weui.less',
+  'base': 'src/style/base/base.less',
+
+  'weui-icon': 'src/style/icon/weui-icon.less',
+  'weui-agree': 'src/style/widget/weui-agree/weui-agree.less',
+  'weui-animate': 'src/style/widget/weui-animate/weui-animate.less',
+  'weui-button': 'src/style/widget/weui-button/weui-button.less',
+  'weui-flex': 'src/style/widget/weui-flex/weui-flex.less',
+  'weui-footer': 'src/style/widget/weui-footer/weui-footer.less',
+  'weui-grid': 'src/style/widget/weui-grid/weui-grid.less',
+  'weui-loading': 'src/style/widget/weui-loading/weui-loading.less',
+  'weui-media-box': 'src/style/widget/weui-media-box/weui-media-box.less',
+  'weui-panel': 'src/style/widget/weui-panel/weui-panel.less',
+  'weui-picker': 'src/style/widget/weui-picker/weui-picker.less',
+  'weui-progress': 'src/style/widget/weui-progress/weui-progress.less',
+  'weui-searchbar': 'src/style/widget/weui-searchbar/weui-searchbar.less',
+  'weui-slider': 'src/style/widget/weui-slider/weui-slider.less',
+  'weui-steps': 'src/style/widget/weui-steps/weui-steps.less',
+
+  // 多文件 weui-cell
+  'weui-cell': 'src/style/widget/weui-cell/weui-cell_global.less',
+  'weui-cell-form': 'src/style/widget/weui-cell/weui-cell-form.less',
+  'weui-switch': 'src/style/widget/weui-cell/weui-switch.less',
+  'weui-uploader': 'src/style/widget/weui-cell/weui-uploader.less',
+  'weui-check': 'src/style/widget/weui-cell/weui-check.less',
+  'weui-gallery': 'src/style/widget/weui-cell/weui-gallery.less',
+
+  // 多文件 weui-page
+  'weui-article': 'src/style/widget/weui-page/weui-article.less',
+  'weui-form': 'src/style/widget/weui-page/weui-form.less',
+  'weui-msg': 'src/style/widget/weui-page/weui-msg.less',
+
+  // 多文件 weui-tab
+  'weui-tab': 'src/style/widget/weui-tab/weui-tab.less',
+
+  // 多文件 weui-text
+  'weui-link': 'src/style/widget/weui-text/weui-link.less',
+
+  // 多文件 weui-tips
+  'weui-actionsheet': 'src/style/widget/weui-tips/weui-actionsheet.less',
+  'weui-badge': 'src/style/widget/weui-tips/weui-badge.less',
+  'weui-dialog': 'src/style/widget/weui-tips/weui-dialog.less',
+  'weui-half-screen-dialog': 'src/style/widget/weui-tips/weui-half-screen-dialog.less',
+  'weui-information-bar': 'src/style/widget/weui-tips/weui-information-bar.less',
+  'weui-list-tips': 'src/style/widget/weui-tips/weui-list-tips.less',
+  'weui-loadmore': 'src/style/widget/weui-tips/weui-loadmore.less',
+  'weui-mask': 'src/style/widget/weui-tips/weui-mask.less',
+  'weui-toast': 'src/style/widget/weui-tips/weui-toast.less',
+  'weui-toptips': 'src/style/widget/weui-tips/weui-toptips.less',
+};
+
 function exec(cmd) {
   return new Promise((resolve, reject) => {
     const process = childProcess.exec(cmd, (error) => {
@@ -57,29 +171,51 @@ function buildStyle() {
     ' */',
     '',
   ].join('\n');
-  return gulp
-    .src('src/style/**/*.less', option)
-    .pipe(sourcemaps.init())
-    .pipe(less().on('error', function (e) {
-      console.error(e.message);
-      this.emit('end');
-    }))
-    .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1']), comments()]))
-    .pipe(convertCssVar())
-    .pipe(header(banner, { pkg }))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(dist))
-    .pipe(browserSync.reload({ stream: true }))
-    .pipe(nano({
-      zindex: false,
-      autoprefixer: false,
-      svgo: false,
-      minifySelectors: false,
-    }))
-    .pipe(rename((path) => {
-      path.basename += '.min';
-    }))
-    .pipe(gulp.dest(dist));
+
+  // 遍历映射表，为每个组件创建构建流程
+  Object.entries(componentMap).forEach(([componentName, sourcePath]) => {
+    gulp
+      .src(sourcePath, option)
+      .pipe(sourcemaps.init())
+      .pipe(less().on('error', function (e) {
+        console.error(`Error in ${componentName}:`, e.message);
+        this.emit('end');
+      }))
+      .pipe(postcss([autoprefixer(['iOS >= 7', 'Android >= 4.1']), comments({
+        preserve: createPreserveRegex(STYLE_MARKERS),
+      })]))
+      .pipe(convertCssVar())
+      .pipe(tap(function(file) {
+        let content = file.contents.toString();
+
+        if (componentName.startsWith('weui-') && componentName !== 'weui') {
+          // 如果是组件，则移除注释标记中的主题样式
+          content = removeThemeStyles(content);
+        } else {
+          // 否则移除注释标记
+          content = removeThemeMarkers(content);
+        }
+
+        file.contents = Buffer.from(content);
+      }))
+      .pipe(header(banner, { pkg }))
+      .pipe(rename({ basename: componentName }))
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest(dist))
+      .pipe(browserSync.reload({ stream: true }))
+
+      // min
+      .pipe(nano({
+        zindex: false,
+        autoprefixer: false,
+        svgo: false,
+        minifySelectors: false,
+      }))
+      .pipe(rename({ basename: componentName + '.min' }))
+      .pipe(gulp.dest(dist));
+  });
+
+  return Promise.resolve();
 }
 function buildExampleAssets() {
   return gulp

@@ -14,37 +14,8 @@
 * limitations under the License.
 */
 
-@import "fn";
-
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  line-height: 1.6;
-  font-family: @weuiFontDefault;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  .setTapColor;
-}
-
-a img {
-  border: 0;
-}
-
-a {
-  text-decoration: none;
-  cursor: default;
-}
-input,
-textarea {
-  caret-color: @weuiColorPrimary;
-}
-::placeholder {
-  color: var(--weui-FG-2);
-}
+@import "../../base/fn";
+@import "./weui-cell_global";
+@import "./weui-cell_swiped";
+@import "./weui-access";
+@import "./weui-cells__group";
