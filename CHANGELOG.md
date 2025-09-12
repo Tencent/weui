@@ -1,3 +1,15 @@
+### v2.6.25 (2025-09-12)
+
+#### Features
+* feat: uploader组件支持缩略图带删除
+
+#### Bugfixes
+* fix: 修复uploader示例无障碍体验问题
+* fix: 修复searchbar组件未激活时水平边距左右不一致的问题
+* fix: 修复searchbar组件激活时关键词与输入内容的对齐问题
+
+
+
 ### v2.6.24 (2025-09-04)
 
 #### Chores

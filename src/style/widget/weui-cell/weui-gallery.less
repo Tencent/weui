@@ -47,6 +47,12 @@
   width: 100%;
   background: center center no-repeat;
   background-size: contain;
+
+  &:last-child {
+    bottom: 0;
+    bottom: constant(safe-area-inset-bottom);
+    bottom: env(safe-area-inset-bottom);
+  }
 }
 .weui-gallery__opr {
   position: absolute;
