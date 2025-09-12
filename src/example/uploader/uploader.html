@@ -7,26 +7,27 @@
         </p>
     </div>
     <div class="page__bd">
-        <div role="dialog" aria-hidden="true" aria-modal="true" class="weui-gallery" id="gallery">
-            <span role="img" tabindex="0" class="weui-gallery__img" id="galleryImg"></span>
+        <div role="dialog" aria-hidden="true" aria-modal="true" class="weui-gallery" id="galleryOpr">
+            <span role="img" tabindex="0" class="weui-gallery__img" aria-label="大图" id="galleryImgOpr"></span>
             <div class="weui-gallery__opr">
-                <a role="button" aria-label="删除" href="javascript:" class="weui-gallery__del">
+                <span role="button" aria-label="删除" class="weui-gallery__del" id="galleryDel">
                     <i class="weui-icon-delete weui-icon_gallery-delete"></i>
-                </a>
+                </span>
             </div>
+        </div>
+        <div role="dialog" aria-hidden="true" aria-modal="true" class="weui-gallery" id="gallery">
+          <span role="img" tabindex="0" class="weui-gallery__img" id="galleryImg"></span>
         </div>
 
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell  weui-cell_uploader">
                 <div class="weui-cell__bd">
                     <div class="weui-uploader">
-                        <div class="weui-uploader__hd" role="option" aria-labelledby="js_uploader_title js_a11y_comma js_uploader_current_num js_uploader_unit js_a11y_comma js_uploader_max_tips js_uploader_max_num js_uploader_unit">
-                            <p id="js_uploader_title" class="weui-uploader__title">图片上传</p>
+                        <div class="weui-uploader__hd" role="option">
+                            <p class="weui-uploader__title">图片上传，缩略图不带删除</p>
                             <div class="weui-uploader__info">
-                              <span id="js_uploader_current_num">0</span>/<span id="js_uploader_max_num">2</span>
+                              <span>3</span>/<span>10</span>
                             </div>
-                            <div id="js_uploader_unit" class="weui-hidden_abs">张</div>
-                            <div id="js_uploader_max_tips" class="weui-hidden_abs">可上传</div>
                         </div>
                         <div class="weui-uploader__bd">
                             <ul class="weui-uploader__files" id="uploaderFiles">
@@ -50,15 +51,62 @@
                 </div>
             </div>
         </div>
+
+        <div class="weui-cells weui-cells_form">
+          <div class="weui-cell  weui-cell_uploader">
+            <div class="weui-cell__bd">
+              <div class="weui-uploader">
+                <div class="weui-uploader__hd" role="option">
+                  <p class="weui-uploader__title">图片上传，缩略图带删除</p>
+                  <div class="weui-uploader__info">
+                    <span>3</span>/<span>10</span>
+                  </div>
+                </div>
+                <div class="weui-uploader__bd">
+                  <ul class="weui-uploader__files" id="uploaderFilesWithDelete">
+                    <li class="weui-uploader__file">
+                      <span class="weui-uploader__file__thumb" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0"
+                        style="background-image: url(./images/pic_160.png);"></span>
+                      <span class="weui-uploader__file__delete" role="button" title="删除">
+                        <i class="weui-icon-close"></i>
+                      </span>
+                    </li>
+                    <li class="weui-uploader__file">
+                      <span class="weui-uploader__file__thumb" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0"
+                        style="background-image: url(./images/pic_160.png);"></span>
+                      <span class="weui-uploader__file__delete" role="button" title="删除">
+                        <i class="weui-icon-close"></i>
+                      </span>
+                    </li>
+                    <li class="weui-uploader__file weui-uploader__file_status"
+                      style="background-image: url(./images/pic_160.png);">
+                      <div role="alert" class="weui-uploader__file-content">
+                        <i role="img" tabindex="0" aria-label="错误" class="weui-icon-warn"></i>
+                      </div>
+                    </li>
+                    <li class="weui-uploader__file weui-uploader__file_status"
+                      style="background-image: url(./images/pic_160.png);">
+                      <div role="alert" class="weui-uploader__file-content">50%</div>
+                    </li>
+                  </ul>
+                  <div class="weui-uploader__input-box">
+                    <input id="uploaderInputWithDelete" class="weui-uploader__input" type="file" accept="image/*" multiple />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
     $(function(){
-        var tmpl = '<li class="weui-uploader__file" role="img" tabindex="0" style="background-image:url(#url#)"></li>',
-            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
-            $uploaderInput = $("#uploaderInput"),
-            $uploaderFiles = $("#uploaderFiles")
-            ;
+        // 删除在预览里的uploader
+        var tmpl = '<li class="weui-uploader__file" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0" style="background-image:url(#url#)"></li>';
+        var $gallery = $("#gallery"), $galleryImg = $("#galleryImg");
+        var $galleryOpr = $("#galleryOpr"), $galleryImgOpr = $("#galleryImgOpr"), $galleryDel = $("#galleryDel");
+        var $uploaderInput = $("#uploaderInput"), $uploaderFiles = $("#uploaderFiles");
+        var currentImg;
 
         $uploaderInput.on("change", function(e){
             var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
@@ -74,9 +122,81 @@
                 $uploaderFiles.append($(tmpl.replace('#url#', src)));
             }
         });
-        var currentImg;
-        $uploaderFiles.on("click", "li", function(){
-            $galleryImg.attr("style", this.getAttribute("style"));
+
+        $uploaderFiles.on("click", "li:not(.weui-uploader__file_status)", function(){
+            $galleryImgOpr.attr("style", this.getAttribute("style"));
+            $galleryOpr.attr('aria-hidden','false');
+            $galleryOpr.attr('aria-modal','true');
+            $galleryOpr.fadeIn(100);
+            setTimeout(function(){
+              $galleryImgOpr.attr("tabindex", '-1').trigger('focus');
+            },200);
+            currentImg = this;
+        });
+
+        $galleryImgOpr.on("click", function(e){
+          e.stopPropagation();
+            if (e.target === this) {
+                $galleryOpr.attr('aria-modal','false');
+                $galleryOpr.attr('aria-hidden','true');
+                $galleryOpr.fadeOut(100);
+                setTimeout(function(){
+                  $galleryImgOpr.removeAttr("tabindex");
+                },200);
+                if (currentImg) {
+                    currentImg.focus();
+                }
+            }
+        });
+
+        // 使用原生javascript事件，兼容安卓读屏
+        var galleryDelElement = document.getElementById('galleryDel');
+
+        function handleDeleteClick(e) {
+            e.stopPropagation();
+
+            if (currentImg) {
+                $(currentImg).remove();
+            }
+            $galleryOpr.attr('aria-modal','false');
+            $galleryOpr.attr('aria-hidden','true');
+            $galleryOpr.fadeOut(100);
+            setTimeout(function(){
+              $galleryImgOpr.removeAttr("tabindex");
+            },200);
+        }
+
+        if (galleryDelElement) {
+            galleryDelElement.addEventListener('click', handleDeleteClick);
+        }
+
+        // 删除在封面上的uploader
+        var tmplWithDelete = '<li class="weui-uploader__file">' +
+                      '<span class="weui-uploader__file__thumb" role="img" aria-label="图片标题" title="轻点两下查看大图" tabindex="0" style="background-image:url(#url#)"></span>' +
+                      '<span class="weui-uploader__file__delete" role="button" title="删除">' +
+                        '<i class="weui-icon-close"></i>' +
+                      '</span>' +
+                    '</li>';
+        var $uploaderInputWithDelete = $("#uploaderInputWithDelete"), $uploaderFilesWithDelete = $("#uploaderFilesWithDelete");
+
+        $uploaderInputWithDelete.on("change", function(e){
+            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+
+                if (url) {
+                    src = url.createObjectURL(file);
+                } else {
+                    src = e.target.result;
+                }
+
+                $uploaderFilesWithDelete.append($(tmplWithDelete.replace('#url#', src)));
+            }
+        });
+
+        $uploaderFilesWithDelete.on("click", ".weui-uploader__file__thumb", function(){
+            var style = this.getAttribute("style");
+            $galleryImg.attr("style", style);
             $gallery.attr('aria-hidden','false');
             $gallery.attr('aria-modal','true');
             $gallery.fadeIn(100);
@@ -85,6 +205,7 @@
             },200);
             currentImg = this;
         });
+
         $gallery.on("click", function(){
             $gallery.attr('aria-modal','false');
             $gallery.attr('aria-hidden','true');
@@ -92,7 +213,14 @@
             setTimeout(function(){
               $galleryImg.removeAttr("tabindex");
             },200);
-            currentImg.focus();
+            if (currentImg) {
+                currentImg.focus();
+            }
+        });
+
+        $uploaderFilesWithDelete.on("click", ".weui-uploader__file__delete", function(e){
+            e.stopPropagation();
+            $(this).closest('li').remove();
         });
     });
 </script>
