@@ -1,3 +1,11 @@
+### v2.6.26 (2026-03-11)
+
+#### Bugfixes
+* fix: fix: weui-half-screen-dialog，去掉媒体查询screen的限制 [#20](https://git.woa.com/wx_fed/weui-source/issues/20)
+* fix: weui-dialog，打印的时候弹窗没居中 [#19](https://git.woa.com/wx_fed/weui-source/issues/19)
+
+
+
 ### v2.6.25 (2025-09-12)
 
 #### Features
